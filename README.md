@@ -3,4 +3,6 @@ Lilith is a python tool for constraining new physics from Higgs signal strengh m
 
 In this repository we are developing an update of the database with all relevant Run 2 results with 36/fb and beyond. 
 
+See update-notes-atlas.txt for results to include (update-notes-cms.txt to be added)
+
 
