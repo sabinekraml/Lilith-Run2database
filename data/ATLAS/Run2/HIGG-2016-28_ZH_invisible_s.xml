@@ -1,0 +1,21 @@
+<!--
+ATLAS result for mu(ZH, invisible) at mH = 125.09 GeV
+Gaussian approximation, read from figure 9
+https://atlas.web.cern.ch/Atlas/GROUPS/PHYSICS/PAPERS/HIGG-2016-28/
+-->
+
+<expmu decay="invisible" dim="1" type="n">
+  <experiment>ATLAS</experiment>
+  <source type="published">HIGG-2016-28</source>
+  <sqrts>13</sqrts>
+  <mass>125.09</mass>
+
+
+  <eff prod="ZH">1.0</eff>
+
+  <bestfit>0.0</bestfit>
+  
+  <param>
+    <uncertainty>0.41</uncertainty>
+  </param>
+</expmu>

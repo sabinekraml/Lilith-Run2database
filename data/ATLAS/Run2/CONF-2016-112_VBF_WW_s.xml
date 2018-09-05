@@ -1,0 +1,20 @@
+<!--
+ATLAS result for mu(VBF, WW) at mH = 125.09 GeV
+https://atlas.web.cern.ch/Atlas/GROUPS/PHYSICS/CONFNOTES/ATLAS-CONF-2016-112/
+ -->
+
+<expmu decay="WW" dim="1" type="n">
+  <experiment>ATLAS</experiment>
+  <source type="preliminary">CONF-2016-112</source>
+  <sqrts>13</sqrts>
+  <mass>125.09</mass>
+
+  <eff prod="VBF">1.0</eff>
+
+  <bestfit>1.7</bestfit>
+  
+  <param>
+    <uncertainty side="left">-0.9</uncertainty>
+    <uncertainty side="right">1.1</uncertainty>
+  </param>
+</expmu>

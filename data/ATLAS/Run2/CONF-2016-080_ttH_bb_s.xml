@@ -1,0 +1,21 @@
+<!--
+ATLAS result for mu(ttH, bbbar) at mH = 125.09 GeV
+https://atlas.web.cern.ch/Atlas/GROUPS/PHYSICS/CONFNOTES/ATLAS-CONF-2016-080/
+ -->
+
+<expmu decay="bb" dim="1" type="n">
+  <experiment>ATLAS</experiment>
+  <source type="preliminary">CONF-2016-080</source>
+  <sqrts>13</sqrts>
+  <mass>125.09</mass>
+
+  <eff prod="ttH">1.0</eff>
+
+  <bestfit>2.1</bestfit>
+  
+  <param>
+    <uncertainty side="left">-0.9</uncertainty>
+    <uncertainty side="right">1.0</uncertainty>
+    <!-- if not needed, just <uncertainty></uncertainty> -->
+  </param>
+</expmu>

@@ -1,0 +1,23 @@
+<!--
+CMS result for mu(bb), shown in CMS-HIG-15-003
+http://cms-results.web.cern.ch/cms-results/public-results/preliminary-results/HIG-15-003/index.html
+Decomposition of the expected signal in the various production modes not provided,
+assume inclusive search
+-->
+
+<expmu decay="WW" dim="1" type="n">
+  <experiment>CMS</experiment>
+  <source type="preliminary">HIG-15-003</source>
+  <sqrts>13</sqrts>
+  <mass>125.09</mass>
+  <CL>68%</CL> <!-- optional -->
+
+  <eff prod="ggH">0.87</eff>
+  <eff prod="VVH">0.13</eff>
+
+  <bestfit>0.3</bestfit>
+  
+  <param>
+    <uncertainty>0.5</uncertainty>
+  </param>
+</expmu>

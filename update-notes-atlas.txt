@@ -1,0 +1,88 @@
+
+=========
+* ATLAS *
+=========
+
+
+*) H -> gamma gamma: HIGG-2016-21   
+
+https://atlas.web.cern.ch/Atlas/GROUPS/PHYSICS/PAPERS/HIGG-2016-21/    (36 fb-1)
+
+2d likelihood contours in ggH and VBF production: Fig 15
+1d intervals for ggH, VBH, VH and ttH production: Fig 12
+(1d profile likelihoods in Figs 23a-d)
+
+ATLAS-CONF-2018-028 (80 fb-1) has only cross sections, not the signal strengths
+
+
+
+*) H -> ZZ* -> 4l    
+
+https://atlas.web.cern.ch/Atlas/GROUPS/PHYSICS/PAPERS/HIGG-2016-22/   (36 fb-1)
+
+1d profile likelihood: Fig 6b   (need Run2 efficiencies for different production modes!)
+2d likelihood contours in ggH vs VBF production: given as sigma \times Br in Fig 8a; needs to be normalized to SM to convert to signal strength (see Table 1)
+
+The 1d profile likelihoods for ggF and VBF production are given as additional figures 7a and 7b; at a first stage I'd just use these
+
+Plots are on HEPDATA --> https://inspirehep.net/record/1641268/data
+
+
+https://atlas.web.cern.ch/Atlas/GROUPS/PHYSICS/CONFNOTES/ATLAS-CONF-2018-018/   (80 fb-1)
+
+1d profile likelihood: Fig 12b   (need Run2 efficiencies for different production modes!)
+2d likelihood contours in ggH vs VBF production: given as sigma \times Br in Fig , needs to be normalized to SM to convert to signal strength (tabulated in Table 9?); at a first stage I'd just use the 1d profile
+
+
+
+*) H -> WW* -> 2l2nu
+
+https://atlas.web.cern.ch/Atlas/GROUPS/PHYSICS/PAPERS/HIGG-2016-07/   (36 fb-1)
+
+Fig. 9 gives 2d likelihood contours for sigma \times BR; pure signal strengths not given 
+rescale by SM prediction
+
+
+
+*) H -> tau tau 
+
+https://atlas.web.cern.ch/Atlas/GROUPS/PHYSICS/CONFNOTES/ATLAS-CONF-2018-021/   (36 fb-1)
+
+Fig. 9 gives 2d likelihood contours for sigma \times BR; pure signal strengths not given 
+rescale by SM prediction
+
+
+*) H -> bb
+
+- VH, H->bb: https://atlas.web.cern.ch/Atlas/GROUPS/PHYSICS/PAPERS/HIGG-2016-29/  (36 fb-1)
+1sigma intervals for WH and ZH production in Fig 5.
+Fig 11 has combination with Run 1 data; can be implemented in database but should not be used together with Run1 results to avoid double conting.
+
+- VBF H -> bb : https://atlas.web.cern.ch/Atlas/GROUPS/PHYSICS/PAPERS/HIGG-2016-30/     (36 fb-1)
+1sigma interval in Fig 6a.
+
+- Update for 80 fb-1:  https://atlas.web.cern.ch/Atlas/GROUPS/PHYSICS/PAPERS/HIGG-2018-04/
+1sigma intervals for WH and ZH production with H -> bb in Fig 3.
+1sigma intervals for VH production with different decay modes in Fig 8.
+
+Auxiliary figure 6 actually has the 2d likelihood contours for the Higgs boson signal strengths in the WH, H->bb versus ZH, H->bb plane !
+
+
+*) ttH 
+
+
+https://atlas.web.cern.ch/Atlas/GROUPS/PHYSICS/PAPERS/HIGG-2018-13/   (80 fb-1)
+1sigma intervals for H->bb and H->gamma gamma in Fig 5
+
+
+ttH, H->bb  (36 fb-1): https://atlas.web.cern.ch/Atlas/GROUPS/PHYSICS/PAPERS/HIGG-2017-03/ 
+1sigma interval in Fig 11
+
+Summary of the best-fit values of μ broken down by Higgs boson decay modes:   (36 fb-1)
+https://atlas.web.cern.ch/Atlas/GROUPS/PHYSICS/PAPERS/HIGG-2017-02/
+Fig 16
+
+
+
+
+

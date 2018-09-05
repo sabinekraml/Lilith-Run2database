@@ -1,0 +1,22 @@
+<!--
+ATLAS result for mu(mumu) at mH = 125.09 GeV
+Decomposition of the expected signal in the various production modes not provided,
+assume inclusive search
+https://atlas.web.cern.ch/Atlas/GROUPS/PHYSICS/PAPERS/HIGG-2016-10/
+ -->
+
+<expmu decay="mumu" dim="1" type="n">
+  <experiment>ATLAS</experiment>
+  <source type="published">HIGG-2016-010</source>
+  <sqrts>13</sqrts>
+  <mass>125.09</mass>
+
+  <eff prod="ggH">0.87</eff>
+  <eff prod="VVH">0.13</eff>
+
+  <bestfit>-0.1</bestfit>
+  
+  <param>
+    <uncertainty>1.5</uncertainty>
+  </param>
+</expmu>

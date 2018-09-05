@@ -1,0 +1,21 @@
+<!--
+ATLAS result for mu(ZH, bb) at mH = 125.09 GeV
+https://atlas.web.cern.ch/Atlas/GROUPS/PHYSICS/CONFNOTES/ATLAS-CONF-2016-091/
+ -->
+
+<expmu decay="bb" dim="1" type="n">
+  <experiment>ATLAS</experiment>
+  <source type="preliminary">CONF-2016-091</source>
+  <sqrts>13</sqrts>
+  <mass>125.09</mass>
+
+  <eff prod="ZH">1.0</eff>
+
+  <bestfit>0.15</bestfit>
+  
+  <param>
+    <uncertainty side="left">-0.64</uncertainty>
+    <uncertainty side="right">0.67</uncertainty>
+    <!-- if not needed, just <uncertainty></uncertainty> -->
+  </param>
+</expmu>

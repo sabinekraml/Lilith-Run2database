@@ -1,0 +1,22 @@
+<!--
+CMS result for mu(ttH, gammagamma), shown in CMS-HIG-16-020
+http://cms-results.web.cern.ch/cms-results/public-results/preliminary-results/HIG-16-020/index.html
+-->
+
+<expmu decay="gammagamma" dim="1" type="n">
+  <experiment>CMS</experiment>
+  <source type="preliminary">HIG-16-020</source>
+  <sqrts>13</sqrts>
+  <mass>125.09</mass>
+  <CL>68%</CL> <!-- optional -->
+
+  <eff prod="ttH">1.0</eff>
+
+  <bestfit>1.91</bestfit>
+  
+  <param>
+    <uncertainty side="left">-1.2</uncertainty>
+    <uncertainty side="right">1.5</uncertainty>
+    <!-- if not needed, just <uncertainty></uncertainty> -->
+  </param>
+</expmu>
