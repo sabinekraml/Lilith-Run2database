@@ -63,6 +63,7 @@ this is ttH, H->tau tau. measured value:  0.72+0.62−0.53, but significance is 
 - http://cms-results.web.cern.ch/cms-results/public-results/publications/HIG-17-023/index.html (36 fb-1)
 targets the production of a Higgs boson via vector boson fusion. 
 Fig 8b gives 1d likelihood function for different production tags; try to reproduce coupling fit in Fig 9a with this
+Efficiencies are in Table 6
 
 
 *) Combinations

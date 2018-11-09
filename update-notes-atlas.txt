@@ -31,7 +31,7 @@ Plots are on HEPDATA --> https://inspirehep.net/record/1641268/data
 https://atlas.web.cern.ch/Atlas/GROUPS/PHYSICS/CONFNOTES/ATLAS-CONF-2018-018/   (80 fb-1)
 
 1d profile likelihood: Fig 12b   (need Run2 efficiencies for different production modes!)
-2d likelihood contours in ggH vs VBF production: given as sigma \times Br in Fig , needs to be normalized to SM to convert to signal strength (tabulated in Table 9?); at a first stage I'd just use the 1d profile
+2d likelihood contours in ggH vs VBF production: given as sigma \times Br in Fig , needs to be normalized to SM to convert to signal strength (tabulated in Table 9?). 
 
 
 
