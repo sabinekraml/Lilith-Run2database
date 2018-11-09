@@ -1,0 +1,28 @@
+<!--
+parametrization of a 2D Gaussian fitted from the 68% CL contour
+in the plane mu(gg+ttH, gamma gamma) vs. mu(VBF+VH, gamma gamma)
+with profiled Higgs mass (!), shown in CMS-HIG-16-040
+http://cms-results.web.cern.ch/cms-results/public-results/preliminary-results/HIG-16-040/index.html
+-->
+
+<expmu decay="gammagamma" dim="2" type="n">
+  <experiment>CMS</experiment>
+  <source type="preliminary">HIG-16-040</source>
+  <sqrts>13</sqrts>
+  <mass>125</mass>
+  <CL>68%</CL> <!-- optional -->
+
+  <eff axis="x" prod="ggH">1.0</eff>
+  <eff axis="y" prod="VVH">1.0</eff>
+
+  <bestfit>
+    <x>1.21572977</x>
+    <y>1.21859933</y>
+  </bestfit>
+  
+  <param>
+    <a>28.37048358</a>
+    <b>3.94920473</b>
+    <c>3.96022085</c>
+  </param>
+</expmu>
