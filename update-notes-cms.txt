@@ -1,0 +1,78 @@
+
+=========
+* CMS *
+=========
+
+
+*) H -> gamma gamma: 
+
+- http://cms-results.web.cern.ch/cms-results/public-results/publications/HIG-16-040/index.html  (36 fb-1)
+Fig 17 has 1d signal strenghts
+Fig 19 the 2d plot
+Validation: reproduce Fig 20b
+
+
+
+*) H -> ZZ* -> 4l    
+
+- http://cms-results.web.cern.ch/cms-results/public-results/preliminary-results/HIG-18-001/index.html  (41.5 fb-1, 2017)
+
+Fig 8c has 2d signal strengh in VBF,VH vs ggH,ttH plane
+Fig 10 has same for 2016 (36 fb-1) and 2017 (41 fb-1) data and their combination (77 fb-1)
+
+
+- http://cms-results.web.cern.ch/cms-results/public-results/publications/HIG-16-041/index.html  (36 fb-1)
+as above but for 36 fb-1 only --> Fig 8b and 8c
+
+
+
+*) H -> WW* -> 2l2nu
+
+- http://cms-results.web.cern.ch/cms-results/public-results/publications/HIG-16-042/index.html  (36 fb-1)
+1d signal strengths in Fig 9b, numbers printed on the plot
+
+
+
+*) H -> tau tau 
+
+- HIG-18-007: http://cms-results.web.cern.ch/cms-results/public-results/publications/HIG-18-007/index.html  (36 fb-1)
+Fig 6 has 1d signal strengths for ZH, WH, gg and qqH (=VBF) production modes 
+
+- http://cms-results.web.cern.ch/cms-results/public-results/publications/HIG-16-043/index.html.   (36 fb-1)
+this is the observation paper; for signal strengths use the one above
+
+
+
+*) H -> bb
+
+
+
+
+*) ttH 
+
+- http://cms-results.web.cern.ch/cms-results/public-results/publications/HIG-17-026/index.html    (36 fb-1)
+this is ttH, H->bb. measured value: 0.72 ± 0.24 ± 0.38, Fig 9b
+
+- http://cms-results.web.cern.ch/cms-results/public-results/preliminary-results/HIG-17-003/index.html    (36 fb-1)
+this is ttH, H->tau tau. measured value:  0.72+0.62−0.53, but significance is very low, 1.4sigma.  
+
+
+*) H -> inv
+
+
+- http://cms-results.web.cern.ch/cms-results/public-results/publications/HIG-17-023/index.html (36 fb-1)
+targets the production of a Higgs boson via vector boson fusion. 
+Fig 8b gives 1d likelihood function for different production tags; try to reproduce coupling fit in Fig 9a with this
+
+
+*) Combinations
+
+- http://cms-results.web.cern.ch/cms-results/public-results/publications/HIG-17-031/index.html (36 fb-1, combined coupling fit)
+
+Fig 6 has 1d signal strengths in the different production/decay modes. Explicit numbers are given in Table 3.
+Validation: reproduce coupling fit of Fig 15; H -> inv fit, Fig 12a, perhaps also Fig 12b
+
+NB: Additional Figure 1 gives correlation coefficients obtained from the fit to data for the model with one signal strength parameter for each production and decay mode combination
+
+
+
