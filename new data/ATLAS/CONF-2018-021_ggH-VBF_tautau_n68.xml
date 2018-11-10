@@ -7,7 +7,7 @@ https://atlas.web.cern.ch/Atlas/GROUPS/PHYSICS/CONFNOTES/ATLAS-CONF-2018-021/
 
 <expmu decay="WW" dim="2" type="n">
   <experiment>ATLAS</experiment>
-  <source type="published">CONF-2018-021</source>
+  <source type="preliminary">CONF-2018-021</source>
   <sqrts>13</sqrts>
   <mass>125</mass>
   <CL>68%</CL> <!-- optional -->
