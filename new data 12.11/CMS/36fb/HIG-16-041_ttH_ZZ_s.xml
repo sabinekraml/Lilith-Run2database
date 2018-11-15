@@ -1,11 +1,11 @@
 <!--
 CMS result for mu(ttH, ZZ) at mH = 125.09 GeV
-http://cms-results.web.cern.ch/cms-results/public-results/publications/HIG-16-042/
+http://cms-results.web.cern.ch/cms-results/public-results/publications/HIG-16-041/
 -->
 
 <expmu decay="ZZ" dim="1" type="n">
   <experiment>CMS</experiment>
-  <source type="published">HIG-16-042</source>
+  <source type="published">HIG-16-041</source>
   <sqrts>13</sqrts>
   <mass>125.09</mass>
 
