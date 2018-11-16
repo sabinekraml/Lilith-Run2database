@@ -1,0 +1,22 @@
+<!--
+CMS result for mu(ZH, WW) at mH = 125.09 GeV
+http://cms-results.web.cern.ch/cms-results/public-results/publications/HIG-17-031/
+-->
+
+<expmu decay="WW" dim="1" type="n">
+  <experiment>CMS</experiment>
+  <source type="preliminary">HIG-17-031</source>
+  <sqrts>13</sqrts>
+  <mass>125.09</mass>
+
+
+  <eff prod="ZH">1.</eff>
+
+  <bestfit>0.96</bestfit>
+  
+  <param>
+    <uncertainty side="left">-1.46</uncertainty>
+    <uncertainty side="right">1.81</uncertainty>
+    <!-- if not needed, just <uncertainty></uncertainty> -->
+  </param>
+</expmu>
