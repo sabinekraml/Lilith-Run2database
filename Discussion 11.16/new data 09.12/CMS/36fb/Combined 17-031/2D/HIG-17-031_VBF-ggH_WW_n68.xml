@@ -1,0 +1,28 @@
+<!--
+parametrization of a 2D Gaussian fitted from the 68% CL contour
+in the plane mu(VBF, WW) vs. mu(ggH, WW)
+with profiled Higgs mass 125.09 GeV, shown in CMS-HIG-17-031
+https://cms-results.web.cern.ch/cms-results/public-results/publications/HIG-17-031/index.html
+-->
+
+<expmu decay="WW" dim="2" type="n">
+  <experiment>CMS</experiment>
+  <source type="preliminary">HIG-17-031</source>
+  <sqrts>13</sqrts>
+  <mass>125.09</mass>
+  <CL>68%</CL> <!-- optional -->
+
+  <eff axis="x" prod="VBF">1.0</eff>
+  <eff axis="y" prod="ggH">1.0</eff>
+
+  <bestfit>
+    <x>0.30</x>
+    <y>1.36</y>
+  </bestfit>
+  
+  <param>
+    <a>2.601456816</a>
+    <b>1.693548387</b>
+    <c>25</c>
+  </param>
+</expmu>

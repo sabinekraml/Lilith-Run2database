@@ -5,7 +5,7 @@ with profiled Higgs mass 125.09 GeV, shown in CMS-HIG-16-042
 http://cms-results.web.cern.ch/cms-results/public-results/preliminary-results/HIG-16-042/index.html
 -->
 
-<expmu decay="gammagamma" dim="2" type="n">
+<expmu decay="WW" dim="2" type="n">
   <experiment>CMS</experiment>
   <source type="preliminary">HIG-16-042</source>
   <sqrts>13</sqrts>
