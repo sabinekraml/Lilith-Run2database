@@ -10,8 +10,7 @@ http://cms-results.web.cern.ch/cms-results/public-results/publications/HIG-17-02
   <sqrts>13</sqrts>
   <mass>125</mass>
 
-  <eff prod="qqZH">0.79</eff>
-  <eff prod="ggZH">0.21</eff>
+  <eff prod="ZH">1</eff>
 
   <grid>
 0.014959016	0.056195965

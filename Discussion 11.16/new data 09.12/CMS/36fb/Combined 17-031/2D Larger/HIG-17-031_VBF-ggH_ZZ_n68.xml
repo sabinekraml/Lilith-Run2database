@@ -16,13 +16,13 @@ https://cms-results.web.cern.ch/cms-results/public-results/publications/HIG-17-0
   <eff axis="y" prod="ggH">1.0</eff>
 
   <bestfit>
-    <x>0.04</x>
-    <y>1.235</y>
+    <x>-0.09</x>
+    <y>1.22</y>
   </bestfit>
   
   <param>
-    <a>1.26246686</a>
-    <b>2.093973442</b>
-    <c>20.66115702</c>
+    <a>0.961168781</a>
+    <b>1.747655584</b>
+    <c>18.90359168</c>
   </param>
 </expmu>

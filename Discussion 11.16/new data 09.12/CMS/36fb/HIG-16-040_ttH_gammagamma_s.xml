@@ -1,16 +1,16 @@
 <!--
-CMS result for mu(ttH, gamma gamma) at mH = 125 GeV
-http://cms-results.web.cern.ch/cms-results/public-results/publications/HIG-16-040/
+CMS result for mu(ttH, gammagamma), shown in CMS-HIG-16-040
+http://cms-results.web.cern.ch/cms-results/public-results/preliminary-results/HIG-16-040/index.html
 -->
 
 <expmu decay="gammagamma" dim="1" type="n">
   <experiment>CMS</experiment>
   <source type="preliminary">HIG-16-040</source>
   <sqrts>13</sqrts>
-  <mass>125</mass>
+  <mass>125.09</mass>
+  <CL>68%</CL> <!-- optional -->
 
-
-  <eff prod="ttH">1.</eff>
+  <eff prod="ttH">1.0</eff>
 
   <bestfit>2.2</bestfit>
   
