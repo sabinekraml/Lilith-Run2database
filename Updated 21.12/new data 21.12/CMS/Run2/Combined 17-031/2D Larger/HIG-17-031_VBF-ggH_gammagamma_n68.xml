@@ -1,11 +1,11 @@
-	<!--
+<!--
 parametrization of a 2D Gaussian fitted from the 68% CL contour
-in the plane mu(VBF, tau tau) vs. mu(ggH, tau tau)
+in the plane mu(VBF, gamma gamma) vs. mu(ggH, gamma gamma)
 with profiled Higgs mass 125.09 GeV, shown in CMS-HIG-17-031
 https://cms-results.web.cern.ch/cms-results/public-results/publications/HIG-17-031/index.html
 -->
 
-<expmu decay="tautau" dim="2" type="n">
+<expmu decay="gammagamma" dim="2" type="n">
   <experiment>CMS</experiment>
   <source type="preliminary">HIG-17-031</source>
   <sqrts>13</sqrts>
@@ -16,13 +16,13 @@ https://cms-results.web.cern.ch/cms-results/public-results/publications/HIG-17-0
   <eff axis="y" prod="ggH">1.0</eff>
 
   <bestfit>
-    <x>1.12</x>
-    <y>1.05</y>
+    <x>0.67</x>
+    <y>1.16</y>
   </bestfit>
   
   <param>
-    <a>4.938271605</a>
-    <b>1.341719078</b>
-    <c>3.55998576</c>
+    <a>3.117119921</a>
+    <b>2.452134338</b>
+    <c>24.60474931</c>
   </param>
 </expmu>

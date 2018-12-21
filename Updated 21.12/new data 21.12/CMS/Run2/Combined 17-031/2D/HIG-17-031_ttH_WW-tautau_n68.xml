@@ -5,15 +5,15 @@ with profiled Higgs mass 125.09 GeV, shown in CMS-HIG-17-031
 https://cms-results.web.cern.ch/cms-results/public-results/publications/HIG-17-031/index.html
 -->
 
-<expmu prod="ttH" dim="2" type="n">
+<expmu dim="2" type="n">
   <experiment>CMS</experiment>
   <source type="preliminary">HIG-17-031</source>
   <sqrts>13</sqrts>
   <mass>125.09</mass>
   <CL>68%</CL> <!-- optional -->
 
-  <eff axis="x" decay="WW">1.0</eff>
-  <eff axis="y" decay="tautau">1.0</eff>
+  <eff axis="x" decay="WW" prod="ttH">1.0</eff>
+  <eff axis="y" decay="tautau" prod="ttH">1.0</eff>
 
   <bestfit>
     <x>1.63</x>
@@ -21,8 +21,8 @@ https://cms-results.web.cern.ch/cms-results/public-results/publications/HIG-17-0
   </bestfit>
   
   <param>
-    <a>2.601456816</a>
-    <b>0.709339639</b>
-    <c>1.096461172</c>
+    <a>3.158641107</a>
+    <b>0.861267167</b>
+    <c>1.331303025</c>
   </param>
 </expmu>

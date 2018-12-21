@@ -12,7 +12,7 @@ http://cms-results.web.cern.ch/cms-results/public-results/publications/HIG-17-03
 
   <eff prod="ggH">1.</eff>
 
-  <bestfit>2.57</bestfit>
+  <bestfit>2.51</bestfit>
   
   <param>
     <uncertainty side="left">-2.01</uncertainty>
