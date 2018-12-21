@@ -1,0 +1,28 @@
+	<!--
+parametrization of a 2D Gaussian fitted from the 68% CL contour
+in the plane mu(ZH, gamma gamma) vs. mu(WH, gamma gamma)
+with profiled Higgs mass 125.09 GeV, shown in CMS-HIG-17-031
+https://cms-results.web.cern.ch/cms-results/public-results/publications/HIG-17-031/index.html
+-->
+
+<expmu decay="gammagamma" dim="2" type="n">
+  <experiment>CMS</experiment>
+  <source type="preliminary">HIG-17-031</source>
+  <sqrts>13</sqrts>
+  <mass>125.09</mass>
+  <CL>68%</CL> <!-- optional -->
+
+  <eff axis="x" prod="ZH">1.0</eff>
+  <eff axis="y" prod="WH">1.0</eff>
+
+  <bestfit>
+    <x>0.00</x>
+    <y>3.825</y>
+  </bestfit>
+  
+  <param>
+    <a>0.769467528</a>
+    <b>0.123984874</b>
+    <c>0.499444368</c>
+  </param>
+</expmu>

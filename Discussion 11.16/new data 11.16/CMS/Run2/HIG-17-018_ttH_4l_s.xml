@@ -1,0 +1,23 @@
+<!--
+CMS result for mu(ttH, 4l) at mH = 125 GeV
+http://cms-results.web.cern.ch/cms-results/public-results/publications/HIG-17-018/
+-->
+
+<expmu dim="1" type="n">
+  <experiment>CMS</experiment>
+  <source type="published">HIG-17-018</source>
+  <sqrts>13</sqrts>
+  <mass>125</mass>
+
+  <eff prod="ttH" decay="WW">0.723</eff>
+  <eff prod="ttH" decay="tautau">0.162</eff>
+  <eff prod="ttH" decay="ZZ">0.115</eff>
+
+  <bestfit>0.57</bestfit>
+  
+  <param>
+    <uncertainty side="left">-1.57</uncertainty>
+    <uncertainty side="right">2.29</uncertainty>
+    <!-- if not needed, just <uncertainty></uncertainty> -->
+  </param>
+</expmu>
