@@ -1,0 +1,28 @@
+<!--
+parametrization of a 2D Gaussian fitted from the 68% CL contour
+in the plane mu(ggH, gamma gamma) vs. mu(VBF, gamma gamma)
+at mH = 125.09 GeV, shown in HIGG-2016-21
+https://atlas.web.cern.ch/Atlas/GROUPS/PHYSICS/PAPERS/HIGG-2016-21/
+-->
+
+<expmu decay="gammagamma" dim="2" type="n">
+  <experiment>ATLAS</experiment>
+  <source type="published">HIGG-2016-21</source>
+  <sqrts>13</sqrts>
+  <mass>125.09</mass>
+  <CL>68%</CL> <!-- optional -->
+
+  <eff axis="x" prod="ggH">1.0</eff>
+  <eff axis="y" prod="VBF">1.0</eff>
+
+  <bestfit>
+    <x>0.8133583</x>
+    <y>2.15217654</y>
+  </bestfit>
+  
+  <param>
+    <a>33.217432</a>
+    <b>2.36640578</b>
+    <c>2.88269749</c>
+  </param>
+</expmu>

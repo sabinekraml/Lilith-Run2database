@@ -1,0 +1,21 @@
+<!--
+CMS result for mu(ttH, bb), shown in CMS-HIG-16-038
+http://cms-results.web.cern.ch/cms-results/public-results/preliminary-results/HIG-16-038/index.html
+-->
+
+<expmu decay="bb" dim="1" type="n">
+  <experiment>CMS</experiment>
+  <source type="preliminary">HIG-16-038</source>
+  <sqrts>13</sqrts>
+  <mass>125.09</mass>
+  <CL>68%</CL> <!-- optional -->
+
+  <eff prod="ttH">1.0</eff>
+
+  <bestfit>-0.19</bestfit>
+  
+  <param>
+      <uncertainty side="left">-0.81</uncertainty>
+      <uncertainty side="right">0.80</uncertainty>
+  </param>
+</expmu>

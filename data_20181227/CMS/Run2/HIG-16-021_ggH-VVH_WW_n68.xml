@@ -1,0 +1,27 @@
+<!--
+parametrization of a 2D Gaussian fitted from the 68% CL contour
+in the plane mu(gg, WW) vs. mu(VBF+VH, WW) shown in CMS-HIG-16-021
+http://cms-results.web.cern.ch/cms-results/public-results/preliminary-results/HIG-16-021/index.html
+-->
+
+<expmu decay="gammagamma" dim="2" type="n">
+  <experiment>CMS</experiment>
+  <source type="preliminary">HIG-16-021</source>
+  <sqrts>13</sqrts>
+  <mass>125.09</mass>
+  <CL>68%</CL> <!-- optional -->
+
+  <eff axis="x" prod="ggH">1.0</eff>
+  <eff axis="y" prod="VVH">1.0</eff>
+
+  <bestfit>
+    <x>1.013</x>
+    <y>1.529</y>
+  </bestfit>
+  
+  <param>
+    <a>11.38</a>
+    <b>0.8762</b>
+    <c>1.067</c>
+  </param>
+</expmu>
