@@ -1,0 +1,9 @@
+** Dec 27, 2018: copied from 21.12 of Loc, then made the following changes: 
+Changed dir names to be consistent with the default convention of Lilith: 
++ remove empty spaces in file/folder names: e.g. Run 2 > Run2
++ removed  CMS/Run2/Combined 7, 8, 13 TeV/ , because the files here 
+are identical to the files in CMS/Run2/
++ put 77fb/ 36fb/ 80fb/ in Run2, Run1+2 
+
+** Jan 3, 2019: reordered one row in the grid data file of 
+data_20181227/ATLAS/Run2/36fb/HIGG-2016-22_VBF_ZZ_f.xml
