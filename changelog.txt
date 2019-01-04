@@ -1,9 +1,21 @@
 ** Dec 27, 2018: copied from 21.12 of Loc, then made the following changes: 
 Changed dir names to be consistent with the default convention of Lilith: 
-+ remove empty spaces in file/folder names: e.g. Run 2 > Run2
++ removed empty spaces in file/folder names: e.g. Run 2 > Run2
 + removed  CMS/Run2/Combined 7, 8, 13 TeV/ , because the files here 
 are identical to the files in CMS/Run2/
 + put 77fb/ 36fb/ 80fb/ in Run2, Run1+2 
+
+Following bugs/typos are corrected in comparison to Updated 21.12/new data 21.12/ 
+* data_20181227/ATLAS/Run2/36fb/HIGG-2016-21_ggH_gammagamma_f.xml: 
+ + changed <eff prod="VBF">1.</eff> to <eff prod="ggH">1.</eff>
+ + some rows at the end of the grid block are wrongly placed. They are moved to the 
+   correct positions. 
+* data_20181227/ATLAS/Run2/36fb/HIGG-2016-21_VBF_gammagamma_f.xml
+ + some rows at the end of the grid block are wrongly placed. They are moved to the 
+   correct positions. 
+* data_20181227/ATLAS/Run2/36fb/HIGG-2016-21_VH_gammagamma_f.xml
+ + one empty tab in the grid block removed.
+ + A bug: the final <grid> changed to </grid>
 
 ** Jan 3, 2019: reordered one row in the grid data file of 
 data_20181227/ATLAS/Run2/36fb/HIGG-2016-22_VBF_ZZ_f.xml
