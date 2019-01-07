@@ -19,3 +19,8 @@ Following bugs/typos are corrected in comparison to Updated 21.12/new data 21.12
 
 ** Jan 3, 2019: reordered one row in the grid data file of 
 data_20181227/ATLAS/Run2/36fb/HIGG-2016-22_VBF_ZZ_f.xml
+
+** Jan 8, 2019: 
+* data_20181227/ATLAS/Run2/36fb/HIGG-2016-22_VBF_ZZ_f.xml
+ + reordered another one row in the grid data file
+* added folder 08_01
