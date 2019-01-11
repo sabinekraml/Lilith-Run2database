@@ -4,7 +4,7 @@
 =========
 
 
-*) H -> gamma gamma: HIGG-2016-21   
+****  H -> gamma gamma: HIGG-2016-21   ****
 
 https://atlas.web.cern.ch/Atlas/GROUPS/PHYSICS/PAPERS/HIGG-2016-21/    (36 fb-1)
 
@@ -12,26 +12,42 @@ https://atlas.web.cern.ch/Atlas/GROUPS/PHYSICS/PAPERS/HIGG-2016-21/    (36 fb-1)
 1d intervals for ggH, VBH, VH and ttH production: Fig 12
 (1d profile likelihoods in Figs 23a-d)
 
+Validation: 
+  - compare -2LogL in 1d from 1d intervals Fig 12 to profile likelihoods from Figs 23
+  - 68% and 95% CL contours in mu_ggF vs mu_VBF, corresponding to Fig 15 (but for signal strength instead of sigma*BR)
+  - 68% and 95% CL contours in kappa_F vs kappa_V, corresponding to Fig 18b, using a) 1D intervals or profile likelihoods, b) 1D intervals with correlation according to Fig 40b, c) 2D data from Fig 15
+
+  perhaps also
+  - 68% and 95% CL contours in kappa_gluon vs kappa_gamma, corresponding to Fig 18a; a)-c) as above
+
+
 ATLAS-CONF-2018-028 (80 fb-1) has only cross sections, not the signal strengths
 
 
 
-*) H -> ZZ* -> 4l    
+****  H -> ZZ* -> 4l  ****  
 
 https://atlas.web.cern.ch/Atlas/GROUPS/PHYSICS/PAPERS/HIGG-2016-22/   (36 fb-1)
 
-1d profile likelihood: Fig 6b   (need Run2 efficiencies for different production modes!)
-2d likelihood contours in ggH vs VBF production: given as sigma \times Br in Fig 8a; needs to be normalized to SM to convert to signal strength (see Table 1)
+1d profile likelihood: Fig 6b   (need Run2 efficiencies for different production modes!) 
+--> used auxiliary Figs 7a (ggF) and 7b (VBF) which show -2LogL vs mu for stage-0 production bins
 
-The 1d profile likelihoods for ggF and VBF production are given as additional figures 7a and 7b; at a first stage I'd just use these
+2d likelihood contours in ggH vs VBF production: given as sigma \times Br in Fig 8a; normalized to SM to convert to signal strength (see Table 1)
 
 Plots are on HEPDATA --> https://inspirehep.net/record/1641268/data
+
+Validation: 
+  - 68% and 95% CL contours in mu_ggF vs mu_VBF, corresponding to Fig 8a (but for signal strength instead of sigma*BR)
+  - 68% and 95% CL contours in kappa_F vs kappa_V, corresponding to Fig 8b, using a) 1D intervals, b) 1D LogL data and c) 2D data
+
 
 
 https://atlas.web.cern.ch/Atlas/GROUPS/PHYSICS/CONFNOTES/ATLAS-CONF-2018-018/   (80 fb-1)
 
 1d profile likelihood: Fig 12b   (need Run2 efficiencies for different production modes!)
-2d likelihood contours in ggH vs VBF production: given as sigma \times Br in Fig , needs to be normalized to SM to convert to signal strength (tabulated in Table 9?). 
+2d likelihood contours in ggH vs VBF production: given as sigma \times Br in Fig 14a, needs to be normalized to SM to convert to signal strength (Table 1). 
+
+no real means of validation ...
 
 
 

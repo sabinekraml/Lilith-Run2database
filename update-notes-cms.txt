@@ -73,7 +73,14 @@ Efficiencies are in Table 6
 Fig 6 has 1d signal strengths in the different production/decay modes. Explicit numbers are given in Table 3.
 Validation: reproduce coupling fit of Fig 15; H -> inv fit, Fig 12a, perhaps also Fig 12b
 
-NB: Additional Figure 1 gives correlation coefficients obtained from the fit to data for the model with one signal strength parameter for each production and decay mode combination
+Additional Figure 1 gives correlation coefficients obtained from the fit to data for the model with one signal strength parameter for each production and decay mode combination
+
+Loc did extensive validation of 2HDM fits, including also asymmetric Gaussian approx (4 sectors with a skew)
+Note: cba_tb_I_h_2d and cba_tb_II_h_2d show no difference in symmetric and asymmetric cases, need to understand why there is no effect
+
+
+
+
 
 
 
