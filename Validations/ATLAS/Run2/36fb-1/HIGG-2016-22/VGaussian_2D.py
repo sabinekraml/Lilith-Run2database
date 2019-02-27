@@ -39,7 +39,7 @@ plt.contour(X2,Y2,Z,[0.00001,2.30,5.99])
 
 
 # Print data
-g = open('2D_CL_Poisson.txt', 'w')
+g = open('2D_CL_VGaussian.txt', 'w')
 for i in range (len(x2)):
     for j in range (len(y2)):
         g.write(str(x2[i]) + " " + str(y2[j]) + " " + str(Z[j][i]) + '\n')
