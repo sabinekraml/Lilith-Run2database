@@ -5,8 +5,8 @@ import matplotlib.pyplot as plt
 # Open the 1D grid files
 
 # Choose VBF - ggH
-# f = open('grid_HIGG-2016-22_VBF_ZZ.txt', 'r')
-f = open('grid_HIGG-2016-22_ggH_ZZ.txt', 'r')
+# f = open('HIGG-2016-22_VBF-1d-Grid.txt', 'r')
+f = open('HIGG-2016-22_ggH-1d-Grid.txt', 'r')
 
 fig = plt.figure()
 # Plot the grids
