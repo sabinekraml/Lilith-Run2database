@@ -1,0 +1,20 @@
+<!--
+CMS result for mu(ggH, gamma gamma) at mH = 125 GeV
+http://cms-results.web.cern.ch/cms-results/public-results/publications/HIG-16-040/
+-->
+
+<expmu decay="gammagamma" dim="1" type="ns">
+  <experiment>CMS</experiment>
+  <source type="preliminary">HIG-16-040</source>
+  <sqrts>13</sqrts>
+  <mass>125</mass>
+
+
+  <eff prod="ggH">1.</eff>
+
+  <bestfit>1.10</bestfit>
+  <alpha>33.3240854452</alpha>
+  <nu>40.0332712441</nu>
+    
+    <!-- if not needed, just <uncertainty></uncertainty> -->
+</expmu>

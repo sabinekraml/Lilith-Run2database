@@ -1,0 +1,35 @@
+# Gaussian_1D
+
+#Lilith-Run2database\data_20181227\CMS\Run2\HIG-16-040_ttH_gammagamma_s.xml
+#Lilith-Run2database\data_20181227\CMS\Run2\HIG-16-040_VH_gammagamma_s.xml
+#Lilith-Run2database\data_20181227\CMS\Run2\HIG-16-040_VBF_gammagamma_s.xml
+#Lilith-Run2database\data_20181227\CMS\Run2\HIG-16-040_ggH_gammagamma_s.xml
+
+# Gaussian_ttH-VVH_2D
+
+#Lilith-Run2database\data_20181227\CMS\Run2\HIG-16-040_ttH_gammagamma_s.xml
+#Lilith-Run2database\data_20181227\CMS\Run2\HIG-16-040_ggH-VVH_gammagamma_n68.xml
+
+# Poisson_1D
+
+#Lilith-Run2database\data_20181227\CMS\Run2\HIG-16-040_Poisson\HIG-16-040_ttH_gammagamma_ns.xml
+#Lilith-Run2database\data_20181227\CMS\Run2\HIG-16-040_Poisson\HIG-16-040_VH_gammagamma_ns.xml
+#Lilith-Run2database\data_20181227\CMS\Run2\HIG-16-040_Poisson\HIG-16-040_VBF_gammagamma_ns.xml
+#Lilith-Run2database\data_20181227\CMS\Run2\HIG-16-040_Poisson\HIG-16-040_ggH_gammagamma_ns.xml
+
+# Poisson_ttH-VVH_2D
+
+#Lilith-Run2database\data_20181227\CMS\Run2\HIG-16-040_Poisson\HIG-16-040_ttH_gammagamma_ns.xml
+#Lilith-Run2database\data_20181227\CMS\Run2\HIG-16-040_ggH-VVH_gammagamma_n68.xml
+
+# Poisson_VBF_2D
+
+#Lilith-Run2database\data_20181227\CMS\Run2\HIG-16-040_Poisson\HIG-16-040_ttH_gammagamma_ns.xml
+#Lilith-Run2database\data_20181227\CMS\Run2\HIG-16-040_Poisson\HIG-16-040_VH_gammagamma_ns.xml
+#Lilith-Run2database\data_20181227\CMS\Run2\HIG-16-040_Poisson\HIG-16-040_ggH-VBF_gammagamma_f.xml
+
+# Poisson_VH_2D
+
+#Lilith-Run2database\data_20181227\CMS\Run2\HIG-16-040_Poisson\HIG-16-040_ttH_gammagamma_ns.xml
+#Lilith-Run2database\data_20181227\CMS\Run2\HIG-16-040_Poisson\HIG-16-040_VBF_gammagamma_ns.xml
+#Lilith-Run2database\data_20181227\CMS\Run2\HIG-16-040_Poisson\HIG-16-040_ggH-VH_gammagamma_f.xml
