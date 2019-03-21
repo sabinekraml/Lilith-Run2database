@@ -6,16 +6,17 @@ http://atlas.web.cern.ch/Atlas/GROUPS/PHYSICS/PAPERS/HIGG-2016-22/
 
 <expmu decay="ZZ" dim="1" type="n">
   <experiment>ATLAS</experiment>
-  <source type="published">HIGG-2016-022</source>
+  <source type="published">HIGG-2016-22</source>
   <sqrts>13</sqrts>
   <mass>125.09</mass>
+  <CL>68%</CL> <!-- optional, 95 or 68 are identical here -->
 
   <eff prod="VH">1.0</eff>
 
   <bestfit>0.</bestfit>
   
   <param>
-    <uncertainty>1.85</uncertainty>
-    <!-- if not needed, just <uncertainty></uncertainty> -->
+  <uncertainty side="left">-0.0</uncertainty>
+  <uncertainty side="right">1.85</uncertainty>
   </param>
 </expmu>
