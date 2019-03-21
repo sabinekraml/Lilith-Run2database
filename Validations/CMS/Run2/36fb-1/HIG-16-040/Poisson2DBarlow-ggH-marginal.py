@@ -101,7 +101,7 @@ matplotlib.rcParams['ytick.major.pad'] = 15
 fig = plt.figure()
 
 plt.contourf(Y,X,Z,[10**(-5),2.3,5.99],colors=['0.5','0.75'])
-plt.plot(xExp,yExp,'.',markersize=4, color = 'blue', label="ATLAS official")
+plt.plot(xExp,yExp,'.',markersize=4, color = 'blue', label="CMS official")
 plt.plot([1],[1], '*', c='k', ms=6, label="SM")
 
 plt.ylim((cen2-nu2/alpha2+0.01, cen2+sig2p+2))
@@ -113,7 +113,7 @@ plt.tick_params(which='minor', length=7, width=1.2)
 plt.legend(loc='upper right', fontsize=16)
 plt.xlabel(r'$\mu({\rm ggF},ZZ)$', fontsize=20)
 plt.ylabel(r'$\mu({\rm VBF},ZZ)$', fontsize=20)
-plt.title("ATLAS-HIGG-2016-21 (2D Poisson dist.)", fontsize=20)
+plt.title("CMS-HIG-16-040 (2D Poisson dist.)", fontsize=20)
 
 fig.set_tight_layout(True)
 fig.savefig('mu_VBF_ggH_2D_Poisson-ggH-marginal.pdf')
