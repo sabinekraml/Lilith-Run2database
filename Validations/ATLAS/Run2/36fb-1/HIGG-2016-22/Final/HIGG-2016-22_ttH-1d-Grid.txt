@@ -1,17 +1,3 @@
-<!--
-ATLAS result for mu(ttH, ZZ) at mH = 125.09 GeV
-extracted from figure 7a from
-http://atlas.web.cern.ch/Atlas/GROUPS/PHYSICS/PAPERS/HIGG-2016-22/-->
-
-<expmu decay="ZZ" dim="1" type="f">
-  <experiment>ATLAS</experiment>
-  <source type="published">HIGG-2016-22</source>
-  <sqrts>13</sqrts>
-  <mass>125.09</mass>
-
-  <eff prod="VH">1.</eff>
-
-  <grid>
 0.0 0
 0.1 3.8331992863e-05
 0.2 0.000230508140512
@@ -312,5 +298,3 @@ http://atlas.web.cern.ch/Atlas/GROUPS/PHYSICS/PAPERS/HIGG-2016-22/-->
 29.7 40.2223716265
 29.8 40.4277749985
 29.9 40.6334397076
-  </grid>
-</expmu>

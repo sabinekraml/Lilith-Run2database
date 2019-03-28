@@ -1,0 +1,18 @@
+<!--
+CMS result for mu(VBF, WW) at mH = 125.09 GeV
+http://cms-results.web.cern.ch/cms-results/public-results/publications/HIG-16-042/
+-->
+
+<expmu decay="WW" dim="1" type="ns">
+  <experiment>CMS</experiment>
+  <source type="preliminary">HIG-16-042</source>
+  <sqrts>13</sqrts>
+  <mass>125.09</mass>
+
+
+  <eff prod="VBF">1.</eff>
+
+  <bestfit>0.29</bestfit>
+  <alpha>1.77188934337</alpha>
+  <nu>0.651014608915</nu>
+</expmu>

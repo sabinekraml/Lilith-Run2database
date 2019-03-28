@@ -23,7 +23,7 @@ text = [[float(num) for num in line.split()] for line in g]
 g.close()
 text = np.array(text)
 textt = np.transpose(text)
-x = textt[0]/1.18
+x = np.sqrt(textt[0]**2+(0.08*textt[0]/1.17)**2)/1.18
 y = textt[1]
 plt.plot(x,y,'.',markersize=3, color = 'r',label="Normalized Cross Section")
 
