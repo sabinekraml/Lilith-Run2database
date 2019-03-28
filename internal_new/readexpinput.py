@@ -2,10 +2,11 @@
 #
 #  This file is part of Lilith
 #  made by J. Bernon and B. Dumont
+#  extended by Tran Quang Loc, March 2019
 #
 #  Web page: http://lpsc.in2p3.fr/projects-th/lilith/
 #
-#  In case of questions email bernon@lpsc.in2p3.fr 
+#  In case of questions email sabine.kraml@lpsc.in2p3.fr 
 #
 #
 #    Lilith is free software: you can redistribute it and/or modify
