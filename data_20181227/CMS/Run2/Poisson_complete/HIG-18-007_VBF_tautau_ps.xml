@@ -1,0 +1,21 @@
+<!--
+CMS result for mu(VBF, tau tau) at mH = 125 GeV
+http://cms-results.web.cern.ch/cms-results/public-results/publications/HIG-18-007/
+-->
+
+<expmu decay="tautau" dim="1" type="p">
+  <experiment>CMS</experiment>
+  <source type="preliminary">HIG-18-007</source>
+  <sqrts>13</sqrts>
+  <mass>125</mass>
+
+
+  <eff prod="VBF">1.</eff>
+
+  <bestfit>1.13</bestfit>
+  
+  <param>
+    <alpha>22.2195781133</alpha>
+    <nu>93.3666400374</nu>
+  </param>  
+</expmu>

@@ -3,7 +3,7 @@ CMS result for mu(ttH, gammagamma), shown in CMS-HIG-16-040
 http://cms-results.web.cern.ch/cms-results/public-results/preliminary-results/HIG-16-040/index.html
 -->
 
-<expmu decay="gammagamma" dim="1" type="ns">
+<expmu decay="gammagamma" dim="1" type="p">
   <experiment>CMS</experiment>
   <source type="preliminary">HIG-16-040</source>
   <sqrts>13</sqrts>
