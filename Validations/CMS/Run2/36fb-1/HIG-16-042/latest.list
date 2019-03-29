@@ -1,0 +1,20 @@
+# CMS
+
+# Gaussian 2D
+
+#CMS\Run2\HIG-16-042_VVH-ggH_WW_n68.xml
+
+# Gaussian 1D
+
+CMS\Run2\HIG-16-042_ggH_WW_s.xml
+CMS\Run2\HIG-16-042_VBF_WW_s.xml
+CMS\Run2\HIG-16-042_WH_WW_s.xml
+CMS\Run2\HIG-16-042_ZH_WW_s.xml
+
+# Gaussian + Poisson (WH) 1D
+
+CMS\Run2\HIG-16-042_ggH_WW_s.xml
+CMS\Run2\HIG-16-042_VBF_WW_s.xml
+CMS\Run2\HIG-16-042_ZH_WW_s.xml
+CMS\Run2\Poisson_complete\HIG-16-042_WH_WW_ps.xml
+
