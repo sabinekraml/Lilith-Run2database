@@ -2,8 +2,8 @@
 ATLAS\Run2\36fb\Poisson_complete\HIGG-2016-21_ggH-VBF_gammagamma_pf.xml
 
 # 1D full
-ATLAS\Run2\36fb\HIGG-2016-21_VH_gammagamma_f.xml
-ATLAS\Run2\36fb\HIGG-2016-21_ttH_gammagamma_f.xml
+#ATLAS\Run2\36fb\HIGG-2016-21_VH_gammagamma_f.xml
+#ATLAS\Run2\36fb\HIGG-2016-21_ttH_gammagamma_f.xml
 
 # 1D Poisson parameterized
 ATLAS\Run2\36fb\Poisson_complete\HIGG-2016-21_VH_gammagamma_ps.xml
