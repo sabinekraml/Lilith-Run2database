@@ -1,0 +1,20 @@
+<!--
+ATLAS result for mu(ttH, bb) at mH = 125 GeV
+https://atlas.web.cern.ch/Atlas/GROUPS/PHYSICS/PAPERS/HIGG-2017-02/
+ -->
+
+<expmu decay="bb" dim="1" type="p">
+  <experiment>ATLAS</experiment>
+  <source type="published">HIGG-2017-02</source>
+  <sqrts>13</sqrts>
+  <mass>125</mass>
+
+  <eff prod="ttH">1</eff>
+
+  <bestfit>0.8</bestfit>
+  
+  <param>  
+    <alpha>331726.099024</alpha>
+    <nu>39615209625.3</nu>
+  </param>  
+</expmu>

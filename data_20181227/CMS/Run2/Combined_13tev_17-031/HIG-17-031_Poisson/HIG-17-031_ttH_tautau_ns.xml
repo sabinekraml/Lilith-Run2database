@@ -1,0 +1,18 @@
+<!--
+CMS result for mu(ttH, tau tau) at mH = 125.09 GeV
+http://cms-results.web.cern.ch/cms-results/public-results/publications/HIG-17-031/
+-->
+
+<expmu decay="tautau" dim="1" type="ns">
+  <experiment>CMS</experiment>
+  <source type="preliminary">HIG-17-031</source>
+  <sqrts>13</sqrts>
+  <mass>125.09</mass>
+
+
+  <eff prod="ttH">1.</eff>
+
+  <bestfit>0.23</bestfit>
+  <alpha>4.44169383203</alpha>
+  <nu>17.9373923701</nu>
+</expmu>

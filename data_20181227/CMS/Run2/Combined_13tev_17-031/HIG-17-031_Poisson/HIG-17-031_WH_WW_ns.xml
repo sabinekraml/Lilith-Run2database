@@ -1,0 +1,18 @@
+<!--
+CMS result for mu(WH, WW) at mH = 125.09 GeV
+http://cms-results.web.cern.ch/cms-results/public-results/publications/HIG-17-031/
+-->
+
+<expmu decay="WW" dim="1" type="ns">
+  <experiment>CMS</experiment>
+  <source type="preliminary">HIG-17-031</source>
+  <sqrts>13</sqrts>
+  <mass>125.09</mass>
+
+
+  <eff prod="WH">1.</eff>
+
+  <bestfit>3.91</bestfit>
+  <alpha>2.66575081826</alpha>
+  <nu>32.3361898066</nu>
+</expmu>

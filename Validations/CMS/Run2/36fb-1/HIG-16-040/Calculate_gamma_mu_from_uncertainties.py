@@ -62,7 +62,7 @@ plt.xlabel(r'$\mu_{ZZ}^{VBF}$', fontsize=20)
 
 
 plt.ylabel(r'-2 Loglikelihood', fontsize=20)
-plt.title("$\mu$ from ATLAS-HIGG-2016-22 (Poisson)")
+plt.title("$\mu$ from CMS-HIG-16-040 (Poisson)")
 plt.legend(loc='upper right', fontsize=12)
 
 fig.set_tight_layout(True)

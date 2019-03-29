@@ -45,7 +45,7 @@ gam = A
 L = 1/(2*(gam*sig2p - np.log(1 + gam*sig2p)))
 # L = 1/(2*(gam*sig1p - np.log(1 + gam*sig1p)))
 alpha = L*gam
-
+print(alpha, L)
 # Choose VBF - ggH
 x = np.arange(1.3,3.1,0.005)
 y2 = -2*(-alpha*(x - cen2) + L*np.log(1 + alpha*(x - cen2)/L))

@@ -8,17 +8,28 @@
 
 https://atlas.web.cern.ch/Atlas/GROUPS/PHYSICS/PAPERS/HIGG-2016-21/    (36 fb-1)
 
-2d likelihood contours in ggH and VBF production: Fig 15
-1d intervals for ggH, VBH, VH and ttH production: Fig 12
-(1d profile likelihoods in Figs 23a-d)
 
-Validation: 
-  - compare -2LogL in 1d from 1d intervals Fig 12 to profile likelihoods from Figs 23
-  - 68% and 95% CL contours in mu_ggF vs mu_VBF, corresponding to Fig 15 (but for signal strength instead of sigma*BR)
-  - 68% and 95% CL contours in kappa_F vs kappa_V, corresponding to Fig 18b, using a) 1D intervals or profile likelihoods, b) 1D intervals with correlation according to Fig 40b, c) 2D data from Fig 15
+Data: 
+Fig 15: 2d likelihood contours of sigma x BR in ggH vs VBF plane 
+Fig 40a: observed correlation
+Table 9: Best-fit values and uncertainties of the production-mode cross sections times branching ratio. 
+Figs 23a-d: Profile likelihoods of the signal strength measurements with -2 ln λ = Λ.
 
-  perhaps also
-  - 68% and 95% CL contours in kappa_gluon vs kappa_gamma, corresponding to Fig 18a; a)-c) as above
+
+xml files:
+HIGG-2016-21_ggH-VBF_gammagamma_f  ... 2d Poisson distribution fitted from 1d profiles, correlation rho = ??
+HIGG-2016-21_ttH_gammagamma_ps ... Poisson approx of 1d profile likelihood
+HIGG-2016-21_VH_gammagamma_ps ... Poisson approx of 1d profile likelihood
+
+Validation: (folder Final)
+Fig 15: 1d mu's --> mu_VBF_ggH_2D_Poisson.pdf
+Fig 18a: kappa_gamma vs kappa_gluon --> CgammaCg_from_ggH-VBF_gammagamma_f_Poisson-1dpara.pdf
+Fig 18b: kappa_F vs kappa_V --> CVCF_from_ggH-VBF_gammagamma_f_Poisson-1dpara.pdf
+
+
+### TODO ###
+Correct comments in HIGG-2016-21_ggH-VBF_gammagamma_f.xml file
+
 
 
 ATLAS-CONF-2018-028 (80 fb-1) has only cross sections, not the signal strengths
@@ -29,25 +40,33 @@ ATLAS-CONF-2018-028 (80 fb-1) has only cross sections, not the signal strengths
 
 https://atlas.web.cern.ch/Atlas/GROUPS/PHYSICS/PAPERS/HIGG-2016-22/   (36 fb-1)
 
-1d profile likelihood: Fig 6b   (need Run2 efficiencies for different production modes!) 
---> used auxiliary Figs 7a (ggF) and 7b (VBF) which show -2LogL vs mu for stage-0 production bins
 
-2d likelihood contours in ggH vs VBF production: given as sigma \times Br in Fig 8a; normalized to SM to convert to signal strength (see Table 1)
+Data:
+Fig 8a: 68% and 95% CL contours of sigma x BR in ggH vs VBF plane
+Aux. Fig 4a and 4c: Correlation matrix ... 4c has rho = -0.41, was this used? 
+Aux. Fig 7a and 7b: 1d profile likelihoods for ggH and VBF production
+Aux. table 3: signal strengths Stage-0 STXS
 
-Plots are on HEPDATA --> https://inspirehep.net/record/1641268/data
+xml files:
+HIGG-2016-22_VBF-ggH_ZZ_f  ... 2d Poisson distribution fitted from 1d profiles, correlation rho = -0.41. ???
+HIGG-2016-22_ttH_ZZ_pf ... comment says mu(ttH, ZZ) extracted from figure 7a, but this cannot be: Fig 7a is this one
+https://atlas.web.cern.ch/Atlas/GROUPS/PHYSICS/PAPERS/HIGG-2016-22/fig_07a.png and auxiliary Fig 7a ia ggH, not ttH
+HIGG-2016-22_VBF_ZZ_pf ... Poisson approx of 1d profile likelihood extracted from Aux. Fig. 7b
 
-Validation: 
-  - 68% and 95% CL contours in mu_ggF vs mu_VBF, corresponding to Fig 8a (but for signal strength instead of sigma*BR)
-  - 68% and 95% CL contours in kappa_F vs kappa_V, corresponding to Fig 8b, using a) 1D intervals, b) 1D LogL data and c) 2D data
+Validation: (folder Final)
+Fig 8a: mu_ggH vs mu_VBF --> mu_VBF_ggH_2D_Poisson
+Fig 8b: kappa_F vs kappa_V --> todo
+
+
+### TODO ###
+Correct comments in HIGG-2016-22_VBF-ggH_ZZ_f.xml file
+Check HIGG-2016-22_ttH_ZZ_pf; what is this really? 
+Use just _f, not _pf
+Validate Fig 8b: kappa_F vs kappa_V plot
 
 
 
 https://atlas.web.cern.ch/Atlas/GROUPS/PHYSICS/CONFNOTES/ATLAS-CONF-2018-018/   (80 fb-1)
-
-1d profile likelihood: Fig 12b   (need Run2 efficiencies for different production modes!)
-2d likelihood contours in ggH vs VBF production: given as sigma \times Br in Fig 14a, needs to be normalized to SM to convert to signal strength (Table 1). 
-
-no real means of validation ...
 
 
 
@@ -55,48 +74,111 @@ no real means of validation ...
 
 https://atlas.web.cern.ch/Atlas/GROUPS/PHYSICS/PAPERS/HIGG-2016-07/   (36 fb-1)
 
+Data:
 Fig. 9 gives 2d likelihood contours for sigma \times BR; pure signal strengths not given 
 rescale by SM prediction
 
+xml files:
+HIGG-2016-07_ggH-VBF_WW_n68
+
+Validation:
+Can only see how well 95% CL contour from Fig 9 fits when using 68% contour (todo)
 
 
 *) H -> tau tau 
 
 https://atlas.web.cern.ch/Atlas/GROUPS/PHYSICS/CONFNOTES/ATLAS-CONF-2018-021/   (36 fb-1)
+superseded by
+https://atlas.web.cern.ch/Atlas/GROUPS/PHYSICS/PAPERS/HIGG-2017-07/
 
-Fig. 9 gives 2d likelihood contours for sigma \times BR; pure signal strengths not given 
-rescale by SM prediction
+Data:
+Aux. Fig. 5 has 2d signal strengths: 68 and 96% CL contours in ggF vs VBF plane
+
+xml files:
+CONF-2018-021_ggH-VBF_tautau_n68 ... needs to be replaced by parameterization of HIGG-2017-07 Aux. Fig. 5
+
+### TODO ###
+update ATLAS-CONF-2018-021 --> HIGG-2017-07, use Aux. Fig. 5
+
 
 
 *) H -> bb
 
 - VH, H->bb: https://atlas.web.cern.ch/Atlas/GROUPS/PHYSICS/PAPERS/HIGG-2016-29/  (36 fb-1)
-1sigma intervals for WH and ZH production in Fig 5.
-Fig 11 has combination with Run 1 data; can be implemented in database but should not be used together with Run1 results to avoid double conting.
+
+Data: 
+Fig 5: asymmetric \pm 1sigma intervals for WH and ZH production 
+
+xml files:
+HIGG-2016-29_WH_tautau_ps ... Poisson parameterization according to Fig 5
+HIGG-2016-29_zH_tautau_ps ...    --"--
+
+Valdation:
+none (no material)
+
 
 - VBF H -> bb : https://atlas.web.cern.ch/Atlas/GROUPS/PHYSICS/PAPERS/HIGG-2016-30/     (36 fb-1)
-1sigma interval in Fig 6a.
 
-- Update for 80 fb-1:  https://atlas.web.cern.ch/Atlas/GROUPS/PHYSICS/PAPERS/HIGG-2018-04/
-1sigma intervals for WH and ZH production with H -> bb in Fig 3.
-1sigma intervals for VH production with different decay modes in Fig 8.
+Data: 
+Fig 6b: asymmetric \pm 1sigma intervals for VBF production 
 
-Auxiliary figure 6 actually has the 2d likelihood contours for the Higgs boson signal strengths in the WH, H->bb versus ZH, H->bb plane !
+xml files:
+HIGG-2016-30_VBF_tautau_s --> should be _ps 
+
+Valdation:
+none (no material)
+
 
 
 *) ttH 
+
+https://atlas.web.cern.ch/Atlas/GROUPS/PHYSICS/PAPERS/HIGG-2017-02/
+
+Data:
+Fig 16: best fit mu's \pm 1 sigma for ttH, H -> bbar, tau tau, VV, gam gam
+Fig 17 a,b: 2d mu's showing final-state correlations
+
+xml files
+HIGG-2017-02_ttH_bb_s --> should be _ps; values are doubtful
+HIGG-2017-02_ttH_gammagamma_ps
+HIGG-2017-02_ttH_tautau_ps
+
+where is HIGG-2017-02_ttH_VV_ps ?
+
+Generally, I think we can use Gaussian approximation for this one.
+
+Validation:
+Figure 18: kappa_F vs kappa_V plot.  ##todo##
+ 
+
+
+https://atlas.web.cern.ch/Atlas/GROUPS/PHYSICS/PAPERS/HIGG-2017-03/ 
+
+Data:
+Fig 11: best fit mu's \pm 1 sigma for ttH, H -> bbar
+
+xml files
+HIGG-2017-03_ttH_bb_s
+HIGG-2017-03_ttH_bb_ps
+
+Must use EITHER ttH, H -> bbar from HIGG-2017-02 OR HIGG-2017-03, but not both
+
 
 
 https://atlas.web.cern.ch/Atlas/GROUPS/PHYSICS/PAPERS/HIGG-2018-13/   (80 fb-1)
 1sigma intervals for H->bb and H->gamma gamma in Fig 5
 
 
-ttH, H->bb  (36 fb-1): https://atlas.web.cern.ch/Atlas/GROUPS/PHYSICS/PAPERS/HIGG-2017-03/ 
-1sigma interval in Fig 11
+*) H -> invisible
 
-Summary of the best-fit values of μ broken down by Higgs boson decay modes:   (36 fb-1)
-https://atlas.web.cern.ch/Atlas/GROUPS/PHYSICS/PAPERS/HIGG-2017-02/
-Fig 16
+https://atlas.web.cern.ch/Atlas/GROUPS/PHYSICS/PAPERS/HIGG-2016-28/  (36 fb-1)
+
+Data:
+Aux. Figure 1c: 1-CLs for BR(H->inv)
+
+xml files:
+HIGG-2016-28_ZH_invisible_s with best fit = 0, 1\sigma = 0.41
+
 
 
 

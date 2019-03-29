@@ -1,0 +1,21 @@
+<!--
+CMS result for mu(ggH, ZZ) at mH = 125.09 GeV
+http://cms-results.web.cern.ch/cms-results/public-results/publications/HIG-16-042/
+-->
+
+<expmu decay="ZZ" dim="1" type="p">
+  <experiment>CMS</experiment>
+  <source type="published">HIG-16-041</source>
+  <sqrts>13</sqrts>
+  <mass>125.09</mass>
+
+
+  <eff prod="ggH">1.</eff>
+
+  <bestfit>1.20</bestfit>
+  
+  <param>
+    <alpha>66.6630600273</alpha>
+    <nu>205.366654559</nu>
+  </param>  
+</expmu>

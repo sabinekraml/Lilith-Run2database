@@ -1,0 +1,20 @@
+<!--
+ATLAS result for mu(ZH, tautau) at mH = 125 GeV
+https://atlas.web.cern.ch/Atlas/GROUPS/PHYSICS/PAPERS/HIGG-2016-29/
+ -->
+
+<expmu decay="tautau" dim="1" type="p">
+  <experiment>ATLAS</experiment>
+  <source type="published">HIGG-2016-29</source>
+  <sqrts>13</sqrts>
+  <mass>125</mass>
+
+  <eff prod="ZH">1</eff>
+
+  <bestfit>1.12</bestfit>
+  
+  <param>  
+    <alpha>13.3296341781</alpha>
+    <nu>40.0332712441</nu>
+  </param>  
+</expmu>
