@@ -1,25 +1,12 @@
 # ATLAS
-#ATLAS\Run2\36fb\HIGG-2016-21_ggH-VBF_gammagamma_f_Poisson-VBF-marginal-fixed.xml
-#ATLAS\Run2\36fb\HIGG-2016-21_VH_gammagamma_f.xml
-#ATLAS\Run2\36fb\HIGG-2016-21_ttH_gammagamma_f.xml
+ATLAS\Run2\36fb\Poisson_complete\HIGG-2016-21_ggH-VBF_gammagamma_pf.xml
 
-# CMS
-#CMS\Run2\HIG-16-040_ggH-VVH_gammagamma_n68.xml
-#CMS\Run2\HIG-16-040_ggH-VBF_gammagamma_n68.xml
-#CMS\Run2\HIG-16-040_ggH-VH_gammagamma_n68.xml
-#CMS\Run2\HIG-16-042_ggH_WW_s.xml
-#CMS\Run2\test-HIG-16-040\HIG-16-042_VBF_WW_ns.xml
-#CMS\Run2\test-HIG-16-040\HIG-16-042_WH_WW_ns.xml
-#CMS\Run2\test-HIG-16-040\HIG-16-042_ZH_WW_ns.xml
+# 1D full
+ATLAS\Run2\36fb\HIGG-2016-21_VH_gammagamma_f.xml
+ATLAS\Run2\36fb\HIGG-2016-21_ttH_gammagamma_f.xml
 
-#CMS\Run2\HIG-16-042_VBF_WW_s.xml
-#CMS\Run2\HIG-16-042_WH_WW_s.xml
-#CMS\Run2\HIG-16-042_ZH_WW_s.xml
-
-CMS\Run2\test-HIG-16-040\HIG-16-040_VH_gammagamma_s1.xml
-CMS\Run2\test-HIG-16-040\HIG-16-040_VBF_gammagamma_s1.xml
-CMS\Run2\test-HIG-16-040\HIG-16-040_ttH_gammagamma_s1.xml
-CMS\Run2\test-HIG-16-040\HIG-16-040_ggH_gammagamma_s1.xml
-# Tevatron
+# 1D Poisson parameterized
+ATLAS\Run2\36fb\Poisson_complete\HIGG-2016-21_VH_gammagamma_ps.xml
+ATLAS\Run2\36fb\Poisson_complete\HIGG-2016-21_ttH_gammagamma_ps.xml
 
 
