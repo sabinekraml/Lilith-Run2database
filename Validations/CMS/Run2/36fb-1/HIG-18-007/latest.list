@@ -1,0 +1,15 @@
+# CMS
+
+# Poisson
+
+#CMS\Run2\Poisson_complete\HIG-18-007_ggH_tautau_ps.xml
+#CMS\Run2\Poisson_complete\HIG-18-007_VBF_tautau_ps.xml
+#CMS\Run2\Poisson_complete\HIG-18-007_WH_tautau_ps.xml
+#CMS\Run2\Poisson_complete\HIG-18-007_ZH_tautau_ps.xml
+
+# Gaussian
+
+CMS\Run2\HIG-18-007_ggH_tautau_s.xml
+CMS\Run2\HIG-18-007_VBF_tautau_s.xml
+CMS\Run2\HIG-18-007_WH_tautau_s.xml
+CMS\Run2\HIG-18-007_ZH_tautau_s.xml
