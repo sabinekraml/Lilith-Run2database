@@ -9,7 +9,6 @@ http://atlas.web.cern.ch/Atlas/GROUPS/PHYSICS/PAPERS/HIGG-2016-22/
   <source type="published">HIGG-2016-22</source>
   <sqrts>13</sqrts>
   <mass>125.09</mass>
-  <CL>68%</CL> <!-- optional, 95 or 68 are identical here -->
 
   <eff prod="VH">1.0</eff>
 

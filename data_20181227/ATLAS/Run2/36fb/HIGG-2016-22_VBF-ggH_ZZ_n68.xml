@@ -16,8 +16,8 @@ http://atlas.web.cern.ch/Atlas/GROUPS/PHYSICS/PAPERS/HIGG-2016-22/
   <eff axis="y" prod="ggH">1.0</eff>
 
   <bestfit>
-    <x>4.13455131</x>
-    <y>1.13266411</y>
+    <x>4.0</x>
+    <y>1.11</y>
   </bestfit>
   
   <param>
