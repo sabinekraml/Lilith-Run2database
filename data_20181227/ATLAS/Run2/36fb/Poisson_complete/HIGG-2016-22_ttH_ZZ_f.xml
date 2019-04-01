@@ -1,6 +1,6 @@
 <!--
 ATLAS result for mu(ttH, ZZ) at mH = 125.09 GeV
-extracted from figure 7a from
+guessed for the 95% CL limit from Fig 7a
 http://atlas.web.cern.ch/Atlas/GROUPS/PHYSICS/PAPERS/HIGG-2016-22/-->
 
 <expmu decay="ZZ" dim="1" type="f">

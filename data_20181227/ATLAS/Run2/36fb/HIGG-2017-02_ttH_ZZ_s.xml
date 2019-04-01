@@ -1,9 +1,9 @@
 <!--
-ATLAS result for mu(ttH, VV) at mH = 125 GeV
+ATLAS result for mu(ttH, ZZ) at mH = 125 GeV
 https://atlas.web.cern.ch/Atlas/GROUPS/PHYSICS/PAPERS/HIGG-2017-02/
  -->
 
-<expmu decay="VV" dim="1" type="n">
+<expmu decay="ZZ" dim="1" type="n">
   <experiment>ATLAS</experiment>
   <source type="published">HIGG-2017-02</source>
   <sqrts>13</sqrts>

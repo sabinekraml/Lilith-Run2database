@@ -1,6 +1,7 @@
 <!--
-parametrization of a 2D Gaussian fitted from the 68% CL contour
-in the plane mu(VBF, ZZ) vs. mu(ggH, ZZ)
+parametrization from individual 1D grids
+for mu(ggH, ZZ) & mu(VBF, ZZ) from Aux. Fig. 7a & 7b 
+and their correlation in Aux. Fig. 4c
 at mH = 125.09 GeV, shown in HIGG-2016-22
 http://atlas.web.cern.ch/Atlas/GROUPS/PHYSICS/PAPERS/HIGG-2016-22/
 -->
