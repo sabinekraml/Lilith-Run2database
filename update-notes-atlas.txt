@@ -1,4 +1,4 @@
-
+﻿
 =========
 * ATLAS *
 =========
@@ -28,7 +28,7 @@ Fig 18b: kappa_F vs kappa_V --> CVCF_from_ggH-VBF_gammagamma_f_Poisson-1dpara.pd
 
 
 ### TODO ###
-Correct comments in HIGG-2016-21_ggH-VBF_gammagamma_f.xml file
+Correct comments in HIGG-2016-21_ggH-VBF_gammagamma_f.xml file (Done)
 
 
 
@@ -59,10 +59,10 @@ Fig 8b: kappa_F vs kappa_V --> todo
 
 
 ### TODO ###
-Correct comments in HIGG-2016-22_VBF-ggH_ZZ_f.xml file
-Check HIGG-2016-22_ttH_ZZ_pf; what is this really? 
-Use just _f, not _pf
-Validate Fig 8b: kappa_F vs kappa_V plot
+Correct comments in HIGG-2016-22_VBF-ggH_ZZ_f.xml file (Done)
+Check HIGG-2016-22_ttH_ZZ_pf; what is this really? (Done, poisson full grids - fixed to .f)
+Use just _f, not _pf (Done)
+Validate Fig 8b: kappa_F vs kappa_V plot 
 
 
 
@@ -98,7 +98,7 @@ xml files:
 CONF-2018-021_ggH-VBF_tautau_n68 ... needs to be replaced by parameterization of HIGG-2017-07 Aux. Fig. 5
 
 ### TODO ###
-update ATLAS-CONF-2018-021 --> HIGG-2017-07, use Aux. Fig. 5
+update ATLAS-CONF-2018-021 --> HIGG-2017-07, use Aux. Fig. 5 (Done)
 
 
 
