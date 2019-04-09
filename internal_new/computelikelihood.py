@@ -25,7 +25,7 @@
 ##########################################################################
 
 from ..errors import LikelihoodComputationError
-import numpy as np
+import numpy as np         # Tran Quang Loc add this
 
 def compute_likelihood(exp_mu, user_mu):
     """Computes the likelihood from experimental mu and user mu."""
@@ -80,13 +80,15 @@ def compute_likelihood(exp_mu, user_mu):
                     cur_l += (2*b*(mu["bestfit"]["x"] - user_mu_effscaled["x"])
                              * (mu["bestfit"]["y"] - user_mu_effscaled["y"]))
 
+# Tran Quang Loc implemented this for Poison data file 1d
             if mu["type"] == "p":
                 if mu["dim"] == 1:
                     alpha = mu["param"]["alpha"]
                     nu = mu["param"]["nu"]
                     cen2 = mu["bestfit"]["x"]
                     if 1 + alpha * (user_mu_effscaled["x"] - cen2) / nu > 0:
-                        cur_l = -2 * (-alpha * (user_mu_effscaled["x"] - cen2) + nu * np.log(1 + alpha * (user_mu_effscaled["x"] - cen2) / nu))
+                        cur_l = -2 * (-alpha * (user_mu_effscaled["x"] - cen2) + nu * np.log(1 + alpha * (user_mu_effscaled["x"] - cen2) / nu))           
+# end  Tran Quang Loc implemented this for Poison data file 1d
 
             if mu["type"] == "f":
                 if mu["dim"] == 1:

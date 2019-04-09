@@ -56,10 +56,13 @@ class ReadExpInput:
         """get list of files from .list experimental input"""
 
         expfiles = [] # list of all paths to XML input files
+# Tran Quang Loc change this for his usage in window
+#        filepath_split = filepath.split("/")
+#        expdata_dir = "/".join(filepath_split[:-1])
 
         filepath_split = filepath.split("\\")
         expdata_dir = "\\".join(filepath_split[:-1])
-
+# end Tran Quang Loc change this for his usage in window
         print(filepath)
         try:
             with open(filepath) as linput:
@@ -126,7 +129,7 @@ class ReadExpInput:
                           "tautau", "bb", "cc", "mumu", "invisible", "gg"]
 
         mandatory_attribs = {"dim":["1", "2"],
-                             "type":["n", "f", "p"]}
+                             "type":["n", "f", "p"]}  # Tran Quang Loc add "p"  to read data file from Poison fit.
         optional_attribs = {"decay": allowed_decays}
 
         for mandatory_attrib, allowed_values in mandatory_attribs.items():
@@ -439,8 +442,10 @@ class ReadExpInput:
         param_tag = child
 
         param["uncertainty"] = {}
-        param["alpha"] = {}
-        param["nu"] = {}
+# Tran Quang Loc add this for data file with Poison fit
+        param["alpha"] = {}               
+        param["nu"] = {}                 
+# end Tran Quang Loc add this for data file with Poison fit    
         
         for child in param_tag:
             if child.tag is etree.Comment:
@@ -480,13 +485,17 @@ class ReadExpInput:
                                                     "not a number")
                                 
                         param["uncertainty"][child.attrib["side"]] = unc_value
-
+# Tran Quang Loc comment it out
+#                else:
+#                    raise ExpInputError(self.filepath,                              
+#                                        "subtag or param should be uncertainty")
+# Tran Quang Loc add 
                 if child.tag == "alpha":
                     param[child.tag] = float(child.text)
 
                 if child.tag == "nu":
                     param[child.tag] = float(child.text)
-
+# end Tran Quang Loc add  
 
             elif dim == 2:
                 allowed_tags = ["a", "b", "c"]
@@ -558,8 +567,12 @@ class ReadExpInput:
             grid["x"] = x
             grid["L"] = L
             LChi2min = min(grid["L"])
+# Tran Quang Loc changed this
+#            Lxy = interpolate.UnivariateSpline(grid["x"], grid["L"], k = 3, s = 0)
+# to 
+             Lxy = interpolate.UnivariateSpline(grid["x"], grid["L"], k = 4, s = 1)
+# end Tran Quang Loc's change
 
-            Lxy = interpolate.UnivariateSpline(grid["x"], grid["L"], k = 4, s = 1)
 
         elif type == "f" and dim == 2:
             x = []
@@ -595,9 +608,11 @@ class ReadExpInput:
             grid["x"] = np.array(x)
             grid["y"] = np.array(y)
             grid["L"] = np.array(L)
-            
+# Tran Quang Loc changed this            
             # LChi2min = min(min(p[1:]) for p in grid["L"])
-            LChi2min = 0
+#to 
+            LChi2min = 0  
+#end Tran Quang Loc's change
 
             Lxy = interpolate.RectBivariateSpline(grid["x"],
                     grid["y"], grid["L"])
