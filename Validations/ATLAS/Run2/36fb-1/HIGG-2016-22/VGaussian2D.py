@@ -2,7 +2,7 @@ import numpy as np
 import matplotlib.pyplot as plt
 
 # Open the 1D grid files
-f = open('A:\Paper Sabine\DATA PYTHON MU\Mu\HIGG_16-022_68-95.txt', 'r')
+f = open('HIGG_2016-22_Llh-2d-Grid.txt', 'r')
 
 # Plot the grids
 text = [[float(num) for num in line.split()] for line in f]
@@ -15,7 +15,8 @@ plt.plot(x,y,'.',markersize=3, color = 'red', label="Exp")
 
 # Loglikelihood Calculation
 def Loglikelihood(z1,z2):
-    (z10, sig1p, sig1m, z20, sig2p, sig2m) = (3.98706897, 1.72833, 1.51341, 1.11016949, 0.2489, 0.2248)
+    # (z10, sig1p, sig1m, z20, sig2p, sig2m) = (3.82356639105, 1.7319741945, 1.40305529427, 1.11225919501, 0.245219850472, 0.219324916401)
+    (z10, sig1p, sig1m, z20, sig2p, sig2m) = (4, 1.75, 1.46, 1.11, 0.23, 0.21)
     # (z10, sig1p, sig1m, z20, sig2p, sig2m) = (3.917193, 1.72414, 1.50862, 1.117641, 0.237288, 0.211864)
     p = -0.41
     V1 = sig1p*sig1m
