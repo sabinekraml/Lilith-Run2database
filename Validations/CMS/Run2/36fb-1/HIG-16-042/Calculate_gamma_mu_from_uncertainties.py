@@ -34,7 +34,7 @@ def f(t):
     return np.exp(-t*(sig2m + sig2p)) - (1 - t*sig2m)/(1 + t*sig2p)
     # return np.exp(-t*(sig1m + sig1p)) - (1 - t*sig1m)/(1 + t*sig1p)
 
-gam = fsolve(f,3.001)
+gam = fsolve(f,0.001)
 # print(A)
 
 # Choose VBF - ggH
@@ -48,7 +48,7 @@ print(nu[0])
 print(cen2)
 
 # Choose VBF - ggH
-x = np.arange(cen2-sig2m-2,cen2+sig2p+2,0.005)
+x = np.arange(cen2-sig2m-0.01,cen2+sig2p+2,0.005)
 y2 = -2*(-alpha*(x - cen2) + nu*np.log(1 + alpha*(x - cen2)/nu))
 # x = np.arange(0.57,1.08,0.005)
 # y2 = -2*(-alpha*(x - cen1) + L*np.log(1 + alpha*(x - cen1)/L))

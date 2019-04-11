@@ -1,0 +1,11 @@
+# ATLAS
+
+# VGaussian
+ATLAS\Run2\36fb\HIGG-2016-22_VBF-ggH_ZZ_vn68.xml
+ATLAS\Run2\36fb\HIGG-2016-22_VH_ZZ_s.xml
+ATLAS\Run2\36fb\HIGG-2016-22_ttH_ZZ_s.xml
+
+# VGaussian fitted
+ATLAS\Run2\36fb\HIGG-2016-22_VBF-ggH_ZZ-fitted_vn68.xml
+ATLAS\Run2\36fb\HIGG-2016-22_VH_ZZ_s.xml
+ATLAS\Run2\36fb\HIGG-2016-22_ttH_ZZ_s.xml
