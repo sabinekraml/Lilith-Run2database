@@ -487,7 +487,7 @@ class ReadExpInput:
 
                 else:
                     raise ExpInputError(self.filepath,
-                                        "subtag or param should be uncertainty")
+                        "tag in param should be uncertainty (Gaussian case) or alpha/nu (Poisson case)")
                     
             elif dim == 2 and type == "n":
                 allowed_tags = ["a", "b", "c"]
