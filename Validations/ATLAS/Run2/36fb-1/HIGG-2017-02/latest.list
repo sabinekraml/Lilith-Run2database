@@ -1,6 +1,15 @@
 # ATLAS
 
+# Poisson
 ATLAS\Run2\36fb\Poisson_complete\HIGG-2017-02_ttH_bb_ps.xml
 ATLAS\Run2\36fb\Poisson_complete\HIGG-2017-02_ttH_gammagamma_ps.xml
 ATLAS\Run2\36fb\Poisson_complete\HIGG-2017-02_ttH_tautau_ps.xml
 ATLAS\Run2\36fb\HIGG-2017-02_ttH_ZZ_s.xml
+#ATLAS\Run2\36fb\HIGG-2017-02_ttH_WW_s.xml
+
+# Gaussian
+#ATLAS\Run2\36fb\HIGG-2017-02_ttH_bb_s.xml
+#ATLAS\Run2\36fb\HIGG-2017-02_ttH_gammagamma_s.xml
+#ATLAS\Run2\36fb\HIGG-2017-02_ttH_tautau_s.xml
+#ATLAS\Run2\36fb\HIGG-2017-02_ttH_ZZ_s.xml
+#ATLAS\Run2\36fb\HIGG-2017-02_ttH_WW_s.xml
