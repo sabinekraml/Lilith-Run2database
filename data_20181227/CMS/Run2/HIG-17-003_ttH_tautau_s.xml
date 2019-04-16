@@ -7,7 +7,7 @@ http://cms-results.web.cern.ch/cms-results/public-results/preliminary-results/HI
   <experiment>CMS</experiment>
   <source type="preliminary">HIG-17-003</source>
   <sqrts>13</sqrts>
-  <mass>125.09</mass>
+  <mass>125</mass>
   <CL>68%</CL> <!-- optional -->
 
   <eff prod="ttH">1.0</eff>

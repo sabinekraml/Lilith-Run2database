@@ -5,7 +5,7 @@ http://cms-results.web.cern.ch/cms-results/public-results/publications/HIG-16-04
 
 <expmu decay="gammagamma" dim="1" type="n">
   <experiment>CMS</experiment>
-  <source type="preliminary">HIG-16-040</source>
+  <source type="published">HIG-16-040</source>
   <sqrts>13</sqrts>
   <mass>125</mass>
 

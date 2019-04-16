@@ -5,10 +5,10 @@ http://cms-results.web.cern.ch/cms-results/public-results/preliminary-results/HI
 
 <expmu decay="gammagamma" dim="1" type="n">
   <experiment>CMS</experiment>
-  <source type="preliminary">HIG-16-040</source>
+  <source type="published">HIG-16-040</source>
   <sqrts>13</sqrts>
-  <mass>125.09</mass>
-  <CL>68%</CL> <!-- optional -->
+  <mass>125</mass>
+
 
   <eff prod="ttH">1.0</eff>
 

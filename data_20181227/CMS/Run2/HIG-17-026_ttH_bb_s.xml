@@ -5,7 +5,7 @@ http://cms-results.web.cern.ch/cms-results/public-results/publications/HIG-17-02
 
 <expmu decay="bb" dim="1" type="n">
   <experiment>CMS</experiment>
-  <source type="preliminary">HIG-17-026</source>
+  <source type="published">HIG-17-026</source>
   <sqrts>13</sqrts>
   <mass>125</mass>
 
