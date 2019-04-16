@@ -15,9 +15,13 @@ plt.plot(x,y,'.',markersize=3, color = 'red', label="Exp")
 
 # Loglikelihood Calculation
 def Loglikelihood(z1,z2):
-    # (z10, sig1p, sig1m, z20, sig2p, sig2m) = (3.82356639105, 1.7319741945, 1.40305529427, 1.11225919501, 0.245219850472, 0.219324916401)
+    # Table 9 (Rounded to 0.01)
     (z10, sig1p, sig1m, z20, sig2p, sig2m) = (4, 1.75, 1.46, 1.11, 0.23, 0.21)
-    # (z10, sig1p, sig1m, z20, sig2p, sig2m) = (3.8587855175, 2.05910747, 1.74865865, 1.11435560099, 0.27109778, 0.2461435)
+    # From fitted 1D Grids in Aux. Fig. 7a, 7b (See VGaussian1D.py)
+    (z10, sig1p, sig1m, z20, sig2p, sig2m) = (3.8587855175, 2.05910747, 1.74865865, 1.11435560099, 0.27109778, 0.2461435)
+    # From Poisson
+    (z10, sig1p, sig1m, z20, sig2p, sig2m) = 3.88420832023, 1.74979116659, 1.45681189117, 1.11568307495, 0.246384207481, 0.22214487075
+
     p = -0.41
     V1 = sig1p*sig1m
     V1e = sig1p - sig1m

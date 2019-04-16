@@ -6,9 +6,9 @@ import scipy.optimize as optimize
 # Open the 1D grid files
 
 # Choose VBF - ggH - ttH - VH
-# f = open('HIGG-2016-22_VBF-1d-Grid.txt', 'r')
+f = open('HIGG-2016-22_VBF-1d-Grid.txt', 'r')
 # f = open('HIGG-2016-22_ggH-1d-Grid.txt', 'r')
-f = open('HIGG-2016-22_ttH-1d-Grid.txt', 'r')
+# f = open('HIGG-2016-22_ttH-1d-Grid.txt', 'r')
 # f = open('HIGG-2016-22_VH-1d-Grid.txt', 'r')
 
 # Plot the grids
@@ -27,7 +27,7 @@ def func(X, alpha, cen2, L):
     return -2*(-alpha*(z - cen2) + L*np.log(np.abs(1 + alpha*(z - cen2)/L)))
 
 def fit5para(xr, yr):
-    guess = (1, 0, 1)
+    guess = (2, 4, 13)
     AR, pcov = optimize.curve_fit(func, xr, yr, guess)
     return AR
 
@@ -55,11 +55,11 @@ print("cen2 =", ff[1])
 # Choose VBF - ggH - ttH - VH
 
 # VBF
-# x = np.arange(0,8.5,0.005)
+x = np.arange(0,8.5,0.005)
 # ggH
 # x = np.arange(0.47,1.8,0.005)
 # ttH
-x = np.arange(-0.1,30,0.005)
+# x = np.arange(-0.1,30,0.005)
 # VH
 # x = np.arange(-0.3,2,0.005)
 
@@ -71,9 +71,9 @@ y2 = -2*(-alpha*(x - cen2) + L*np.log(1 + alpha*(x - cen2)/L))
 plt.plot(x,y2,'-',markersize=2, color = 'g',label="Barlow's Poisson Appx.")
 
 # Choose VBF - ggH
-# plt.xlabel(r'$\mu_{ZZ}^{VBF}$', fontsize=20)
+plt.xlabel(r'$\mu_{ZZ}^{VBF}$', fontsize=20)
 # plt.xlabel(r'$\mu_{ZZ}^{ggH}$', fontsize=20)
-plt.xlabel(r'$\mu_{ZZ}^{ttH}$', fontsize=20)
+# plt.xlabel(r'$\mu_{ZZ}^{ttH}$', fontsize=20)
 # plt.xlabel(r'$\mu_{ZZ}^{VH}$', fontsize=20)
 
 plt.ylabel(r'-2 Loglikelihood', fontsize=20)
@@ -83,7 +83,7 @@ plt.legend(loc='upper right', fontsize=12)
 fig.set_tight_layout(True)
 
 # Choose VBF - ggH - ttH
-# fig.savefig('mu_VBF_1D_Poisson.pdf')
+fig.savefig('mu_VBF_1D_Poisson.pdf')
 # fig.savefig('mu_ggH_1D_Poisson.pdf')
-fig.savefig('mu_ttH_1D_Poisson.pdf')
+# fig.savefig('mu_ttH_1D_Poisson.pdf')
 # fig.savefig('mu_VH_1D_Poisson.pdf')
