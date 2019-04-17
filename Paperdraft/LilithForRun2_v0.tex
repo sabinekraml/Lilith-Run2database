@@ -1,0 +1,310 @@
+% =========================================================================
+% SciPost LaTeX template
+% Version 1e (2017-10-31)
+% =========================================================================
+
+% For submitting a paper to SciPost Physics: 
+\documentclass[submission, Phys]{SciPost}
+
+\linenumbers
+
+\begin{document}
+
+% title
+\begin{center}{\Large \textbf{
+  Constraining new physics from Higgs measurements with\\[1mm] Lilith: update to LHC Run~2 results}}\end{center}
+
+% Authors; mark the corresponding author with a superscript *.
+\begin{center}
+Thi Nhung Dao\textsuperscript{1},
+Sabine Kraml\textsuperscript{2*},
+Duc Ninh Le\textsuperscript{1},
+Loc Tran Quang\textsuperscript{1}
+\end{center}
+
+% Affiliations
+\begin{center}
+{\bf 1} Institute For Interdisciplinary Research in Science and Education, ICISE,\\ 590000, Quy Nhon, Vietnam\\
+{\bf 2} Laboratoire de Physique Subatomique et de Cosmologie, Universit\'e Grenoble-Alpes,\\ CNRS/IN2P3, 53 Avenue des Martyrs, F-38026 Grenoble, France\\
+% email address of corresponding author
+* sabine.kraml@lpsc.in2p3.fr
+\end{center}
+
+\begin{center}
+\today
+\end{center}
+
+% For convenience during refereeing: line numbers
+%\linenumbers
+
+\section*{Abstract}
+{\bf
+Lilith is public python library for constraining new physics from Higgs signal strength measurements. 
+We here present an update of Lilith (version 1.2) including ATLAS and CMS Run~2 Higgs results for 36~fb$^{-1}$.  
+Both the code and the XML database where extended from the ordinary Gaussian approximation employed in 
+Lilith-1.1 to using variable Gaussian and Poisson distributions.  
+We provide detailed validations of the implemented experimental results as well as 
+a status of global fits for {\it i)} reduced Higgs couplings and {\it ii)} Two-Higgs-doublet models of Type-I and Type-II. 
+We also comment on shortcomings in the presentation of the experimental results, which make their re-use difficult. 
+Lilith-1.2 is available on GitHub and ready to be used to constrain a wide class of new physics scenarios.}
+
+
+% include a table of contents if paper is longer than 6 pages
+%\vspace{10pt}
+%\noindent\rule{\textwidth}{1pt}
+%\tableofcontents\thispagestyle{fancy}
+%\noindent\rule{\textwidth}{1pt}
+%\vspace{10pt}
+
+
+%===================================================================================
+\section{Introduction} \label{sec:intro}
+%===================================================================================
+
+...........\\
+...........\\
+...........\\
+...........\\
+...........\\
+...........\\
+
+
+\clearpage
+%===================================================================================
+\section{Extended XML format} \label{sec:intro}
+%===================================================================================
+
+In the Lilith database, every single experimental result is stored in a different XML file. 
+The original input formats from~\cite{Bernon:2015hsa} are 
+\begin{itemize} 
+\item 1D intervals: best fit with $1\sigma$ errors; 
+\item 2D likelihood contours: best fit, confidence level and parameters a, b, c which parametrize the inverse of the covariance matrix;
+\item full likelihood information as 1D or 2D grids of $-2\log L$.
+\end{itemize}
+For a detailed discussion and description of the XML format, we refer the reader to the original Lilith manual~\cite{Bernon:2015hsa}. 
+Here we just note that the first two options, 1D intervals and 2D likelihood contours, rely on an ordinary Gaussian approximation, 
+which does not always describe the experimental data (i.e.\ the true likelihood) very well. 
+Full 2D likelihood grids would be ideal but are rarely available.\footnote{We note that \cite{Boudjema:2013qla} strongly advocated 
+the publication of full likelihood grids in 2 or more dimensions but unfortunately this wasn't followed up by the experimental collaborations.} 
+We have therefore extended the XML format and fitting procedure in Lilith to include 
+\begin{itemize} 
+\item Gaussian distributions of variable width (``variable Gaussian'') and 
+\item generalized Poisson distributions. 
+\end{itemize}
+The format follows the structure defined in \cite{Bernon:2015hsa} but setting {\tt type="vn"} for a variable Gaussian and
+{\tt type="p"} for a Poisson distribution in the {\tt <expmu>} tag. % (with {\tt dim="1"} for 1D and {\tt dim="2"} for 2D as before). 
+Concretely:
+
+\paragraph{1D variable Gaussian} 
+
+An example is the ATLAS result for $\mu(VH, ZZ)$ from HIGG-2016-22 which gives a 95\% CL limit of $\mu<3.7$. 
+We assume that the best fit lies at zero, leading to a one-sided $1\sigma$ uncertainty of $1.85$. 
+
+\begin{verbatim}
+<expmu decay="ZZ" dim="1" type="vn">
+  <experiment>ATLAS</experiment>
+  <source type="published">HIGG-2016-22</source>
+  <sqrts>13</sqrts>
+  <mass>125.09</mass>
+
+  <eff prod="VH">1.0</eff>
+
+  <bestfit>0.</bestfit>
+  
+  <param>
+  <uncertainty side="left">-0.0</uncertainty>
+  <uncertainty side="right">1.85</uncertainty>
+  </param>
+</expmu>
+\end{verbatim}
+
+\noindent
+The {\tt <bestfit>} tag contains the best-fit value for the signal strength. 
+The {\tt <uncertainty>} tag contains the left (negative) and right (positive) $1\sigma$ errors.
+The computation of the likelihood in {\tt computelikelihood.py} then follows Section~3.6 ``Variable Gaussian (2)'' of \cite{Barlow:2004wg}. 
+
+
+\paragraph{2D variable Gaussian} 
+
+Taking the ATLAS result for $\mu(VBF, ZZ)$ and $\mu(ggH, ZZ)$ with correlation $\rho=-0.41$ from HIGG-2016-22 as an example:
+
+\begin{verbatim}
+<expmu decay="ZZ" dim="2" type="vn">
+  <experiment>ATLAS</experiment>
+  <source type="published">HIGG-2016-22</source>
+  <sqrts>13</sqrts>
+  <mass>125.09</mass>
+  <CL>68\%</CL>  <!-- optional -->
+
+  <eff axis="x" prod="VBF">1.0</eff>
+  <eff axis="y" prod="ggH">1.0</eff>
+
+  <bestfit>
+    <x>4.0</x>
+    <y>1.11</y>
+  </bestfit>
+ 
+  <param>
+    <uncertainty axis="x" side="left">-1.46</uncertainty>
+    <uncertainty axis="x" side="right">+1.75</uncertainty>
+    <uncertainty axis="y" side="left">-0.21</uncertainty>
+    <uncertainty axis="y" side="right">+0.23</uncertainty>
+    <correlation>-0.41</correlation>
+  </param>
+</expmu>
+\end{verbatim}
+
+\noindent
+Here, the {\tt <bestfit>} tag specifies the location of the best-fit point in the ({\tt x,y}) plane. 
+The {\tt <uncertainty>} tags contain the left (negative) and right (positive) $1\sigma$ errors for the {\tt x} and {\tt y} axes. 
+The {\tt <correlation>} tag specifies the correlation between {\tt x} and {\tt y}. 
+The computation of the likelihood again follows Section~3.6 ``Variable Gaussian (2)'' of \cite{Barlow:2004wg}. 
+
+\paragraph{1D Poisson} 
+
+\begin{verbatim}
+<expmu decay="gammagamma" dim="1" type="p">
+  <experiment>CMS</experiment>
+  <source type="published">HIG-16-040</source>
+  <sqrts>13</sqrts>
+  <mass>125</mass>
+
+  <eff prod="VH">1.</eff>
+
+  <bestfit>2.4</bestfit>
+
+  <param>
+    <alpha>6.66515303803</alpha>
+    <nu>48.9221714101</nu>
+  </param>
+</expmu>
+\end{verbatim}
+
+\noindent 
+The {\tt <bestfit>} tag again contains the best-fit value for the signal strength, 
+while the tags {\tt <alpha>} and {\tt <nu>} specify the scaling and skew of the function 
+according to Section~3.4 ``Generalised Poisson'', eq.~(10a), of \cite{Barlow:2004wg}. 
+
+
+\paragraph{2D Poisson}   
+ 
+ {\em ....... TODO: add explanation ...........}\\
+...........\\
+...........\\
+...........\\
+
+
+%\begin{verbatim}
+%<expmu decay="gammagamma" dim="2" type="p">
+%...
+%...
+%\end{verbatim}
+
+
+%\clearpage
+%===================================================================================
+\section{ATLAS and CMS results included in the database update}
+%===================================================================================
+
+%-----------------------------------------------------------------------------------------------
+\subsection{ATLAS Run~2 results for 36~fb$^{-1}$}
+%-----------------------------------------------------------------------------------------------
+
+\subsubsection*{\boldmath $H\to\gamma\gamma$: HIGG-2016-21}
+
+The ATLAS analysis \cite{Aaboud:2018xdt} provides in Fig.~12 the 1D signal strengths measured for the different production processes:  
+ggH, VBF, VH and ``top'' (ttH+tH). Moreover, the paper provides a variety of results for simplified template cross sections (STXS) 
+including, in Fig.~40a, the observed correlations between the measured stage-0 STXS. 
+Likelihood contours at 68\% and 95\% CL in the $\sigma(ggH)\times {\rm BR}(H\to\gamma\gamma)$ vs.\ 
+$\sigma(VBF)\times {\rm BR}(H\to\gamma\gamma)$ plane are shown in Fig.~15 of \cite{Aaboud:2018xdt}. 
+Finally, auxiliary Figs.~23a--d show the 1D profile likelihoods of the signal strengths for ggH, VBF, VH and top production modes.
+As validation material, we have likelihood contours in the $C_g$ vs.\ $C_\gamma$ plane in Fig.~18a and in the $C_V$ vs.\ $C_F$ plane in Fig.~18b.\footnote{The reduced couplings $\kappa_X$ in the experimental papers are denoted as $C_X$ in Lilith.}
+With no HepDATA record available for this analysis, all these figures had to be digitized ``by hand''.
+
+It turns out that the ordinary Gaussian approximation, using the 1D signal strengths with their correlations or 
+a bivariate Gaussian distribution fitted from the 68\% CL contour of Fig.~15 (normalized to SM), does not describe the data well.
+%does not reproduce well the $C_g$ vs.\ $C_\gamma$ and $C_V$ vs.\ $C_F$ fits of \cite{Aaboud:2018xdt} Fig.~18. This is illustrated in the left-hand panels in Figure~\ref{validation_atlas_gamgam}. 
+In fact, the 1D profile likelihoods of the signal strengths have a Poisson shape. 
+We therefore parametrize $\mu(ggH,\gamma\gamma)$ vs.\ $\mu(VBF,\gamma\gamma)$ as a 2D Poisson distribution with correlation $-0.27$,  starting from the 1D profile likelihoods from auxiliary Figs.~23a,b of \cite{Aaboud:2018xdt}. For $\mu(VH,\gamma\gamma)$ and $\mu(ttH,\gamma\gamma)$, we use 1D Poisson distributions fitted from auxiliary Figs.~23c,d. 
+The impact on the $C_V$ vs.\ $C_F$ fits from using Gaussian or Poisson likelihoods is illustrated 
+in Figure~\ref{validation_atlas_gamgam}. Clearly, the Poissonian case reproduces much better the official ATLAS fits. 
+
+\begin{figure}[h!]%\centering
+\hspace*{-8mm}\includegraphics[width=0.43\textwidth]{validation/ATLAS/HIGG-2016-21-CVCF-Gaussian.pdf}%
+\hspace*{-12mm}\includegraphics[width=0.43\textwidth]{validation/ATLAS/HIGG-2016-21-CVCF-GaussianV2.pdf}%
+\hspace*{-12mm}\includegraphics[width=0.43\textwidth]{validation/ATLAS/HIGG-2016-21-CVCF-Poisson.pdf} 
+\caption{Fits of $C_V$ vs.\ $C_F$ using data from the ATLAS $H\to\gamma\gamma$ measurement~\cite{Aaboud:2018xdt}; 
+the signal strength measurements are implemented, from left to right, as ordinary Gaussian, variable Gaussian and Poisson likelihoods.}
+\label{validation_atlas_gamgam}
+\end{figure}
+ 
+\subsubsection*{\boldmath $H\to ZZ^*\to 4l$: HIGG-2016-22}
+
+
+\subsubsection*{\boldmath $H\to WW^*\to 2l2\nu$: HIGG-2016-07}
+
+\subsubsection*{\boldmath $H\to \tau\tau$: HIGG-2017-07}
+
+\subsubsection*{\boldmath $H\to b\bar b$: HIGG-2016-29 (VH) and HIGG-2016-30 (VBF)}
+
+\subsubsection*{\boldmath $ttH$}
+
+\subsubsection*{\boldmath $H\to inv$: HIGG-2016-28}
+
+Results from the search for invisibly decaying Higgs bosons produced in association with a $Z$ boson are presented in \cite{Aaboud:2017bja}. Assuming the Standard Model $ZH$ production cross-section, an observed (expected) upper limit of 67\% (39\%) at the 95\% confidence level is set on BR$(H\to inv)$ for $m_H= 125$~GeV. We use $1-{\rm CLs}$ as function BR$(H\to inv)$ extracted from auxiliary Figure~1c on the analysis' webpage. 
+
+
+%-----------------------------------------------------------------------------------------------
+\subsection{CMS Run~2 results for 36~fb$^{-1}$}
+%-----------------------------------------------------------------------------------------------
+
+
+%===================================================================================
+\section{Status of Higgs coupling fits}
+%===================================================================================
+
+
+%===================================================================================
+\section{Conclusion}
+%===================================================================================
+ must include a conclusion.
+
+%===================================================================================
+\section*{Acknowledgements}
+%===================================================================================
+
+S.K.~thanks W.~Adam, R.~Sch\"ofbeck, W.~Waltenberger and N.~Wardle for helpful discussions. 
+
+%\paragraph{Author contributions}
+%This is optional. If desired, contributions should be succinctly described in a single short paragraph, using author initials.
+
+%\paragraph{Funding information}
+%Authors are required to provide funding information, including relevant agencies and grant numbers with linked author's initials. Correctly-provided data will be linked to funders listed in the \href{https://www.crossref.org/services/funder-registry/}{\sf Fundref registry}.
+This work was supported by the IN2P3 theory project 
+``LHC-itools: methods and tools for the interpretation of the LHC Run~2 results for new physics''. 
+D.T.N.\ thanks the LPSC Grenoble for hospitality and financial support for a research visit within the LHC-itools project. 
+L.T.Q.\ thanks the ICISE ...
+
+
+%===================================================================================
+\begin{appendix}
+%===================================================================================
+
+\section{Overview of XML data files}
+
+\section{Implementation of 2D Poisson likelihood with correlation}
+
+
+\end{appendix}
+
+
+%===================================================================================
+% References
+%===================================================================================
+
+% \bibliographystyle{SciPost_bibstyle} % Include this style file here only if you are not using our template
+\bibliography{references.bib}
+
+\nolinenumbers
+
+\end{document}
