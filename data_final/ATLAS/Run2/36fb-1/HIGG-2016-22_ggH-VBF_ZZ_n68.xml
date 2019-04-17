@@ -1,0 +1,28 @@
+<!--
+parametrization of a 2D Gaussian fitted from the 68% CL contour
+in the plane mu(VBF, ZZ) vs. mu(ggH, ZZ)
+at mH = 125.09 GeV, shown in HIGG-2016-22
+http://atlas.web.cern.ch/Atlas/GROUPS/PHYSICS/PAPERS/HIGG-2016-22/
+-->
+
+<expmu decay="ZZ" dim="2" type="n">
+  <experiment>ATLAS</experiment>
+  <source type="published">HIGG-2016-22</source>
+  <sqrts>13</sqrts>
+  <mass>125.09</mass>
+  <CL>68%</CL> <!-- optional -->
+
+  <eff axis="x" prod="VBF">1.0</eff>
+  <eff axis="y" prod="ggH">1.0</eff>
+
+  <bestfit>
+    <x>4.0</x>
+    <y>1.11</y>
+  </bestfit>
+  
+  <param>
+    <a>0.46454592</a>
+    <b>1.28215141</b>
+    <c>23.61081675</c>
+  </param>
+</expmu>

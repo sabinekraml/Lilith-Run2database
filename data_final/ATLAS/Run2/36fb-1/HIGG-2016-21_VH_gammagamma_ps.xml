@@ -1,0 +1,22 @@
+<!--
+ATLAS result for mu(ttH, gamma gammma) at mH = 125.09 GeV
+fitted from auxiliary figure 23d from
+http://atlas.web.cern.ch/Atlas/GROUPS/PHYSICS/PAPERS/HIGG-2016-21/
+-->
+
+<expmu decay="gammagamma" dim="1" type="p">
+  <experiment>ATLAS</experiment>
+  <source type="published">HIGG-2016-21</source>
+  <sqrts>13</sqrts>
+  <mass>125.09</mass>
+
+  <eff prod="VH">1.</eff>
+
+  <bestfit>0.658921753629</bestfit>
+  
+  <param>  
+    <alpha>7.81432437783</alpha>
+    <nu>43.8541529032</nu>
+  </param>  
+
+</expmu>
