@@ -2,7 +2,8 @@
 #
 #  This file is part of Lilith
 #  made by J. Bernon and B. Dumont
-#  extended by TRAN Quang Loc (TQL) and LE Duc Ninh (LDN), March 2019
+#  extended by TRAN Quang Loc (TQL) and LE Duc Ninh (LDN)
+#  revised by Sabine Kraml, last change: 17/04/2019
 #
 #  Web page: http://lpsc.in2p3.fr/projects-th/lilith/
 #
@@ -125,9 +126,9 @@ class ReadExpInput:
                           "tautau", "bb", "cc", "mumu", "invisible", "gg"]
 
         mandatory_attribs = {"dim":["1", "2"],
-                             "type":["n", "f", "p", "vn"]}
-        # TQL add "p"  to read data file from Poison fit, see Barlow arXiv:physics/0406120v1, Eq. 10a
-        # LDN add "vn"  to read data file from Variable Gaussian 2 fit, see Barlow arXiv:physics/0406120v1, Eq. 18
+                             "type":["n", "vn", "p", "f"]}  
+                             # types vn and p added for variable Gaussian and Poisson fits
+
         optional_attribs = {"decay": allowed_decays}
 
         for mandatory_attrib, allowed_values in mandatory_attribs.items():
@@ -439,21 +440,20 @@ class ReadExpInput:
         param_tag = child
 
         param["uncertainty"] = {}
-        # TQL add this for data file with Poison fit
+        # added by TQL for data file with Poison fit
         param["alpha"] = {}
         param["nu"] = {}
-        # end TQL add this for data file with Poison fit
-        # LDN add this for data file with Variable Gaussian 2 fit
+        # aded by LDN for data file with Variable Gaussian fit
         param["uncertainty"]["x"] = {}
         param["uncertainty"]["y"] = {}
-        # end LDN add this for data file with Variable Gaussian 2 fit
+        # end of additions
 
         for child in param_tag:
             if child.tag is etree.Comment:
                 # ignore all comments
                 continue
 
-            if dim == 1 and type == "n":
+            if dim == 1 and (type == "n" or type == "vn"):  # SK added type == "vn" for Variable Gaussian
                 if child.tag == "uncertainty":
                     if "side" not in child.attrib:
                         try:
@@ -488,7 +488,7 @@ class ReadExpInput:
                 else:
                     raise ExpInputError(self.filepath,
                                         "subtag or param should be uncertainty")
-            # TQL add
+            # added by TQL 
             elif dim == 1 and type == "p":
                 allowed_tags = ["alpha", "nu"]
                 if child.tag not in allowed_tags:
@@ -536,7 +536,7 @@ class ReadExpInput:
                 
                 param[child.tag] = param_value
 
-        # LDN add
+        # added by LDN 
             elif dim == 2 and type == "vn":
                 allowed_tags = ["uncertainty", "correlation"]
                 if child.tag not in allowed_tags:
@@ -581,24 +581,24 @@ class ReadExpInput:
         # end LDN add
 
         # check that everything is there
-        if (type == "n" or type == "vn") and dim == 1: # LDN add type == "vn" for Variable Gaussian 2
+        if (type == "n" or type == "vn") and dim == 1: # LDN added type == "vn" for Variable Gaussian 
             if ("uncertainty" not in param or
                 "left" not in param["uncertainty"] or
                 "right" not in param["uncertainty"]):
                 raise ExpInputError(self.filepath,
                                     "uncertainties are not given consistently in block param")
-        # LDN add
-        if (type == "p") and dim == 1:
+
+        elif type == "p" and dim == 1:   # added by LND 
             if ("alpha" not in param or "nu" not in param):
                 raise ExpInputError(self.filepath,
                                     "alpha or nu tags are not given consistently in block param")
-        # end LDN add
+
         elif type == "n" and dim == 2:
             if "a" not in param or "b" not in param or "c" not in param:
                 raise ExpInputError(self.filepath,
                                     "a, b, c tags are not given in block param")
-        # LDN add
-        elif type == "vn" and dim == 2:
+
+        elif type == "vn" and dim == 2:   # added by LND
             if ("uncertainty" not in param or
                 "x" not in param["uncertainty"] or
                 "y" not in param["uncertainty"] or 
@@ -609,7 +609,6 @@ class ReadExpInput:
                 "correlation" not in param):
                 raise ExpInputError(self.filepath,
                              "uncertainty or correlation tags are not given correctly in block param")
-        # end LDN add
 
         # or the grid
         grid = {}
@@ -648,9 +647,8 @@ class ReadExpInput:
             grid["L"] = L
             LChi2min = min(grid["L"])
 
-            # TQL change this
+            # changed by TQL for more stable interpolation
             # Lxy = interpolate.UnivariateSpline(grid["x"], grid["L"], k=3, s=0)
-            # to
             Lxy = interpolate.UnivariateSpline(grid["x"], grid["L"], k=4, s=1)
             # end TQL's change
 

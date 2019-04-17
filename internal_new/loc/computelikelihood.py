@@ -2,7 +2,8 @@
 #
 #  This file is part of Lilith
 #  made by J. Bernon and B. Dumont
-#  extended by TRAN Quang Loc (TQL) and LE Duc Ninh (LDN), March 2019
+#  extended by TRAN Quang Loc (TQL) and LE Duc Ninh (LDN)
+#  revised by Sabine Kraml, last change: 17/04/2019
 #
 #  Web page: http://lpsc.in2p3.fr/projects-th/lilith/
 #
@@ -60,10 +61,9 @@ def compute_likelihood(exp_mu, user_mu):
                     str(s) + '" is not found')
 
         try:
-            # likelihood computation in case of a type="normal"
+            # likelihood computation in case of a type="normal" (odinary Gaussian approximation)
             if mu["type"] == "n":
                 if mu["dim"] == 1:
-            # likelihood computation in Odinary Gaussian approximation
                     if user_mu_effscaled["x"] < mu["bestfit"]["x"]:
                         unc = mu["param"]["uncertainty"]["left"]
                     else:
@@ -71,7 +71,6 @@ def compute_likelihood(exp_mu, user_mu):
                     cur_l = ((mu["bestfit"]["x"] - user_mu_effscaled["x"])**2/unc**2)
 
                 elif mu["dim"] == 2:
-            # likelihood computation in Odinary Gaussian approximation
                     a = mu["param"]["a"]
                     b = mu["param"]["b"]
                     c = mu["param"]["c"]
@@ -82,9 +81,9 @@ def compute_likelihood(exp_mu, user_mu):
                              * (mu["bestfit"]["y"] - user_mu_effscaled["y"]))
 
             # likelihood computation in case of a type="variable normal"
+            # following "Variable Gaussian 2", Barlow arXiv:physics/0406120v1, Eq. 18
             if mu["type"] == "vn":
                 if mu["dim"] == 1:
-            # likelihood computation in Variable Gaussian 2, see Barlow arXiv:physics/0406120v1, Eq. 18
                     unc_left = abs(mu["param"]["uncertainty"]["left"])
                     unc_right = mu["param"]["uncertainty"]["right"]
                     num = user_mu_effscaled["x"] - mu["bestfit"]["x"]
@@ -94,7 +93,6 @@ def compute_likelihood(exp_mu, user_mu):
                     else:
                         cur_l = num**2/den
                 if mu["dim"] == 2:
-            # likelihood computation in Variable Gaussian 2, see Barlow arXiv:physics/0406120v1, Eq. 18
                     p = mu["param"]["correlation"]
                     sig1p = mu["param"]["uncertainty"]["x"]["right"]
                     sig1m = abs(mu["param"]["uncertainty"]["x"]["left"])
@@ -113,9 +111,9 @@ def compute_likelihood(exp_mu, user_mu):
                     cur_l = 1.0/(1-p**2)*((z1-z10)**2/V1f-2*p*(z1-z10)*(z2-z20)/np.sqrt(V1f*V2f)+(z2-z20)**2/V2f)
 
             # likelihood computation in case of a type="Poisson"
+            # following "Generalised Poisson" of Barlow, arXiv:physics/0406120v1, Eq. 10a
             if mu["type"] == "p":
                 if mu["dim"] == 1:
-            # likelihood computation in Poisson, see Barlow arXiv:physics/0406120v1, Eq. 10a
                     alpha = mu["param"]["alpha"]
                     nu = mu["param"]["nu"]
                     cen2 = mu["bestfit"]["x"]

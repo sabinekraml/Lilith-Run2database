@@ -1,0 +1,30 @@
+#---------------------------
+#--- ATLAS Run2, 36 fb-1 ---
+#---------------------------
+
+# H -> gamma gamma, ordinary Gaussian
+
+#ATLAS/Run2/36fb-1/HIGG-2016-21_ggH-VBF_gammagamma_n68.xml
+#ATLAS/Run2/36fb-1/HIGG-2016-21_VH_gammagamma_s.xml
+#ATLAS/Run2/36fb-1/HIGG-2016-21_ttH_gammagamma_s.xml
+
+# H -> gamma gamma, variable Gaussian
+
+ATLAS/Run2/36fb-1/HIGG-2016-21_ggH-VBF_gammagamma_vn68.xml
+ATLAS/Run2/36fb-1/HIGG-2016-21_VH_gammagamma_s.xml
+ATLAS/Run2/36fb-1/HIGG-2016-21_ttH_gammagamma_s.xml
+
+# H -> gamma gamma, Poisson
+
+#ATLAS/Run2/36fb-1/HIGG-2016-21_ggH-VBF_gammagamma_f.xml
+#ATLAS/Run2/36fb-1/HIGG-2016-21_VH_gammagamma_ps.xml
+#ATLAS/Run2/36fb-1/HIGG-2016-21_ttH_gammagamma_ps.xml
+
+# H -> ZZ* -> 4l
+
+
+#---------------------------
+#--- CMS Run2, 36 fb-1 ---
+#---------------------------
+
+# H -> gamma gamma
