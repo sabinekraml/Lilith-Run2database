@@ -2,12 +2,13 @@ from scipy.optimize import fsolve
 import numpy as np
 import matplotlib.pyplot as plt
 import scipy.optimize as optimize
+import sys
 
 # Open the 1D grid files
 
 # Choose VBF - ggH - ttH - VH
 f = open('HIGG-2017-07_Llh-2d-Grid68.txt', 'r')
-# f = open('HIGG-2017-07_Llh-2d-Grid95.txt', 'r')
+#f = open('HIGG-2017-07_Llh-2d-Grid95.txt', 'r')
 
 # Plot the grids
 fig = plt.figure()
@@ -38,7 +39,7 @@ def fit5para(xr, yr):
     for i in range(0, len(xr)):
         A.append([xr[i], yr[i]])
         B.append(2.30)
-        # B.append(5.99)
+#        B.append(5.99)
     A = np.array(A)
     B = np.array(B)
     guess = (1, 1, 1, 1, -0.5)
@@ -51,6 +52,7 @@ sig1p, sig1m, sig2p, sig2m, p = ff[0], ff[1], ff[2], ff[3], ff[4]
 print("\n Parameters:")
 print("sig1p, sig1m, sig2p, sig2m, corr =", ff[0], ",", ff[1], ",", ff[2], ",", ff[3], ",", ff[4])
 
+#sys.exit("end here")
 
 # Open the 1D grid files
 f = open('HIGG-2017-07_Llh-2d-GridFull.txt', 'r')

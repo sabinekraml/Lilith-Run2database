@@ -33,6 +33,7 @@ except:
 from ..errors import ExpInputError, ExpInputIOError
 from scipy import interpolate
 import numpy as np
+from scipy.optimize import fsolve
 import math
 from . import brsm as BR_SM
 from warnings import warn
@@ -126,8 +127,9 @@ class ReadExpInput:
                           "tautau", "bb", "cc", "mumu", "invisible", "gg"]
 
         mandatory_attribs = {"dim":["1", "2"],
-                             "type":["n", "vn", "p", "f"]}  
+                             "type":["n", "vn", "p", "pv", "f"]}  
                              # types vn and p added for variable Gaussian and Poisson fits
+                             # types pv added for a combination of Poisson and variable Gaussian fit
 
         optional_attribs = {"decay": allowed_decays}
 
@@ -446,6 +448,14 @@ class ReadExpInput:
         # aded by LDN for data file with Variable Gaussian fit
         param["uncertainty"]["x"] = {}
         param["uncertainty"]["y"] = {}
+        param["gamma"] = {}
+        param["gamma"]["x"] = {}
+        param["gamma"]["y"] = {}
+        param["nu"] = {}
+        param["nu"]["x"] = {}
+        param["nu"]["y"] = {}
+        param["A_corr"] = {}
+        param["alpha_corr"] = {}
         # end of additions
 
         for child in param_tag:
@@ -453,7 +463,9 @@ class ReadExpInput:
                 # ignore all comments
                 continue
 
-            if dim == 1 and (type == "n" or type == "vn"):  # SK added type == "vn" for Variable Gaussian
+            if dim == 1 and (type == "n" or type == "vn" or type == "pv"):
+# SK added type == "vn" for Variable Gaussian
+# LDN added type == "pv" for a combination of Poisson and Variable Gaussian
                 if child.tag == "uncertainty":
                     if "side" not in child.attrib:
                         try:
@@ -537,7 +549,7 @@ class ReadExpInput:
                 param[child.tag] = param_value
 
         # added by LDN 
-            elif dim == 2 and type == "vn":
+            elif dim == 2 and (type == "vn" or type == "pv"):
                 allowed_tags = ["uncertainty", "correlation"]
                 if child.tag not in allowed_tags:
                     raise ExpInputError(self.filepath,
@@ -578,6 +590,30 @@ class ReadExpInput:
                                          "value of <correlation> tag is not a number")
 
                     param[child.tag] = unc_value
+        # end LDN add
+
+        # added by LDN 
+        if dim == 1 and type == "pv":
+            sigm = abs(param["uncertainty"]["left"])
+            sigp = param["uncertainty"]["right"]
+            param["gamma"] = solve_bifurcation_f_gamma(sigm,sigp,1000)
+            param["nu"] = 0.5/(param["gamma"]*sigp - np.log(1+param["gamma"]*sigp))
+
+        if dim == 2 and type == "pv":
+            p = param["correlation"]
+            sig1p = param["uncertainty"]["x"]["right"]
+            sig1m = abs(param["uncertainty"]["x"]["left"])
+            sig2p = param["uncertainty"]["y"]["right"]
+            sig2m = abs(param["uncertainty"]["y"]["left"])
+
+            param["gamma"]["x"] = solve_bifurcation_f_gamma(sig1m,sig1p,1000)
+            param["gamma"]["y"] = solve_bifurcation_f_gamma(sig2m,sig2p,1000)
+
+            param["nu"]["x"] = 0.5/(param["gamma"]["x"]*sig1p - np.log(1+param["gamma"]["x"]*sig1p))
+            param["nu"]["y"] = 0.5/(param["gamma"]["y"]*sig2p - np.log(1+param["gamma"]["y"]*sig2p))
+
+            param["A_corr"] = fsolve(f_Poisson_corr,0,args=(p,param["nu"]["x"],param["nu"]["y"]))[0]
+            param["alpha_corr"] = np.log(1+param["A_corr"])
         # end LDN add
 
         # check that everything is there
@@ -724,3 +760,21 @@ class ReadExpInput:
 
         for elem in new_eff:
             eff_dict[elem] = new_eff[elem]
+
+# LDN added
+def solve_bifurcation_f_gamma(m, p, N):
+    a = 0.
+    b = 1.0/m
+    for i in range(N):
+        x = (a+b)/2 
+        if np.exp(-x*(m+p)) <= (1-m*x)/(1+p*x): 
+            a = x
+        else:
+            b = x
+    return a
+
+def f_Poisson_corr(y, *params):
+    corr, z1, z2 = params
+    f = z1*z2*y - corr*np.sqrt(z1*z2*(1+z2*(np.exp(z1*y**2) - 1)))
+    return f
+# end LDN added
