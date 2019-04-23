@@ -81,8 +81,7 @@ def compute_likelihood(exp_mu, user_mu):
                              * (mu["bestfit"]["y"] - user_mu_effscaled["y"]))
 
             # likelihood computation in case of a type="variable normal"
-            # following "Variable Gaussian 2", Barlow arXiv:physics/0406120v1, Eq. 18 if uncertainties are non-zero,
-            # use odinary Gaussian otherwise
+            # following "Variable Gaussian 2", Barlow arXiv:physics/0406120v1, Eq. 18
             if mu["type"] == "vn":
                 if mu["dim"] == 1:
                     unc_left = abs(mu["param"]["uncertainty"]["left"])
