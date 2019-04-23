@@ -617,14 +617,19 @@ class ReadExpInput:
         # end LDN add
 
         # check that everything is there
-        if (type == "n" or type == "vn") and dim == 1: # LDN added type == "vn" for Variable Gaussian 
+        if (type == "n" or type == "vn" or type == "pv") and dim == 1:
+        # LDN added type == "vn" for Variable Gaussian 
+        # LDN added type == "pv" for a combination of Poisson and Variable Gaussian 
             if ("uncertainty" not in param or
                 "left" not in param["uncertainty"] or
                 "right" not in param["uncertainty"]):
                 raise ExpInputError(self.filepath,
                                     "uncertainties are not given consistently in block param")
+            if (param["uncertainty"]["left"] == 0 and param["uncertainty"]["right"] == 0):
+                raise ExpInputError(self.filepath,
+                                    "uncertainties are all zero")
 
-        elif type == "p" and dim == 1:   # added by LND 
+        elif type == "p" and dim == 1:   # added by LDN 
             if ("alpha" not in param or "nu" not in param):
                 raise ExpInputError(self.filepath,
                                     "alpha or nu tags are not given consistently in block param")
@@ -634,7 +639,7 @@ class ReadExpInput:
                 raise ExpInputError(self.filepath,
                                     "a, b, c tags are not given in block param")
 
-        elif type == "vn" and dim == 2:   # added by LND
+        elif (type == "vn" or type == "pv") and dim == 2:  # added by LDN
             if ("uncertainty" not in param or
                 "x" not in param["uncertainty"] or
                 "y" not in param["uncertainty"] or 
@@ -645,6 +650,12 @@ class ReadExpInput:
                 "correlation" not in param):
                 raise ExpInputError(self.filepath,
                              "uncertainty or correlation tags are not given correctly in block param")
+            if (param["uncertainty"]["x"]["left"] == 0 and param["uncertainty"]["x"]["right"] == 0):
+                raise ExpInputError(self.filepath,
+                                    "x uncertainties are all zero")
+            if (param["uncertainty"]["y"]["left"] == 0 and param["uncertainty"]["y"]["right"] == 0):
+                raise ExpInputError(self.filepath,
+                                    "y uncertainties are all zero")
 
         # or the grid
         grid = {}

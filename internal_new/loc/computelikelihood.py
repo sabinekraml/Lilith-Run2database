@@ -87,15 +87,10 @@ def compute_likelihood(exp_mu, user_mu):
                 if mu["dim"] == 1:
                     unc_left = abs(mu["param"]["uncertainty"]["left"])
                     unc_right = mu["param"]["uncertainty"]["right"]
-                    if unc_left == 0 and unc_right == 0:
-                        raise LikelihoodComputationError(
-                            'all uncertainties are zero')
-                    elif unc_left == 0:
-                        unc = unc_right
-                        cur_l = ((mu["bestfit"]["x"] - user_mu_effscaled["x"])**2/unc**2)
+                    if unc_left == 0:
+                        cur_l = (user_mu_effscaled["x"]-mu["bestfit"]["x"])/unc_right
                     elif unc_right == 0:
-                        unc = unc_left
-                        cur_l = ((mu["bestfit"]["x"] - user_mu_effscaled["x"])**2/unc**2)
+                        cur_l = -(user_mu_effscaled["x"]-mu["bestfit"]["x"])/unc_left
                     else:
                         num = user_mu_effscaled["x"] - mu["bestfit"]["x"]
                         den = unc_left*unc_right + (unc_right - unc_left)*num
@@ -139,15 +134,12 @@ def compute_likelihood(exp_mu, user_mu):
                     sigp = mu["param"]["uncertainty"]["right"]
                     x0 = mu["bestfit"]["x"]
                     x = user_mu_effscaled["x"]
-                    if sigm == 0 and sigp == 0:
-                        raise LikelihoodComputationError(
-                            'all uncertainties are zero')
-                    elif sigm == 0:
-                        unc = sigp
-                        cur_l = ((x0 - x)**2/unc**2)
+                    if sigm == 0:
+# use Variable Gaussian
+                        cur_l = (x - x0)/sigp
                     elif sigp == 0:
-                        unc = sigm
-                        cur_l = ((x0 - x)**2/unc**2)
+# use Variable Gaussian
+                        cur_l = -(x - x0)/sigm
                     elif sigp <= sigm:
 # use Variable Gaussian
                         num = x - x0
