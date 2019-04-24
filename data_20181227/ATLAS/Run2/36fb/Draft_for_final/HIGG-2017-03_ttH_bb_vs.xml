@@ -3,7 +3,7 @@ ATLAS result for mu(ttH, bb) at mH = 125 GeV
 https://atlas.web.cern.ch/Atlas/GROUPS/PHYSICS/PAPERS/HIGG-2017-03/
  -->
 
-<expmu decay="bb" dim="1" type="n">
+<expmu decay="bb" dim="1" type="vn">
   <experiment>ATLAS</experiment>
   <source type="published">HIGG-2017-03</source>
   <sqrts>13</sqrts>

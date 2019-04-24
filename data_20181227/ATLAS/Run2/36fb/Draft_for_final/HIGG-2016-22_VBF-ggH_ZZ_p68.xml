@@ -1,0 +1,31 @@
+<!--
+parametrization from individual 1D grids
+for mu(ggH, ZZ) & mu(VBF, ZZ) from Aux. Fig. 7a & 7b 
+and their correlation in Aux. Fig. 4c
+at mH = 125.09 GeV, shown in HIGG-2016-22
+http://atlas.web.cern.ch/Atlas/GROUPS/PHYSICS/PAPERS/HIGG-2016-22/
+-->
+
+<expmu decay="ZZ" dim="2" type="p">
+  <experiment>ATLAS</experiment>
+  <source type="published">HIGG-2016-22</source>
+  <sqrts>13</sqrts>
+  <mass>125.09</mass>
+  <CL>68%</CL> <!-- optional -->
+
+  <eff axis="x" prod="VBF">1.0</eff>
+  <eff axis="y" prod="ggH">1.0</eff>
+
+  <bestfit>
+    <x>3.88420832023</x>
+    <y>1.11568307495</y>
+  </bestfit>
+ 
+  <param>
+    <uncertainty axis="x" side="left">-1.45681189117</uncertainty>
+    <uncertainty axis="x" side="right">+1.74979116659</uncertainty>
+    <uncertainty axis="y" side="left">-0.22214487075</uncertainty>
+    <uncertainty axis="y" side="right">+0.246384207481</uncertainty>
+    <correlation>-0.41</correlation>
+  </param>
+</expmu>

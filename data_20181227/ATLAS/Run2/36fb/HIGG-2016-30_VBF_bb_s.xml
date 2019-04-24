@@ -1,9 +1,9 @@
 <!--
-ATLAS result for mu(VBF, tautau) at mH = 125 GeV
+ATLAS result for mu(VBF, bb) at mH = 125 GeV
 https://atlas.web.cern.ch/Atlas/GROUPS/PHYSICS/PAPERS/HIGG-2016-30/
  -->
 
-<expmu decay="tautau" dim="1" type="n">
+<expmu decay="bb" dim="1" type="n">
   <experiment>ATLAS</experiment>
   <source type="published">HIGG-2016-30</source>
   <sqrts>13</sqrts>
