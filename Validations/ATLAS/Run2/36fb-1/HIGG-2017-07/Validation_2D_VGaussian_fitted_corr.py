@@ -7,8 +7,8 @@ import sys
 # Open the 1D grid files
 
 # Choose VBF - ggH - ttH - VH
-f = open('HIGG-2017-07_Llh-2d-Grid68.txt', 'r')
-#f = open('HIGG-2017-07_Llh-2d-Grid95.txt', 'r')
+# f = open('HIGG-2017-07_Llh-2d-Grid68.txt', 'r')
+f = open('HIGG-2017-07_Llh-2d-Grid95.txt', 'r')
 
 # Plot the grids
 fig = plt.figure()
@@ -38,8 +38,8 @@ def fit5para(xr, yr):
     B = []
     for i in range(0, len(xr)):
         A.append([xr[i], yr[i]])
-        B.append(2.30)
-#        B.append(5.99)
+        # B.append(2.30)
+        B.append(5.99)
     A = np.array(A)
     B = np.array(B)
     guess = (1, 1, 1, 1, -0.5)
@@ -101,9 +101,9 @@ g.close
 plt.legend(loc='upper right', fontsize=12)
 plt.xlabel(r'$\mu_{ZZ}^{VBF}$', fontsize=30)
 plt.ylabel(r'$\mu_{ZZ}^{ggF}$', fontsize=30)
-plt.title("$\mu$ from ATLAS-HIGG-2017-07 (VGaussian, 68% CL, fitted corr)")
-# plt.title("$\mu$ from ATLAS-HIGG-2017-07 (VGaussian, 95% CL, fitted corr)")
+# plt.title("$\mu$ from ATLAS-HIGG-2017-07 (VGaussian, 68% CL, fitted corr)")
+plt.title("$\mu$ from ATLAS-HIGG-2017-07 (VGaussian, 95% CL, fitted corr)")
 fig.set_tight_layout(True)
 
-fig.savefig('mu_ggH-VBF_2D_VGaussian-fitted-corr-68CL.pdf')
-# fig.savefig('mu_ggH-VBF_2D_VGaussian-fitted-corr-95CL.pdf')
+# fig.savefig('mu_ggH-VBF_2D_VGaussian-fitted-corr-68CL.pdf')
+fig.savefig('mu_ggH-VBF_2D_VGaussian-fitted-corr-95CL.pdf')

@@ -1,21 +1,21 @@
 <!--
-ATLAS result for mu(ZH, tautau) at mH = 125 GeV
+ATLAS result for mu(WH, bb) at mH = 125 GeV
 https://atlas.web.cern.ch/Atlas/GROUPS/PHYSICS/PAPERS/HIGG-2016-29/
  -->
 
-<expmu decay="tautau" dim="1" type="n">
+<expmu decay="bb" dim="1" type="vn">
   <experiment>ATLAS</experiment>
   <source type="published">HIGG-2016-29</source>
   <sqrts>13</sqrts>
   <mass>125</mass>
 
-  <eff prod="ZH">1</eff>
+  <eff prod="WH">1</eff>
 
-  <bestfit>1.12</bestfit>
+  <bestfit>1.35</bestfit>
   
   <param>
-    <uncertainty side="left">-0.45</uncertainty>
-    <uncertainty side="right">0.5</uncertainty>
+    <uncertainty side="left">-0.59</uncertainty>
+    <uncertainty side="right">0.68</uncertainty>
     <!-- if not needed, just <uncertainty></uncertainty> -->
   </param>
 </expmu>

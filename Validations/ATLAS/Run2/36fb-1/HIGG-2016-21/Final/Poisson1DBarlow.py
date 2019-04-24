@@ -6,10 +6,10 @@ import scipy.optimize as optimize
 # Open the 1D grid files
 
 # Choose VBF - ggH - ttH - VH
-# f = open('HIGG-2016-21_VBF-1d-Grid.txt', 'r')
+f = open('HIGG-2016-21_VBF-1d-Grid.txt', 'r')
 # f = open('HIGG-2016-21_ggH-1d-Grid.txt', 'r')
 # f = open('HIGG-2016-21_ttH-1d-Grid.txt', 'r')
-f = open('HIGG-2016-21_VH-1d-Grid.txt', 'r')
+# f = open('HIGG-2016-21_VH-1d-Grid.txt', 'r')
 
 # Plot the grids
 fig = plt.figure()
@@ -55,13 +55,13 @@ print("cen2 =", ff[1])
 # Choose VBF - ggH - ttH - VH
 
 # VBF
-# x = np.arange(1.4,3.2,0.005)
+x = np.arange(1.4,3.2,0.005)
 # ggH
 # x = np.arange(0.58,1.05,0.005)
 # ttH
 # x = np.arange(-0.1,1.5,0.005)
 # VH
-x = np.arange(-0.3,2,0.005)
+# x = np.arange(-0.3,2,0.005)
 
 
 alpha, cen2, L = ff[0], ff[1], ff[2]
@@ -71,10 +71,10 @@ y2 = -2*(-alpha*(x - cen2) + L*np.log(1 + alpha*(x - cen2)/L))
 plt.plot(x,y2,'-',markersize=2, color = 'g',label="Barlow's Poisson Appx.")
 
 # Choose VBF - ggH
-# plt.xlabel(r'$\mu_{ZZ}^{VBF}$', fontsize=20)
+plt.xlabel(r'$\mu_{ZZ}^{VBF}$', fontsize=20)
 # plt.xlabel(r'$\mu_{ZZ}^{ggH}$', fontsize=20)
 # plt.xlabel(r'$\mu_{ZZ}^{ttH}$', fontsize=20)
-plt.xlabel(r'$\mu_{ZZ}^{VH}$', fontsize=20)
+# plt.xlabel(r'$\mu_{ZZ}^{VH}$', fontsize=20)
 
 plt.ylabel(r'-2 Loglikelihood', fontsize=20)
 plt.title("$\mu$ from ATLAS-HIGG-2016-21 (Poisson)")
@@ -83,7 +83,7 @@ plt.legend(loc='upper right', fontsize=12)
 fig.set_tight_layout(True)
 
 # Choose VBF - ggH - ttH
-# fig.savefig('mu_VBF_1D_Poisson.pdf')
+fig.savefig('mu_VBF_1D_Poisson.pdf')
 # fig.savefig('mu_ggH_1D_Poisson.pdf')
 # fig.savefig('mu_ttH_1D_Poisson.pdf')
-fig.savefig('mu_VH_1D_Poisson.pdf')
+# fig.savefig('mu_VH_1D_Poisson.pdf')
