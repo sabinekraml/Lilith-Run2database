@@ -94,7 +94,8 @@ def compute_likelihood(exp_mu, user_mu):
                         num = user_mu_effscaled["x"] - mu["bestfit"]["x"]
                         den = unc_left*unc_right + (unc_right - unc_left)*num
                         if den == 0:
-                            cur_l = 0.
+                            raise LikelihoodComputationError(
+                              'divided by zero in 1D Variable Gaussian case')
                         else:
                             cur_l = num**2/den
                 if mu["dim"] == 2:
@@ -119,50 +120,16 @@ def compute_likelihood(exp_mu, user_mu):
             # following "Generalised Poisson" of Barlow, arXiv:physics/0406120v1, Eq. 10a
             if mu["type"] == "p":
                 if mu["dim"] == 1:
-                    alpha = mu["param"]["alpha"]
-                    nu = mu["param"]["nu"]
-                    cen2 = mu["bestfit"]["x"]
-                    if 1 + alpha * (user_mu_effscaled["x"] - cen2) / nu > 0:
-                        cur_l = -2 * (-alpha * (user_mu_effscaled["x"] - cen2) + nu * np.log(1 + alpha * (user_mu_effscaled["x"] - cen2) / nu))
-                    else:
-                        cur_l = 0.
-
-            if mu["type"] == "pv":
-                if mu["dim"] == 1:
                     sigm = abs(mu["param"]["uncertainty"]["left"])
                     sigp = mu["param"]["uncertainty"]["right"]
                     x0 = mu["bestfit"]["x"]
                     x = user_mu_effscaled["x"]
-                    if sigm == 0:
-# use Variable Gaussian
-                        cur_l = (x - x0)/sigp
-                    elif sigp == 0:
-# use Variable Gaussian
-                        cur_l = -(x - x0)/sigm
-                    elif sigp <= sigm:
-# use Variable Gaussian
-                        num = x - x0
-                        den = sigm*sigp + (sigp - sigm)*num
-                        if den == 0:
-                            cur_l = 0.
-                        else:
-                            cur_l = num**2/den
-                    else:
 # use generalized Poisson as in Barlow arXiv:physics/0406120v1, Eq. 10
-                        gamma = mu["param"]["gamma"]
-                        if gamma > 1.e-3:
-                            nu = mu["param"]["nu"]
-                            alpha = nu*gamma
-                            cur_l = -alpha*(x-x0) + nu*np.log(1+alpha*(x-x0)/nu)
-                            cur_l = -2.*cur_l
-                        else:
-# use Variable Gaussian
-                            num = x - x0
-                            den = sigm*sigp + (sigp - sigm)*num
-                            if den == 0:
-                                cur_l = 0.
-                            else:
-                                cur_l = num**2/den
+                    gamma = mu["param"]["gamma"]
+                    nu = mu["param"]["nu"]
+                    alpha = nu*gamma
+                    cur_l = -alpha*(x-x0) + nu*np.log(1+alpha*(x-x0)/nu)
+                    cur_l = -2.*cur_l
 
                 if mu["dim"] == 2:
                     p = mu["param"]["correlation"]
@@ -178,29 +145,19 @@ def compute_likelihood(exp_mu, user_mu):
                     gamma1 = mu["param"]["gamma"]["x"]
                     gamma2 = mu["param"]["gamma"]["y"]
 
-                    if gamma1 > 1.e-3 and gamma2 > 1.e-3:
 # use generalized Poisson from TQL
-                        nu1 = mu["param"]["nu"]["x"]
-                        alpha1 = nu1*gamma1
-                        nu2 = mu["param"]["nu"]["y"]
-                        alpha2 = nu2*gamma2
-                        A = mu["param"]["A_corr"]
-                        alpha = mu["param"]["alpha_corr"]
-                        L2t1 = -alpha1*(z1-z10) + nu1*np.log(1+alpha1*(z1-z10)/nu1)
-                        L2t2a = -alpha2*(z2 - z20 + 1/gamma2)*np.exp(alpha*nu1 - A*alpha1*(z1 - z10 + 1/gamma1))
-                        L2t2b = -alpha2*(1/gamma2)*np.exp(alpha*nu1 - A*alpha1/gamma1)
-                        L2t2c = nu2*np.log(L2t2a/L2t2b)
-                        L2t2 = L2t2a - L2t2b + L2t2c
-                        cur_l = -2.0*(L2t1 + L2t2)
-                    else:
-# use Variable Gaussian
-                        V1 = sig1p*sig1m
-                        V1e = sig1p - sig1m
-                        V2 = sig2p*sig2m
-                        V2e = sig2p - sig2m
-                        V1f = V1 + V1e*(z1-z10)
-                        V2f = V2 + V2e*(z2-z20)
-                        cur_l = 1.0/(1-p**2)*((z1-z10)**2/V1f-2*p*(z1-z10)*(z2-z20)/np.sqrt(V1f*V2f)+(z2-z20)**2/V2f)
+                    nu1 = mu["param"]["nu"]["x"]
+                    alpha1 = nu1*gamma1
+                    nu2 = mu["param"]["nu"]["y"]
+                    alpha2 = nu2*gamma2
+                    A = mu["param"]["A_corr"]
+                    alpha = mu["param"]["alpha_corr"]
+                    L2t1 = -alpha1*(z1-z10) + nu1*np.log(1+alpha1*(z1-z10)/nu1)
+                    L2t2a = -alpha2*(z2 - z20 + 1/gamma2)*np.exp(alpha*nu1 - A*alpha1*(z1 - z10 + 1/gamma1))
+                    L2t2b = -alpha2*(1/gamma2)*np.exp(alpha*nu1 - A*alpha1/gamma1)
+                    L2t2c = nu2*np.log(L2t2a/L2t2b)
+                    L2t2 = L2t2a - L2t2b + L2t2c
+                    cur_l = -2.0*(L2t1 + L2t2)
 
             # likelihood computation in case of a type="full" (exact likelihood provided in terms of a grid file)
             if mu["type"] == "f":
@@ -214,6 +171,13 @@ def compute_likelihood(exp_mu, user_mu):
             raise LikelihoodComputationError(
                 'there are missing elements in exp_mu: key "' + s +
                 '" is not found')
+
+# LDN added a control on the value of loglikelihood
+        if cur_l < 0:
+            raise LikelihoodComputationError(
+                'loglikelihood is negative, check the value of mu')
+# end
+
 
         l += cur_l
         likelihood_results.append(

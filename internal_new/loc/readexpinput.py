@@ -127,9 +127,8 @@ class ReadExpInput:
                           "tautau", "bb", "cc", "mumu", "invisible", "gg"]
 
         mandatory_attribs = {"dim":["1", "2"],
-                             "type":["n", "vn", "p", "pv", "f"]}  
+                             "type":["n", "vn", "p", "f"]}  
                              # types vn and p added for variable Gaussian and Poisson fits
-                             # types pv added for a combination of Poisson and variable Gaussian fit
 
         optional_attribs = {"decay": allowed_decays}
 
@@ -442,9 +441,6 @@ class ReadExpInput:
         param_tag = child
 
         param["uncertainty"] = {}
-        # added by TQL for data file with Poison fit
-        param["alpha"] = {}
-        param["nu"] = {}
         # aded by LDN for data file with Variable Gaussian fit
         param["uncertainty"]["x"] = {}
         param["uncertainty"]["y"] = {}
@@ -463,9 +459,9 @@ class ReadExpInput:
                 # ignore all comments
                 continue
 
-            if dim == 1 and (type == "n" or type == "vn" or type == "pv"):
+            if dim == 1 and (type == "n" or type == "vn" or type == "p"):
 # SK added type == "vn" for Variable Gaussian
-# LDN added type == "pv" for a combination of Poisson and Variable Gaussian
+# type == "p" for Poisson
                 if child.tag == "uncertainty":
                     if "side" not in child.attrib:
                         try:
@@ -500,31 +496,6 @@ class ReadExpInput:
                 else:
                     raise ExpInputError(self.filepath,
                                         "subtag or param should be uncertainty")
-            # added by TQL 
-            elif dim == 1 and type == "p":
-                allowed_tags = ["alpha", "nu"]
-                if child.tag not in allowed_tags:
-                    raise ExpInputError(self.filepath,
-                                        "subtag or param should be <alpha> or <mu>")
-                if child.tag == "alpha":
-                    try:
-                        param[child.tag] = float(child.text)
-                    except TypeError:  # empty tag is not allowed
-                        raise ExpInputError(self.filepath,
-                                            "value of <alpha> tag must not be blank")
-                    except ValueError:
-                        raise ExpInputError(self.filepath,
-                                            "value of <alpha> tag is not a number")
-                if child.tag == "nu":
-                    try:
-                        param[child.tag] = float(child.text)
-                    except TypeError:  # empty tag is not allowed
-                        raise ExpInputError(self.filepath,
-                                            "value of <nu> tag must not be blank")
-                    except ValueError:
-                        raise ExpInputError(self.filepath,
-                                            "value of <nu> tag is not a number")
-            # end TQL add
                     
             elif dim == 2 and type == "n":
                 allowed_tags = ["a", "b", "c"]
@@ -549,7 +520,7 @@ class ReadExpInput:
                 param[child.tag] = param_value
 
         # added by LDN 
-            elif dim == 2 and (type == "vn" or type == "pv"):
+            elif dim == 2 and (type == "vn" or type == "p"):
                 allowed_tags = ["uncertainty", "correlation"]
                 if child.tag not in allowed_tags:
                     raise ExpInputError(self.filepath,
@@ -593,13 +564,13 @@ class ReadExpInput:
         # end LDN add
 
         # added by LDN 
-        if dim == 1 and type == "pv":
+        if dim == 1 and type == "p":
             sigm = abs(param["uncertainty"]["left"])
             sigp = param["uncertainty"]["right"]
             param["gamma"] = solve_bifurcation_f_gamma(sigm,sigp,1000)
             param["nu"] = 0.5/(param["gamma"]*sigp - np.log(1+param["gamma"]*sigp))
 
-        if dim == 2 and type == "pv":
+        if dim == 2 and type == "p":
             p = param["correlation"]
             sig1p = param["uncertainty"]["x"]["right"]
             sig1m = abs(param["uncertainty"]["x"]["left"])
@@ -617,9 +588,9 @@ class ReadExpInput:
         # end LDN add
 
         # check that everything is there
-        if (type == "n" or type == "vn" or type == "pv") and dim == 1:
+        if (type == "n" or type == "vn" or type == "p") and dim == 1:
         # LDN added type == "vn" for Variable Gaussian 
-        # LDN added type == "pv" for a combination of Poisson and Variable Gaussian 
+        # type == "p" for Poisson
             if ("uncertainty" not in param or
                 "left" not in param["uncertainty"] or
                 "right" not in param["uncertainty"]):
@@ -629,17 +600,12 @@ class ReadExpInput:
                 raise ExpInputError(self.filepath,
                                     "uncertainties are all zero")
 
-        elif type == "p" and dim == 1:   # added by LDN 
-            if ("alpha" not in param or "nu" not in param):
-                raise ExpInputError(self.filepath,
-                                    "alpha or nu tags are not given consistently in block param")
-
         elif type == "n" and dim == 2:
             if "a" not in param or "b" not in param or "c" not in param:
                 raise ExpInputError(self.filepath,
                                     "a, b, c tags are not given in block param")
 
-        elif (type == "vn" or type == "pv") and dim == 2:  # added by LDN
+        elif (type == "vn" or type == "p") and dim == 2:  # added by LDN
             if ("uncertainty" not in param or
                 "x" not in param["uncertainty"] or
                 "y" not in param["uncertainty"] or 
@@ -656,6 +622,9 @@ class ReadExpInput:
             if (param["uncertainty"]["y"]["left"] == 0 and param["uncertainty"]["y"]["right"] == 0):
                 raise ExpInputError(self.filepath,
                                     "y uncertainties are all zero")
+            if (abs(param["correlation"]) == 1):
+                raise ExpInputError(self.filepath,
+                                    "correlation is (minus) unity, cannot handle this case")
 
         # or the grid
         grid = {}
