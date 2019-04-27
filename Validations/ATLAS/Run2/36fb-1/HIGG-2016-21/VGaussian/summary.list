@@ -1,0 +1,32 @@
+# For VH, ttH channel, use Poisson file:
+
+data_final\ATLAS\Run2\36fb-1\HIGG-2016-21_VH_gammagamma_ps.xml
+data_final\ATLAS\Run2\36fb-1\HIGG-2016-21_ttH_gammagamma_ps.xml
+
+
+# For 2D VBF-ggH, use 1 of 6 below:
+
+ 1/ data_final\ATLAS\Run2\36fb-1\HIGG-2016-21_ggH-VBF_gammagamma_vn68.xml -> HIGG-2016-21-CVCF-VGaussian-Fig12.pdf
+ Use given uncertainties from Fig. 12
+ (central_ggH, sigp_ggH, sigm_ggH, central_VBF, sigp_VBF, sigm_VBF)
+ = (0.81, 0.19, 0.18, 2.0, 0.6, 0.5)
+
+ 2/ data_final\ATLAS\Run2\36fb-1\HIGG-2016-21_ggH-VBF_gammagamma_p68.xml -> HIGG-2016-21-CVCF-Poisson-Fig12.pdf
+ Use given uncertainties from Fig. 12
+ (0.81, 0.19, 0.18, 2.0, 0.6, 0.5)
+
+ 3/ data_final\ATLAS\Run2\36fb-1\HIGG-2016-21_ggH-VBF_gammagamma_vn68-fit.xml -> HIGG-2016-21-CVCF-VGaussian-fit1d-VGaussian-AuxFig23.pdf
+ Use VGaussian to fit uncertainties from Aux. Fig. 23
+ (0.809358651978, 0.19777365, 0.18695455, 2.03723510311, 0.68383827, 0.60539335)
+
+ 4/ data_final\ATLAS\Run2\36fb-1\HIGG-2016-21_ggH-VBF_gammagamma_vn68-Poisson-fit.xml -> HIGG-2016-21-CVCF-Poisson-fit1d-VGaussian-AuxFig23.pdf
+ Use Poisson to fit uncertainties from Aux. Fig. 23
+ (0.809361060171, 0.186957153857, 0.176141692478, 0.606157414018, 0.526259988038)
+
+ 5/ data_final\ATLAS\Run2\36fb-1\HIGG-2016-21_ggH-VBF_gammagamma_p68-fit.xml -> HIGG-2016-21-CVCF-Poisson-fit1d-Poisson-AuxFig23.pdf
+ Use Poisson to fit uncertainties from Aux. Fig. 23
+ (0.809361060171, 0.186957153857, 0.176141692478, 0.606157414018, 0.526259988038)
+
+ 6/ data_final\ATLAS\Run2\36fb-1\HIGG-2016-21_ggH-VBF_gammagamma_vn68-fit-2d.xml -> HIGG-2016-21-CVCF-VGaussian-fit2d-VGaussian-Fig15.pdf
+ Use VGaussian to fit uncertainties and correlation from Fig. 15
+ (0.812281569, 0.185154007923, 0.177361357316, 2.055330645, 0.664606029766, 0.55544614525), corr = -0.24364227856
