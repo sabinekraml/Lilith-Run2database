@@ -12,24 +12,24 @@
 
 # Poisson_1D
 
-#CMS\Run2\HIG-16-040_Poisson\HIG-16-040_ttH_gammagamma_ns.xml
-#CMS\Run2\HIG-16-040_Poisson\HIG-16-040_VH_gammagamma_ns.xml
-#CMS\Run2\HIG-16-040_Poisson\HIG-16-040_VBF_gammagamma_ns.xml
-#CMS\Run2\HIG-16-040_Poisson\HIG-16-040_ggH_gammagamma_ns.xml
+#CMS\Run2\HIG-16-040_ttH_gammagamma_ps.xml
+#CMS\Run2\HIG-16-040_VH_gammagamma_ps.xml
+#CMS\Run2\HIG-16-040_VBF_gammagamma_ps.xml
+#CMS\Run2\HIG-16-040_ggH_gammagamma_ps.xml
 
 # Poisson_ttH-VVH_2D
 
-#CMS\Run2\HIG-16-040_Poisson\HIG-16-040_ttH_gammagamma_ns.xml
+#CMS\Run2\HIG-16-040_ttH_gammagamma_ps.xml
 #CMS\Run2\HIG-16-040_ggH-VVH_gammagamma_n68.xml
 
 # Poisson_VBF_2D
 
-#CMS\Run2\HIG-16-040_Poisson\HIG-16-040_ttH_gammagamma_ns.xml
-#CMS\Run2\HIG-16-040_Poisson\HIG-16-040_VH_gammagamma_ns.xml
-#CMS\Run2\HIG-16-040_Poisson\HIG-16-040_ggH-VBF_gammagamma_f.xml
+#CMS\Run2\HIG-16-040_ttH_gammagamma_ps.xml
+#CMS\Run2\HIG-16-040_VH_gammagamma_ps.xml
+#CMS\Run2\HIG-16-040_ggH-VBF_gammagamma_f.xml
 
 # Poisson_VH_2D
 
-#CMS\Run2\HIG-16-040_Poisson\HIG-16-040_ttH_gammagamma_ns.xml
-#CMS\Run2\HIG-16-040_Poisson\HIG-16-040_VBF_gammagamma_ns.xml
-#CMS\Run2\HIG-16-040_Poisson\HIG-16-040_ggH-VH_gammagamma_f.xml
+#CMS\Run2\HIG-16-040_ttH_gammagamma_ps.xml
+#CMS\Run2\HIG-16-040_VBF_gammagamma_ps.xml
+#CMS\Run2\HIG-16-040_ggH-VH_gammagamma_f.xml
