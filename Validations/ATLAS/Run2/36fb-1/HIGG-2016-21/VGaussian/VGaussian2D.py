@@ -2,7 +2,7 @@ import numpy as np
 import matplotlib.pyplot as plt
 
 # Open the 1D grid files
-f = open('HIGG_2016-22_Llh-2d-Grid.txt', 'r')
+f = open('HIGG_2016-21_Llh-2d-Grid.txt', 'r')
 
 # Plot the grids
 text = [[float(num) for num in line.split()] for line in f]
@@ -55,6 +55,6 @@ g.close
 plt.legend(loc='upper right', fontsize=12)
 plt.xlabel(r'$\mu_{ZZ}^{VBF}$', fontsize=30)
 plt.ylabel(r'$\mu_{ZZ}^{ggF}$', fontsize=30)
-plt.title("$\mu$ from ATLAS-HIGG-2016-22 (Variable Gaussian)")
+plt.title("$\mu$ from ATLAS-HIGG-2016-21 (Variable Gaussian)")
 
 plt.show()

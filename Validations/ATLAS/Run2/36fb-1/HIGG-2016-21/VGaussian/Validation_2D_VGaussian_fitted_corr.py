@@ -1,6 +1,7 @@
 from scipy.optimize import fsolve
 import numpy as np
 import matplotlib.pyplot as plt
+import matplotlib
 import scipy.optimize as optimize
 import sys
 
@@ -22,7 +23,11 @@ y = textt[1]
 # Find parameters
 def func(X, sig1p, sig1m, sig2p, sig2m, p):
     z1, z2 = X[:,0], X[:,1]
-    z10, z20 = 0.812281569,	2.055330645
+    # z10, z20 = 0.812281569,	2.055330645
+    # z10, z20 = 0.809361060171, 2.03669874783
+    # # case 3
+    # z10, z20 = 0.809358651978, 2.03723510311
+    z10, z20 = 0.81, 2
     V1 = sig1p * sig1m
     V1e = sig1p - sig1m
     V2 = sig2p * sig2m
@@ -48,27 +53,39 @@ def fit5para(xr, yr):
     return AR
 
 ff = fit5para(x, y)
-sig1p, sig1m, sig2p, sig2m, p = ff[0], ff[1], ff[2], ff[3], ff[4]
-print("\n Parameters:")
-print("sig1p, sig1m, sig2p, sig2m, corr =", ff[0], ",", ff[1], ",", ff[2], ",", ff[3], ",", ff[4])
+# sig1p, sig1m, sig2p, sig2m, p = ff[0], ff[1], ff[2], ff[3], ff[4]
+# print("\n Parameters:")
+# print("sig1p, sig1m, sig2p, sig2m, corr =", ff[0], ",", ff[1], ",", ff[2], ",", ff[3], ",", ff[4])
+# sig1p, sig1m, sig2p, sig2m, p = 0.186957153857, 0.176141692478, 0.606157414018, 0.526259988038, -0.27
+# sig1p, sig1m, sig2p, sig2m, p = 0.19777365, 0.18695455, 0.68383827, 0.60539335, -0.27
+
+# # ggF
+cen1, sig1m, sig1p = 0.81, 0.18, 0.19
+# # VBF
+cen2, sig2m, sig2p = 2, 0.5, 0.6
+p = -0.27
 
 #sys.exit("end here")
 
-# Open the 1D grid files
-f = open('HIGG_2016-21_Llh-2d-Grid.txt', 'r')
-
-# Plot the grids
-text = [[float(num) for num in line.split()] for line in f]
-f.close()
-text = np.array(text)
-textt = np.transpose(text)
-x = textt[0]
-y = textt[1]
-plt.plot(x,y,'.',markersize=3, color = 'red', label="Observed")
+# # Open the 1D grid files
+# f = open('HIGG_2016-21_Llh-2d-Grid.txt', 'r')
+#
+# # Plot the grids
+# text = [[float(num) for num in line.split()] for line in f]
+# f.close()
+# text = np.array(text)
+# textt = np.transpose(text)
+# x = textt[0]
+# y = textt[1]
+# plt.plot(x,y,'.',markersize=3, color = 'red', label="Observed")
 
 # Loglikelihood Calculation
 def Loglikelihood(z1,z2):
-    z10, z20 = 0.812281569,	2.055330645
+    # z10, z20 = 0.812281569,	2.055330645
+    # z10, z20 = 0.809361060171, 2.03669874783
+    # case 3
+    # z10, z20 = 0.809358651978, 2.03723510311
+    z10, z20 = 0.81, 2
     V1 = sig1p*sig1m
     V1e = sig1p - sig1m
     V2 = sig2p * sig2m
@@ -96,14 +113,41 @@ for i in range (len(x2)):
         g.write(str(x2[i]) + " " + str(y2[j]) + " " + str(Z[j][i]) + '\n')
 g.close
 
+# read data for official 68% and 95% CL contours
+expdata = np.genfromtxt('HIGG_2016-21_Llh-2d-Grid.txt')
+xExp = expdata[:,0]
+yExp = expdata[:,1]
+
+# Make validation plot
+
+matplotlib.rcParams['xtick.major.pad'] = 15
+matplotlib.rcParams['ytick.major.pad'] = 15
+
+fig = plt.figure()
+
+plt.contourf(X2,Y2,Z,[10**(-5),2.3,5.99],colors=['0.5','0.75'])
+plt.plot(xExp,yExp,'.',markersize=4, color = 'blue', label="ATLAS official")
+plt.plot([1],[1], '*', c='k', ms=6, label="SM")
+
+plt.xlim((0.3,1.5))
+plt.ylim((0,4.5))
+plt.minorticks_on()
+plt.tick_params(labelsize=20, length=14, width=2)
+plt.tick_params(which='minor', length=7, width=1.2)
 
 # Plot
 plt.legend(loc='upper right', fontsize=12)
-plt.xlabel(r'$\mu_{ZZ}^{VBF}$', fontsize=30)
-plt.ylabel(r'$\mu_{ZZ}^{ggF}$', fontsize=30)
+plt.xlabel(r'$\mu_{ZZ}^{ggF}$', fontsize=20)
+plt.ylabel(r'$\mu_{ZZ}^{VBF}$', fontsize=20)
 # plt.title("$\mu$ from ATLAS-HIGG-2016-21 (VGaussian, 68% CL, fitted corr)")
-plt.title("$\mu$ from ATLAS-HIGG-2016-21 (VGaussian, 95% CL, fitted corr)")
+# plt.title("$\mu$ from ATLAS-HIGG-2016-21 (VGaussian, 95% CL, fitted corr)")
+# plt.title("$\mu$ from ATLAS-HIGG-2016-21 (VGaussian using VGaussian data, corr = -0.27)")
+plt.title("$\mu$ from ATLAS-HIGG-2016-21 (VGaussian, provided 1D, corr = -0.27)")
+
 fig.set_tight_layout(True)
 
 # fig.savefig('mu_ggH-VBF_2D_VGaussian-fitted-corr-68CL.pdf')
-fig.savefig('mu_ggH-VBF_2D_VGaussian-fitted-corr-95CL.pdf')
+# fig.savefig('mu_ggH-VBF_2D_VGaussian-fitted-corr-95CL.pdf')
+# fig.savefig('HIGG-2016-21-mu-Poisson-fit1d-VGaussian-AuxFig23.pdf')
+# fig.savefig('HIGG-2016-21-mu-VGaussian-fit1d-VGaussian-AuxFig23.pdf')
+fig.savefig('HIGG-2016-21-mu-VGaussian-Fig12.pdf')
