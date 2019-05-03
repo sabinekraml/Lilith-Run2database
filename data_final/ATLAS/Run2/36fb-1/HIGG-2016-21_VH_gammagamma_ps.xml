@@ -1,7 +1,8 @@
 <!--
-ATLAS result for mu(VH, gamma gammma) at mH = 125.09 GeV
-from figure 12 from
-http://atlas.web.cern.ch/Atlas/GROUPS/PHYSICS/PAPERS/HIGG-2016-21/-->
+ATLAS result for mu(ttH, gamma gammma) at mH = 125.09 GeV
+fitted from Auxiliary figure 23d from
+http://atlas.web.cern.ch/Atlas/GROUPS/PHYSICS/PAPERS/HIGG-2016-21/
+-->
 
 <expmu decay="gammagamma" dim="1" type="p">
   <experiment>ATLAS</experiment>
@@ -11,11 +12,10 @@ http://atlas.web.cern.ch/Atlas/GROUPS/PHYSICS/PAPERS/HIGG-2016-21/-->
 
   <eff prod="VH">1.</eff>
 
-  <bestfit>0.7</bestfit>
+  <bestfit>0.658921753629</bestfit>
   
-  <param>  
-  <uncertainty side="left">-0.29</uncertainty>
-  <uncertainty side="right">0.66</uncertainty>
-  </param>  
-
+  <param>
+  <uncertainty side="left">-0.805340681293</uncertainty>
+  <uncertainty side="right">0.890632484607</uncertainty>
+  </param> 
 </expmu>

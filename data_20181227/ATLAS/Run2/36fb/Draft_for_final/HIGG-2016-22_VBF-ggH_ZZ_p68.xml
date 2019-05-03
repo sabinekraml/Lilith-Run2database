@@ -6,7 +6,7 @@ at mH = 125.09 GeV, shown in HIGG-2016-22
 http://atlas.web.cern.ch/Atlas/GROUPS/PHYSICS/PAPERS/HIGG-2016-22/
 -->
 
-<expmu decay="ZZ" dim="2" type="p">
+<expmu decay="ZZ" dim="2" type="pv">
   <experiment>ATLAS</experiment>
   <source type="published">HIGG-2016-22</source>
   <sqrts>13</sqrts>

@@ -1,0 +1,30 @@
+<!--
+parametrization of 1d intervals for mu(ggH, gamma gamma) & mu(VBF, gamma gamma)
+from Fig. 17 and their correlation of -0.30 in Add. Fig. 2
+with profiled Higgs mass 125 GeV, shown in CMS-HIG-16-040
+http://cms-results.web.cern.ch/cms-results/public-results/publications/HIG-16-040/
+-->
+
+<expmu decay="gammagamma" dim="2" type="p">
+  <experiment>CMS</experiment>
+  <source type="published">HIG-16-040</source>
+  <sqrts>13</sqrts>
+  <mass>125</mass>
+  <CL>68%</CL> <!-- optional -->
+
+  <eff axis="x" prod="ggH">1.0</eff>
+  <eff axis="y" prod="VBF">1.0</eff>
+
+  <bestfit>
+    <x>1.10</x>
+    <y>0.8</y>
+  </bestfit>
+ 
+  <param>
+    <uncertainty axis="x" side="left">-0.18</uncertainty>
+    <uncertainty axis="x" side="right">+0.20</uncertainty>
+    <uncertainty axis="y" side="left">-0.5</uncertainty>
+    <uncertainty axis="y" side="right">+0.6</uncertainty>
+    <correlation>-0.30</correlation>
+  </param>
+</expmu>
