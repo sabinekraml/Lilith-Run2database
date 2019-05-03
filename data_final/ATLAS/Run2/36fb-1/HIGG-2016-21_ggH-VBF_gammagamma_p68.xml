@@ -1,0 +1,30 @@
+<!--
+ATLAS result for mu(ggH, gammagamma) vs mu(VBF, gammagamma) at mH = 125.09 GeV
+best-fit points and uncertainties taken from Fig. 12 
+correlation -0.27 taken from Fig. 40a of HIGG-2016-21
+http://atlas.web.cern.ch/Atlas/GROUPS/PHYSICS/PAPERS/HIGG-2016-22/
+-->
+
+<expmu decay="gammagamma" dim="2" type="p">
+  <experiment>ATLAS</experiment>
+  <source type="published">HIGG-2016-21</source>
+  <sqrts>13</sqrts>
+  <mass>125.09</mass>
+  <CL>68%</CL> <!-- optional -->
+
+  <eff axis="x" prod="ggH">1.0</eff>
+  <eff axis="y" prod="VBF">1.0</eff>
+
+  <bestfit>
+    <x>0.81</x>
+    <y>2.0</y>
+  </bestfit>
+ 
+  <param>
+    <uncertainty axis="x" side="left">-0.18</uncertainty>
+    <uncertainty axis="x" side="right">+0.19</uncertainty>
+    <uncertainty axis="y" side="left">-0.5</uncertainty>
+    <uncertainty axis="y" side="right">+0.6</uncertainty>
+    <correlation>-0.27</correlation>
+  </param>
+</expmu>
