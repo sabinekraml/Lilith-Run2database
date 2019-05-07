@@ -23,11 +23,11 @@ y = textt[1]
 # Find parameters
 def func(X, sig1p, sig1m, sig2p, sig2m, p):
     z1, z2 = X[:,0], X[:,1]
-    # z10, z20 = 0.812281569,	2.055330645
+    z10, z20 = 0.812281569,	2.055330645
     # z10, z20 = 0.809361060171, 2.03669874783
     # # case 3
     # z10, z20 = 0.809358651978, 2.03723510311
-    z10, z20 = 0.81, 2
+    # z10, z20 = 0.81, 2
     V1 = sig1p * sig1m
     V1e = sig1p - sig1m
     V2 = sig2p * sig2m
@@ -53,17 +53,19 @@ def fit5para(xr, yr):
     return AR
 
 ff = fit5para(x, y)
-# sig1p, sig1m, sig2p, sig2m, p = ff[0], ff[1], ff[2], ff[3], ff[4]
+sig1p, sig1m, sig2p, sig2m, p = ff[0], ff[1], ff[2], ff[3], ff[4]
+
+print(p)
 # print("\n Parameters:")
 # print("sig1p, sig1m, sig2p, sig2m, corr =", ff[0], ",", ff[1], ",", ff[2], ",", ff[3], ",", ff[4])
 # sig1p, sig1m, sig2p, sig2m, p = 0.186957153857, 0.176141692478, 0.606157414018, 0.526259988038, -0.27
 # sig1p, sig1m, sig2p, sig2m, p = 0.19777365, 0.18695455, 0.68383827, 0.60539335, -0.27
 
 # # ggF
-cen1, sig1m, sig1p = 0.81, 0.18, 0.19
-# # VBF
-cen2, sig2m, sig2p = 2, 0.5, 0.6
-p = -0.27
+# cen1, sig1m, sig1p = 0.81, 0.18, 0.19
+# # # VBF
+# cen2, sig2m, sig2p = 2, 0.5, 0.6
+# p = -0.27
 
 #sys.exit("end here")
 
@@ -81,11 +83,11 @@ p = -0.27
 
 # Loglikelihood Calculation
 def Loglikelihood(z1,z2):
-    # z10, z20 = 0.812281569,	2.055330645
+    z10, z20 = 0.812281569,	2.055330645
     # z10, z20 = 0.809361060171, 2.03669874783
     # case 3
     # z10, z20 = 0.809358651978, 2.03723510311
-    z10, z20 = 0.81, 2
+    # z10, z20 = 0.81, 2
     V1 = sig1p*sig1m
     V1e = sig1p - sig1m
     V2 = sig2p * sig2m
@@ -140,9 +142,9 @@ plt.legend(loc='upper right', fontsize=12)
 plt.xlabel(r'$\mu_{ZZ}^{ggF}$', fontsize=20)
 plt.ylabel(r'$\mu_{ZZ}^{VBF}$', fontsize=20)
 # plt.title("$\mu$ from ATLAS-HIGG-2016-21 (VGaussian, 68% CL, fitted corr)")
-# plt.title("$\mu$ from ATLAS-HIGG-2016-21 (VGaussian, 95% CL, fitted corr)")
+plt.title("$\mu$ from ATLAS-HIGG-2016-21 (VGaussian, 95% CL, fitted corr)")
 # plt.title("$\mu$ from ATLAS-HIGG-2016-21 (VGaussian using VGaussian data, corr = -0.27)")
-plt.title("$\mu$ from ATLAS-HIGG-2016-21 (VGaussian, provided 1D, corr = -0.27)")
+# plt.title("$\mu$ from ATLAS-HIGG-2016-21 (VGaussian, provided 1D, corr = -0.27)")
 
 fig.set_tight_layout(True)
 
@@ -150,4 +152,6 @@ fig.set_tight_layout(True)
 # fig.savefig('mu_ggH-VBF_2D_VGaussian-fitted-corr-95CL.pdf')
 # fig.savefig('HIGG-2016-21-mu-Poisson-fit1d-VGaussian-AuxFig23.pdf')
 # fig.savefig('HIGG-2016-21-mu-VGaussian-fit1d-VGaussian-AuxFig23.pdf')
-fig.savefig('HIGG-2016-21-mu-VGaussian-Fig12.pdf')
+# fig.savefig('HIGG-2016-21-mu-VGaussian-Fig12.pdf')
+
+plt.show()

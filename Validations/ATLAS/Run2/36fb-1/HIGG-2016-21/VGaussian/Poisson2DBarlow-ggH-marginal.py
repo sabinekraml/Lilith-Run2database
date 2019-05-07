@@ -48,13 +48,13 @@ alpha2 = nu2*gam2
 # print(gam1,gam2)
 # Solving 2D Poisson parameters for negative correlation
 
-
 def f(x):
     return corr*np.sqrt(nu1*nu2*(1+nu2*(np.exp(nu1*x**2)-1)))-nu1*nu2*x
 
 A = fsolve(f,0)
 alpha = np.float(np.log(1+A))
 
+print(alpha1,alpha2,nu1,nu2,alpha)
 # Calculate Loglikelihood
 
 

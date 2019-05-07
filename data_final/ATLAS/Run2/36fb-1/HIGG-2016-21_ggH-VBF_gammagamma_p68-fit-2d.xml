@@ -1,16 +1,16 @@
 <!--
-parametrization using Variable Gaussian method
+parametrization using Poisson method
 for mu(ggH, gammagamma) & mu(VBF, gammagamma) from Fig. 15
 95% CL at mH = 125.09 GeV, shown in HIGG-2016-21
 http://atlas.web.cern.ch/Atlas/GROUPS/PHYSICS/PAPERS/HIGG-2016-21/
 -->
 
-<expmu decay="gammagamma" dim="2" type="vn">
+<expmu decay="gammagamma" dim="2" type="p">
   <experiment>ATLAS</experiment>
   <source type="published">HIGG-2016-21</source>
   <sqrts>13</sqrts>
   <mass>125.09</mass>
-  <CL>68%</CL> <!-- optional -->
+  <CL>95%</CL> <!-- optional -->
 
   <eff axis="x" prod="ggH">1.0</eff>
   <eff axis="y" prod="VBF">1.0</eff>
@@ -21,10 +21,10 @@ http://atlas.web.cern.ch/Atlas/GROUPS/PHYSICS/PAPERS/HIGG-2016-21/
   </bestfit>
  
   <param>
-    <uncertainty axis="x" side="left">-0.177361357316</uncertainty>
-    <uncertainty axis="x" side="right">+0.185154007923</uncertainty>
-    <uncertainty axis="y" side="left">-0.55544614525</uncertainty>
-    <uncertainty axis="y" side="right">+0.664606029766</uncertainty>
-    <correlation>-0.24364227856</correlation>
+    <uncertainty axis="x" side="left">-0.177055242229</uncertainty>
+    <uncertainty axis="x" side="right">+0.185849742862</uncertainty>
+    <uncertainty axis="y" side="left">-0.546547200447</uncertainty>
+    <uncertainty axis="y" side="right">+0.645762600927</uncertainty>
+    <correlation>-0.23290630625</correlation>
   </param>
 </expmu>
