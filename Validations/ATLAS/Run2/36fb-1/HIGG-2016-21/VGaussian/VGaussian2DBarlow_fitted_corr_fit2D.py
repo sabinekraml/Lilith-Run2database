@@ -8,8 +8,8 @@ import sys
 # Open the 1D grid files
 
 # Choose VBF - ggH - ttH - VH
-# f = open('HIGG-2016-21_Llh-2d-Grid68.txt', 'r')
-f = open('HIGG_2016-21_Llh-2d-Grid95.txt', 'r')
+f = open('HIGG_2016-21_Llh-2d-Grid68.txt', 'r')
+# f = open('HIGG_2016-21_Llh-2d-Grid95.txt', 'r')
 
 # Plot the grids
 fig = plt.figure()
@@ -43,8 +43,8 @@ def fit5para(xr, yr):
     B = []
     for i in range(0, len(xr)):
         A.append([xr[i], yr[i]])
-        # B.append(2.30)
-        B.append(5.99)
+        B.append(2.30)
+        # B.append(5.99)
     A = np.array(A)
     B = np.array(B)
     guess = (0.1, 0.1, 1, 1, -0.5)
@@ -56,8 +56,8 @@ ff = fit5para(x, y)
 sig1p, sig1m, sig2p, sig2m, p = ff[0], ff[1], ff[2], ff[3], ff[4]
 
 print(p)
-# print("\n Parameters:")
-# print("sig1p, sig1m, sig2p, sig2m, corr =", ff[0], ",", ff[1], ",", ff[2], ",", ff[3], ",", ff[4])
+print("\n Parameters:")
+print("sig1p, sig1m, sig2p, sig2m, corr =", ff[0], ",", ff[1], ",", ff[2], ",", ff[3], ",", ff[4])
 # sig1p, sig1m, sig2p, sig2m, p = 0.186957153857, 0.176141692478, 0.606157414018, 0.526259988038, -0.27
 # sig1p, sig1m, sig2p, sig2m, p = 0.19777365, 0.18695455, 0.68383827, 0.60539335, -0.27
 
@@ -141,15 +141,15 @@ plt.tick_params(which='minor', length=7, width=1.2)
 plt.legend(loc='upper right', fontsize=12)
 plt.xlabel(r'$\mu_{ZZ}^{ggF}$', fontsize=20)
 plt.ylabel(r'$\mu_{ZZ}^{VBF}$', fontsize=20)
-# plt.title("$\mu$ from ATLAS-HIGG-2016-21 (VGaussian, 68% CL, fitted corr)")
-plt.title("$\mu$ from ATLAS-HIGG-2016-21 (VGaussian, 95% CL, fitted corr)")
+plt.title("$\mu$ from ATLAS-HIGG-2016-21 (VGaussian, 68% CL, fitted corr)")
+# plt.title("$\mu$ from ATLAS-HIGG-2016-21 (VGaussian, 95% CL, fitted corr)")
 # plt.title("$\mu$ from ATLAS-HIGG-2016-21 (VGaussian using VGaussian data, corr = -0.27)")
 # plt.title("$\mu$ from ATLAS-HIGG-2016-21 (VGaussian, provided 1D, corr = -0.27)")
 
 fig.set_tight_layout(True)
 
 # fig.savefig('mu_ggH-VBF_2D_VGaussian-fitted-corr-68CL.pdf')
-# fig.savefig('mu_ggH-VBF_2D_VGaussian-fitted-corr-95CL.pdf')
+fig.savefig('HIGG-2016-21-mu-VGaussian-fit2d-VGaussian-Fig15-68CL.pdf')
 # fig.savefig('HIGG-2016-21-mu-Poisson-fit1d-VGaussian-AuxFig23.pdf')
 # fig.savefig('HIGG-2016-21-mu-VGaussian-fit1d-VGaussian-AuxFig23.pdf')
 # fig.savefig('HIGG-2016-21-mu-VGaussian-Fig12.pdf')

@@ -1,7 +1,7 @@
 <!--
-parametrization using Variable Gaussian method
-for mu(ggH, gammagamma) & mu(VBF, gammagamma) from Fig. 15
-95% CL at mH = 125.09 GeV, shown in HIGG-2016-21
+parametrization using Variable Gaussian distribution from 2D grids
+for mu(ggH, gammagamma) & mu(VBF, gammagamma) from Fig. 15, 95% CL
+at mH = 125.09 GeV, shown in HIGG-2016-21
 http://atlas.web.cern.ch/Atlas/GROUPS/PHYSICS/PAPERS/HIGG-2016-21/
 -->
 

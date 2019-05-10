@@ -1,5 +1,5 @@
 <!--
-parametrization from individual 1D grids
+parametrization using Variable Gaussian distribution from individual 1D grids
 for mu(ggH, gammagamma) & mu(VBF, gammagamma) from Aux. Fig. 23a & 23b  
 and their correlation -0.27 from Fig. 40a
 at mH = 125.09 GeV, shown in HIGG-2016-21
@@ -17,15 +17,15 @@ http://atlas.web.cern.ch/Atlas/GROUPS/PHYSICS/PAPERS/HIGG-2016-21/
   <eff axis="y" prod="VBF">1.0</eff>
 
   <bestfit>
-    <x>0.809361060171</x>
-    <y>2.03669874783</y>
+    <x>0.809358651978</x>
+    <y>2.03723510311</y>
   </bestfit>
  
   <param>
-    <uncertainty axis="x" side="left">-0.176141692478</uncertainty>
-    <uncertainty axis="x" side="right">+0.186957153857</uncertainty>
-    <uncertainty axis="y" side="left">-0.526259988038</uncertainty>
-    <uncertainty axis="y" side="right">+0.606157414018</uncertainty>
+    <uncertainty axis="x" side="left">-0.18695455</uncertainty>
+    <uncertainty axis="x" side="right">+0.19777365</uncertainty>
+    <uncertainty axis="y" side="left">-0.60539335</uncertainty>
+    <uncertainty axis="y" side="right">+0.68383827</uncertainty>
     <correlation>-0.27</correlation>
   </param>
 </expmu>

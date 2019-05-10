@@ -1,8 +1,7 @@
 <!--
-parametrization from individual 1D grids
-for mu(ggH, gammagamma) & mu(VBF, gammagamma) from Fig. 12 
-and their correlation -0.27 from Fig. 40a
-at mH = 125.09 GeV, shown in HIGG-2016-21
+ATLAS result for mu(ggH, gammagamma) vs mu(VBF, gammagamma) at mH = 125.09 GeV
+best-fit points and uncertainties taken from Fig. 12 
+correlation -0.27 taken from Fig. 40a of HIGG-2016-21
 http://atlas.web.cern.ch/Atlas/GROUPS/PHYSICS/PAPERS/HIGG-2016-21/
 -->
 
