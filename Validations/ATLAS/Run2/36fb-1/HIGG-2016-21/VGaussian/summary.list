@@ -49,5 +49,5 @@ data_final\ATLAS\Run2\36fb-1\HIGG-2016-21_ttH_gammagamma_ps.xml
  - Case 6 is better than 7.
  - Case 8 is better than 9, but worse than 5, 6, 7.
  - Case 5 is the best. However, the correlation -0.27 is suspicious here!
- - Case 4 is interesting (as it also yields good result). However, the philosophy of using both Poisson and VGaussian here is bad. 
+ - (Should exclude) Case 4 is interesting (as it also yields good result). However, the philosophy of using both Poisson and VGaussian here is bad. 
  
