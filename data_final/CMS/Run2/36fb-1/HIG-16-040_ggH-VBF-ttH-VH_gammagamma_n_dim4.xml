@@ -1,0 +1,41 @@
+<!--
+data from Fig 17 and Additional Figure 2 at
+http://cms-results.web.cern.ch/cms-results/public-results/publications/HIG-16-040/
+-->
+
+<expmu decay="gammagamma" dim="4" type="n">
+  <experiment>CMS</experiment>
+  <source type="published">HIG-16-040</source>
+  <sqrts>13</sqrts>
+  <mass>125</mass>
+  <CL>68%</CL> <!-- optional -->
+
+  <eff axis="d1" prod="ggH">1.0</eff>
+  <eff axis="d2" prod="VBF">1.0</eff>
+  <eff axis="d3" prod="ttH">1.0</eff>
+  <eff axis="d4" prod="VH">1.0</eff>
+
+  <bestfit>
+    <d1>1.10</d1>
+    <d2>0.8</d2>
+    <d3>2.2</d3>
+    <d4>2.4</d4>
+  </bestfit>
+ 
+  <param>
+    <uncertainty axis="d1" side="left">-0.18</uncertainty>
+    <uncertainty axis="d1" side="right">+0.20</uncertainty>
+    <uncertainty axis="d2" side="left">-0.5</uncertainty>
+    <uncertainty axis="d2" side="right">+0.6</uncertainty>
+    <uncertainty axis="d3" side="left">-0.8</uncertainty>
+    <uncertainty axis="d3" side="right">+0.9</uncertainty>
+    <uncertainty axis="d4" side="left">-1.0</uncertainty>
+    <uncertainty axis="d4" side="right">+1.1</uncertainty>
+    <correlation entry="d1d2">-0.30</correlation>
+    <correlation entry="d1d3">+0.04</correlation>
+    <correlation entry="d1d4">-0.20</correlation>
+    <correlation entry="d2d3">0.</correlation>
+    <correlation entry="d2d4">+0.04</correlation>
+    <correlation entry="d3d4">-0.10</correlation>
+  </param>
+</expmu>
