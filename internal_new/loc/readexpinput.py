@@ -126,21 +126,20 @@ class ReadExpInput:
         allowed_decays = ["gammagamma", "ZZ", "WW", "Zgamma",
                           "tautau", "bb", "cc", "mumu", "invisible", "gg"]
 
-        mandatory_attribs = {"dim":["1", "2"],
-                             "type":["n", "vn", "p", "f"]}  
+        mandatory_attribs = {"type":["n", "vn", "p", "f"]}  
                              # types vn and p added for variable Gaussian and Poisson fits
 
         optional_attribs = {"decay": allowed_decays}
 
         for mandatory_attrib, allowed_values in mandatory_attribs.items():
             if mandatory_attrib not in root.attrib:
-                # if "dim" or "type" not in attribute
+                # if "type" not in attribute
                 raise ExpInputError(self.filepath,
                                     'mandatory attribute of root tag "' +
                                     mandatory_attrib + '" is not present.')
             
             if root.attrib[mandatory_attrib] not in allowed_values:
-                # if dim="3" or type="z" for instance
+                # if type="z" for instance
                 raise ExpInputError(self.filepath,
                                     'mandatory attribute of root tag "' +
                                     mandatory_attrib + '" has value "' +
@@ -149,6 +148,9 @@ class ReadExpInput:
                                    str(allowed_values))
 
         dim = int(root.attrib["dim"])
+        if dim <= 0: 
+            raise ExpInputError(self.filepath,
+                                    'attribute dim is non-positive.')
         type = root.attrib["type"]
 
         decay = "mixture"
@@ -258,7 +260,7 @@ class ReadExpInput:
                                             'value of <eff> tag with axis="' + axis_label +
                                             '" and prod="' + prod_label + '" and decay="' + decay_label + '" is not a number')
 
-        else: # 2D signal strength
+        elif dim == 2: # 2D signal strength
             eff = {"x": {}, "y": {}}
 
             mandatory_attribs = {"axis": ["x", "y"],
@@ -313,6 +315,67 @@ class ReadExpInput:
                                             'value of <eff> tag with axis="' + axis_label +
                                             '" and prod="' + prod_label + '" and decay="' + decay_label + '" is not a number')
 
+        elif dim >= 3:
+            eff = {"d1": {}, "d2": {}, "d3": {}}
+            axis_attribs = ["d1", "d2", "d3"]
+            for i in range(4,dim+1):
+                d = "d" + str(i)
+                eff.update({d: {}})
+                axis_attribs.append(d)
+            prod_attribs = ["ggH", "VVH", "VBF", "VH", "WH", "ZH", "ttH"]
+            mandatory_attribs = {"axis": axis_attribs, "prod": prod_attribs}
+
+            if decay == "mixture":
+                mandatory_attribs["decay"] = allowed_decays
+
+            for child in root:
+		if child.tag=="sqrts":
+                        sqrts = child.text
+			if sqrts not in ["1.96","7","8","7.","8.","7.0","8.0","7+8","13","13.","13.0"]:
+				self.warning("sqrt(s) of experimental input is not a Tevatron (1.96) or 7,8,13 TeV LHC result."+
+				" Lilith will use automatically the 13 TeV form factors and cross sections if needed.")
+                if child.tag == "eff":
+                    for mandatory_attrib, allowed_values in mandatory_attribs.items():
+                        if mandatory_attrib not in child.attrib:
+                            # if "axis" or "prod" not in attribute
+                            raise ExpInputError(self.filepath,
+                                                'mandatory attribute of <eff> tag "' +
+                                                mandatory_attrib + '" is not present.')
+                        if child.attrib[mandatory_attrib] not in allowed_values:
+                            # if axis="z" or prod="yy"
+                            raise ExpInputError(self.filepath,
+                                                'mandatory attribute of <eff> tag "' +
+                                                mandatory_attrib + '" has value "' +
+                                                child.attrib[mandatory_attrib] + '" which is unknown. Allowed values are : ' + str(allowed_values))
+
+                        axis_label = child.attrib["axis"]
+                        prod_label = child.attrib["prod"]
+                        if decay == "mixture":
+                            decay_label = child.attrib["decay"]
+                        else:
+                            decay_label = decay
+
+
+                    if (prod_label,decay_label) in eff[axis_label]:
+                        self.warning('<eff> tag with axis="' + axis_label +
+                                     '", prod="' + prod_label +
+                                     '" and decay="' +decay_label +
+                                     '" is being redefined.')
+                        
+                    try:
+                        eff[axis_label][prod_label,decay_label] = float(child.text)
+                    except TypeError: # empty tag is of type NULL
+                        self.warning('<eff> tag for axis="' + axis_label +
+                                     '", prod="' + prod_label + '" and decay="' +
+                                     decay_label + '" is empty; setting to ' +
+                                     'default value of 0')
+                        eff[axis_label][prod_label,decay_label] = 0.
+                    except ValueError:
+                        raise ExpInputError(self.filepath,
+                                            'value of <eff> tag with axis="' + axis_label +
+                                            '" and prod="' + prod_label + '" and decay="' + decay_label + '" is not a number')
+
+
 	if sqrts in ["1.96","7","8","7.","8.","7.0","8.0","7+8"]:
 	  self.eff_VVH = BR_SM.geteffVVHfunctions(8)
 	else:
@@ -328,27 +391,42 @@ class ReadExpInput:
 
         multiprod = {"VH": {"WH": effWH, "ZH": effZH}, "VVH": {"VBF": effVBF, "WH": effVWH, "ZH": effVZH}}
         
-	self.check_multiprod(eff["x"], multiprod)
-        if dim == 2:
+        if dim == 1:
+	    self.check_multiprod(eff["x"], multiprod)
+        elif dim == 2:
+	    self.check_multiprod(eff["x"], multiprod)
             self.check_multiprod(eff["y"], multiprod)
+        elif dim >= 3:
+            for i in range(1,dim+1):
+                self.check_multiprod(eff["d"+str(i)], multiprod)
 
         # now all reduced couplings have been properly defined, one can
         # delete all multiparticle labels
-        effCleanX = eff["x"].copy()
-        for (p,decay) in eff["x"]:
-            if p in multiprod:
-                del effCleanX[p,decay]
-
-        if dim == 2:
+        if dim == 1:
+            effCleanX = eff["x"].copy()
+            for (p,decay) in eff["x"]:
+                if p in multiprod:
+                    del effCleanX[p,decay]
+            eff["x"] = effCleanX
+        elif dim == 2:
+            effCleanX = eff["x"].copy()
+            for (p,decay) in eff["x"]:
+                if p in multiprod:
+                    del effCleanX[p,decay]
             effCleanY = eff["y"].copy()
-
             for (p,decay) in eff["y"]:
                 if p in multiprod:
                     del effCleanY[p,decay]
-
-        eff["x"] = effCleanX
-        if dim == 2:
+            eff["x"] = effCleanX
             eff["y"] = effCleanY
+        elif dim >= 3:
+            for i in range(1,dim+1):
+                d = "d" + str(i)
+                effCleanD = eff[d].copy()
+                for (p,decay) in eff[d]:
+                    if p in multiprod:
+                        del effCleanD[p,decay]
+                eff[d] = effCleanD
 
         # check that efficiencies add up to 1, otherwise issue a warning
         # or an error
@@ -424,6 +502,30 @@ class ReadExpInput:
                         else:
                             raise ExpInputError(self.filepath,
                                                 "subtag in bestfit not known")
+                elif dim >= 3:
+                    bestfit_allowedsubtags = ["d1", "d2", "d3"]
+                    for i in range(4,dim+1):
+                        bestfit_allowedsubtags.append("d"+str(i))
+                
+                    for bfit in child:
+                        if bfit.tag in bestfit_allowedsubtags:
+                            
+                            if bfit.tag in bestfit:
+                                self.warning("redefinition of the bestfit...")
+                        
+                            try:
+                                bestfit[bfit.tag] = float(bfit.text)
+                            except TypeError: # empty tag is of type NULL
+                                self.warning('<' + bfit.tag + '> tag in ' +
+                                             '<bestfit> block is empty; ' +
+                                             'setting to 0')
+                                bestfit[bfit.tag] = 0.
+                            except ValueError:
+                                raise ExpInputError(self.filepath,
+                                                    "value of <besfit> tag is not a number")
+                        else:
+                            raise ExpInputError(self.filepath,
+                                                "subtag in bestfit not known")
                     
                 if dim == 1 and "x" not in bestfit:
                     raise ExpInputError(self.filepath,
@@ -431,6 +533,11 @@ class ReadExpInput:
                 if dim == 2 and ("x" not in bestfit or "y" not in bestfit):
                     raise ExpInputError(self.filepath,
                                         "best fit point should be specified for x and y.")
+                if dim >= 3:
+                    for i in range(dim):
+                        if (bestfit_allowedsubtags[i] not in bestfit):
+                            raise ExpInputError(self.filepath,
+                                        "best fit point should be specified for "+bestfit_allowedsubtags[i])
         
         # then, read the param...
         param = {}
@@ -442,16 +549,24 @@ class ReadExpInput:
 
         param["uncertainty"] = {}
         # aded by LDN for data file with Variable Gaussian fit
-        param["uncertainty"]["x"] = {}
-        param["uncertainty"]["y"] = {}
-        param["gamma"] = {}
-        param["gamma"]["x"] = {}
-        param["gamma"]["y"] = {}
-        param["nu"] = {}
-        param["nu"]["x"] = {}
-        param["nu"]["y"] = {}
-        param["A_corr"] = {}
-        param["alpha_corr"] = {}
+        if dim == 2:
+            param["uncertainty"]["x"] = {}
+            param["uncertainty"]["y"] = {}
+        elif dim >= 3:
+            axis_allowedtags = []
+            for i in range(1,dim+1):
+                d = "d" + str(i)
+                axis_allowedtags.append(d)
+                param["uncertainty"][d] = {}
+            param["correlation"] = {}
+            corr_allowedtags = []
+            for i in range(1,dim+1):
+                for j in range(i+1,dim+1):
+                    dd = "d" + str(i) + "d" + str(j)
+                    corr_allowedtags.append(dd)
+        if type == "p" and dim == 2:
+            param["gamma"] = {}
+            param["nu"] = {}
         # end of additions
 
         for child in param_tag:
@@ -551,16 +666,63 @@ class ReadExpInput:
 
                 if child.tag == "correlation":
                     try:
-                        unc_value = float(child.text)
+                        corr_value = float(child.text)
                     except TypeError: # empty tag is of type NULL
                         self.warning('<correlation> tag is empty; ' +
                                          'setting to 0')
-                        unc_value = 0.
+                        corr_value = 0.
                     except ValueError:
                         raise ExpInputError(self.filepath,
                                          "value of <correlation> tag is not a number")
 
-                    param[child.tag] = unc_value
+                    param[child.tag] = corr_value
+            elif dim >= 3:
+# Ninh working
+                allowed_tags = ["uncertainty", "correlation"]
+                if child.tag not in allowed_tags:
+                    raise ExpInputError(self.filepath,
+                                        "only allowed tags are <uncertainty> and <correlation> in " +
+                                        "block param in 2D variable normal mode")
+
+                if child.tag == "uncertainty":
+                    if child.attrib["axis"] not in axis_allowedtags:
+                        raise ExpInputError(self.filepath,
+                                         "axis attribute of uncertainty is not correct")
+                    elif child.attrib["side"] not in ["left", "right"]:
+                        raise ExpInputError(self.filepath,
+                                         "side attribute of uncertainty is not left nor right")
+                    else:
+                        try:
+                            unc_value = float(child.text)
+                        except TypeError: # empty tag is of type NULL
+                            self.warning('<uncertainty> tag is empty; ' +
+                                         'setting to 0')
+                            unc_value = 0.
+                        except ValueError:
+                            raise ExpInputError(self.filepath,
+                                         "value of <uncertainty> tag is not a number")
+
+                        axis_label = child.attrib["axis"]
+                        side_label = child.attrib["side"]
+                        param[child.tag][axis_label][side_label] = unc_value
+
+                if child.tag == "correlation":
+                    if child.attrib["entry"] not in corr_allowedtags:
+                        raise ExpInputError(self.filepath,
+                                         "entry attribute of correlation is not correct")
+                    else:
+                        try:
+                            corr_value = float(child.text)
+                        except TypeError: # empty tag is of type NULL
+                            self.warning('<correlation> tag is empty; ' +
+                                         'setting to 0')
+                            corr_value = 0.
+                        except ValueError:
+                            raise ExpInputError(self.filepath,
+                                         "value of <correlation> tag is not a number")
+
+                        entry_label = child.attrib["entry"]
+                        param[child.tag][entry_label] = corr_value
         # end LDN add
 
         # added by LDN 
@@ -585,6 +747,34 @@ class ReadExpInput:
 
             param["A_corr"] = fsolve(f_Poisson_corr,0,args=(p,param["nu"]["x"],param["nu"]["y"]))[0]
             param["alpha_corr"] = np.log(1+param["A_corr"])
+
+        if dim >= 3:
+# define the correlation matrix:
+            corr_m = np.array([[1., param["correlation"]["d1d2"], param["correlation"]["d1d3"]],
+                               [param["correlation"]["d1d2"],  1, param["correlation"]["d2d3"]],
+                               [param["correlation"]["d1d3"], param["correlation"]["d2d3"],  1]])
+            unc_right = np.array([[param["uncertainty"]["d1"]["right"],param["uncertainty"]["d2"]["right"],param["uncertainty"]["d3"]["right"]]])
+            unc_left = np.array([[param["uncertainty"]["d1"]["left"],param["uncertainty"]["d2"]["left"],param["uncertainty"]["d3"]["left"]]])
+            for i in range(4,dim+1):
+                unc_right = np.append(unc_right,[[param["uncertainty"][axis_allowedtags[i-1]]["right"]]],axis=1)
+                unc_left = np.append(unc_left,[[param["uncertainty"][axis_allowedtags[i-1]]["left"]]],axis=1)
+                col = np.array([[]])
+                for j in range(1,i):
+                    r = "d" + str(j)
+                    col = np.append(col,[[param["correlation"][r+axis_allowedtags[i-1]]]],axis=1)
+                row = np.append(col,[[1.]],axis=1) 
+                corr_m = np.concatenate((corr_m,col.T),axis=1)
+                corr_m = np.concatenate((corr_m,row),axis=0)
+
+            if type == "n":
+                unc_sym = (unc_right + abs(unc_left))/2  # need symmetric errors
+                cov_m = unc_sym*corr_m*unc_sym.T
+                inv_cov_m = np.linalg.inv(cov_m)
+                param["inv_cov_m"] = inv_cov_m
+            elif type == "vn":
+                param["VGau"] = unc_right*abs(unc_left)
+                param["VGau_prime"] = unc_right - abs(unc_left)
+                param["corr_m"] = corr_m
         # end LDN add
 
         # check that everything is there
@@ -625,6 +815,11 @@ class ReadExpInput:
             if (abs(param["correlation"]) == 1):
                 raise ExpInputError(self.filepath,
                                     "correlation is (minus) unity, cannot handle this case")
+        elif dim >= 3:  # added by LDN
+            if ("uncertainty" not in param or
+                "correlation" not in param):
+                raise ExpInputError(self.filepath,
+                             "uncertainty or correlation tags are not given in block param")
 
         # or the grid
         grid = {}

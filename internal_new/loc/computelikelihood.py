@@ -36,18 +36,33 @@ def compute_likelihood(exp_mu, user_mu):
         # compute user mu value scaled to efficiencies
         user_mu_effscaled = {}
         try:
-            user_mu_effscaled["x"] = 0.
-            for (prod,decay),eff_prod in mu["eff"]["x"].items():
-		if mu["sqrts"] not in ["1.96","7","8","7.","8.","7.0","8.0","7+8"] and (prod == "ggH" or prod == "VBF"):
-		     prod == prod + "13"
-                user_mu_effscaled["x"] += eff_prod*user_mu[prod,decay]
+            if mu["dim"] == 1:
+                user_mu_effscaled["x"] = 0.
+                for (prod,decay),eff_prod in mu["eff"]["x"].items():
+		    if mu["sqrts"] not in ["1.96","7","8","7.","8.","7.0","8.0","7+8"] and (prod == "ggH" or prod == "VBF"):
+		        prod == prod + "13"
+                    user_mu_effscaled["x"] += eff_prod*user_mu[prod,decay]
+            elif mu["dim"] == 2:
+                user_mu_effscaled["x"] = 0.
+                for (prod,decay),eff_prod in mu["eff"]["x"].items():
+		    if mu["sqrts"] not in ["1.96","7","8","7.","8.","7.0","8.0","7+8"] and (prod == "ggH" or prod == "VBF"):
+		        prod == prod + "13"
+                    user_mu_effscaled["x"] += eff_prod*user_mu[prod,decay]
 
-            if mu["dim"] == 2:
                 user_mu_effscaled["y"] = 0.
                 for (prod,decay),eff_prod in mu["eff"]["y"].items():
 		    if mu["sqrts"] not in ["1.96","7","8","7.","7.0","8.0","8.","7+8"] and (prod == "ggH" or prod == "VBF"):
-                         prod == prod + "13"
+                        prod == prod + "13"
                     user_mu_effscaled["y"] += eff_prod*user_mu[prod,decay]
+            elif mu["dim"] >= 3:
+                for i in range(1,mu["dim"]+1):
+                    d = "d" + str(i)
+                    user_mu_effscaled[d] = 0.
+                    for (prod,decay),eff_prod in mu["eff"][d].items():
+		        if mu["sqrts"] not in ["1.96","7","8","7.","8.","7.0","8.0","7+8"] and (prod == "ggH" or prod == "VBF"):
+		            prod == prod + "13"
+                        user_mu_effscaled[d] += eff_prod*user_mu[prod,decay]
+
         except KeyError as s:
             if "s" in ["eff", "x", "y"]:
                 # the experimental mu dictionnary is not filled correctly
@@ -79,6 +94,16 @@ def compute_likelihood(exp_mu, user_mu):
                     cur_l += c*(mu["bestfit"]["y"] - user_mu_effscaled["y"])**2
                     cur_l += (2*b*(mu["bestfit"]["x"] - user_mu_effscaled["x"])
                              * (mu["bestfit"]["y"] - user_mu_effscaled["y"]))
+
+                elif mu["dim"] >= 3:
+                    mu_vec = np.array([user_mu_effscaled["d1"] - mu["bestfit"]["d1"],
+                                       user_mu_effscaled["d2"] - mu["bestfit"]["d2"],
+                                       user_mu_effscaled["d3"] - mu["bestfit"]["d3"]])
+                    for i in range(4,mu["dim"]+1):
+                        d = "d"+str(i)
+                        mu_vec = np.append(mu_vec,[user_mu_effscaled[d] - mu["bestfit"][d]])
+
+                    cur_l = mu["param"]["inv_cov_m"].dot(mu_vec).dot(mu_vec.T)
 
             # likelihood computation in case of a type="variable normal"
             # following "Variable Gaussian 2", Barlow arXiv:physics/0406120v1, Eq. 18
@@ -115,6 +140,18 @@ def compute_likelihood(exp_mu, user_mu):
                     V1f = V1 + V1e*(z1-z10)
                     V2f = V2 + V2e*(z2-z20)
                     cur_l = 1.0/(1-p**2)*((z1-z10)**2/V1f-2*p*(z1-z10)*(z2-z20)/np.sqrt(V1f*V2f)+(z2-z20)**2/V2f)
+                elif mu["dim"] >= 3:
+                    mu_vec = np.array([user_mu_effscaled["d1"] - mu["bestfit"]["d1"],
+                                       user_mu_effscaled["d2"] - mu["bestfit"]["d2"],
+                                       user_mu_effscaled["d3"] - mu["bestfit"]["d3"]])
+                    for i in range(4,mu["dim"]+1):
+                        d = "d"+str(i)
+                        mu_vec = np.append(mu_vec,[user_mu_effscaled[d] - mu["bestfit"][d]])
+
+                    unc_sym = np.sqrt(mu["param"]["VGau"] + mu["param"]["VGau_prime"]*mu_vec)
+                    cov_m = unc_sym*mu["param"]["corr_m"]*unc_sym.T
+                    inv_cov_m = np.linalg.inv(cov_m)
+                    cur_l = inv_cov_m.dot(mu_vec).dot(mu_vec.T)
 
             # likelihood computation in case of a type="Poisson"
             # following "Generalised Poisson" of Barlow, arXiv:physics/0406120v1, Eq. 10a
