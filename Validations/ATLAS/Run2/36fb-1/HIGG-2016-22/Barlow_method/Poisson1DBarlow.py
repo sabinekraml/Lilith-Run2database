@@ -30,7 +30,7 @@ plt.plot(x,y,'.',markersize=3, color = 'blue',label="Observed")
 #ggF
 cen1, sig1m, sig1p = 1.11+0.01, np.sqrt(0.2**2 + 0.06**2 + 0.04**2)+0.01, np.sqrt(0.22**2+0.07**2+0.04**2)+0.01
 #VBF
-cen2, sig2m, sig2p = 4.0-0.1, np.sqrt(1.4**2 + 2*0.3**2), np.sqrt(1.7**2 + 2*0.3**2)
+cen1, sig1m, sig1p = 4.0-0.1, np.sqrt(1.4**2 + 2*0.3**2), np.sqrt(1.7**2 + 2*0.3**2)
 
 
 def f(t):
@@ -48,6 +48,7 @@ gam = A
 L = 1/(2*(gam*sig1p - np.log(1 + gam*sig1p)))
 alpha = L*gam
 
+print(alpha,L)
 # Choose VBF - ggH
 # x = np.arange(0.2,8.1,0.005)
 # y2 = -2*(-alpha*(x - cen2) + L*np.log(1 + alpha*(x - cen2)/L))
@@ -70,4 +71,4 @@ fig.set_tight_layout(True)
 
 # Choose VBF - ggH
 # fig.savefig('mu_VBF_1D_Poisson.pdf')
-fig.savefig('mu_ggF_1D_Poisson-fixed.pdf')
+# fig.savefig('mu_ggF_1D_Poisson-fixed.pdf')

@@ -1,10 +1,10 @@
 # Poisson_VBF_2D
 
-#CMS\Run2\HIG-16-040_ttH_gammagamma_ps.xml
-#CMS\Run2\HIG-16-040_VH_gammagamma_ps.xml
-#CMS\Run2\HIG-16-040_ggH-VBF_gammagamma_p68.xml
+#data_final\CMS\Run2\36fb-1\HIG-16-040_ttH_gammagamma_ps.xml
+#data_final\CMS\Run2\36fb-1\HIG-16-040_VH_gammagamma_ps.xml
+#data_final\CMS\Run2\36fb-1\HIG-16-040_ggH-VBF_gammagamma_p68.xml
 
 # Poisson_VVH-fix_2D
 
-#CMS\Run2\HIG-16-040_ttH_gammagamma_ps.xml
-#CMS\Run2\HIG-16-040_ggH-VVH_gammagamma_vn68.xml
+#data_final\CMS\Run2\36fb-1\HIG-16-040_ttH_gammagamma_ps.xml
+#data_final\CMS\Run2\36fb-1\HIG-16-040_ggH-VVH_gammagamma_vn68.xml

@@ -1,0 +1,21 @@
+<!--
+CMS result for mu(ttH, gammagamma) at mH = 125 GeV in CMS-HIG-16-040 Fig. 17
+http://cms-results.web.cern.ch/cms-results/public-results/publications/HIG-16-040/
+-->
+
+<expmu decay="gammagamma" dim="1" type="p">
+  <experiment>CMS</experiment>
+  <source type="published">HIG-16-040</source>
+  <sqrts>13</sqrts>
+  <mass>125</mass>
+
+
+  <eff prod="ttH">1.0</eff>
+
+  <bestfit>2.2</bestfit>
+  
+  <param>
+    <uncertainty side="left">-0.8</uncertainty>
+    <uncertainty side="right">0.9</uncertainty>
+  </param>
+</expmu>

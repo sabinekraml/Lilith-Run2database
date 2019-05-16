@@ -1,7 +1,8 @@
 <!--
-parametrization of a 2D Gaussian fitted from the 95% CL contour
-in the plane mu(gg+ttH, gamma gamma) vs. mu(VBF+VH, gamma gamma)
-with profiled Higgs mass 125 GeV, shown in CMS-HIG-16-040 Fig. 19 
+parametrization using Variable Gaussian distribution from 2D grids
+for mu(gg, gammagamma) vs. mu(VBF+VH, gammagamma) from Fig. 19, 95% CL
+at profiled mH = 125 GeV, shown in CMS-HIG-16-040.
+The best fit for ggH is shifted to the value 1.10 given in Fig. 17
 http://cms-results.web.cern.ch/cms-results/public-results/publications/HIG-16-040/
 -->
 

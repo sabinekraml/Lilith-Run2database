@@ -1,0 +1,20 @@
+<!--
+CMS result for mu(VBF, gamma gamma) at mH = 125 GeV
+http://cms-results.web.cern.ch/cms-results/public-results/publications/HIG-16-040/
+-->
+
+<expmu decay="gammagamma" dim="1" type="ns">
+  <experiment>CMS</experiment>
+  <source type="preliminary">HIG-16-040</source>
+  <sqrts>13</sqrts>
+  <mass>125</mass>
+
+
+  <eff prod="VBF">1.</eff>
+
+  <bestfit>0.8</bestfit>
+  <alpha>6.66113151024</alpha>
+  <nu>13.3664808776</nu>
+    
+    <!-- if not needed, just <uncertainty></uncertainty> -->
+</expmu>
