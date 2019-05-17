@@ -1,7 +1,19 @@
-# CMS 
+## CMS 
 
-# Combined
+ # Combined
 data_final\CMS\Run2\36fb-1\HIG-17-031_combined_vn_dim24.xml
 
-# H -> gaga
+ # H -> gaga
 data_final\CMS\Run2\36fb-1\HIG-17-031_ggH-VBF-WH-ZH-ttH_gammagamma_vn_dim5.xml
+
+ # H -> bb
+data_final\CMS\Run2\36fb-1\HIG-17-031_ggH-WH-ZH-ttH_bb_vn_dim4.xml
+
+ # H -> WW
+data_final\CMS\Run2\36fb-1\HIG-17-031_ggH-VBF-WH-ZH-ttH_WW_vn_dim5.xml
+
+ # H -> tautau
+data_final\CMS\Run2\36fb-1\HIG-17-031_ggH-VBF-ttH_tautau_vn_dim3.xml
+
+ # H -> ZZ
+data_final\CMS\Run2\36fb-1\HIG-17-031_ggH-VBF-WH-ZH-ttH_ZZ_vn_dim5.xml
