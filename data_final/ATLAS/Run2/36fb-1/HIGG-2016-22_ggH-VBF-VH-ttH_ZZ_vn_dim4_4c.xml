@@ -1,0 +1,45 @@
+<!--
+data from Table 9 and Auxiliary Figure 4a at
+https://atlas.web.cern.ch/Atlas/GROUPS/PHYSICS/PAPERS/HIGG-2016-22/
+-->
+
+<expmu dim="4" type="vn">
+  <experiment>ATLAS</experiment>
+  <source type="published">HIG-17-031</source>
+  <sqrts>13</sqrts>
+  <mass>125.09</mass>
+  <CL>68%</CL> <!-- optional -->
+
+  <eff axis="d1" prod="ggH" decay="bb">1.0</eff>
+  <eff axis="d2" prod="VBF" decay="bb">1.0</eff>
+  <eff axis="d3" prod="VH" decay="bb">1.0</eff>
+  <eff axis="d4" prod="ttH" decay="bb">1.0</eff>
+
+  <bestfit>
+  	<d1>1.11</d1>
+	<d2>4</d2>
+	<d3>0</d3>
+	<d4>0</d4>
+  </bestfit>
+ 
+  <param>
+    <uncertainty axis="d1" side="left">-0.2088</uncertainty>
+    <uncertainty axis="d1" side="right">+0.2309</uncertainty>
+    <uncertainty axis="d2" side="left">-1.4629</uncertainty>
+    <uncertainty axis="d2" side="right">+1.7521</uncertainty>
+    <uncertainty axis="d3" side="left">0</uncertainty>
+    <uncertainty axis="d3" side="right">+0.925</uncertainty>
+    <uncertainty axis="d4" side="left">0</uncertainty>
+    <uncertainty axis="d4" side="right">+1.875</uncertainty>
+    
+    
+	<correlation entry="d1d2">-0.41</correlation>
+    <correlation entry="d1d3">0</correlation>
+    <correlation entry="d1d4">0</correlation>
+    
+	<correlation entry="d2d3">0</correlation>
+    <correlation entry="d2d4">0</correlation>
+    
+    <correlation entry="d3d4">0</correlation>
+  </param>
+</expmu>
