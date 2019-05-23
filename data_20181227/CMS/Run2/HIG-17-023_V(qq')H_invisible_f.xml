@@ -1,14 +1,14 @@
 <!--
-CMS result for mu(qqH, invisible) at mH = 125 GeV
-extracted from Combination-DeltaLogL.pdf figure from
+CMS result for mu(qqH, invisible) at mH = 125.09 GeV
+extracted from Figure 8b and Table 6 from
 http://cms-results.web.cern.ch/cms-results/public-results/publications/HIG-17-023/
 -->
 
 <expmu decay="invisible" dim="1" type="f">
   <experiment>CMS</experiment>
-  <source type="preliminary">CMS-HIG-17-023</source>
+  <source type="published">CMS-HIG-17-023</source>
   <sqrts>13</sqrts>
-  <mass>125</mass>
+  <mass>125.09</mass>
 
   <eff prod="ggH">0.39</eff>
   <eff prod="VBF">0.06</eff>
@@ -16,8 +16,8 @@ http://cms-results.web.cern.ch/cms-results/public-results/publications/HIG-17-02
   <eff prod="ZH">0.22</eff>
 
   <grid>
-0.023560846	0
-0.029689186	2.68312E-05
+0.023560846     0
+0.029689186     2.68312E-05
 0.034610405	0.001739116
 0.03884644	0.001739116
 0.044398427	0.001739116
