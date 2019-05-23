@@ -1,5 +1,5 @@
 <!--
-data from Table 3 and Additional Figure 1 at
+Data from Table 3 and Additional Figure 1 at
 http://cms-results.web.cern.ch/cms-results/public-results/publications/HIG-17-031/
 -->
 
@@ -95,15 +95,15 @@ http://cms-results.web.cern.ch/cms-results/public-results/publications/HIG-17-03
     <uncertainty axis="d11" side="right">+7.12</uncertainty>
     <uncertainty axis="d12" side="left">-1.35</uncertainty>
     <uncertainty axis="d12" side="right">+1.48</uncertainty>
-    <uncertainty axis="d13" side="left">-0</uncertainty>
+    <uncertainty axis="d13" side="left">1e-5</uncertainty>
     <uncertainty axis="d13" side="right">+2.33</uncertainty>
     <uncertainty axis="d14" side="left">-2.01</uncertainty>
     <uncertainty axis="d14" side="right">+2.26</uncertainty>
     <uncertainty axis="d15" side="left">-0.68</uncertainty>
     <uncertainty axis="d15" side="right">+0.70</uncertainty>
-    <uncertainty axis="d16" side="left">-0</uncertainty>
+    <uncertainty axis="d16" side="left">1e-6</uncertainty>
     <uncertainty axis="d16" side="right">+1.14</uncertainty>
-    <uncertainty axis="d17" side="left">-0.0</uncertainty>
+    <uncertainty axis="d17" side="left">1e-6</uncertainty>
     <uncertainty axis="d17" side="right">+4.26</uncertainty>
     <uncertainty axis="d18" side="left">-1.46</uncertainty>
     <uncertainty axis="d18" side="right">+1.81</uncertainty>	
@@ -111,7 +111,7 @@ http://cms-results.web.cern.ch/cms-results/public-results/publications/HIG-17-03
     <uncertainty axis="d19" side="right">+0.47</uncertainty>
     <uncertainty axis="d20" side="left">-0.75</uncertainty>
     <uncertainty axis="d20" side="right">+0.88</uncertainty>
-    <uncertainty axis="d21" side="left">-0</uncertainty>
+    <uncertainty axis="d21" side="left">1e-6</uncertainty>
     <uncertainty axis="d21" side="right">+1.50</uncertainty>
     <uncertainty axis="d22" side="left">-0.59</uncertainty>
     <uncertainty axis="d22" side="right">+0.65</uncertainty>
