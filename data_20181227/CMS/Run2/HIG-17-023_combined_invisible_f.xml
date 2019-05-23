@@ -6,14 +6,14 @@ http://cms-results.web.cern.ch/cms-results/public-results/publications/HIG-17-02
 
 <expmu decay="invisible" dim="1" type="f">
   <experiment>CMS</experiment>
-  <source type="preliminary">CMS-HIG-17-023</source>
+  <source type="published">CMS-HIG-17-023</source>
   <sqrts>13</sqrts>
-  <mass>125</mass>
+  <mass>125.09</mass>
 
-  <eff prod="VBF">0.148571429</eff>  
-  <eff prod="ggH">0.466349206</eff>  
-  <eff prod="WH">0.104761905</eff>  
-  <eff prod="ZH">0.28031746</eff>
+  <eff prod="VBF">0.15</eff>  
+  <eff prod="ggH">0.47</eff>  
+  <eff prod="WH">0.10</eff>  
+  <eff prod="ZH">0.28</eff>
 
   <grid>
 0.014802504	0.355447922
