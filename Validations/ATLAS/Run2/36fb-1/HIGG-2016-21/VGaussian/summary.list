@@ -45,7 +45,7 @@ data_final\ATLAS\Run2\36fb-1\HIGG-2016-21_ttH_gammagamma_ps.xml
  Use Poisson to fit uncertainties and correlation from 68% CL Fig. 15, 68CL
  (0.812281569, 0.182520488916, 0.174513582574, 2.055330645, 0.63533091591, 0.539370627919), corr = -0.236991337339
  
- 10/ data_final\ATLAS\Run2\36fb-1\ -> HIGG-2016-21-CVCF-Poisson-fit1d-Poisson-AuxFig23-fitted-corr.pdf
+ 10/ data_final\ATLAS\Run2\36fb-1\HIGG-2016-21_ggH-VBF_gammagamma_p68-fit-1d-corr.xml -> HIGG-2016-21-CVCF-Poisson-fit1d-Poisson-AuxFig23-fitted-corr.pdf
  Use Poisson to fit uncertainties from Aux. Fig. 23, then use these uncertainties to fit the corr. in Fig.15, 95CL 
  (0.809361060171, 0.186957153857, 0.176141692478, 2.03669874783, 0.606157414018, 0.526259988038), corr = -0.229487859158
  
