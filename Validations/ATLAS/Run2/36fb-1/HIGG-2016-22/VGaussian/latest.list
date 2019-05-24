@@ -1,78 +1,78 @@
 ##  1/ For 4D data:
   
 #  1.1/ HIGG_2016-22-CVCF-VGaussian-4a.pdf
-data_20181227\ATLAS\Run2\36fb\HIGG-2016-22_ggH-VBF-VH-ttH_ZZ_vn_dim4_4a.xml
+data_final\ATLAS\Run2\36fb-1\HIGG-2016-22_ggH-VBF-VH-ttH_ZZ_vn_dim4_4a.xml
   
 #  1.2/ HIGG_2016-22-CVCF-VGaussian-4c.pdf
-data_20181227\ATLAS\Run2\36fb\HIGG-2016-22_ggH-VBF-VH-ttH_ZZ_vn_dim4_4c.xml
+data_final\ATLAS\Run2\36fb-1\HIGG-2016-22_ggH-VBF-VH-ttH_ZZ_vn_dim4_4c.xml
 	
 #  1.3/ HIGG_2016-22-CVCF-VGaussian-4a-fitted.pdf
-data_20181227\ATLAS\Run2\36fb\HIGG-2016-22_ggH-VBF-VH-ttH_ZZ_vn_dim4_4a-fitted.xml
+data_final\ATLAS\Run2\36fb-1\HIGG-2016-22_ggH-VBF-VH-ttH_ZZ_vn_dim4_4a-fitted.xml
 
 #  1.4/ HIGG_2016-22-CVCF-VGaussian-4c-fitted.pdf
-data_20181227\ATLAS\Run2\36fb\HIGG-2016-22_ggH-VBF-VH-ttH_ZZ_vn_dim4_4c-fitted.xml
+data_final\ATLAS\Run2\36fb-1\HIGG-2016-22_ggH-VBF-VH-ttH_ZZ_vn_dim4_4c-fitted.xml
  
 ##  2/ For 2D data of ggH-VBF fitted from Figure 8a:
 
 #  2.1/ HIGG_2016-22-CVCF-VGaussian-68CL-1d-Gaussian.pdf
-data_20181227\ATLAS\Run2\36fb\HIGG-2016-22_ggH-VBF_ZZ_vn68_fit-2d-68CL.xml
-data_20181227\ATLAS\Run2\36fb\HIGG-2016-22_ttH_ZZ_s.xml
-data_20181227\ATLAS\Run2\36fb\HIGG-2016-22_VH_ZZ_s.xml
+data_final\ATLAS\Run2\36fb-1\HIGG-2016-22_ggH-VBF_ZZ_vn68_fit-2d-68CL.xml
+data_final\ATLAS\Run2\36fb-1\HIGG-2016-22_ttH_ZZ_s.xml
+data_final\ATLAS\Run2\36fb-1\HIGG-2016-22_VH_ZZ_s.xml
 	
 #  2.2/ HIGG_2016-22-CVCF-VGaussian-95CL-1d-Gaussian.pdf
-data_20181227\ATLAS\Run2\36fb\HIGG-2016-22_ggH-VBF_ZZ_vn68_fit-2d-95CL.xml
-data_20181227\ATLAS\Run2\36fb\HIGG-2016-22_ttH_ZZ_s.xml
-data_20181227\ATLAS\Run2\36fb\HIGG-2016-22_VH_ZZ_s.xml
+data_final\ATLAS\Run2\36fb-1\HIGG-2016-22_ggH-VBF_ZZ_vn68_fit-2d-95CL.xml
+data_final\ATLAS\Run2\36fb-1\HIGG-2016-22_ttH_ZZ_s.xml
+data_final\ATLAS\Run2\36fb-1\HIGG-2016-22_VH_ZZ_s.xml
 	
 #  2.3/ HIGG_2016-22-CVCF-VGaussian-68CL-1d-VGaussian.pdf
-data_20181227\ATLAS\Run2\36fb\HIGG-2016-22_ggH-VBF_ZZ_vn68_fit-2d-68CL.xml
-data_20181227\ATLAS\Run2\36fb\HIGG-2016-22_ttH_ZZ_vs.xml
-data_20181227\ATLAS\Run2\36fb\HIGG-2016-22_VH_ZZ_vs.xml
+data_final\ATLAS\Run2\36fb-1\HIGG-2016-22_ggH-VBF_ZZ_vn68_fit-2d-68CL.xml
+data_final\ATLAS\Run2\36fb-1\HIGG-2016-22_ttH_ZZ_vs.xml
+data_final\ATLAS\Run2\36fb-1\HIGG-2016-22_VH_ZZ_vs.xml
 	
 #  2.4/ HIGG_2016-22-CVCF-VGaussian-95CL-1d-VGaussian.pdf
-data_20181227\ATLAS\Run2\36fb\HIGG-2016-22_ggH-VBF_ZZ_vn68_fit-2d-95CL.xml
-data_20181227\ATLAS\Run2\36fb\HIGG-2016-22_ttH_ZZ_vs.xml
-data_20181227\ATLAS\Run2\36fb\HIGG-2016-22_VH_ZZ_vs.xml
+data_final\ATLAS\Run2\36fb-1\HIGG-2016-22_ggH-VBF_ZZ_vn68_fit-2d-95CL.xml
+data_final\ATLAS\Run2\36fb-1\HIGG-2016-22_ttH_ZZ_vs.xml
+data_final\ATLAS\Run2\36fb-1\HIGG-2016-22_VH_ZZ_vs.xml
 	
 #  2.5/ HIGG_2016-22-CVCF-Poisson-68CL-1d-Gaussian.pdf
-data_20181227\ATLAS\Run2\36fb\HIGG-2016-22_ggH-VBF_ZZ_p68_fit-2d-68CL.xml
-data_20181227\ATLAS\Run2\36fb\HIGG-2016-22_ttH_ZZ_s.xml
-data_20181227\ATLAS\Run2\36fb\HIGG-2016-22_VH_ZZ_s.xml
+data_final\ATLAS\Run2\36fb-1\HIGG-2016-22_ggH-VBF_ZZ_p68_fit-2d-68CL.xml
+data_final\ATLAS\Run2\36fb-1\HIGG-2016-22_ttH_ZZ_s.xml
+data_final\ATLAS\Run2\36fb-1\HIGG-2016-22_VH_ZZ_s.xml
 	
 #  2.6/ HIGG_2016-22-CVCF-Poisson-95CL-1d-Gaussian.pdf
-data_20181227\ATLAS\Run2\36fb\HIGG-2016-22_ggH-VBF_ZZ_p68_fit-2d-95CL.xml
-data_20181227\ATLAS\Run2\36fb\HIGG-2016-22_ttH_ZZ_s.xml
-data_20181227\ATLAS\Run2\36fb\HIGG-2016-22_VH_ZZ_s.xml
+data_final\ATLAS\Run2\36fb-1\HIGG-2016-22_ggH-VBF_ZZ_p68_fit-2d-95CL.xml
+data_final\ATLAS\Run2\36fb-1\HIGG-2016-22_ttH_ZZ_s.xml
+data_final\ATLAS\Run2\36fb-1\HIGG-2016-22_VH_ZZ_s.xml
 	
 #  2.7/ HIGG_2016-22-CVCF-Poisson-68CL-1d-VGaussian.pdf
-data_20181227\ATLAS\Run2\36fb\HIGG-2016-22_ggH-VBF_ZZ_p68_fit-2d-95CL.xml
-data_20181227\ATLAS\Run2\36fb\HIGG-2016-22_ttH_ZZ_vs.xml
-data_20181227\ATLAS\Run2\36fb\HIGG-2016-22_VH_ZZ_vs.xml
+data_final\ATLAS\Run2\36fb-1\HIGG-2016-22_ggH-VBF_ZZ_p68_fit-2d-95CL.xml
+data_final\ATLAS\Run2\36fb-1\HIGG-2016-22_ttH_ZZ_vs.xml
+data_final\ATLAS\Run2\36fb-1\HIGG-2016-22_VH_ZZ_vs.xml
 	
 #  2.8/ HIGG_2016-22-CVCF-Poisson-95CL-1d-VGaussian.pdf
-data_20181227\ATLAS\Run2\36fb\HIGG-2016-22_ggH-VBF_ZZ_p68_fit-2d-95CL.xml
-data_20181227\ATLAS\Run2\36fb\HIGG-2016-22_ttH_ZZ_vs.xml
-data_20181227\ATLAS\Run2\36fb\HIGG-2016-22_VH_ZZ_vs.xml
+data_final\ATLAS\Run2\36fb-1\HIGG-2016-22_ggH-VBF_ZZ_p68_fit-2d-95CL.xml
+data_final\ATLAS\Run2\36fb-1\HIGG-2016-22_ttH_ZZ_vs.xml
+data_final\ATLAS\Run2\36fb-1\HIGG-2016-22_VH_ZZ_vs.xml
 
 ##  3/ For 2D data of ggH-VBF fitted from Aux. Figure 7a, b:
 
 #  3.1/ HIGG_2016-22-CVCF-Poisson-Grids-given-corr-1d-Gaussian.pdf
-data_20181227\ATLAS\Run2\36fb\HIGG-2016-22_ggH-VBF_ZZ_p68_fit-Grids.xml
-data_20181227\ATLAS\Run2\36fb\HIGG-2016-22_ttH_ZZ_s.xml
-data_20181227\ATLAS\Run2\36fb\HIGG-2016-22_VH_ZZ_s.xml
+data_final\ATLAS\Run2\36fb-1\HIGG-2016-22_ggH-VBF_ZZ_p68_fit-Grids.xml
+data_final\ATLAS\Run2\36fb-1\HIGG-2016-22_ttH_ZZ_s.xml
+data_final\ATLAS\Run2\36fb-1\HIGG-2016-22_VH_ZZ_s.xml
   
 #  3.2/ HIGG_2016-22-CVCF-Poisson-Grids-given-corr-1d-VGaussian.pdf
-data_20181227\ATLAS\Run2\36fb\HIGG-2016-22_ggH-VBF_ZZ_p68_fit-Grids.xml
-data_20181227\ATLAS\Run2\36fb\HIGG-2016-22_ttH_ZZ_vs.xml
-data_20181227\ATLAS\Run2\36fb\HIGG-2016-22_VH_ZZ_vs.xml
+data_final\ATLAS\Run2\36fb-1\HIGG-2016-22_ggH-VBF_ZZ_p68_fit-Grids.xml
+data_final\ATLAS\Run2\36fb-1\HIGG-2016-22_ttH_ZZ_vs.xml
+data_final\ATLAS\Run2\36fb-1\HIGG-2016-22_VH_ZZ_vs.xml
 
 #  3.3/ HIGG_2016-22-CVCF-VGaussian-Grids-given-corr-1d-Gaussian.pdf
-data_20181227\ATLAS\Run2\36fb\HIGG-2016-22_ggH-VBF_ZZ_vn68_fit-Grids.xml
-data_20181227\ATLAS\Run2\36fb\HIGG-2016-22_ttH_ZZ_s.xml
-data_20181227\ATLAS\Run2\36fb\HIGG-2016-22_VH_ZZ_s.xml
+data_final\ATLAS\Run2\36fb-1\HIGG-2016-22_ggH-VBF_ZZ_vn68_fit-Grids.xml
+data_final\ATLAS\Run2\36fb-1\HIGG-2016-22_ttH_ZZ_s.xml
+data_final\ATLAS\Run2\36fb-1\HIGG-2016-22_VH_ZZ_s.xml
   
 #  3.4/ HIGG_2016-22-CVCF-VGaussian-Grids-given-corr-1d-VGaussian.pdf
-data_20181227\ATLAS\Run2\36fb\HIGG-2016-22_ggH-VBF_ZZ_vn68_fit-Grids.xml
-data_20181227\ATLAS\Run2\36fb\HIGG-2016-22_ttH_ZZ_vs.xml
-data_20181227\ATLAS\Run2\36fb\HIGG-2016-22_VH_ZZ_vs.xml
+data_final\ATLAS\Run2\36fb-1\HIGG-2016-22_ggH-VBF_ZZ_vn68_fit-Grids.xml
+data_final\ATLAS\Run2\36fb-1\HIGG-2016-22_ttH_ZZ_vs.xml
+data_final\ATLAS\Run2\36fb-1\HIGG-2016-22_VH_ZZ_vs.xml
 
