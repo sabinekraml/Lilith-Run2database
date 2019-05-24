@@ -34,6 +34,12 @@ def fit5para(xr, yr):
     # ggH
     guess = (0.81, 0.2, 0.2)
 
+    # ttH
+    # guess = (0.6, 0.2, 0.2)
+
+    # VH
+    # guess = (0.81, 0.2, 0.2)
+
     AR, pcov = optimize.curve_fit(func, xr, yr, guess)
     return AR
 
@@ -59,7 +65,7 @@ print("sig2m =", a2)
 # ggH
 x = np.arange(0.55,1.1,0.005)
 # ttH
-# x = np.arange(-0.1,30,0.005)
+# x = np.arange(-0.1,1.5,0.005)
 # VH
 # x = np.arange(-0.3,2,0.005)
 
@@ -84,6 +90,7 @@ fig.set_tight_layout(True)
 # Choose VBF - ggH - ttH - VH
 
 # fig.savefig('mu_VBF_1D_VGaussian.pdf')
-fig.savefig('mu_ggH_1D_VGaussian.pdf')
+# fig.savefig('mu_ggH_1D_VGaussian.pdf')
 # fig.savefig('mu_ttH_1D_Poisson.pdf')
 # fig.savefig('mu_VH_1D_Poisson.pdf')
+plt.show()

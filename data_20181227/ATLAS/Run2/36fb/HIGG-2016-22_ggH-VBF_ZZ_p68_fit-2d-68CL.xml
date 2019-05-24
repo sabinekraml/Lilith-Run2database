@@ -1,0 +1,30 @@
+<!--
+parametrization using Poisson distribution from 2D grids
+for mu(VBF, ZZ) and mu(ggH, ZZ) from Fig. 8a, 68%
+at mH = 125.09 GeV, shown in HIGG-2016-22 
+http://atlas.web.cern.ch/Atlas/GROUPS/PHYSICS/PAPERS/HIGG-2016-22/
+-->
+
+<expmu decay="ZZ" dim="2" type="p">
+  <experiment>ATLAS</experiment>
+  <source type="published">HIGG-2016-22</source>
+  <sqrts>13</sqrts>
+  <mass>125.09</mass>
+  <CL>68%</CL> <!-- optional -->
+
+  <eff axis="x" prod="VBF">1.0</eff>
+  <eff axis="y" prod="ggH">1.0</eff>
+
+  <bestfit>
+    <x>3.917193333</x>
+    <y>1.117641159</y>
+  </bestfit>
+ 
+  <param>
+    <uncertainty axis="x" side="left">-1.43638193872</uncertainty>
+    <uncertainty axis="x" side="right">+1.76349933521</uncertainty>
+    <uncertainty axis="y" side="left">-0.196180606947</uncertainty>
+    <uncertainty axis="y" side="right">+0.217487636545</uncertainty>
+    <correlation>-0.379183486636</correlation>
+  </param>
+</expmu>

@@ -1,0 +1,31 @@
+<!--
+ATLAS result for mu(VBF, ZZ) and mu(ggH, ZZ) with correlation 
+at mH = 125.09 GeV from HIGG-2016-22. 
+Bestfit points and uncertainties directly taken from Table 9 
+and the correlation from auxiliary Figure 4c at 
+http://atlas.web.cern.ch/Atlas/GROUPS/PHYSICS/PAPERS/HIGG-2016-22/
+-->
+
+<expmu decay="ZZ" dim="2" type="p">
+  <experiment>ATLAS</experiment>
+  <source type="published">HIGG-2016-22</source>
+  <sqrts>13</sqrts>
+  <mass>125.09</mass>
+  <CL>68%</CL> <!-- optional -->
+
+  <eff axis="x" prod="ggH">1.0</eff>
+  <eff axis="y" prod="VBF">1.0</eff>
+
+  <bestfit>
+    <x>1.11568307495</x>
+    <y>3.88420838264</y>
+  </bestfit>
+ 
+  <param>
+    <uncertainty axis="x" side="left">-0.22214487075</uncertainty>
+    <uncertainty axis="x" side="right">+0.246384207481</uncertainty>
+    <uncertainty axis="y" side="left">-1.45681189147</uncertainty>
+    <uncertainty axis="y" side="right">+1.74979113084</uncertainty>
+    <correlation>-0.41</correlation>
+  </param>
+</expmu>

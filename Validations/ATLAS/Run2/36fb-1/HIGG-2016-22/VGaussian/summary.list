@@ -1,0 +1,77 @@
+  1/ For 4D data:
+  
+  1.1/ HIGG_2016-22-CVCF-VGaussian-4a.pdf
+	Uncertainties: ggH, VBF rounded from Table 9 - ttH, VH calculated from Table 9 by VGaussian method
+	Correlation: Aux. Figure 4a
+  
+  1.2/ HIGG_2016-22-CVCF-VGaussian-4c.pdf
+	Uncertainties: ggH, VBF rounded from Table 9 - ttH, VH calculated from Table 9 by VGaussian method
+	Correlation: Aux. Figure 4c
+	
+  1.3/ HIGG_2016-22-CVCF-VGaussian-4a-fitted.pdf
+	Uncertainties: ggH, VBF fitted from Aux.Figure 7a,b by VGaussian method - ttH, VH calculated from Table 9 by VGaussian method
+	Correlation: Aux. Figure 4a
+  
+  1.4/ HIGG_2016-22-CVCF-VGaussian-4c-fitted.pdf
+	Uncertainties: ggH, VBF fitted from Aux.Figure 7a,b by VGaussian method - ttH, VH calculated from Table 9 by VGaussian method
+	Correlation: Aux. Figure 4c
+
+  2/ For 2D data of ggH-VBF fitted from Figure 8a:
+
+  2.1/ HIGG_2016-22-CVCF-VGaussian-68CL-1d-Gaussian.pdf
+    Uncertainties: ggH, VBF fitted from Figure 8a 68%CL by VGaussian method - ttH, VH calculated from Table 9 by Gaussian method
+	Correlation: fitted from Figure 8a 68%CL by VGaussian method
+	
+  2.2/ HIGG_2016-22-CVCF-VGaussian-95CL-1d-Gaussian.pdf
+    Uncertainties: ggH, VBF fitted from Figure 8a 95%CL by VGaussian method - ttH, VH calculated from Table 9 by Gaussian method
+	Correlation: fitted from Figure 8a 95%CL by VGaussian method
+	
+  2.3/ HIGG_2016-22-CVCF-VGaussian-68CL-1d-VGaussian.pdf
+    Uncertainties: ggH, VBF fitted from Figure 8a 68%CL by VGaussian method - ttH, VH calculated from Table 9 by VGaussian method
+	Correlation: fitted from Figure 8a 68%CL by VGaussian method
+	
+  2.4/ HIGG_2016-22-CVCF-VGaussian-95CL-1d-VGaussian.pdf
+    Uncertainties: ggH, VBF fitted from Figure 8a 95%CL by VGaussian method - ttH, VH calculated from Table 9 by VGaussian method
+	Correlation: fitted from Figure 8a 95%CL by VGaussian method
+	
+  2.5/ HIGG_2016-22-CVCF-Poisson-68CL-1d-Gaussian.pdf
+    Uncertainties: ggH, VBF fitted from Figure 8a 68%CL by Poisson method - ttH, VH calculated from Table 9 by Gaussian method
+	Correlation: fitted from Figure 8a 68%CL by Poisson method
+	
+  2.6/ HIGG_2016-22-CVCF-Poisson-95CL-1d-Gaussian.pdf
+    Uncertainties: ggH, VBF fitted from Figure 8a 95%CL by Poisson method - ttH, VH calculated from Table 9 by Gaussian method
+	Correlation: fitted from Figure 8a 95%CL by Poisson method
+	
+  2.7/ HIGG_2016-22-CVCF-Poisson-68CL-1d-VGaussian.pdf
+    Uncertainties: ggH, VBF fitted from Figure 8a 68%CL by Poisson method - ttH, VH calculated from Table 9 by VGaussian method
+	Correlation: fitted from Figure 8a 68%CL by Poisson method
+	
+  2.8/ HIGG_2016-22-CVCF-Poisson-95CL-1d-VGaussian.pdf
+    Uncertainties: ggH, VBF fitted from Figure 8a 95%CL by Poisson method - ttH, VH calculated from Table 9 by VGaussian method
+	Correlation: fitted from Figure 8a 95%CL by Poisson method	
+
+  3/ For 2D data of ggH-VBF fitted from Aux. Figure 7a, b:
+
+  3.1/ HIGG_2016-22-CVCF-Poisson-Grids-given-corr-1d-Gaussian.pdf
+	Uncertainties: ggH, VBF fitted from Aux. Figure 7a, b by Poisson method - ttH, VH calculated from Table 9 by Gaussian method 
+    Correlation: -0.41 (exctracted from Aux. Figure 4c)
+	
+  3.2/ HIGG_2016-22-CVCF-Poisson-Grids-given-corr-1d-VGaussian.pdf
+	Uncertainties: ggH, VBF fitted from Aux. Figure 7a, b by Poisson method - ttH, VH calculated from Table 9 by VGaussian method 	
+	Correlation: -0.41 
+	
+  3.3/ HIGG_2016-22-CVCF-VGaussian-Grids-given-corr-1d-Gaussian.pdf
+	Uncertainties: ggH, VBF fitted from Aux. Figure 7a, b by VGaussian method - ttH, VH calculated from Table 9 by Gaussian method 
+	Correlation: -0.41 
+  
+  3.4/ HIGG_2016-22-CVCF-VGaussian-Grids-given-corr-1d-VGaussian.pdf
+	Uncertainties: ggH, VBF fitted from Aux. Figure 7a, b by VGaussian method - ttH, VH calculated from Table 9 by VGaussian method 		
+	Correlation: -0.41 
+	
+ Conclusion:
+ - Corr. -0.27 is for Cross section, corr. fitted from 2D \mu is arround -0.24 to -0.23. 
+ - Case 6 is better than 7.
+ - Case 8 is better than 9, but worse than 5, 6, 7.
+ - Case 5 is the best. However, the correlation -0.27 is suspicious here!
+ - (Should exclude) Case 4 is interesting (as it also yields good result). However, the philosophy of using both Poisson and VGaussian here is bad. 
+ 

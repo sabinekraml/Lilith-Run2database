@@ -6,8 +6,8 @@ import scipy.optimize as optimize
 # Open the 1D grid files
 
 # Choose VBF - ggH - ttH - VH
-f = open('HIGG-2016-22_VBF-1d-Grid.txt', 'r')
-# f = open('HIGG-2016-22_ggH-1d-Grid.txt', 'r')
+# f = open('HIGG-2016-22_VBF-1d-Grid.txt', 'r')
+f = open('HIGG-2016-22_ggH-1d-Grid.txt', 'r')
 # f = open('HIGG-2016-22_ttH-1d-Grid.txt', 'r')
 # f = open('HIGG-2016-22_VH-1d-Grid.txt', 'r')
 
@@ -83,7 +83,8 @@ fig.set_tight_layout(True)
 
 # Choose VBF - ggH - ttH - VH
 
-fig.savefig('mu_VBF_1D_VGaussian.pdf')
+# fig.savefig('mu_VBF_1D_VGaussian.pdf')
 # fig.savefig('mu_ggH_1D_VGaussian.pdf')
 # fig.savefig('mu_ttH_1D_Poisson.pdf')
 # fig.savefig('mu_VH_1D_Poisson.pdf')
+plt.show()
