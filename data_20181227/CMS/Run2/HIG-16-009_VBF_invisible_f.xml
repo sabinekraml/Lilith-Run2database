@@ -1,14 +1,14 @@
 <!--
-CMS result for mu(VBF, invisible) at mH = 125 GeV
-extracted from figure 8 from
+CMS mu(VBF, invisible) result at mH = 125 GeV
+with signal strengths extracted from figure 8, shown in HIG-16-009
 http://cms-results.web.cern.ch/cms-results/public-results/preliminary-results/HIG-16-009/index.html
 -->
 
 <expmu decay="invisible" dim="1" type="f">
   <experiment>CMS</experiment>
-  <source type="published">CMS-HIG-16-009</source>
+  <source type="preliminary">CMS-HIG-16-009</source>
   <sqrts>13</sqrts>
-  <mass>125.</mass>
+  <mass>125</mass>
 
   <eff prod="VBF">1.</eff>
 
@@ -64,6 +64,5 @@ http://cms-results.web.cern.ch/cms-results/public-results/preliminary-results/HI
 0.93905 7.05720
 1.03187 8.69280
 1.04174 8.87546
-
   </grid>
 </expmu>

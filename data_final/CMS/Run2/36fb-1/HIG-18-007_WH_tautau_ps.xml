@@ -1,14 +1,15 @@
 <!--
-CMS result for mu(WH, tau tau) at mH = 125 GeV
+CMS result for mu(WH, tautau) at mH = 125 GeV
+with profile likelihood taken from Figure 6, shown in HIG-18-007
 http://cms-results.web.cern.ch/cms-results/public-results/publications/HIG-18-007/
 -->
 
 <expmu decay="tautau" dim="1" type="p">
   <experiment>CMS</experiment>
-  <source type="preliminary">HIG-18-007</source>
+  <source type="published">HIG-18-007</source>
   <sqrts>13</sqrts>
   <mass>125</mass>
-
+  <CL>68%</CL> <!-- optional -->
 
   <eff prod="WH">1.</eff>
 

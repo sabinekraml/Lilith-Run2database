@@ -1,5 +1,7 @@
 <!--
-data from Table 3 and Additional Figure 1 at
+CMS result for mu(combined H production modes, tautau) at mH = 125.09 GeV
+with profile likelihood taken from Table 3  
+and their correlations taken from Add. Fig. 1, shown in HIG-17-031
 http://cms-results.web.cern.ch/cms-results/public-results/publications/HIG-17-031/
 -->
 
@@ -31,6 +33,7 @@ http://cms-results.web.cern.ch/cms-results/public-results/publications/HIG-17-03
 
     <correlation entry="d1d2">-0.32</correlation>
     <correlation entry="d1d3">0</correlation>
+	
     <correlation entry="d2d3">0</correlation>
   </param>
 </expmu>
