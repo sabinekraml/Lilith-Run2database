@@ -1,7 +1,8 @@
 <!--
 ATLAS result for mu(VH, gamma gamma) at mH = 125.09 GeV
-extracted from Auxiliary figure 23c from
-http://atlas.web.cern.ch/Atlas/GROUPS/PHYSICS/PAPERS/HIGG-2016-21/-->
+extracted from auxiliary figure 23c from
+http://atlas.web.cern.ch/Atlas/GROUPS/PHYSICS/PAPERS/HIGG-2016-21/
+-->
 
 <expmu decay="gammagamma" dim="1" type="f">
   <experiment>ATLAS</experiment>

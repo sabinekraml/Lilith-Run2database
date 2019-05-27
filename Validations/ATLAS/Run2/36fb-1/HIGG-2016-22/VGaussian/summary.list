@@ -67,11 +67,4 @@
   3.4/ HIGG_2016-22-CVCF-VGaussian-Grids-given-corr-1d-VGaussian.pdf
 	Uncertainties: ggH, VBF fitted from Aux. Figure 7a, b by VGaussian method - ttH, VH calculated from Table 9 by VGaussian method 		
 	Correlation: -0.41 
-	
- Conclusion:
- - Corr. -0.27 is for Cross section, corr. fitted from 2D \mu is arround -0.24 to -0.23. 
- - Case 6 is better than 7.
- - Case 8 is better than 9, but worse than 5, 6, 7.
- - Case 5 is the best. However, the correlation -0.27 is suspicious here!
- - (Should exclude) Case 4 is interesting (as it also yields good result). However, the philosophy of using both Poisson and VGaussian here is bad. 
  

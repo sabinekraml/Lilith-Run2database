@@ -1,8 +1,8 @@
 <!--
-ATLAS result for mu(VBF, ZZ) and mu(ggH, ZZ) with correlation 
-at mH = 125.09 GeV from HIGG-2016-22. 
-Bestfit points and uncertainties directly taken from Table 9 
-and the correlation from auxiliary Figure 4c at 
+parametrization from individual 1D grids
+for mu(ggH, ZZ) & mu(VBF, ZZ) from Aux. Fig. 7a & 7b  
+and their correlation -0.41 from Aux. Fig. 4c
+at mH = 125.09 GeV, shown in HIGG-2016-22
 http://atlas.web.cern.ch/Atlas/GROUPS/PHYSICS/PAPERS/HIGG-2016-22/
 -->
 

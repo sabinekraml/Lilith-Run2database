@@ -26,6 +26,6 @@ http://atlas.web.cern.ch/Atlas/GROUPS/PHYSICS/PAPERS/HIGG-2016-21/
     <uncertainty axis="x" side="right">+0.186957153857</uncertainty>
     <uncertainty axis="y" side="left">-0.526259988038</uncertainty>
     <uncertainty axis="y" side="right">+0.606157414018</uncertainty>
-    <correlation>-0.229487859158</correlation>
+    <correlation>-0.27</correlation>
   </param>
 </expmu>
