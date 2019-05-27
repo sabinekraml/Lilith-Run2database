@@ -1,7 +1,7 @@
 <!--
-parametrization of a 2D Variable Gaussian fitted from the 95% CL contour
-in the plane mu(ggH, tau tau) vs. mu(VBF, tau tau)
-at mH = 125 GeV, shown in Aux. Fig. 5 in HIGG-2017-07
+ATLAS result for mu(ggH, tautau) & mu(VBF, tautau) at mH = 125.09 GeV,
+with profile likelihood and their correlation fitted
+from 95% CL in Aux. Fig. 5, shown in HIGG-2017-07
 https://atlas.web.cern.ch/Atlas/GROUPS/PHYSICS/PAPERS/HIGG-2017-07/
 -->
 

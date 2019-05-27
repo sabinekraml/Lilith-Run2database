@@ -1,6 +1,6 @@
 <!--
 ATLAS result for mu(VH, ZZ) at mH = 125.09 GeV
-mimicking 95% CL limit of mu<3.7 in Table 9 of
+mimicking 95% CL limit of mu<3.7 in Table 9, shown in HIGG-2016-22
 http://atlas.web.cern.ch/Atlas/GROUPS/PHYSICS/PAPERS/HIGG-2016-22/
 -->
 
@@ -15,7 +15,7 @@ http://atlas.web.cern.ch/Atlas/GROUPS/PHYSICS/PAPERS/HIGG-2016-22/
   <bestfit>0.</bestfit>
   
   <param>
-  <uncertainty side="left">-0.0</uncertainty>
+  <uncertainty side="left">0</uncertainty>
   <uncertainty side="right">1.85</uncertainty>
   </param>
 </expmu>

@@ -1,6 +1,10 @@
 <!--
-data from Table 9 and Auxiliary Figure 4a at
+ATLAS result for mu(combined H production modes, ZZ) at mH = 125.09 GeV,
+with profile likelihood taken from Table 9
+and their correlation taken from Aux. Fig. 4a, shown in HIGG-2016-22
 https://atlas.web.cern.ch/Atlas/GROUPS/PHYSICS/PAPERS/HIGG-2016-22/
+left uncertainties of VH, ttH are slightly fixed from 0 to -0.00001
+to avoid divegence while inversing the covariance matrice.
 -->
 
 <expmu dim="4" type="vn">
