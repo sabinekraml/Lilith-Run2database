@@ -1,0 +1,57 @@
+<!--
+ATLAS result for mu(combined H production modes, gammagamma) at mH = 125.09 GeV,
+with profile likelihood taken from Fig. 12
+and their correlation taken from Fig. 40a, shown in HIGG-2016-21
+https://atlas.web.cern.ch/Atlas/GROUPS/PHYSICS/PAPERS/HIGG-2016-21/
+-->
+
+<expmu dim="5" type="vn">
+  <experiment>ATLAS</experiment>
+  <source type="published">HIGG-2016-21</source>
+  <sqrts>13</sqrts>
+  <mass>125.09</mass>
+  <CL>68%</CL> <!-- optional -->
+
+  <eff axis="d1" prod="ttH" decay="tautau">1.0</eff>
+  <eff axis="d2" prod="ttH" decay="gammagamma">1.0</eff>
+  <eff axis="d3" prod="ttH" decay="bb">1.0</eff>
+  <eff axis="d4" prod="ttH" decay="ZZ">1.0</eff>
+  <eff axis="d5" prod="ttH" decay="WW">1.0</eff>
+
+  <bestfit>
+  	<d1>1.5</d1>
+	<d2>0.6</d2>
+	<d3>0.8</d3>
+	<d4>1.5</d4>
+	<d5>1.5</d5>
+  </bestfit>
+ 
+  <param>
+    <uncertainty axis="d1" side="left">-1.0</uncertainty>
+    <uncertainty axis="d1" side="right">+1.2</uncertainty>
+    <uncertainty axis="d2" side="left">-0.6</uncertainty>
+    <uncertainty axis="d2" side="right">+0.7</uncertainty>
+    <uncertainty axis="d3" side="left">-0.6</uncertainty>
+    <uncertainty axis="d3" side="right">+0.6</uncertainty>
+    <uncertainty axis="d4" side="left">-0.6</uncertainty>
+    <uncertainty axis="d4" side="right">+0.6</uncertainty>
+    <uncertainty axis="d5" side="left">-0.6</uncertainty>
+    <uncertainty axis="d5" side="right">+0.6</uncertainty>
+	
+    
+	<correlation entry="d1d2">0</correlation>
+    <correlation entry="d1d3">0</correlation>
+    <correlation entry="d1d4">-0.347141995727</correlation>
+	<correlation entry="d1d5">-0.347141995727</correlation>
+	
+    
+	<correlation entry="d2d3">0</correlation>
+    <correlation entry="d2d4">0</correlation>
+	<correlation entry="d2d5">0</correlation>
+    
+    <correlation entry="d3d4">0.038132894549</correlation>
+	<correlation entry="d3d5">0.038132894549</correlation>
+	
+	<correlation entry="d4d5">0.999</correlation>
+  </param>
+</expmu>

@@ -7,8 +7,10 @@ import sys
 # Open the 1D grid files
 
 # Choose VBF - ggH - ttH - VH
-# f = open('HIGG_2017-02_Lhl_2d-tautau-VV-Grid68.txt', 'r')
-f = open('HIGG_2017-02_Lhl_2d-tautau-VV-Grid95.txt', 'r')
+f = open('HIGG_2017-02_Llh_2d-tautau-VV-Grid68.txt', 'r')
+# f = open('HIGG_2017-02_Llh_2d-tautau-VV-Grid95.txt', 'r')
+# f = open('HIGG_2017-02_Llh_2d-bb-VV-Grid68.txt', 'r')
+# f = open('HIGG_2017-02_Llh_2d-bb-VV-Grid95.txt', 'r')
 
 # Plot the grids
 fig = plt.figure()
@@ -23,6 +25,7 @@ y = textt[1]
 def func(X, sig1p, sig1m, sig2p, sig2m, p):
     z1, z2 = X[:,0], X[:,1]
     z10, z20 = 1.469506726457399, 1.4590417310663977
+    # z10, z20 = 1.4674157303370825,	0.8137432188065175
     V1 = sig1p * sig1m
     V1e = sig1p - sig1m
     V2 = sig2p * sig2m
@@ -38,11 +41,12 @@ def fit5para(xr, yr):
     B = []
     for i in range(0, len(xr)):
         A.append([xr[i], yr[i]])
-        # B.append(2.30)
-        B.append(5.99)
+        B.append(2.30)
+        # B.append(5.99)
     A = np.array(A)
     B = np.array(B)
-    guess = (0.1, 0.1, 1, 1, -0.5)
+    # guess = (0.1, 0.1, 1, 1, -0.5)
+    guess = (0.1, 0.1, 1, 1, 0.5)
 
     AR, pcov = optimize.curve_fit(func, A, B, guess)
     return AR
@@ -55,7 +59,8 @@ print("sig1p, sig1m, sig2p, sig2m, corr =", ff[0], ",", ff[1], ",", ff[2], ",", 
 #sys.exit("end here")
 
 # Open the 1D grid files
-f = open('HIGG_2017-02_Lhl_2d-tautau-VV-GridFull.txt', 'r')
+# f = open('HIGG_2017-02_Llh_2d-tautau-VV-GridFull.txt', 'r')
+f = open('HIGG_2017-02_Llh_2d-bb-VV-GridFull.txt', 'r')
 
 # Plot the grids
 text = [[float(num) for num in line.split()] for line in f]
@@ -69,6 +74,8 @@ plt.plot(x,y,'.',markersize=3, color = 'red', label="Observed")
 # Loglikelihood Calculation
 def Loglikelihood(z1,z2):
     z10, z20 = 1.469506726457399, 1.4590417310663977
+    # z10, z20 = 1.4674157303370825,	0.8137432188065175
+
     V1 = sig1p*sig1m
     V1e = sig1p - sig1m
     V2 = sig2p * sig2m
@@ -106,4 +113,5 @@ plt.title("$\mu$ from ATLAS-HIGG-2017-02 (VGaussian, 95% CL, fitted corr)")
 fig.set_tight_layout(True)
 
 # fig.savefig('mu_ggH-VBF_2D_VGaussian-fitted-corr-68CL.pdf')
-fig.savefig('mu_ggH-VBF_2D_VGaussian-fitted-corr-95CL.pdf')
+# fig.savefig('mu_ggH-VBF_2D_VGaussian-fitted-corr-95CL.pdf')
+plt.show()

@@ -1,0 +1,30 @@
+<!--
+ATLAS result for mu(ggH, gammagamma) & mu(VBF, gammagamma) at mH = 125.09 GeV,
+with profile likelihood fitted from Aux. Fig. 23a & 23b  
+and their correlation taken from Fig. 40a, shown in HIGG-2016-21
+http://atlas.web.cern.ch/Atlas/GROUPS/PHYSICS/PAPERS/HIGG-2016-21/
+-->
+
+<expmu decay="gammagamma" dim="2" type="p">
+  <experiment>ATLAS</experiment>
+  <source type="published">HIGG-2016-21</source>
+  <sqrts>13</sqrts>
+  <mass>125.09</mass>
+  <CL>68%</CL> <!-- optional -->
+
+  <eff axis="x" prod="ggH">1.0</eff>
+  <eff axis="y" prod="VBF">1.0</eff>
+
+  <bestfit>
+    <x>0.809361060171</x>
+    <y>2.03669874783</y>
+  </bestfit>
+ 
+  <param>
+    <uncertainty axis="x" side="left">-0.176141692478</uncertainty>
+    <uncertainty axis="x" side="right">+0.186957153857</uncertainty>
+    <uncertainty axis="y" side="left">-0.526259988038</uncertainty>
+    <uncertainty axis="y" side="right">+0.606157414018</uncertainty>
+    <correlation>-0.27</correlation>
+  </param>
+</expmu>
