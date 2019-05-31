@@ -6,6 +6,7 @@ Their correlations are fitted from 95% CLs of Fig. 17a and Fig. 17b
 for mu(ttH, VV) & mu(ttH, bb) and mu(ttH, VV) & mu(ttH, tautau) respectively. 
 The correlation for mu(ttH, ZZ) & mu(ttH, WW) is assumed to be 0.999 
 since being exactly 1 lead to divegence while inversing covatiance matrix.
+All other correlations are assumed to be negligible.
 The result is as shown in HIGG-2017-02
 https://atlas.web.cern.ch/Atlas/GROUPS/PHYSICS/PAPERS/HIGG-2017-02/
 -->
