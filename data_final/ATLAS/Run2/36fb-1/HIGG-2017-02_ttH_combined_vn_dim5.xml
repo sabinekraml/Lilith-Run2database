@@ -1,13 +1,18 @@
 <!--
-ATLAS result for mu(combined H production modes, gammagamma) at mH = 125.09 GeV,
-with profile likelihood taken from Fig. 12
-and their correlation taken from Fig. 40a, shown in HIGG-2016-21
-https://atlas.web.cern.ch/Atlas/GROUPS/PHYSICS/PAPERS/HIGG-2016-21/
+ATLAS result for mu(ttH, combined H decay modes) at mH = 125.09 GeV,
+with profile likelihood taken from Fig. 16, 
+assuming that mu(ttH, ZZ) = mu(ttH, WW) = mu(ttH, VV).
+Their correlations are fitted from 95% CLs of Fig. 17a and Fig. 17b 
+for mu(ttH, VV) & mu(ttH, bb) and mu(ttH, VV) & mu(ttH, tautau) respectively. 
+The correlation for mu(ttH, ZZ) & mu(ttH, WW) is assumed to be 0.999 
+since being exactly 1 lead to divegence while inversing covatiance matrix.
+The result is as shown in HIGG-2017-02
+https://atlas.web.cern.ch/Atlas/GROUPS/PHYSICS/PAPERS/HIGG-2017-02/
 -->
 
 <expmu dim="5" type="vn">
   <experiment>ATLAS</experiment>
-  <source type="published">HIGG-2016-21</source>
+  <source type="published">HIGG-2017-02</source>
   <sqrts>13</sqrts>
   <mass>125.09</mass>
   <CL>68%</CL> <!-- optional -->
