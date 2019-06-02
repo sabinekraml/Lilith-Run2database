@@ -33,7 +33,7 @@ http://cms-results.web.cern.ch/cms-results/public-results/publications/HIG-17-03
     <uncertainty axis="d2" side="right">+0.59</uncertainty>
     <uncertainty axis="d3" side="left">-1.35</uncertainty>
     <uncertainty axis="d3" side="right">+1.48</uncertainty>
-    <uncertainty axis="d4" side="left">-0</uncertainty>
+    <uncertainty axis="d4" side="left">-1e-5</uncertainty>
     <uncertainty axis="d4" side="right">+1.14</uncertainty>
     <uncertainty axis="d5" side="left">-0.75</uncertainty>
     <uncertainty axis="d5" side="right">+0.88</uncertainty>

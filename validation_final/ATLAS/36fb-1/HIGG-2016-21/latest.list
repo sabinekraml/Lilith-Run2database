@@ -1,0 +1,16 @@
+## 4D dataset:
+ # HIGG_2016-21-CVCF-VGaussian-4d.pdf
+ # HIGG_2016-21-CgammaCg-VGaussian-4d.pdf
+data_final\ATLAS\Run2\36fb-1\HIGG-2016-21_ggH-VBF-VH-ttH_gammagamma_vn_dim4.xml
+
+
+## 2D & 1D dataset:
+ # HIGG_2016-21-CVCF-Poisson-1d-Grids-given-corr.pdf
+ # HIGG_2016-21-CgammaCg-Poisson-1d-Grids-given-corr.pdf
+data_final\ATLAS\Run2\36fb-1\HIGG-2016-21_ggH-VBF_gammagamma_p68.xml
+data_final\ATLAS\Run2\36fb-1\HIGG-2016-21_ttH_gammagamma_ps.xml
+data_final\ATLAS\Run2\36fb-1\HIGG-2016-21_VH_gammagamma_ps.xml
+
+## Backup 1D grids
+data_final\ATLAS\Run2\36fb-1\HIGG-2016-21_ttH_gammagamma_f.xml
+data_final\ATLAS\Run2\36fb-1\HIGG-2016-21_VH_gammagamma_f.xml

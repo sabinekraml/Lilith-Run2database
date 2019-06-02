@@ -31,11 +31,11 @@ http://cms-results.web.cern.ch/cms-results/public-results/publications/HIG-17-03
     <uncertainty axis="d1" side="right">+0.23</uncertainty>
     <uncertainty axis="d2" side="left">-0.76</uncertainty>
     <uncertainty axis="d2" side="right">+1.02</uncertainty>
-    <uncertainty axis="d3" side="left">-0</uncertainty>
+    <uncertainty axis="d3" side="left">-1e-5</uncertainty>
     <uncertainty axis="d3" side="right">+2.33</uncertainty>
-    <uncertainty axis="d4" side="left">-0.0</uncertainty>
+    <uncertainty axis="d4" side="left">-1e-5</uncertainty>
     <uncertainty axis="d4" side="right">+4.26</uncertainty>
-    <uncertainty axis="d5" side="left">-0</uncertainty>
+    <uncertainty axis="d5" side="left">-1e-5</uncertainty>
     <uncertainty axis="d5" side="right">+1.50</uncertainty>
 	
 
