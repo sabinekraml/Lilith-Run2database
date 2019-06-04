@@ -1,0 +1,65 @@
+\clearpage
+%===================================================================================
+\section{Extended XML format} \label{sec:xml}
+%===================================================================================
+
+In the Lilith database, every single experimental result is stored in a different XML file. 
+The original input formats from~\cite{Bernon:2015hsa} are 
+\begin{itemize} 
+\item 1D intervals: best fit with $1\sigma$ errors; 
+\item 2D likelihood contours: best fit, confidence level and parameters a, b, c which parametrize the inverse of the covariance matrix;
+\item full likelihood information as 1D or 2D grids of $-2\log L$.
+\end{itemize}
+For a detailed discussion and description of the XML format, we refer the reader to the original Lilith manual~\cite{Bernon:2015hsa}. 
+Here we just note that the first two options, 1D intervals and 2D likelihood contours, rely on an ordinary Gaussian approximation, 
+which does not always describe the experimental data (i.e.\ the true likelihood) very well. 
+Full 2D likelihood grids would be ideal but are rarely available.\footnote{We note that \cite{Boudjema:2013qla} strongly advocated 
+the publication of full likelihood grids in 2 or more dimensions but unfortunately this wasn't followed up by the experimental collaborations.} 
+We have therefore extended the XML format and fitting procedure in Lilith to include 
+\begin{itemize} 
+\item Gaussian distributions of variable width (``variable Gaussian'') and 
+\item generalized Poisson distributions. 
+\end{itemize}
+For 1D and 2D data, the format follows the structure defined in \cite{Bernon:2015hsa}. The only difference is setting {\tt type="vn"} for a variable Gaussian and
+{\tt type="p"} for a Poisson distribution in the {\tt <expmu>} tag. % (with {\tt dim="1"} for 1D and {\tt dim="2"} for 2D as before). 
+The computation of the likelihood in {\tt computelikelihood.py} then follows Section~3.6 ``Variable Gaussian (2)'' of \cite{Barlow:2004wg}. 
+Poisson distribution according to Section~3.4 ``Generalised Poisson'', eq.~(10a), of \cite{Barlow:2004wg}. 
+
+This also now works for 2D data with a correlation.  
+Taking the ATLAS result for $\mu(VBF, ZZ)$ and $\mu(ggH, ZZ)$ with correlation $\rho=-0.41$ from HIGG-2016-22 as an example:
+
+\begin{verbatim}
+<expmu decay="ZZ" dim="2" type="vn">
+  <experiment>ATLAS</experiment>
+  <source type="published">HIGG-2016-22</source>
+  <sqrts>13</sqrts>
+  <mass>125.09</mass>
+  <CL>68\%</CL>  <!-- optional -->
+
+  <eff axis="x" prod="VBF">1.0</eff>
+  <eff axis="y" prod="ggH">1.0</eff>
+
+  <bestfit>
+    <x>4.0</x>
+    <y>1.11</y>
+  </bestfit>
+ 
+  <param>
+    <uncertainty axis="x" side="left">-1.46</uncertainty>
+    <uncertainty axis="x" side="right">+1.75</uncertainty>
+    <uncertainty axis="y" side="left">-0.21</uncertainty>
+    <uncertainty axis="y" side="right">+0.23</uncertainty>
+    <correlation>-0.41</correlation>
+  </param>
+</expmu>
+\end{verbatim}
+
+\noindent
+Here, the {\tt <bestfit>} tag specifies the location of the best-fit point in the ({\tt x,y}) plane. 
+The {\tt <uncertainty>} tags contain the left (negative) and right (positive) $1\sigma$ errors for the {\tt x} and {\tt y} axes. 
+The {\tt <correlation>} tag specifies the correlation between {\tt x} and {\tt y}. 
+The computation of the likelihood again follows Section~3.6 ``Variable Gaussian (2)'' of \cite{Barlow:2004wg}. 
+Same for Poisson distribution, just setting {\tt type="p"}.
+
+\subsection{Covariance matrices for ${\rm dim}>2$}
+
