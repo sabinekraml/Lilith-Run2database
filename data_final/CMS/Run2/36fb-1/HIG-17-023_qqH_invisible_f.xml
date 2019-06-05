@@ -4,7 +4,7 @@ profile likelihood extracted from Fig. 8b, efficiencies taken from Table 6 of CM
 http://cms-results.web.cern.ch/cms-results/public-results/publications/HIG-17-023/
 points (0.7, 26.580608989) and (1, 47.966121360) are added using 
 interpolate.UnivariateSpline(k=4, s=1) to prevent extrapolation used in Lilith 
-with option (k=3, s=0) to turn over outside given range of Aux. Fig. 1c
+with option (k=3, s=0) to turn over outside given range of Fig. 8b
 -->
 
 <expmu decay="invisible" dim="1" type="f">
