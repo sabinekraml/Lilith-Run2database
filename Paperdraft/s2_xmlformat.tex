@@ -1,65 +1,163 @@
 \clearpage
 %===================================================================================
-\section{Extended XML format} \label{sec:xml}
+\section{Extended XML format for experimental input} \label{sec:xml}
 %===================================================================================
 
-In the Lilith database, every single experimental result is stored in a different XML file. 
-The original input formats from~\cite{Bernon:2015hsa} are 
-\begin{itemize} 
-\item 1D intervals: best fit with $1\sigma$ errors; 
-\item 2D likelihood contours: best fit, confidence level and parameters a, b, c which parametrize the inverse of the covariance matrix;
-\item full likelihood information as 1D or 2D grids of $-2\log L$.
-\end{itemize}
-For a detailed discussion and description of the XML format, we refer the reader to the original Lilith manual~\cite{Bernon:2015hsa}. 
-Here we just note that the first two options, 1D intervals and 2D likelihood contours, rely on an ordinary Gaussian approximation, 
-which does not always describe the experimental data (i.e.\ the true likelihood) very well. 
-Full 2D likelihood grids would be ideal but are rarely available.\footnote{We note that \cite{Boudjema:2013qla} strongly advocated 
-the publication of full likelihood grids in 2 or more dimensions but unfortunately this wasn't followed up by the experimental collaborations.} 
-We have therefore extended the XML format and fitting procedure in Lilith to include 
-\begin{itemize} 
-\item Gaussian distributions of variable width (``variable Gaussian'') and 
-\item generalized Poisson distributions. 
-\end{itemize}
-For 1D and 2D data, the format follows the structure defined in \cite{Bernon:2015hsa}. The only difference is setting {\tt type="vn"} for a variable Gaussian and
-{\tt type="p"} for a Poisson distribution in the {\tt <expmu>} tag. % (with {\tt dim="1"} for 1D and {\tt dim="2"} for 2D as before). 
-The computation of the likelihood in {\tt computelikelihood.py} then follows Section~3.6 ``Variable Gaussian (2)'' of \cite{Barlow:2004wg}. 
-Poisson distribution according to Section~3.4 ``Generalised Poisson'', eq.~(10a), of \cite{Barlow:2004wg}. 
+In the {\tt Lilith} database, every single experimental result is stored in a separate XML file. 
+This allows to easily select the results to use in a fit, and it also makes maintaining and updating the database rather easy. 
 
-This also now works for 2D data with a correlation.  
-Taking the ATLAS result for $\mu(VBF, ZZ)$ and $\mu(ggH, ZZ)$ with correlation $\rho=-0.41$ from HIGG-2016-22 as an example:
+The root tag of each XML file is {\tt <expmu>}, which has two mandatory attributes, {\tt dim} and {\tt type} to specify the type of signal strength result. 
+Production and decay modes are specified via {\tt prod} and {\tt decay} attributes either directly in the  {\tt <expmu>} tag or as efficiencies in 
+{\tt <eff>} tags. Additional (optional) information can be provided in {\tt <experiment>}, {\tt <source>},  {\tt <sqrts>},  {\tt <CL>} and  {\tt <mass>} tags. 
+Taking the $H\to\gamma\gamma$ result from the combined ATLAS and CMS Run~1 analysis~\cite{Khachatryan:2016vau} 
+as a concrete example, the structure of the XML file is 
+ 
+\begin{verbatim}
+<expmu decay="gammagamma" dim="2" type="n">
+  <experiment>ATLAS-CMS</experiment>
+  <source type="publication">CMS-HIG-15-002; ATLAS-HIGG-2015-07</source>
+  <sqrts>7+8</sqrts>
+  <mass>125.09</mass>
+  <CL>68%</CL> 
+  
+  <eff axis="x" prod="ggH">1.</eff>
+  <eff axis="y" prod="VVH">1.</eff>
+  
+  <!-- (...) -->
+</expmu>
+\end{verbatim}
+
+\noindent 
+where {\tt <!-- (...) -->} is a placeholder for the actual likelihood information. 
+For a detailed description, we refer to the original {\tt Lilith} manual~\cite{Bernon:2015hsa}. 
+In the following, we assume that the reader is familiar with the basic syntax. 
+
+So far, the likelihood information could be specified in one or two dimensions % ({\tt dim="1"} or {\tt dim="2"})  
+in the form of~\cite{Bernon:2015hsa}:  
+1D intervals given as best fit with $1\sigma$ error; 
+2D likelihood contours described as best fit point and parameters a, b, c which parametrize the inverse of the covariance matrix; 
+or full likelihood information as 1D or 2D grids of $-2\log L$. 
+The first two options, 1D intervals and 2D likelihood contours, 
+declared as {\tt type="n"} in the  {\tt <expmu>} tag, employ an ordinary Gaussian approximation; 
+in the 1D case, asymmetric errors are accounted for by putting together two one-sided Gaussians with the same mean but different variances, 
+while the 2D case assumes symmetric errors.   
+This does does not always allow to describe the experimental data (i.e.\ the true likelihood) very well. 
+Full 2D likelihood grids would be much better but are rarely available. %\footnote{We note that \cite{Boudjema:2013qla} strongly advocated the publication of full likelihood grids in 2 or more dimensions but unfortunately this wasn't followed up by the experimental collaborations.} 
+
+In order to treat asymmetric uncertainties in a better way, we have extended the XML format and fitting procedure in {\tt Lilith} to  
+Gaussian distributions of variable width (``variable Gaussian'') as well as generalized Poisson distributions. 
+The declaration is {\tt type="vn"} for variable Gaussian or {\tt type="p"} for Poisson distribution in the {\tt <expmu>} tag. 
+Both work for 1D and 2D data with the same syntax. 
+Moreover, in order to make use of the $N$-dimensional ($N>2$) correlation matrices which both ATLAS 
+and CMS have started to provide, we have added a new XML format for correlated signal strengths in more than two dimensions. 
+This can be used with the ordinary or variable Gaussian approximation for the likelihood. 
+In the following we give explicit examples for the different possibilities. 
+
+\clearpage
+
+\subsection*{1D likelihood parameterization}
+
+For 1D data, the format remains the same as in \cite{Bernon:2015hsa}. 
+For example, a signal strength $\mu(ZH,\, b\bar b)=1.12^{+0.50}_{-0.45}$ is implemented as
 
 \begin{verbatim}
-<expmu decay="ZZ" dim="2" type="vn">
-  <experiment>ATLAS</experiment>
-  <source type="published">HIGG-2016-22</source>
-  <sqrts>13</sqrts>
-  <mass>125.09</mass>
-  <CL>68\%</CL>  <!-- optional -->
+  <bestfit>1.12</bestfit>
+  <param>
+    <uncertainty side="left">-0.45</uncertainty>
+    <uncertainty side="right">0.50</uncertainty>
+  </param>
+\end{verbatim}
 
-  <eff axis="x" prod="VBF">1.0</eff>
-  <eff axis="y" prod="ggH">1.0</eff>
+\noindent
+The {\tt <bestfit>} tag contains the best-fit value, while  
+the {\tt <uncertainty>} tag contains the left (negative) and right (positive) $1\sigma$ errors.\footnote{The values in the {\tt <uncertainty>} tag can be given with or without a sign.} 
+The choice of likelihood function is done by setting  {\tt type="n"} for ordinary, 2-sided Gaussian (as in {\tt Lilith-1.1}); 
+{\tt type="vn"} for a variable Gaussian; or {\tt type="p"} for a Poisson distribution in the {\tt <expmu>} tag.  
+
+
+\subsection*{2D likelihood parameterization}
+
+For {\tt type="vn"} and {\tt type="p"}, signal strengths in 2D with a correlation are now described in an analogous way as 1D data. 
+For example,  $\mu({\rm ggH}, WW)=1.10^{+0.21}_{-0.20}$ and $\mu({\rm VBF}, WW)=0.62^{+0.36}_{-0.35}$ with a correlation 
+of $\rho=-0.08$ can be implemented as 
+
+\begin{verbatim}
+<expmu decay="WW" dim="2" type="vn">
+ 
+  <eff axis="x" prod="ggH">1.0</eff>
+  <eff axis="y" prod="VBF">1.0</eff>
 
   <bestfit>
-    <x>4.0</x>
-    <y>1.11</y>
+    <x>1.10</x>
+    <y>0.62</y>
   </bestfit>
  
   <param>
-    <uncertainty axis="x" side="left">-1.46</uncertainty>
-    <uncertainty axis="x" side="right">+1.75</uncertainty>
-    <uncertainty axis="y" side="left">-0.21</uncertainty>
-    <uncertainty axis="y" side="right">+0.23</uncertainty>
-    <correlation>-0.41</correlation>
+    <uncertainty axis="x" side="left">-0.20</uncertainty>
+    <uncertainty axis="x" side="right">+0.21</uncertainty>
+    <uncertainty axis="y" side="left">-0.35</uncertainty>
+    <uncertainty axis="y" side="right">+0.36</uncertainty>
+    <correlation>-0.08</correlation>
   </param>
 </expmu>
 \end{verbatim}
 
 \noindent
-Here, the {\tt <bestfit>} tag specifies the location of the best-fit point in the ({\tt x,y}) plane. 
-The {\tt <uncertainty>} tags contain the left (negative) and right (positive) $1\sigma$ errors for the {\tt x} and {\tt y} axes. 
-The {\tt <correlation>} tag specifies the correlation between {\tt x} and {\tt y}. 
-The computation of the likelihood again follows Section~3.6 ``Variable Gaussian (2)'' of \cite{Barlow:2004wg}. 
-Same for Poisson distribution, just setting {\tt type="p"}.
+Here, the {\tt <eff>} tag is used to declare the {\tt x} and {\tt y} axes. 
+The {\tt <bestfit>} tag specifies the location of the best-fit point in the ({\tt x,y}) plane. 
+The {\tt <uncertainty>} tags contain the left (negative) and right (positive) $1\sigma$ errors for the {\tt x} and {\tt y} axes, and finally 
+the {\tt <correlation>} tag specifies the correlation between {\tt x} and {\tt y}. 
+The choice of likelihood function is again done by setting {\tt type="vn"} or {\tt type="p"}  in the {\tt <expmu>} tag. 
 
-\subsection{Covariance matrices for ${\rm dim}>2$}
+To ensure backwards compatibility, {\tt type="n"} however still requires the tags {\tt <a>}, {\tt <b>}, {\tt <c>} to give the inverse of
+the covariance matrix % $C^{-1}=\left(\begin{array}{cc} a & b\\ b& c \end{array}\right)$ 
+instead of {\tt <uncertainty>} and  {\tt <correlation>}, see \cite{Bernon:2015hsa}.
 
+
+\subsection*{Multi-dimensional data}
+
+For correlated signal strengths in more than 2 dimensions, a new format is introduced. 
+We here illustrate it by means of the CMS result \cite{Sirunyan:2018koj}, 
+which has signal strengths for 24 production and decay mode combinations plus a $24\times 24$ correlation matrix. 
+First, we set {\tt dim="24"} and label the various signal strengths as axes d1, d2, d3, \ldots~d24:\footnote{The {\tt <experiment>}, {\tt <source>},  {\tt <sqrts>}, etc.\ tags are omitted for brevity.} 
+
+\begin{verbatim}
+<expmu dim="24" type="vn">
+  <eff axis="d1" prod="ggH" decay="gammagamma">1.0</eff>
+  <eff axis="d2" prod="ggH" decay="ZZ">1.0</eff>
+  <eff axis="d3" prod="ggH" decay="WW">1.0</eff>
+  ...
+  <eff axis="d24" prod="ttH" decay="tautau">1.0</eff>  
+\end{verbatim}
+The best-fit values for each axis are specified as 
+\begin{verbatim}
+  <bestfit>
+    <d1>1.16</d1>
+    <d2>1.22</d2>
+    <d3>1.35</d3>
+    ...
+    <d24>0.23</d24>
+  </bestfit>
+\end{verbatim}
+The {\tt <param>} tag then contains the uncertainties and correlations in the form
+\begin{verbatim}
+  <param>
+    <uncertainty axis="d1" side="left">-0.18</uncertainty>
+    <uncertainty axis="d1" side="right">+0.21</uncertainty>
+    <uncertainty axis="d2" side="left">-0.21</uncertainty>
+    <uncertainty axis="d2" side="right">+0.23</uncertainty>
+    ...
+    <uncertainty axis="d24" side="left">-0.88</uncertainty>
+    <uncertainty axis="d24" side="right">+1.03</uncertainty>
+	
+    <correlation entry="d1d2">0.12</correlation>
+    <correlation entry="d1d3">0.16</correlation>
+    <correlation entry="d1d4">0.08</correlation>
+    ...
+    <correlation entry="d23d24">0</correlation>   
+  </param>
+</expmu>
+\end{verbatim}
+
+\noindent
+This will also work for {\tt type="n"}.

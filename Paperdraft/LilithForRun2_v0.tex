@@ -43,13 +43,14 @@ Loc Tran Quang\textsuperscript{1}
 \section*{Abstract}
 {\bf
 Lilith is public python library for constraining new physics from Higgs signal strength measurements. 
-We here present an update of Lilith (version 1.2) including ATLAS and CMS Run~2 Higgs results for 36~fb$^{-1}$.  
+We here present version 2.0 of Lilith together with an updated database which includes the full set 
+of ATLAS and CMS Run~2 Higgs results for 36~fb$^{-1}$.  
 Both the code and the XML database where extended from the ordinary Gaussian approximation employed in 
-Lilith-1.1 to using variable Gaussian and Poisson distributions.  
+Lilith-1.1 to using variable Gaussian and Poisson distributions.  Moreover, Lilith can now make use of correlation 
+matrices  of arbitrary dimension. 
 We provide detailed validations of the implemented experimental results as well as 
 a status of global fits for {\it i)} reduced Higgs couplings and {\it ii)} Two-Higgs-doublet models of Type-I and Type-II. 
-We also comment on shortcomings in the presentation of the experimental results, which make their re-use difficult. 
-Lilith-1.2 is available on GitHub and ready to be used to constrain a wide class of new physics scenarios.}
+Lilith-2.0 is available on GitHub and ready to be used to constrain a wide class of new physics scenarios.}
 
 
 % include a table of contents if paper is longer than 6 pages
@@ -64,6 +65,7 @@ Lilith-1.2 is available on GitHub and ready to be used to constrain a wide class
 \section{Introduction} \label{sec:intro}
 %===================================================================================
 
+Introduce Higgs couplings fits and  {\tt Lilith}~\cite{Bernon:2015hsa} .......  \\\
 ...........\\
 ...........\\
 ...........\\
@@ -75,8 +77,11 @@ Lilith-1.2 is available on GitHub and ready to be used to constrain a wide class
 %%% Extended XML format %%%
 \input{s2_xmlformat.tex}
 
+%%% Likelihood %%%
+\input{s3_likelihood.tex}
+
 %%% ATLAS and CMS results included in the database update %%%
-\input{s3_data.tex}
+\input{s4_data.tex}
 
 
 %===================================================================================
@@ -94,13 +99,7 @@ Lilith-1.2 is available on GitHub and ready to be used to constrain a wide class
 %===================================================================================
 
 S.K.~thanks W.~Adam, R.~Sch\"ofbeck, W.~Waltenberger and N.~Wardle for helpful discussions. 
-
-%\paragraph{Author contributions}
-%This is optional. If desired, contributions should be succinctly described in a single short paragraph, using author initials.
-
-%\paragraph{Funding information}
-%Authors are required to provide funding information, including relevant agencies and grant numbers with linked author's initials. Correctly-provided data will be linked to funders listed in the \href{https://www.crossref.org/services/funder-registry/}{\sf Fundref registry}.
-This work was supported by the IN2P3 theory project 
+This work was supported in part by the IN2P3 theory project 
 ``LHC-itools: methods and tools for the interpretation of the LHC Run~2 results for new physics''. 
 D.T.N.\ thanks the LPSC Grenoble for hospitality and financial support for a research visit within the LHC-itools project. 
 L.T.Q.\ thanks the ICISE ...
