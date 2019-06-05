@@ -2,6 +2,9 @@
 CMS result for mu(H->invisible) at mH = 125.09 GeV, VBF-tag category; 
 profile likelihood extracted from Fig. 8b, efficiencies taken from Table 6 of CMS-HIG-17-023, 
 http://cms-results.web.cern.ch/cms-results/public-results/publications/HIG-17-023/
+points (0.7, 26.580608989) and (1, 47.966121360) are added using 
+interpolate.UnivariateSpline(k=4, s=1) to prevent extrapolation used in Lilith 
+with option (k=3, s=0) to turn over outside given range of Aux. Fig. 1c
 -->
 
 <expmu decay="invisible" dim="1" type="f">
@@ -237,5 +240,7 @@ http://cms-results.web.cern.ch/cms-results/public-results/publications/HIG-17-02
 0.402150809	7.901942965
 0.402920997	7.940150796
 0.403691185	7.978358627
+0.7 26.580608989
+1 47.966121360
   </grid>
 </expmu>

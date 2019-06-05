@@ -2,7 +2,10 @@
 CMS result for mu(H->invisible) at mH = 125.09 GeV, Z(ll)H-tag category; 
 profile likelihood extracted from Fig. 8b of HIG-17-023,
 http://cms-results.web.cern.ch/cms-results/public-results/publications/HIG-17-023/
-nb point (0,0.001) added to avoid negative -2logL in interpolation
+nb point (0,0.001) added to avoid negative -2logL in interpolation,
+points (0.8 14.146987731) and (1, 19.760603736) are added using 
+interpolate.UnivariateSpline(k=4, s=1) to prevent extrapolation used in Lilith 
+with option (k=3, s=0) to turn over outside given range of Fig. 8b
 -->
 
 <expmu decay="invisible" dim="1" type="f">
@@ -38,5 +41,7 @@ nb point (0,0.001) added to avoid negative -2logL in interpolation
 0.550678626 7.512587645
 0.56739467  7.925639168
 0.569199111 7.968386803
+0.8 14.146987731
+1 19.760603736
   </grid>
 </expmu>

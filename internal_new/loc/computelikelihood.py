@@ -199,16 +199,15 @@ def compute_likelihood(exp_mu, user_mu):
             # likelihood computation in case of a type="full" (exact likelihood provided in terms of a grid file)
             if mu["type"] == "f":
                 if mu["dim"] == 1:
-                    cur_l = mu["Lxy"](user_mu_effscaled["x"]) - mu["LChi2min"]
+                    cur_l = mu["Lxy"](user_mu_effscaled["x"]) - mu["LChi2min"]*0
                 elif mu["dim"] == 2:
                     cur_l = (mu["Lxy"](user_mu_effscaled["x"],
                                        user_mu_effscaled["y"])[0][0]
                             - mu["LChi2min"])
-					
-#            print mu["filepath"]
-            if cur_l <0:
-				print "loglikelihood is negative, file used, values:"
-				print mu["filepath"],cur_l,mu["Lxy"](user_mu_effscaled["x"]), user_mu_effscaled["x"], mu["LChi2min"]
+			
+            if cur_l <0 :
+                print "loglikelihood is negative, check file"
+                print "filepath", mu["filepath"], cur_l, user_mu_effscaled["x"], mu["Lxy"](user_mu_effscaled["x"]), mu["LChi2min"]	
         except KeyError as s:
             raise LikelihoodComputationError(
                 'there are missing elements in exp_mu: key "' + s +

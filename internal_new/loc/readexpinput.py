@@ -860,7 +860,7 @@ class ReadExpInput:
 
             # changed by TQL for more stable interpolation
             # Lxy = interpolate.UnivariateSpline(grid["x"], grid["L"], k=3, s=0)
-            Lxy = interpolate.UnivariateSpline(grid["x"], grid["L"], k=4, s=1)
+            Lxy = interpolate.UnivariateSpline(grid["x"], grid["L"], k=3, s=0)
             # end TQL's change
 
         elif type == "f" and dim == 2:
