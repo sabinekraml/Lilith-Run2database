@@ -204,15 +204,21 @@ def compute_likelihood(exp_mu, user_mu):
                     cur_l = (mu["Lxy"](user_mu_effscaled["x"],
                                        user_mu_effscaled["y"])[0][0]
                             - mu["LChi2min"])
+					
+#            print mu["filepath"]
+            if cur_l <0:
+				print "loglikelihood is negative, file used, values:"
+				print mu["filepath"],cur_l,mu["Lxy"](user_mu_effscaled["x"]), user_mu_effscaled["x"], mu["LChi2min"]
         except KeyError as s:
             raise LikelihoodComputationError(
                 'there are missing elements in exp_mu: key "' + s +
                 '" is not found')
 
 # LDN added a control on the value of loglikelihood
-        if cur_l < 0:
-            raise LikelihoodComputationError(
-                'loglikelihood is negative, check the value of mu')
+
+#        if cur_l < 0:
+#            raise LikelihoodComputationError(
+#                'loglikelihood is negative, check the value of mu')
 # end
 
 
