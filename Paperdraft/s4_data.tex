@@ -12,7 +12,7 @@ The ATLAS Run~2 results included in this release are summarised in Table~\ref{ta
 
 \begin{table}[h]\centering
 \begin{tabular}{l | ccccccc}
-mode & $\gamma\gamma$ & $ZZ$ & $WW$ & $\tau\tau$ & $b\bar b$ & inv. \\
+mode & $\gamma\gamma$ & $ZZ^*$ & $WW^*$ & $\tau\tau$ & $b\bar b$ & inv. \\
 \hline
 ggH & \cite{Aaboud:2018xdt} & \cite{Aaboud:2017vzb} & \cite{Aaboud:2018jqu} & \cite{Aaboud:2018pen} & -- & --\\
 VBF &  \cite{Aaboud:2018xdt} & \cite{Aaboud:2017vzb} & \cite{Aaboud:2018jqu} & \cite{Aaboud:2018pen} & \cite{Aaboud:2018gay} & -- \\
@@ -24,32 +24,48 @@ ttH & \cite{Aaboud:2018xdt,Aaboud:2017jvq} & \cite{Aaboud:2017vzb,Aaboud:2017jvq
 \label{tab:ATLASresults}
 \end{table}
 
-{\bf\boldmath $H\to\gamma\gamma$ (HIGG-2016-21):}  The ATLAS analysis \cite{Aaboud:2018xdt} provides in Fig.~12 the 1D signal strengths measured for the different production processes:  
-ggH, VBF, VH and ``top'' (ttH+tH). Moreover, the paper provides a variety of results for simplified template cross sections (STXS) 
-including, in Fig.~40a, the observed correlations between the measured stage-0 STXS. 
-%Likelihood contours at 68\% and 95\% CL in the $\sigma(ggH)\times {\rm BR}(H\to\gamma\gamma)$ vs.\ 
-%$\sigma(VBF)\times {\rm BR}(H\to\gamma\gamma)$ plane are shown in Fig.~15 of \cite{Aaboud:2018xdt}. 
-%Finally, auxiliary Figs.~23a--d show the 1D profile likelihoods of the signal strengths for ggH, VBF, VH and top production modes.
-%As validation material, we have likelihood contours in the $C_g$ vs.\ $C_\gamma$ plane in Fig.~18a and in the $C_V$ vs.\ $C_F$ plane in Fig.~18b.\footnote{The reduced couplings $\kappa_X$ in the experimental papers are denoted as $C_X$ in Lilith.}
-%With no HepDATA record available for this analysis, all these figures had to be digitized ``by hand''.
-%
-%It turns out that the ordinary Gaussian approximation, using the 1D signal strengths with their correlations or 
-%a bivariate Gaussian distribution fitted from the 68\% CL contour of Fig.~15 (normalized to SM), does not describe the data well.
-%In fact, the 1D profile likelihoods of the signal strengths have a Poisson shape. 
-We therefore parametrize $\mu(ggH,\gamma\gamma)$ vs.\ $\mu(VBF,\gamma\gamma)$ as a 2D Poisson distribution with correlation $-0.27$,  starting from the 1D profile likelihoods from auxiliary Figs.~23a,b of \cite{Aaboud:2018xdt}. For $\mu(VH,\gamma\gamma)$ and $\mu(ttH,\gamma\gamma)$, we use 1D Poisson distributions fitted from auxiliary Figs.~23c,d. 
-The impact on the $C_V$ vs.\ $C_F$ fits from using Gaussian or Poisson likelihoods is illustrated 
-in Figure~\ref{validation_atlas_gamgam}. \\
+{\bf\boldmath $H\to\gamma\gamma$ (HIGG-2016-21):}  
+The ATLAS analysis \cite{Aaboud:2018xdt} provides in Fig.~12 $H\to\gamma\gamma$ signal strengths separated into   
+ggH, VBF, VH and ``top'' (ttH+tH) production modes. Since no correlations are given for the signal strengths, we 
+use instead the correlations for the stage-0 simplified template cross sections (STXS) provided in Fig.~40a of the ATLAS 
+paper, which should be a close enough match. It turns out that these data do not allow to reproduce very well the 
+ATLAS coupling fits for $(C_V,\;C_F)$ or $(C_\gamma,\;C_g)$. The reason seems to be that the $\mu$ values 
+rounded to one decimal are not  precise enough. We have therefore extracted the best-fit points and uncertainties 
+from fits to the 1D profile likelihoods, which are provided as Auxiliary Figures 23a--d on the analysis webpage. 
+and used these together with the STXS correlations in the {\tt Lilith} XML file. This gives a better coupling fit, as shown 
+in the validation plots in Fig.~\ref{fig:validation_atlas_gamgam}. 
 
-%\begin{figure}[h!]%\centering
-%\hspace*{-8mm}\includegraphics[width=0.43\textwidth]{validation/ATLAS/HIGG-2016-21-CVCF-Gaussian.pdf}%
-%\hspace*{-12mm}\includegraphics[width=0.43\textwidth]{validation/ATLAS/HIGG-2016-21-CVCF-GaussianV2.pdf}%
-%\hspace*{-12mm}\includegraphics[width=0.43\textwidth]{validation/ATLAS/HIGG-2016-21-CVCF-Poisson.pdf} 
-%\caption{Fits of $C_V$ vs.\ $C_F$ using data from the ATLAS $H\to\gamma\gamma$ measurement~\cite{Aaboud:2018xdt}; 
-%the signal strength measurements are implemented, from left to right, as ordinary Gaussian, variable Gaussian and Poisson likelihoods.}
-%\label{validation_atlas_gamgam}
-%\end{figure}
+\begin{figure}[bh!]\centering
+\includegraphics[width=0.5\textwidth]{validation/ATLAS/HIGG-2016-21-CVCF.pdf}%
+\hspace{-12mm}\includegraphics[width=0.5\textwidth]{validation/ATLAS/HIGG-2016-21-CgCGa.pdf}
+\caption{Fit of $C_F$ vs.\ $C_V$ (left) and $C_\gamma$ vs.\ $C_g$ (right) for data from the ATLAS $H\to\gamma\gamma$ analysis~\cite{Sirunyan:2018koj}. The red, orange and yellow filled areas show the 
+$68\%$,  $95\%$ and $99.7\%$ CL regions obtained with {\tt Lilith} using best-fit values and uncertainties for the signal strengths 
+as extracted from Aux.\ Figs.~23a--d of the ATLAS analysis together with the correlation matrix for the stage-0 STXS. 
+This can be compared to the $68\%$,  $95\%$ CL contours obtained using the rounded values from Fig.~12 of \cite{Sirunyan:2018koj} 
+(solid and dashed dark red lines) and to the official $68\%$,  $95\%$ CL contours from ATLAS (blue dots).}
+\label{fig:validation_atlas_gamgam}
+\end{figure}
  
-{\bf\boldmath $H\to ZZ^*\to 4l$ ( HIGG-2016-22):} \\
+We note that the same fit quality is obtained when using only the correlation between ggH and VBF production modes 
+(as 2D data) and treating VH and ttH as independent (as 1D data). The relevant XML files are all included in the 
+database, so the user can choose the preferred combination. This is relevant to avoid double counting 
+when combining this with other measurements, concretely with the data from~\cite{Aaboud:2017jvq}. \\
+
+{\bf\boldmath $H\to ZZ^*\to 4l$ (HIGG-2016-22):} A similar issue as discussed for $H\to\gamma\gamma$ above arises 
+when using the signal strengths given in Table~9 of \cite{Aaboud:2017vzb} together with the correlation matrix given in 
+Aux.\ Fig.~4a. We therefore use $\mu({\rm ggH},\,ZZ^*)$ and $\mu({\rm VBF},\,ZZ^*)$ extracted from the 1D profile 
+likelihoods Aux.\ Figs.~7a and 7b with a correlation $\rho=-0.41$ according to Aux.\ Fig.~4c. For the VH and ttH production 
+modes, we convert the given 95\%~CL limits into $\mu({\rm VH},\,ZZ^*)=0^{+1.85}_{-0.0}$ and 
+$\mu({\rm ttH},\,ZZ^*)=0^{+3.75}_{-0.0}$. For validation, we compare to the $C_F$ vs.\ $C_V$ fit from ATLAS, 
+see Fig.~\ref{fig:validation_atlas_ZZ}.\\
+
+\begin{figure}[htb!]\centering
+\includegraphics[width=0.5\textwidth]{validation/ATLAS/HIGG-2016-22-CVCF.pdf}
+\caption{Fit of $C_F$ vs.\ $C_V$ for data from the ATLAS $H\to ZZ^*$ analysis~\cite{Aaboud:2017vzb}. 
+The  $68\%$,  $95\%$ and $99.7\%$~CL regions obtained with {\tt Lilith} are shown as red, orange and yellow areas, 
+and compared to the $68\%$,  $95\%$~CL contours from ATLAS (in blue).}
+\label{fig:validation_atlas_ZZ}
+\end{figure}
 
 
 {\bf\boldmath $H\to WW^*\to 2l2\nu$ (HIGG-2016-07):} \\
@@ -73,7 +89,7 @@ The CMS Run~2 results included in this release are summarised in Table~\ref{tab:
 
 \begin{table}[h]\centering
 \begin{tabular}{l | ccccccc}
-mode & $\gamma\gamma$ & $ZZ$ & $WW$ & $\tau\tau$ & $b\bar b$ & $\mu\mu$ & inv. \\
+mode & $\gamma\gamma$ & $ZZ^*$ & $WW^*$ & $\tau\tau$ & $b\bar b$ & $\mu\mu$ & inv. \\
 \hline
 ggH & \cite{Sirunyan:2018koj} & \cite{Sirunyan:2018koj} & \cite{Sirunyan:2018koj} & \cite{Sirunyan:2018koj} & \cite{Sirunyan:2018koj} & \cite{Sirunyan:2018koj} & \cite{Sirunyan:2018owy} \\
 VBF &  \cite{Sirunyan:2018koj} & \cite{Sirunyan:2018koj} & \cite{Sirunyan:2018koj} & \cite{Sirunyan:2018koj} &-- & \cite{Sirunyan:2018koj} & \cite{Sirunyan:2018owy} \\
@@ -98,9 +114,9 @@ mode combination presented in Table~3 of \cite{Sirunyan:2018koj} together with t
 provided as ``Additional Figure~1'' on the analysis webpage. As shown in Fig.~\ref{fig:validation_cms_combination}, 
 this allows to reproduce well the coupling fits of the CMS paper.\\
 
-\begin{figure}[t!]\centering
+\begin{figure}[hbt!]\centering
 \includegraphics[width=0.5\textwidth]{validation/CMS/HIG-17-031-CVCF.pdf}
-\caption{Fit of $C_F$ vs.\ $C_V$ using best fit values and uncertainties for the signal strengths for each production (ggH, VBF, WH, ZH, ttH) 
+\caption{Fit of $C_F$ vs.\ $C_V$ using best-fit values and uncertainties for the signal strengths for each production (ggH, VBF, WH, ZH, ttH) 
 and decay ($\gamma\gamma$, $ZZ$, $WW$, $\tau\tau$, $b\bar b$, $\mu\mu$) mode combination together with the 
 $24\times 24$ correlation matrix from the CMS combination paper~\cite{Sirunyan:2018koj}. 
 The  $1\sigma$,  $2\sigma$ and $3\sigma$ regions obtained with {\tt Lilith} are shown as red, orange and yellow areas, 
@@ -129,9 +145,10 @@ from their Fig.~8b together with the relative contributions from the different H
 given in Table~6 of that paper. This assumes that the relative signal contributions stay roughly the same as for 
 SM production cross sections. For validation, we reproduce in Fig.~\ref{fig:validation_cms_inv}
  the $C_g$ vs.\ $C_\gamma$ fit of \cite{Sirunyan:2018koj}, where the branching ratios of invisible and undetected decays 
-are treated as free parameters.\footnote{The profiling was done with {\tt Minuit}. Since {\tt Minuit} does not allow conditional limits, in this case 
-${\rm BR}(H\to {\rm inv.})+{\rm BR}(H\to {\rm undetected})<1$, we demanded that both BR$(H\to {\rm inv.})$ and BR$(H\to {\rm undetected})$ 
-be less than 50\%.} 
+are treated as free parameters.%%
+\footnote{The profiling in Fig.~\ref{fig:validation_cms_inv} was done with {\tt Minuit}. 
+  Since {\tt Minuit} does not allow conditional limits, in this case ${\rm BR}(H\to {\rm inv.})+{\rm BR}(H\to {\rm undetected})<1$, 
+  we demanded that both BR$(H\to {\rm inv.})$ and BR$(H\to {\rm undetected})$ be less than 50\%.} 
 
 \begin{figure}[t!]\centering
 \includegraphics[width=0.5\textwidth]{validation/CMS/HIG-17-031-CgCGa_BRinvBRund_profiled.pdf}
