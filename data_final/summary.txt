@@ -167,7 +167,7 @@ No Grids Given
 
 ## REMAINED ISSUES:
  1/ Combined -> Combined (HIG-17-031):
-- CV-CF combined validation fix Loglikelihood(2\sigma) = 6.13 (not 5.99) -> tried but no difference was seen.
+- CV-CF combined validation fix Loglikelihood(2\sigma) = 6.18 (not 5.99) -> tried but no difference was seen.
 - Shoud we include individual decay mode dataset 1.2?
  2/ H -> invisible (HIG-17-023):
 - Should _vs data be fixed to _p for consistency? 
