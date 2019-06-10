@@ -7,4 +7,5 @@ Paperdraft/*.aux
 Paperdraft/*.bbl
 Paperdraft/*.blg
 Paperdraft/*.out
-Paperdraft/*.synctex.gz
+Paperdraft/*.toc
+Paperdraft/*.gz
