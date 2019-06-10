@@ -139,6 +139,7 @@ data_final\CMS\Run2\36fb-1\HIG-17-023_ggH_invisible_vs.xml
 data_final\CMS\Run2\36fb-1\HIG-17-023_qqH_invisible_f.xml
 data_final\CMS\Run2\36fb-1\HIG-17-023_VqqH_invisible_vs.xml
 data_final\CMS\Run2\36fb-1\HIG-17-023_ZllH_invisible_f.xml
+data_final\CMS\Run2\36fb-1\HIG-17-023_ZllH_invisible_vs.xml
  # Validation:
 Combined with HIG-17-031 
 validation_final\CMS\Run2\36fb-1\HIG-17-031\HIG-17-031-CgCGa_BRinvBRund_profiled.pdf
@@ -170,6 +171,7 @@ No Grids Given
 - Shoud we include individual decay mode dataset 1.2?
  2/ H -> invisible (HIG-17-023):
 - Should _vs data be fixed to _p for consistency? 
+- Duplicated ZllH_invisible with both _vs and _f?
  3/ H -> tautau (HIG-18-007):
 - Should we include these data?
  4/ VBF -> bb (HIG-16-003)
