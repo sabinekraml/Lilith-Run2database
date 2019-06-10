@@ -1,0 +1,10 @@
+# global files
+*.log
+
+# local files in Paperdraft
+Paperdraft/*.log
+Paperdraft/*.aux
+Paperdraft/*.bbl
+Paperdraft/*.blg
+Paperdraft/*.out
+Paperdraft/*.synctex.gz
