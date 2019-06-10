@@ -2,10 +2,100 @@
 %===================================================================================
 \section{Likelihood calculation} \label{sec:likelihood}
 %===================================================================================
+\newcommand{\lilith}{{\tt Lilith} }
+\newcommand{\logL}{{ -2\log L } }
+\newcommand{\XML}{ {\tt XML}}
+\newcommand{\beq}{\begin{eqnarray}} 
+\newcommand{\eeq}{\end{eqnarray}} 
 
-For the variable Gaussian, the computation of the likelihood in {\tt computelikelihood.py} follows Section~3.6 
-``Variable Gaussian (2)'' of \cite{Barlow:2004wg}. 
-The Poisson distribution is implemented according to Section~3.4 ``Generalised Poisson'', eq.~(10a), of \cite{Barlow:2004wg}. \\
+\newcommand{\be}{\begin{equation}} 
+\newcommand{\ee}{\end{equation}} 
+
+\newcommand{\bpmatrix}{\begin{pmatrix}}
+\newcommand{\epmatrix}{\end{pmatrix}}
+\newcommand{\ba}{\begin{array}}
+\newcommand{\ea}{\end{array}}
+\newcommand{\braket}[1]{\left(#1\right)}
+\newcommand{\sbraket}[1]{\left[#1\right]}
+\newcommand{\bmu}{\bm{\mu}}
+\newcommand{\hbmu}{\hat{\bm{\mu}}}
+
+The statistic procedure used in \lilith was described in details in ~\cite{Bernon:2015hsa}. 
+The main quantity given as an output 
+is the  $\logL$ which is computed according to the four different types of experimental results: 1D interval, 1D full,
+2D contour, 2D full. Except for the full profile likelihoods, the $\logL$ values are computed using the ordinary Gaussian
+distribution approximation. Since we have found that this assumption does not describe very well data in many cases, therefore
+ we have added the  variable Gaussian and generalised Poison distributions. We have also extended the code to include the multi-dimensional data. In this section we present in details
+how the  $\logL$ quantities are computed according to the two distribution approximations. For the old implementation of the  ordinary Gaussian distribution in \lilith
+we refer the reader to ~\cite{Bernon:2015hsa}.
+In the code, computations of $\logL$  are implemented in {\tt computelikelihood.py}.
+
+%\noindent
+%\subsection*{The ordinary Gaussian distribution}
+%We have kept the old implementation of the  ordinary Gaussian distribution in \lilith, where the $\logL$ as function of 
+%the single  signal strength $\mu$ in the 1D interval case reads ~\cite{Bernon:2015hsa}
+%\be \logL(\mu) =  \begin{cases} 
+%\braket{\frac{\mu - \hat\mu }{\sigma^-}}^2~~\text{if}~~\mu < \hat\mu,\\
+% \braket{\frac{\mu - \hat\mu }{\sigma^+}}^2~~\text{if}~~\mu > \hat\mu,
+%\end{cases}\ee
+%where $\hat\mu$ denotes the best-fit signal strength, and $\sigma^-$ and $\sigma^+$ are the left and right uncertainties at 68\%
+%CL, respectively. Note that $\hat\mu, \sigma^-,\sigma^+$ are taken directly from experimental papers. 
+%For the two dimensional contour data of the two signal strengths $\mu_X,\mu_Y$, one has to digitize the contour lines at 68\% or 95\% CL.  Those 
+%digitization data will be used to fit for the best fit point $ \hbmu=(\hat\mu_X, \hat\mu_Y)^T$ and the elements $a,b,c$ of the inverse of 
+%covariance matrix, $C^{-1}$, assuming that the contour line is ellipse like. 
+%In general, the fitted best fit point is not the same as the given best fit point since the contour line is not a 
+%perfect ellipse. Those fitted parameters are then used to compute the $\logL$ of the two signal strengths $\bmu = ( \mu_X,
+%\mu_Y)^T$  as
+%\be \logL(\bmu) = (\bmu - \hbmu)^T C^{-1} (\bmu - \hbmu )  \quad \text{with}\quad C^{-1}=\bpmatrix a & b\\ b& c \epmatrix.\ee
+ 
 
 \noindent
-{\em ..... give explicit equations and explain implementation i the code ....}
+\subsection*{The variable Gaussian distribution}
+As shown in \cite{Barlow:2004wg}, variable Gaussian distribution is one of good approximations to deal with 
+asymmetric uncertainties. We apply the  ``Variable Gaussian (2)''  in  Section~3.6 of \cite{Barlow:2004wg}. 
+In the 1D interval case, the likelihood is given by
+\be \logL(\mu) =\frac{ \braket{\mu - \hat\mu }^2 }{\sigma^+\sigma^- + (\sigma^+ -\sigma^-)(\mu -\hat\mu)},\ee
+where $\hat\mu$ denotes the best-fit signal strength, and $\sigma^-$ and $\sigma^+$ are the left and right uncertainties at 68\%
+CL, respectively. Note that $\hat\mu, \sigma^-,\sigma^+$ are taken directly from experimental papers or fitted
+if they are not given explicitly. If not stated otherwise, these notations are used for the entire section. 
+The ordinary Gaussian distribution is obtained with  $\sigma^+ =\sigma^-$. The likelihood using variable Gaussian
+however has a singularity point  at 
+\be \mu= \hat\mu - \frac{\sigma^+\sigma^-}{\sigma^+ -\sigma^-}.\ee
+This may happens if the values of reduced couplings may be two large and unphysical.
+ In the case
+of $n$ dimension data ($n>1$), we use the $n\times n$ correlation matrix  given by the experimental collaboration, if it is available,
+together with the best fit points and the left and right uncertainties at 68\% CL.
+Especially when data are given in terms of two dimensional contour plots, we can use also variable Gaussian to fit for the correlation and the best fit point and their uncertainties at 68 \% CL, if they are not given explicitly by the experimental collaboration. For the $n$ dimensional signal strength vector $\bmu = (\mu_1,\ldots,\mu_n)$, the likelihood reads
+\be \logL(\bmu)= (\bmu - \hbmu)^T C^{-1} (\bmu - \hbmu ), \ee
+where the best fit point $\hbmu = (\hat\mu_1,\ldots,\hat\mu_n)$ and the covariance matrix is constructed from the correlation matrix 
+$\rho$ as
+\be C = \bm{V}(\bmu)^T.\rho.\bm{V}(\bmu) ,\quad \bm{V}(\bmu) = (V_1, \ldots, V_n) \ee
+with
+\be V_i = \sqrt{\sigma^+_i\sigma_i^- + (\sigma^+_i-\sigma_i^-) (\mu_i - \hat\mu_i)}, \quad i =1,\ldots,n.\ee
+Here the $\sigma^-_i$ and $\sigma^+_i$ are the left and right uncertainties at 68\% CL of the $i$th combination of production and decay channel, respectively. For the multi-dimensional data in the ordinary Gaussian distribution, the relation between covariance matrix and the correlation matrix becomes
+\be C = \frac 14 [\bm{\sigma^+}+\bm{\sigma}^-]^T. \rho.[\bm{\sigma^+}+\bm{\sigma}^-], \ee
+where $\bm{\sigma^+}=(\sigma_1^+, \ldots,\sigma_n^+)$ and $\bm{\sigma^-}=(\sigma_1^-, \ldots,\sigma_n^-)$.
+
+\noindent
+\subsection*{The generalised Poison distribution}
+We apply the generalised Poison distribution for one and two dimensional data. For the one dimensional data, the likelihood is implemented according to ``Generalised Poisson'' of \cite{Barlow:2004wg},
+\be  \log L(\mu) = -\nu\gamma(\mu-\hat\mu) + \nu\log\sbraket{1+\gamma\braket{\mu-\hat\mu}},\ee
+where $\gamma$ and $\nu$ are solved numerically from the following equations
+\be \frac{1- \gamma \sigma^-}{1+ \gamma \sigma^+} = e^{-\gamma(\sigma^+ + \sigma^-)}, \quad
+ \nu = \frac{1}{2(\gamma \sigma^+ - \log (1+ \gamma\sigma^+))}.\ee
+For the two dimensional data,  we use the conditioning bivariate Poison distribution described in ~\cite{Berkhout:2004},
+ that has no restriction on the sign and magnitude of the correlation $\rho$.  The joint distribution is a product of 
+a marginal and a conditional distribution. The decision of which channel belongs to the marginal
+or the conditional distribution is based on the validation plot. To illustrate our formulae,  
+we assume that the data of the channel $X$ follows the marginal distribution
+while data of  the channel $Y$ belongs to the conditional distribution. The joint likelihood is the the sum of 
+the marginal and conditional likelihoods
+\be \log L(\mu_X,\mu_Y) =  \log L(\mu_X)  +\log L(\mu_Y|\mu_X) ,\ee
+where the marginal likelihood for the channel $X$ is given by
+\be  \log L(\mu_X) =-\nu_X\gamma_X(\mu_X-\hat\mu_X) + \nu_X\log\sbraket{1+\gamma_X\braket{\mu_X-\hat\mu_X}},\ee
+and the conditional likelihood for the channel $Y$ given the channel $X$
+\be \log L(\mu_Y|\mu_X) = f(\mu_X,\mu_Y) - f(\hat\mu_X,\hat\mu_Y) + \nu_Y\log\frac{f(\mu_X,\mu_Y)}{f(\hat\mu_X,\hat\mu_Y)} , \ee
+where
+\be f(a,b) =- \nu_Y\gamma_Y\braket{b - \hat \mu_Y + \frac{1}{\gamma_Y} }\text{exp}\sbraket{\nu_X\alpha - \braket{e^\alpha -1}\nu_X\gamma_X(a -\hat\mu_X + \frac{1}{\gamma_X})}, \ee
+with $\alpha$ being solved numerically from the correlation expression
+\be  \rho =\frac{ \nu_X \nu_Y\braket{ e^\alpha -1} }{\sqrt{ \nu_X \nu_Y \sbraket{1 + \nu_Y \braket{ e^{\nu_X \braket{ e^\alpha -1}^2} -1}}}}. \ee

@@ -2,7 +2,7 @@
 
 TARGET = LilithForRun2_v0
 Refs = references.bib
-Subfiles = $(TARGET).tex
+Subfiles = $(TARGET).tex s2_xmlformat.tex s3_likelihood.tex s4_data.tex
 
 PLOTS = 
 
@@ -18,5 +18,5 @@ $(TARGET).pdf: $(TARGET).tex $(Refs) $(Subfiles)
 #	xpdf $(TARGET).pdf &
 
 clean:
-	rm -f *.dvi *.log *.aux *~ *.bbl *.blg
+	rm -f *.dvi *.log *.aux *~ *.bbl *.blg *.out
 
