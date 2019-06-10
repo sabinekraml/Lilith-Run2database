@@ -139,7 +139,7 @@ A = np.exp(alpha)-1
 def Loglikelihood(z1,z2):
     L2t1 = - alpha1 * (z1 - cen1) + nu1 * np.log(1 + alpha1 * (z1 - cen1) / nu1)
     L2t2a = - alpha2 * (z2 - cen2 + 1 / gam2) * np.exp(alpha * nu1 - A * alpha1 * (z1 - cen1 + 1/gam1))
-    L2t2b = - alpha2 * ( 1 / gam2) * np.exp(alpha * nu1 - A * alpha1 * ( 1 / gam1))
+    L2t2b = - alpha2 * (1 / gam2) * np.exp(alpha * nu1 - A * alpha1 * (1 / gam1))
     L2t2c = nu2 * np.log(L2t2a/L2t2b)
     L2t2 = L2t2a - L2t2b + L2t2c
     L2t = -2 * (L2t1 + L2t2)

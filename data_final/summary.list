@@ -1,0 +1,177 @@
+#---------------------------
+#--- ATLAS Run2, 36 fb-1 ---
+#---------------------------
+
+
+1/--- H -> gammagamma (HIGG_2016-21) ---
+
+ 1.1/ 4D dataset:
+ # Data:
+data_final\ATLAS\Run2\36fb-1\HIGG-2016-21_ggH-VBF-VH-ttH_gammagamma_vn_dim4.xml
+ # Validation:
+validation_final\ATLAS\36fb-1\HIGG-2016-21\HIGG_2016-21-CVCF-VGaussian-4d.pdf
+validation_final\ATLAS\36fb-1\HIGG-2016-21\HIGG_2016-21-CgammaCg-VGaussian-4d.pdf
+
+ 1.2/ 2D & 1D dataset: 
+ # Data
+data_final\ATLAS\Run2\36fb-1\HIGG-2016-21_ggH-VBF_gammagamma_p68.xml
+data_final\ATLAS\Run2\36fb-1\HIGG-2016-21_ttH_gammagamma_ps.xml
+data_final\ATLAS\Run2\36fb-1\HIGG-2016-21_VH_gammagamma_ps.xml
+ # Validation
+validation_final\ATLAS\36fb-1\HIGG-2016-21\HIGG_2016-21-CVCF-Poisson-1d-Grids-given-corr.pdf
+validation_final\ATLAS\36fb-1\HIGG-2016-21\HIGG_2016-21-CgammaCg-Poisson-1d-Grids-given-corr.pdf
+
+ 1.3/ Backup 1D grids:
+data_final\ATLAS\Run2\36fb-1\HIGG-2016-21_ttH_gammagamma_f.xml
+data_final\ATLAS\Run2\36fb-1\HIGG-2016-21_VH_gammagamma_f.xml
+
+------------------------------------------
+
+2/--- H -> ZZ (HIGG_2016-22) ---
+
+ 2.1/ 4D dataset:
+ # Data
+data_final\ATLAS\Run2\36fb-1\HIGG-2016-22_ggH-VBF-VH-ttH_ZZ_vn_dim4.xml
+ # Validation
+validation_final\ATLAS\36fb-1\HIGG-2016-22\HIGG_2016-22-CVCF-VGaussian-4d_4a.pdf
+
+ 2.2/ 2D & 1D dataset:
+ # Data
+data_final\ATLAS\Run2\36fb-1\HIGG-2016-22_ggH-VBF_ZZ_p68.xml
+data_final\ATLAS\Run2\36fb-1\HIGG-2016-22_ttH_ZZ_s.xml
+data_final\ATLAS\Run2\36fb-1\HIGG-2016-22_VH_ZZ_s.xml
+ # Validation
+validation_final\ATLAS\36fb-1\HIGG-2016-22\HIGG_2016-22-CVCF-Poisson-Grids-given-corr-1d-Gaussian.pdf
+
+------------------------------------------
+
+3/--- H -> WW (HIGG-2016-07) ---
+
+ # Data
+data_final\ATLAS\Run2\36fb-1\HIGG-2016-07_ggH-VBF_WW_vn68.xml
+ # Validation
+No Grids Given
+
+------------------------------------------
+
+4/--- H -> tautau (HIGG-2017-07) ---
+
+ # Data
+data_final\ATLAS\Run2\36fb-1\HIGG-2017-07_ggH-VBF_tautau_vn68.xml
+ # Validation
+No Grids Given
+
+------------------------------------------
+
+5/--- H -> bb (HIGG-2016-29 and HIGG-2016-30) ---
+
+ # Data
+data_final\ATLAS\Run2\36fb-1\HIGG-2016-29_WH_bb_ps.xml
+data_final\ATLAS\Run2\36fb-1\HIGG-2016-29_ZH_bb_ps.xml
+data_final\ATLAS\Run2\36fb-1\HIGG-2016-30_VBF_bb_ps.xml
+ # Validation
+No Grids Given
+
+------------------------------------------
+
+6/--- H -> invisible (HIGG-2016-28) ---
+
+ # Data
+data_final\ATLAS\Run2\36fb-1\HIGG-2016-28_ZH_invisible_f.xml
+ # Validation
+No Grids Given
+
+------------------------------------------
+
+7/--- ttH -> combined (HIGG-2016-28) ---
+
+ # Data
+data_final\ATLAS\Run2\36fb-1\HIGG-2017-02_ttH_combined_vn_dim5.xml
+ # Validation
+validation_final\ATLAS\36fb-1\HIGG-2017-02\HIGG-2017-02-CVCF.pdf
+
+------------------------------------------
+
+## REMAINED ISSUES:
+ 1/ H -> invisible (HIGG-2016-28): Check the data grids again (center at 0, decide _f or _p file).
+ 2/ ttH -> combined (HIGG-2016-28): Validation is still not so good.
+
+------------------------------------------------------------------------------------
+------------------------------------------------------------------------------------
+
+
+#-------------------------
+#--- CMS Run2, 36 fb-1 ---
+#-------------------------
+
+
+1/--- Combined -> Combined (HIG-17-031) ---
+
+ 1.1/ 24 dims dataset:
+ # Data: 
+data_final\CMS\Run2\36fb-1\HIG-17-031_combined_vn_dim24.xml
+ # Validation:
+validation_final\CMS\Run2\36fb-1\HIG-17-031\HIG-17-031-CVCF-VGaussian-Combined.pdf 
+validation_final\CMS\Run2\36fb-1\HIG-17-031\HIG-17-031-CgCGa_BRinvBRund_profiled.pdf
+validation_final\CMS\Run2\36fb-1\HIG-17-031\cba_tb_I_h_2d.pdf 
+validation_final\CMS\Run2\36fb-1\HIG-17-031\cba_tb_II_h_2d.pdf
+
+ 1.2/ individual decay mode dataset:
+ # Data:
+data_final\CMS\Run2\36fb-1\HIG-17-031_ggH-VBF-ttH_tautau_vn_dim3.xml
+data_final\CMS\Run2\36fb-1\HIG-17-031_ggH-VBF-WH-ZH-ttH_gammagamma_vn_dim5.xml
+data_final\CMS\Run2\36fb-1\HIG-17-031_ggH-VBF-WH-ZH-ttH_WW_vn_dim5.xml
+data_final\CMS\Run2\36fb-1\HIG-17-031_ggH-VBF-WH-ZH-ttH_ZZ_vn_dim5.xml
+data_final\CMS\Run2\36fb-1\HIG-17-031_ggH-WH-ZH-ttH_bb_vn_dim4.xml 
+ # Validation:
+validation_final\CMS\Run2\36fb-1\HIG-17-031\HIG-17-031-CVCF-VGaussian-Htautau.pdf
+validation_final\CMS\Run2\36fb-1\HIG-17-031\HIG-17-031-CVCF-VGaussian-Hgammagamma.pdf
+validation_final\CMS\Run2\36fb-1\HIG-17-031\HIG-17-031-CVCF-VGaussian-HWW.pdf
+validation_final\CMS\Run2\36fb-1\HIG-17-031\HIG-17-031-CVCF-VGaussian-HZZ.pdf
+validation_final\CMS\Run2\36fb-1\HIG-17-031\HIG-17-031-CVCF-VGaussian-Hbb.pdf 
+
+------------------------------------------
+
+2/--- H -> invisible (HIG-17-023) ---
+
+ # Data: 
+data_final\CMS\Run2\36fb-1\HIG-17-023_ggH_invisible_vs.xml
+data_final\CMS\Run2\36fb-1\HIG-17-023_qqH_invisible_f.xml
+data_final\CMS\Run2\36fb-1\HIG-17-023_VqqH_invisible_vs.xml
+data_final\CMS\Run2\36fb-1\HIG-17-023_ZllH_invisible_f.xml
+ # Validation:
+Combined with HIG-17-031 
+validation_final\CMS\Run2\36fb-1\HIG-17-031\HIG-17-031-CgCGa_BRinvBRund_profiled.pdf
+
+------------------------------------------
+
+3/--- H -> tautau (HIG-18-007) ---
+
+ # Data:
+data_final\CMS\Run2\36fb-1\HIG-18-007_WH_tautau_ps.xml
+data_final\CMS\Run2\36fb-1\HIG-18-007_ZH_tautau_ps.xml
+ # Validation:
+No Grids Given
+
+------------------------------------------
+
+4/--- VBF -> bb (HIG-16-003) ---
+
+ # Data:
+data_final\CMS\Run2\36fb-1\HIG-16-003_VBF_bb_f.xml
+ # Validation:
+No Grids Given
+ 
+------------------------------------------
+
+## REMAINED ISSUES:
+ 1/ Combined -> Combined (HIG-17-031):
+- CV-CF combined validation fix Loglikelihood(2\sigma) = 6.13 (not 5.99) -> tried but no difference was seen.
+- Shoud we include individual decay mode dataset 1.2?
+ 2/ H -> invisible (HIG-17-023):
+- Should _vs data be fixed to _p for consistency? 
+ 3/ H -> tautau (HIG-18-007):
+- Should we include these data?
+ 4/ VBF -> bb (HIG-16-003)
+- This has been a preliminary since June 2016, should we include it?
+- If included, add _p data.  

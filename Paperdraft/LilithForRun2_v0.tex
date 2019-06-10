@@ -112,8 +112,114 @@ L.T.Q.\ thanks the ICISE ...
 \section{Overview of XML data files}
 
 \section{Implementation of 2D Poisson likelihood with correlation}
-
-
+\subsection{Log-likelihood for Poisson distribution with continuous variable}
+The probability mass function of Poisson distribution, with parameter $\lambda>0$, and variable $k = 0,1,2,3, ...$:
+\begin{align}
+f(k; \lambda)= \frac{e^{-\lambda}\lambda^k}{k!}.
+\end{align}
+The log-likelihood function for Poisson distribution:
+\begin{align}
+l(\lambda; k) = \log [f(k;\lambda)]=-\lambda + k\log \lambda - \log k!. \label{P_llh}
+\end{align}
+Here, since $k$ is a discrete variable, we would redefine a log-likelihood function of parameter $\lambda$ that fix continuous variable, denoted as ``$\nu$". We re-define the parameter as $\lambda \equiv \rho(\lambda-c)+ \tau$, with $\eta = {\tau}/{\rho}$, and $c$ is the expected value at which the log-likelihood function reaches extrema. The new log-likelihood function reads:
+\begin{align}
+l(\lambda;\nu)&=-\rho(\lambda-c+\eta)+\nu\log\rho(\lambda-c+\eta)+\text{const}.
+\end{align}
+Here we want to set the extrema at $\lambda=c$. Since the Poisson distribution has expected value equal it parameter, we set $\nu = \rho\eta$ so that the log-likelihood function reaches extrema at $f(c)$. For Poisson distribution, the extrema of log-likelihood function is not equal 0, we will consider its $\Delta$ log-likelihood function:
+\begin{align}
+\Delta l(\lambda;\nu)=l(\lambda;\nu)-l(c;\nu)=	-\rho (\lambda-c)+\nu\ln\left[1+\frac{\rho}{\nu}( \lambda-c)\right].\label{P_delta_llh}
+\end{align}
+$\Delta l(\sigma_-;\nu)$ and $\Delta l(\sigma_+;\nu)$ yields $-1/2$, dividing their r.h.s terms of by $\nu$ followed by taking the exponentials, we get the relation:
+\begin{align}
+\frac{1-\gamma\sigma_-}{1-\gamma\sigma_+}=e^{-\gamma(\sigma_-+\sigma_+)}.
+\end{align}
+From $\Delta l(\sigma_+;\nu) = -1/2$, we could derive $\nu$:
+\begin{align}
+\nu=\frac{1}{2(\gamma\sigma_+-\ln(1+\gamma\sigma_+))}.
+\end{align}
+\subsection{A model for bivariate Poisson distribution with negative correlation}
+The probability mass function (pmf) of Poisson distribution, with parameter $\lambda>0$, and variable $k = 0,1,2,3, ...$:
+\begin{align}
+f(k; \lambda)= \frac{e^{-\lambda}\lambda^k}{k!}.
+\end{align}
+We would like to apply a model of bivariate Poisson distribution which allows negative correlation. We define marginal and dependent pmf respectively as:
+\begin{align}
+g_{1}(k_{1};\lambda_1)=\frac{e^{-\lambda_{1}}\lambda_{1}^{k_{1}}}{k_{1}!},\\g_{2}(k_{2}|k_{1};\lambda_2)=\frac{e^{-\lambda_{2}}\lambda_{2}^{k_{2}}}{k_{2}!}.
+\end{align}
+By convention, the parameters read:
+\begin{align}
+\lambda_1&= e^{x'\beta_1},\\\lambda_2&=e^{x'\beta_2+\alpha k_1}.
+\end{align}
+The parameter $\alpha$ is added as a small correction that correspondent for the correlation of $k_1,k_2$. The joint pmf:
+\begin{align}
+f(k_1,k_2;\lambda_1,\lambda_2)=g_2(k_2|k_1;\lambda_2)g_1(k_1;\lambda_1). 
+\end{align}
+The marginal pmf remains the form of Poisson distribution, its expected value and variance reads:
+\begin{align}
+E(k_1)=\text{Var}(k_1)=\lambda_1.
+\end{align}
+The (r, s)th factorial moment of the joint distribution is derived as:
+\begin{align}
+&E\left[k_1(k_1-1)...(k_1-r+1)k_2(k_2-1)...(k_2-s+1)\right]\\=&\sum^{\infty}_{k_1=r}\sum^{\infty}_{k_2=s}\frac{e^{k_1(x'\beta_1)-\exp(x'\beta_1)+k_2(x'\beta_2+\alpha k_1)-\exp(x'\beta_2+\alpha k_1)}}{(k_1-r)!(k_2-s)!}\\=&\lambda_1^re^{\lambda_1[\exp(s\alpha)-1]+sx'\beta_2+rs\alpha}.\label{moment}
+\end{align}
+The expected value, variance of $k_2$ and expected value of $k_1k_2$ is derived from the factorial moment \ref{moment} as:
+\begin{align}
+&E(k_2)=e^{x'\beta_2+(\exp(\alpha)-1)\lambda_1},\\
+&\text{Var}(k_2)=E(k_2)+[E(k_2)]^2\{e^{\lambda_1[\exp(\alpha)-1]}\},\\&E(k_1k_2)=\lambda_1E(k_2)\exp(\alpha).
+\end{align}
+The covariance of $k_1$ and $k_2$ reads:
+\begin{align}
+\text{Cov}(k_1,k_2)=E(k_1k_2)-E(k_1)E(k_2)=\lambda_1E(k_2)[\exp(\alpha)-1],
+\end{align}
+The correlation reads:
+\begin{align}
+\text{Corr}(k_1,k_2) = \frac{\lambda_1E(k_2)[\exp(\alpha)-1]}{\sqrt{\lambda_1E(k_2)\{1+E(k_2)\{e^{\lambda_1[\exp(\alpha)-1]^2}-1\}\}}}.\label{Corr}
+\end{align}
+For later convenience, we derive the relation between $\lambda_2$ and $E(k_2)$:
+\begin{align}
+\lambda_2 = E(k_2)e^{\alpha k_1 - [\exp(\alpha)-1]\lambda_1}=E(k_2)e^{\alpha k_1 - [\exp(\alpha)-1]E(k_1)}.\label{relation}
+\end{align}
+\subsection{Log-likelihood for bivariate Poisson distribution with continuous variable and negative correlation}
+We derive a log-likelihood function that fixes continuous variables for the bivariate Poisson distribution which allows negative correlation. Now for the marginal pmf:
+\begin{align}
+g_{1}(k_{1};\lambda_1)=\frac{e^{-\lambda_{1}}\lambda_{1}^{k_{1}}}{k_{1}!}.
+\end{align}
+It remains the form of ordinary Poisson distribution. We apply \ref{P_delta_llh} to derive the $\Delta$ log-likelihood function:
+\begin{align}
+\Delta l_1(\lambda_1;\nu_1) = -\rho_1(\lambda_1-c_{1}) + \nu_1\log\left[1+\frac{\rho_1}{\nu_1}(\lambda_1-c_1)\right].
+\end{align}
+Considering the dependent pmf:
+\begin{align}
+g_{2}(k_{2}|k_{1};\lambda_2)=\frac{e^{-\lambda_{2}}\lambda_{2}^{k_{2}}}{k_{2}!}.
+\end{align}   
+Its log-likelihood function fixing discrete variable $k_2$:
+\begin{align}
+l_2(\lambda_2; k_2) = \log [g_{2}(k_{2}|k_{1};\lambda_2)]=-\lambda_2 + k_2\log \lambda_2 - \log k_2!,
+\end{align}
+with the parameter $\lambda_2$ reads:
+\begin{align}
+\lambda_2 = E(k_2)e^{\alpha k_1 - [\exp(\alpha)-1]E(k_1)}.
+\end{align}
+For fixing continuous variable $\nu_2$, we redefine the parameter $\lambda_2$ as:
+\begin{align}
+\lambda_2 \equiv \rho_2(\lambda_2 - c_2 + \eta_2)e^{\alpha \nu_1 - [\exp(\alpha)-1]\rho_1(\lambda_1-c_1+\eta_1)}.
+\end{align}
+The log-likelihood function $l_2$ now become a function of two parameters $\lambda_1, \lambda_2$ fixing two variables $\nu_1, \nu_2$:
+\begin{align}
+l_2(\lambda_1,\lambda_2; \nu_1,\nu_2) =-\lambda_2 + \nu_2\log \lambda_2 + \text{const}.
+\end{align}
+Its $\Delta$ log-likelihood function reads:
+\begin{align}
+\Delta l_2(\lambda_1,\lambda_2; \nu_1,\nu_2)=l_2(\lambda_1,\lambda_2; \nu_1,\nu_2)-l_2(c_1,c_2; \nu_1,\nu_2).
+\end{align}
+The correlation in \ref{Corr} becomes: 
+\begin{align}
+\text{Corr}(\nu_1,\nu_2) = \frac{\nu_1\nu_2[\exp(\alpha)-1]}{\sqrt{\nu_1\nu_2\{1+\nu_2\{e^{\nu_1[\exp(\alpha)-1]^2}-1\}\}}}.
+\end{align}
+Finally, the $\Delta$log-likelihood for joint pmf:
+\begin{align}
+\Delta l_{\text{join}}(\lambda_1,\lambda_2;\nu_1,\nu_2)=\Delta l_1(\lambda_1;\nu_1) + \Delta l_2(\lambda_1,\lambda_2; \nu_1,\nu_2).
+\end{align}
 \end{appendix}
 
 

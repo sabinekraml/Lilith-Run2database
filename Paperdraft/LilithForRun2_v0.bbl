@@ -1,4 +1,4 @@
-\begin{thebibliography}{1}
+\begin{thebibliography}{}
 \providecommand{\url}[1]{\texttt{#1}}
 \providecommand{\urlprefix}{URL }
 \expandafter\ifx\csname urlstyle\endcsname\relax
@@ -6,48 +6,5 @@
   \providecommand{\doi}{doi:\discretionary{}{}{}\begingroup
   \urlstyle{rm}\Url}\fi
 \providecommand{\eprint}[2][]{\url{#2}}
-
-\bibitem{Bernon:2015hsa}
-J.~Bernon and B.~Dumont,
-\newblock \emph{{Lilith: a tool for constraining new physics from Higgs
-  measurements}},
-\newblock Eur. Phys. J. \textbf{C75}(9), 440 (2015),
-\newblock \doi{10.1140/epjc/s10052-015-3645-9},
-\newblock \eprint{1502.04138}.
-
-\bibitem{Boudjema:2013qla}
-F.~Boudjema \emph{et~al.},
-\newblock \emph{{On the presentation of the LHC Higgs Results}},
-\newblock In \emph{{Workshop on Likelihoods for the LHC Searches Geneva,
-  Switzerland, January 21-23, 2013}} (2013), \eprint{1307.5865}.
-
-\bibitem{Barlow:2004wg}
-R.~Barlow,
-\newblock \emph{{Asymmetric statistical errors}},
-\newblock In \emph{{Statistical Problems in Particle Physics, Astrophysics and
-  Cosmology (PHYSTAT 05): Proceedings, Oxford, UK, September 12-15, 2005}}, pp.
-  56--59 (2004), \eprint{physics/0406120}.
-
-\bibitem{Aaboud:2018xdt}
-M.~Aaboud \emph{et~al.},
-\newblock \emph{{Measurements of Higgs boson properties in the diphoton decay
-  channel with 36 fb$^{-1}$ of $pp$ collision data at $\sqrt{s} = 13$ TeV with
-  the ATLAS detector}},
-\newblock Phys. Rev. \textbf{D98}, 052005 (2018),
-\newblock \doi{10.1103/PhysRevD.98.052005},
-\newblock
-  \url{https://atlas.web.cern.ch/Atlas/GROUPS/PHYSICS/PAPERS/HIGG-2016-21/},
-\newblock \eprint{1802.04146}.
-
-\bibitem{Aaboud:2017bja}
-M.~Aaboud \emph{et~al.},
-\newblock \emph{{Search for an invisibly decaying Higgs boson or dark matter
-  candidates produced in association with a $Z$ boson in $pp$ collisions at
-  $\sqrt{s} =$ 13 TeV with the ATLAS detector}},
-\newblock Phys. Lett. \textbf{B776}, 318 (2018),
-\newblock \doi{10.1016/j.physletb.2017.11.049},
-\newblock
-  \url{https://atlas.web.cern.ch/Atlas/GROUPS/PHYSICS/PAPERS/HIGG-2016-28/},
-\newblock \eprint{1708.09624}.
 
 \end{thebibliography}

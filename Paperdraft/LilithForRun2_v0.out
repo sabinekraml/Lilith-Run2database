@@ -1,10 +1,14 @@
 \BOOKMARK [1][-]{section.1}{Introduction}{}% 1
-\BOOKMARK [1][-]{section.2}{Extended XML format}{}% 2
-\BOOKMARK [1][-]{section.3}{ATLAS and CMS results included in the database update}{}% 3
-\BOOKMARK [2][-]{subsection.3.1}{ATLAS Run 2 results for 36 fb-1}{section.3}% 4
-\BOOKMARK [2][-]{subsection.3.2}{CMS Run 2 results for 36 fb-1}{section.3}% 5
-\BOOKMARK [1][-]{section.4}{Status of Higgs coupling fits}{}% 6
-\BOOKMARK [1][-]{section.5}{Conclusion}{}% 7
-\BOOKMARK [1][-]{appendix.A}{Overview of XML data files}{}% 8
-\BOOKMARK [1][-]{appendix.B}{Implementation of 2D Poisson likelihood with correlation}{}% 9
-\BOOKMARK [1][-]{appendix.B}{References}{}% 10
+\BOOKMARK [1][-]{section.2}{Extended XML format for experimental input}{}% 2
+\BOOKMARK [1][-]{section.3}{Likelihood calculation}{}% 3
+\BOOKMARK [1][-]{section.4}{ATLAS and CMS results included in the database update}{}% 4
+\BOOKMARK [2][-]{subsection.4.1}{ATLAS Run 2 results for 36 fb-1}{section.4}% 5
+\BOOKMARK [2][-]{subsection.4.2}{CMS Run 2 results for 36 fb-1}{section.4}% 6
+\BOOKMARK [1][-]{section.5}{Status of Higgs coupling fits}{}% 7
+\BOOKMARK [1][-]{section.6}{Conclusion}{}% 8
+\BOOKMARK [1][-]{appendix.A}{Overview of XML data files}{}% 9
+\BOOKMARK [1][-]{appendix.B}{Implementation of 2D Poisson likelihood with correlation}{}% 10
+\BOOKMARK [2][-]{subsection.B.1}{Log-likelihood for Poisson distribution with continuous variable}{appendix.B}% 11
+\BOOKMARK [2][-]{subsection.B.2}{A model for bivariate Poisson distribution with negative correlation}{appendix.B}% 12
+\BOOKMARK [2][-]{subsection.B.3}{Log-likelihood for bivariate Poisson distribution with continuous variable and negative correlation}{appendix.B}% 13
+\BOOKMARK [1][-]{equation.B.32}{References}{}% 14
