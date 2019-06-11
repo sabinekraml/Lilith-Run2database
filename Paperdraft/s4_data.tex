@@ -24,6 +24,8 @@ ttH & \cite{Aaboud:2018xdt,Aaboud:2017jvq} & \cite{Aaboud:2017vzb,Aaboud:2017jvq
 \label{tab:ATLASresults}
 \end{table}
 
+%%% gamma gamma %%%
+
 {\bf\boldmath $H\to\gamma\gamma$ (HIGG-2016-21):}  
 The ATLAS analysis \cite{Aaboud:2018xdt} provides in Fig.~12 $H\to\gamma\gamma$ signal strengths separated into   
 ggH, VBF, VH and ``top'' (ttH+tH) production modes. Since no correlations are given for the signal strengths, we 
@@ -31,53 +33,130 @@ use instead the correlations for the stage-0 simplified template cross sections 
 paper, which should be a close enough match. It turns out that these data do not allow to reproduce very well the 
 ATLAS coupling fits for $(C_V,\;C_F)$ or $(C_\gamma,\;C_g)$. The reason seems to be that the $\mu$ values 
 rounded to one decimal are not  precise enough. We have therefore extracted the best-fit points and uncertainties 
-from fits to the 1D profile likelihoods, which are provided as Auxiliary Figures 23a--d on the analysis webpage. 
-and used these together with the STXS correlations in the {\tt Lilith} XML file. This gives a better coupling fit, as shown 
-in the validation plots in Fig.~\ref{fig:validation_atlas_gamgam}. 
+from fits to the 1D profile likelihoods, which are provided as Auxiliary Figures 23a--d on the analysis webpage, as\footnote{In the XML file we use the exact numbers from the fit to the 1D profile likelihoods.}  
+$\mu({\rm ggH},\,\gamma\gamma)\simeq 0.81^{+0.19}_{-0.18}$, 
+$\mu({\rm VBF},\,\gamma\gamma)\simeq 2.04^{+0.61}_{-0.53}$, 
+$\mu({\rm VH},\,\gamma\gamma)\simeq 0.66^{+0.89}_{-0.80}$ and 
+$\mu({\rm ttH},\,\gamma\gamma)\simeq 0.54^{+0.64}_{-0.55}$.   
+These numbers are consistent with the rounded values in Fig.~12 of \cite{Aaboud:2018xdt}, but using more digits 
+improves the coupling fits as shown in Fig.~\ref{fig:validation_atlas_gamgam}. 
 
-\begin{figure}[bh!]\centering
-\includegraphics[width=0.5\textwidth]{validation/ATLAS/HIGG-2016-21-CVCF.pdf}%
-\hspace{-12mm}\includegraphics[width=0.5\textwidth]{validation/ATLAS/HIGG-2016-21-CgCGa.pdf}
-\caption{Fit of $C_F$ vs.\ $C_V$ (left) and $C_\gamma$ vs.\ $C_g$ (right) for data from the ATLAS $H\to\gamma\gamma$ analysis~\cite{Sirunyan:2018koj}. The red, orange and yellow filled areas show the 
+\begin{figure}[h!]\centering
+\includegraphics[width=0.54\textwidth]{validation/ATLAS/HIGG-2016-21-CVCF.pdf}%
+\hspace{-13mm}\includegraphics[width=0.54\textwidth]{validation/ATLAS/HIGG-2016-21-CgCGa.pdf}%
+\vspace*{-2mm}
+\caption{Fit of $C_F$ vs.\ $C_V$ (left) and $C_\gamma$ vs.\ $C_g$ (right) for data from the ATLAS $H\to\gamma\gamma$ analysis~\cite{Aaboud:2018xdt}. The red, orange and yellow filled areas show the 
 $68\%$,  $95\%$ and $99.7\%$ CL regions obtained with {\tt Lilith} using best-fit values and uncertainties for the signal strengths 
 as extracted from Aux.\ Figs.~23a--d of the ATLAS analysis together with the correlation matrix for the stage-0 STXS. 
 This can be compared to the $68\%$,  $95\%$ CL contours obtained using the rounded values from Fig.~12 of \cite{Sirunyan:2018koj} 
-(solid and dashed dark red lines) and to the official $68\%$,  $95\%$ CL contours from ATLAS (blue dots).}
+(solid and dashed dark red lines) and to the official $68\%$ and $95\%$ CL contours from ATLAS (blue dots).}
 \label{fig:validation_atlas_gamgam}
 \end{figure}
  
-We note that the same fit quality is obtained when using only the correlation between ggH and VBF production modes 
-(as 2D data) and treating VH and ttH as independent (as 1D data). The relevant XML files are all included in the 
-database, so the user can choose the preferred combination. This is relevant to avoid double counting 
-when combining this with other measurements, concretely with the data from~\cite{Aaboud:2017jvq}. \\
+%%% ZZ %%%
 
 {\bf\boldmath $H\to ZZ^*\to 4l$ (HIGG-2016-22):} A similar issue as discussed for $H\to\gamma\gamma$ above arises 
-when using the signal strengths given in Table~9 of \cite{Aaboud:2017vzb} together with the correlation matrix given in 
-Aux.\ Fig.~4a. We therefore use $\mu({\rm ggH},\,ZZ^*)$ and $\mu({\rm VBF},\,ZZ^*)$ extracted from the 1D profile 
-likelihoods Aux.\ Figs.~7a and 7b with a correlation $\rho=-0.41$ according to Aux.\ Fig.~4c. For the VH and ttH production 
-modes, we convert the given 95\%~CL limits into $\mu({\rm VH},\,ZZ^*)=0^{+1.85}_{-0.0}$ and 
-$\mu({\rm ttH},\,ZZ^*)=0^{+3.75}_{-0.0}$. For validation, we compare to the $C_F$ vs.\ $C_V$ fit from ATLAS, 
-see Fig.~\ref{fig:validation_atlas_ZZ}.\\
+for $H\to ZZ^*$ when using the signal strengths given in Table~9 of \cite{Aaboud:2017vzb} together with the $4\times 4$ 
+correlation matrix from Aux.\ Fig.~4a, see the left panel in Fig.~\ref{fig:validation_atlas_ZZ}.  
+In fact, this is a case were we could not achieve a good result with a (variable) Gaussian approximation. 
+What works best is to fit the 1D profile likelihoods for $\mu({\rm ggH},\,ZZ^*)$ and $\mu({\rm VBF},\,ZZ^*)$ shown in Aux.\ Figs.~7a and 7b of \cite{Aaboud:2017vzb} as Poisson distributions. This gives $\mu({\rm ggH},\,ZZ^*)\simeq 1.12^{+0.25}_{-0.22}$ and 
+$\mu({\rm VBF},\,ZZ^*)\simeq 3.88^{+1.75}_{-1.46}$, which we implement as a bivariate Poisson distribution with    
+correlation $\rho=-0.41$ (taken from Aux.\ Fig.~4c of \cite{Aaboud:2017vzb}). 
+For the VH and ttH production modes, we convert the given 95\%~CL limits into $\mu({\rm VH},\,ZZ^*)=0^{+1.85}_{-0}$ and 
+$\mu({\rm ttH},\,ZZ^*)=0^{+3.75}_{-0}$ (the same is done in the left plot in Fig.~\ref{fig:validation_atlas_ZZ}). 
+As shown in the right panel of Fig.~\ref{fig:validation_atlas_ZZ}, this allows to reproduce reasonably well the $C_F$ vs.\ $C_V$ 
+fit from the ATLAS paper.
 
-\begin{figure}[htb!]\centering
-\includegraphics[width=0.5\textwidth]{validation/ATLAS/HIGG-2016-22-CVCF.pdf}
-\caption{Fit of $C_F$ vs.\ $C_V$ for data from the ATLAS $H\to ZZ^*$ analysis~\cite{Aaboud:2017vzb}. 
+\begin{figure}[h!]\centering
+\includegraphics[width=0.54\textwidth]{validation/ATLAS/HIGG-2016-22-CVCF-4d.pdf}%
+\hspace{-13mm}\includegraphics[width=0.54\textwidth]{validation/ATLAS/HIGG-2016-22-CVCF-fit.pdf}%
+\vspace*{-2mm}
+\caption{Fit of $C_F$ vs.\ $C_V$ for data from the ATLAS $H\to ZZ^*$ analysis, 
+on the left using the values from Table~9 and Aux.\ Fig.~4a of~\cite{Aaboud:2017vzb}, 
+on the right using a 2D Poisson distribution for $\mu({\rm ggH},\,ZZ^*)$ vs.\ $\mu({\rm VBF},\,ZZ^*)$ as explained in the text. 
 The  $68\%$,  $95\%$ and $99.7\%$~CL regions obtained with {\tt Lilith} are shown as red, orange and yellow areas, 
-and compared to the $68\%$,  $95\%$~CL contours from ATLAS (in blue).}
+and compared to the $68\%$ and  $95\%$~CL contours from ATLAS (in blue).}
 \label{fig:validation_atlas_ZZ}
 \end{figure}
 
+%%% WW %%%
 
-{\bf\boldmath $H\to WW^*\to 2l2\nu$ (HIGG-2016-07):} \\
+{\bf\boldmath $H\to WW^*\to 2l2\nu$ (HIGG-2016-07):} Ref.~\cite{Aaboud:2018jqu} focusses on the measurement of the 
+inclusive ggH and VBF Higgs production cross sections in the $H\to WW^*\to e\nu\mu\nu$ channel. The paper quotes 
+on page~13 signal strengths of $\mu({\rm ggH}, WW)=1.10^{+0.21}_{-0.20}$ and $\mu({\rm VBF}, WW)=0.62^{+0.36}_{-0.35}$. 
+We implemented these as a 2D result with a correlation of $\rho=-0.08$ using the variable Gaussian approximation; 
+the correlation was fitted from the $\sigma\times{\rm BR}$ plot, Fig.~9, of \cite{Aaboud:2018jqu}. 
+No coupling fits are available which could be used for validation. \\
 
-{\bf\boldmath $H\to \tau\tau$ (HIGG-2017-07):} \\
+%%% tau tau %%%
 
-{\bf\boldmath $H\to b\bar b$ (HIGG-2016-29 and HIGG-2016-30):}\\
+{\bf\boldmath $H\to \tau\tau$ (HIGG-2017-07):} This ATLAS cross section measurement in the $H\to \tau\tau$ channel~\cite{Aaboud:2018pen} 
+provides as Aux.~Fig.~5 the 68\% and 95\% CL contours in the $\mu({\rm ggH}, \tau\tau)$ vs.\ $\mu({\rm VBF}, \tau\tau)$ plane. 
+A fit of a bivariate variable Gaussian to the 95\%~CL contour in this plot  
+gives $\mu({\rm ggH}, \tau\tau)\simeq 1.0^{+0.72}_{-0.59}$ and $\mu({\rm VBF}, WW)=1.20^{+0.62}_{-0.56}$ with 
+$\rho = -0.45$, which are the values implemented in the database. As no other validation material is available, 
+we show in Fig.~\ref{fig:validation_atlas_tautau} our reconstruction of the experimental likelihood in the 
+$\mu({\rm ggH}, \tau\tau)$ vs.\ $\mu({\rm VBF}, \tau\tau)$ plane. 
+Note that a fit to the 68\%~CL contour of ATLAS gives a less good result. \\
 
+\begin{figure}[h!]\centering
+\includegraphics[width=0.45\textwidth]{validation/ATLAS/HIGG-2017-07-mu-2d.pdf}
+\caption{Reconstruction of the experimental likelihood in the $H\to \tau\tau$ channel from~\cite{Aaboud:2018pen} 
+as 2D variable Gaussian in the $\mu({\rm ggH}, \tau\tau)$ vs.\ $\mu({\rm VBF}, \tau\tau)$ plane. 
+The  $68\%$ and $95\%$~CL regions obtained with {\tt Lilith} are shown in dark and light gray, respectively, 
+and compared to the $68\%$ and  $95\%$~CL contours from ATLAS (in blue).}
+\label{fig:validation_atlas_tautau}
+\end{figure}
 
+%%% b bbar %%%
 
-{\bf\boldmath $H\to$~invisible (HIGG-2016-28):}
-Results from the search for invisibly decaying Higgs bosons produced in association with a $Z$ boson are presented in \cite{Aaboud:2017bja}. Assuming the Standard Model $ZH$ production cross-section, an observed (expected) upper limit of 67\% (39\%) at the 95\% confidence level is set on BR$(H\to inv)$ for $m_H= 125$~GeV. We use $1-{\rm CLs}$ as function BR$(H\to inv)$ extracted from auxiliary Figure~1c on the analysis' webpage. 
+{\bf\boldmath $H\to b\bar b$ (HIGG-2016-29 and HIGG-2016-30):} For the $H\to b\bar b$ decay mode, ATLAS gives 
+$\mu({\rm ZH}, b\bar b) = 1.12^{+0.50}_{-0.45}$, $\mu({\rm WH}, b\bar b) = 1.35^{+0.68}_{-0.59}$~\cite{Aaboud:2018gay} 
+and $\mu({\rm VBF}, b\bar b) = 3.0^{+1.7}_{-1.6}$~\cite{Aaboud:2018gay}. 
+No correlation data is available, so we implemented each of these as a 1D result; 
+a Poisson likelihood is assumed per default. \\
+
+%%% ttH %%%
+
+{\bf\boldmath ttH production (HIGG-2017-02):} The ATLAS paper~\cite{Aaboud:2017jvq}, reporting evidence for $t\bar tH$ production,  
+provides in Fig.~16 the signal strength results broken down into $H\to \gamma\gamma$, $VV~(=ZZ^*+WW^*)$, $\tau\tau$ and $b\bar b$ 
+decay modes from a combined analysis of all $t\bar tH$ searches.  
+Correlations are not given explicitly but can be estimated from %the 95\% CL contours of 
+Figs.~17a and 17b in \cite{Aaboud:2017jvq} 
+as $\rho(b\bar b, VV)\simeq 0.04$ for the correlation between the $H\to b\bar b$ and $H\to VV$ decay modes
+and $\rho(\tau\tau, VV)\simeq -0.35$ for that between the $H\to \tau\tau$ and $H\to VV$ decay modes. 
+In Fig.~\ref{fig:validation_atlas_ttH}, we compare the $C_F$ vs.\ $C_V$ fit from the implementation in {\tt Lilith} 
+to the official one from~\cite{Aaboud:2017jvq}. While the agreement is not very good,  
+one has to note that without the correlations quoted above the situation is much worse. 
+
+\begin{figure}[htb!]\centering
+\includegraphics[width=0.54\textwidth]{validation/ATLAS/HIGG-2017-02-CVCF-nocorr.pdf}% 
+\hspace{-13mm}\includegraphics[width=0.54\textwidth]{validation/ATLAS/HIGG-2017-02-CVCF-corr.pdf}%
+\vspace*{-2mm}
+\caption{Fit of $C_F$ vs.\ $C_V$ from a combination of the ATLAS ttH measurements, on the left without and on the 
+right with the correlations fitted from Figs.~17a,b in \cite{Aaboud:2017jvq} (see text for details). 
+The  $68\%$,  $95\%$ and $99.7\%$~CL regions obtained with {\tt Lilith} are shown as red, orange and yellow areas, 
+and compared to the $68\%$,  $95\%$~CL contours from ATLAS (in blue).}
+\label{fig:validation_atlas_ttH}
+\end{figure}
+
+A few comments are in order here. First, the measurement of $\mu({\rm t\bar tH},\,\gamma\gamma)$ actually comes from 
+\cite{Aaboud:2018xdt} (HIGG-2016-21, see above) and is also included in the HIGG-2016-21 XML file; 
+to avoid overlap when using both the HIGG-2016-21 and HIGG-2017-02 datasets, we provide a 3D XML file for the latter 
+which includes only the $VV$, $\tau\tau$ and $b\bar b$, but not the $\gamma\gamma$, decay modes. 
+Second, the individual measurement \cite{Aaboud:2017rss} gives $\mu({\rm t\bar tH},\,b\bar b)$ to two decimals 
+($0.84^{+0.64}_{-0.61}$) instead just one ($0.8\pm 0.6$) in \cite{Aaboud:2017jvq}. Since this makes a visible difference 
+in Fig.~\ref{fig:validation_atlas_ttH}, improving the quality of the fit, we use the more precise numbers from  \cite{Aaboud:2017rss}. 
+Third, for $\mu({\rm t\bar tH},\,VV)$ the contribution from $H\to WW^*$ should dominate, but the concrete weights of the 
+$ZZ^*$ and $WW^*$ decay modes are not given in~\cite{Aaboud:2017jvq}. This is not a problem as long as $C_Z=C_W\equiv C_V$, but one should 
+not use the HIGG-2017-02 XML file for any other case.\\
+
+{\bf\boldmath $H\to$~invisible (HIGG-2016-28):} 
+Results from the search for invisibly decaying Higgs bosons produced in association with a $Z$ boson are presented in \cite{Aaboud:2017bja}. 
+A 95\%~CL upper limit of BR$(H\to {\rm inv.})<0.67$ is set for $m_H= 125$~GeV assuming the SM $ZH$ production cross section. 
+In the {\tt Lilith} database, 
+we use a likelihood grid as function BR$(H\to {\rm inv.})$ extracted from Aux. Fig.~1c on the analysis' webpage. \\
+
 
 
 \clearpage
@@ -111,11 +190,13 @@ decay modes as well as the $t\bar tH$ analyses~\cite{Sirunyan:2018shy,Sirunyan:2
 We use the best fit values and uncertainties for the signal strengths for each production %(ggH, VBF, WH, ZH, ttH) 
 and decay  %($\gamma\gamma$, $ZZ$, $WW$, $\tau\tau$, $b\bar b$, $\mu\mu$) 
 mode combination presented in Table~3 of \cite{Sirunyan:2018koj} together with the $24\times 24$ correlation matrix 
-provided as ``Additional Figure~1'' on the analysis webpage. As shown in Fig.~\ref{fig:validation_cms_combination}, 
+provided as ``Additional Figure~1'' on the analysis webpage. As shown in Figs.~\ref{fig:validation_cms_combination} 
+and \ref{fig:validation_cms_2hdm}, 
 this allows to reproduce well the coupling fits of the CMS paper.\\
 
 \begin{figure}[hbt!]\centering
-\includegraphics[width=0.5\textwidth]{validation/CMS/HIG-17-031-CVCF.pdf}
+\includegraphics[width=0.55\textwidth]{validation/CMS/HIG-17-031-CVCF.pdf}%
+\vspace*{-2mm}
 \caption{Fit of $C_F$ vs.\ $C_V$ using best-fit values and uncertainties for the signal strengths for each production (ggH, VBF, WH, ZH, ttH) 
 and decay ($\gamma\gamma$, $ZZ$, $WW$, $\tau\tau$, $b\bar b$, $\mu\mu$) mode combination together with the 
 $24\times 24$ correlation matrix from the CMS combination paper~\cite{Sirunyan:2018koj}. 
@@ -126,7 +207,8 @@ and compared to the $1\sigma$ and $2\sigma$ contours from CMS (blue dots).}
 
 \begin{figure}[t!]\centering
 \includegraphics[width=0.4\textwidth]{validation/CMS/HIG-17-031-2HDM-Type1.pdf}%
-\includegraphics[width=0.4\textwidth]{validation/CMS/HIG-17-031-2HDM-Type2.pdf}
+\includegraphics[width=0.4\textwidth]{validation/CMS/HIG-17-031-2HDM-Type2.pdf}%
+\vspace*{-2mm}
 \caption{Fit of $\tan\beta$ vs.\ $\cos(\beta-\alpha)$ for the Two-Higgs-Doublet models of Type~I (left) and Type~II (right) 
 using the data from the combined CMS measurement~\cite{Sirunyan:2018koj}. 
 The beige, orange and red filled areas show the 68\%, 95\% and 99.7\% CL regions obtained with {\tt Lilith}, 
@@ -151,7 +233,8 @@ are treated as free parameters.%%
   we demanded that both BR$(H\to {\rm inv.})$ and BR$(H\to {\rm undetected})$ be less than 50\%.} 
 
 \begin{figure}[t!]\centering
-\includegraphics[width=0.5\textwidth]{validation/CMS/HIG-17-031-CgCGa_BRinvBRund_profiled.pdf}
+\includegraphics[width=0.55\textwidth]{validation/CMS/HIG-17-031-CgCGa_BRinvBRund_profiled.pdf}%
+\vspace*{-2mm}
 \caption{Fit of $C_g$ vs.\ $C_\gamma$ using the data from the combined CMS measurement~\cite{Sirunyan:2018koj} and the 
 search for invisible decays of a Higgs boson~\cite{Sirunyan:2018owy}. The branching ratios of invisible and undetected decays 
 are treated as free parameters in the fit. 
