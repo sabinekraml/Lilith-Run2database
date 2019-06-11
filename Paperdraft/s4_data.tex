@@ -33,13 +33,15 @@ use instead the correlations for the stage-0 simplified template cross sections 
 paper, which should be a close enough match. It turns out that these data do not allow to reproduce very well the 
 ATLAS coupling fits for $(C_V,\;C_F)$ or $(C_\gamma,\;C_g)$. The reason seems to be that the $\mu$ values 
 rounded to one decimal are not  precise enough. We have therefore extracted the best-fit points and uncertainties 
-from fits to the 1D profile likelihoods, which are provided as Auxiliary Figures 23a--d on the analysis webpage, as\footnote{In the XML file we use the exact numbers from the fit to the 1D profile likelihoods.}  
+from fits  {\nhung using Poison distribution asumption} to the 1D profile likelihoods, which are provided as Auxiliary Figures 23a--d on the analysis webpage, as\footnote{In the XML file we use the exact numbers from the fit to the 1D profile likelihoods.}  
 $\mu({\rm ggH},\,\gamma\gamma)\simeq 0.81^{+0.19}_{-0.18}$, 
 $\mu({\rm VBF},\,\gamma\gamma)\simeq 2.04^{+0.61}_{-0.53}$, 
 $\mu({\rm VH},\,\gamma\gamma)\simeq 0.66^{+0.89}_{-0.80}$ and 
 $\mu({\rm ttH},\,\gamma\gamma)\simeq 0.54^{+0.64}_{-0.55}$.   
 These numbers are consistent with the rounded values in Fig.~12 of \cite{Aaboud:2018xdt}, but using more digits 
-improves the coupling fits as shown in Fig.~\ref{fig:validation_atlas_gamgam}. 
+improves the coupling fits as shown in Fig.~\ref{fig:validation_atlas_gamgam}. {\nhung Nhung: From this writting I have an impression
+that the reason of not-good validation plot for the 4-dim data with variable Gausian is due to the rounded values for best fit points
+and their uncertainties. So one can try to modify the  4-dim data by using the fited values with more digits instead of given rounded numbers from Fig.~12. This modification may give better validation plots. I can check this.  }
 
 \begin{figure}[h!]\centering
 \includegraphics[width=0.54\textwidth]{validation/ATLAS/HIGG-2016-21-CVCF.pdf}%
@@ -47,7 +49,7 @@ improves the coupling fits as shown in Fig.~\ref{fig:validation_atlas_gamgam}.
 \vspace*{-2mm}
 \caption{Fit of $C_F$ vs.\ $C_V$ (left) and $C_\gamma$ vs.\ $C_g$ (right) for data from the ATLAS $H\to\gamma\gamma$ analysis~\cite{Aaboud:2018xdt}. The red, orange and yellow filled areas show the 
 $68\%$,  $95\%$ and $99.7\%$ CL regions obtained with {\tt Lilith} using best-fit values and uncertainties for the signal strengths 
-as extracted from Aux.\ Figs.~23a--d of the ATLAS analysis together with the correlation matrix for the stage-0 STXS. 
+as extracted from Aux.\ Figs.~23a--d of the ATLAS analysis together with the correlation matrix for the stage-0 STXS {\nhung Nhung: this is confusing. Could you please make it clear in the text that you use 2D data for (ggH,$\gamma\gamma$) and (VBF,$\gamma\gamma$) and 1D data for (VH, $\gamma\gamma$) and 1D data for (ttH, $\gamma\gamma$). If this is too long then it is better to write it in the text body (not in the caption) }. 
 This can be compared to the $68\%$,  $95\%$ CL contours obtained using the rounded values from Fig.~12 of \cite{Sirunyan:2018koj} 
 (solid and dashed dark red lines) and to the official $68\%$ and $95\%$ CL contours from ATLAS (blue dots).}
 \label{fig:validation_atlas_gamgam}

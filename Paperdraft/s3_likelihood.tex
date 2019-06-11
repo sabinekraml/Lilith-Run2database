@@ -19,6 +19,7 @@
 \newcommand{\sbraket}[1]{\left[#1\right]}
 \newcommand{\bmu}{\bm{\mu}}
 \newcommand{\hbmu}{\hat{\bm{\mu}}}
+\newcommand{\nhung}{\color{blue}}
 
 The statistic procedure used in \lilith was described in details in ~\cite{Bernon:2015hsa}. 
 The main quantity given as an output 
@@ -82,7 +83,7 @@ We apply the generalised Poison distribution for one and two dimensional data. F
 \be  \log L(\mu) = -\nu\gamma(\mu-\hat\mu) + \nu\log\sbraket{1+\gamma\braket{\mu-\hat\mu}},\ee
 where $\gamma$ and $\nu$ are solved numerically from the following equations
 \be \frac{1- \gamma \sigma^-}{1+ \gamma \sigma^+} = e^{-\gamma(\sigma^+ + \sigma^-)}, \quad
- \nu = \frac{1}{2(\gamma \sigma^+ - \log (1+ \gamma\sigma^+))}.\ee
+ \nu = \frac{1}{2(\gamma \sigma^+ - \log (1+ \gamma\sigma^+))}. \label{eq:posonnugamma}\ee
 For the two dimensional data,  we use the conditioning bivariate Poison distribution described in ~\cite{Berkhout:2004},
  that has no restriction on the sign and magnitude of the correlation $\rho$.  The joint distribution is a product of 
 a marginal and a conditional distribution. The decision of which channel belongs to the marginal
@@ -94,8 +95,10 @@ the marginal and conditional likelihoods
 where the marginal likelihood for the channel $X$ is given by
 \be  \log L(\mu_X) =-\nu_X\gamma_X(\mu_X-\hat\mu_X) + \nu_X\log\sbraket{1+\gamma_X\braket{\mu_X-\hat\mu_X}},\ee
 and the conditional likelihood for the channel $Y$ given the channel $X$
-\be \log L(\mu_Y|\mu_X) = f(\mu_X,\mu_Y) - f(\hat\mu_X,\hat\mu_Y) + \nu_Y\log\frac{f(\mu_X,\mu_Y)}{f(\hat\mu_X,\hat\mu_Y)} , \ee
-where
+\be \log L(\mu_Y|\mu_X) = f(\mu_X,\mu_Y) - f(\hat\mu_X,\hat\mu_Y) + \nu_Y\log\frac{f(\mu_X,\mu_Y)}{f(\hat\mu_X,\hat\mu_Y)} . \ee
+Here the function $f$ reads
 \be f(a,b) =- \nu_Y\gamma_Y\braket{b - \hat \mu_Y + \frac{1}{\gamma_Y} }\text{exp}\sbraket{\nu_X\alpha - \braket{e^\alpha -1}\nu_X\gamma_X(a -\hat\mu_X + \frac{1}{\gamma_X})}, \ee
-with $\alpha$ being solved numerically from the correlation expression
-\be  \rho =\frac{ \nu_X \nu_Y\braket{ e^\alpha -1} }{\sqrt{ \nu_X \nu_Y \sbraket{1 + \nu_Y \braket{ e^{\nu_X \braket{ e^\alpha -1}^2} -1}}}}. \ee
+where $\alpha$ is solved numerically from the correlation expression
+\be  \rho =\frac{ \nu_X \nu_Y\braket{ e^\alpha -1} }{\sqrt{ \nu_X \nu_Y \sbraket{1 + \nu_Y \braket{ e^{\nu_X \braket{ e^\alpha -1}^2} -1}}}}, \ee
+and the $\gamma_x, \nu_X$ and $\gamma_Y, \nu_Y$ are solutions of the Eq.~\ref{eq:posonnugamma} for the $X$ and $Y$ channels,
+respectively.
