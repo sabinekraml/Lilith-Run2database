@@ -93,8 +93,8 @@ validation_final\ATLAS\36fb-1\HIGG-2017-02\HIGG-2017-02-CVCF.pdf
 ------------------------------------------
 
 ## REMAINED ISSUES:
- 1/ H -> invisible (HIGG-2016-28): Check the data grids again (center at 0, decide _f or _p file).
- 2/ ttH -> combined (HIGG-2016-28): Validation is still not so good.
+ 1/ H -> invisible (HIGG-2016-28): Check the data grids again (center at 0, decide _f or _p file). (Nhung did)
+ 2/ ttH -> combined (HIGG-2017-02): Validation is still not so good. H->bb, H-> gaga from different paper.
 
 ------------------------------------------------------------------------------------
 ------------------------------------------------------------------------------------
@@ -174,6 +174,6 @@ No Grids Given
 - Duplicated ZllH_invisible with both _vs and _f?
  3/ H -> tautau (HIG-18-007):
 - Should we include these data?
- 4/ VBF -> bb (HIG-16-003)
+ 4/ VBF -> bb (HIG-16-003) Not included
 - This has been a preliminary since June 2016, should we include it?
 - If included, add _p data.  

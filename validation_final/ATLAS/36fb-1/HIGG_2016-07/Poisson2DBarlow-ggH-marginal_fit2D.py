@@ -119,4 +119,4 @@ plt.ylabel(r'$\mu_{ZZ}^{VBF}$', fontsize=20)
 plt.title("$\mu$ ATLAS-HIGG-2016-07 (Poisson, 95% CL, fitted corr)")
 
 fig.set_tight_layout(True)
-fig.savefig('HIGG-2016-22-mu-Poisson-fitted_corr_95CL.pdf')
+fig.savefig('HIGG-2016-22-mu-Poisson-fit2d-Poisson-Fig8a_95CL.pdf')

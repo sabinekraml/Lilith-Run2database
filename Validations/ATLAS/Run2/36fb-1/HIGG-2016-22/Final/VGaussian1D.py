@@ -24,7 +24,7 @@ plt.plot(x,y,'.',markersize=3, color = 'blue',label="Observed")
 # Find parameters
 def func(X, cen2, sig1, sig2):
     z = X[:]
-    return (z-cen2)**2/(sig1+sig2*(z-cen2))
+    return (z-cen2)**2/(sig1+sig2*(cen2-z))
 
 def fit5para(xr, yr):
 
@@ -57,13 +57,14 @@ print("sig2m =", a2)
 # VBF
 # x = np.arange(0,8.5,0.005)
 # ggH
-x = np.arange(0.47,1.8,0.005)
+# x = np.arange(0.47,1.8,0.005)
+x = np.arange(-1,5,0.005)
 # ttH
 # x = np.arange(-0.1,30,0.005)
 # VH
 # x = np.arange(-0.3,2,0.005)
 
-y2 = (x-cen2)**2/(sig1+sig2*(x-cen2))
+y2 = (x-cen2)**2/(sig1+sig2*(-x+cen2))
 
 
 
@@ -88,4 +89,5 @@ fig.set_tight_layout(True)
 # fig.savefig('mu_VH_1D_Poisson.pdf')
 
 # fig.savefig('mu_VBF_1D_VGaussian.pdf')
-fig.savefig('mu_ggH_1D_VGaussian.pdf')
+# fig.savefig('mu_ggH_1D_VGaussian.pdf')
+plt.show()

@@ -106,4 +106,4 @@ plt.title("$\mu$ from ATLAS-HIGG-2016-07 (VGaussian, 95% CL, fitted corr)")
 fig.set_tight_layout(True)
 
 # Save fig
-fig.savefig('HIGG-2016-22-mu-VGaussian-fitted_corr_95CL.pdf.pdf')
+fig.savefig('mu_ggH-VBF_2D_VGaussian-fitted-corr-95CL.pdf')
