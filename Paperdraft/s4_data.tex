@@ -33,15 +33,14 @@ use instead the correlations for the stage-0 simplified template cross sections 
 paper, which should be a close enough match. It turns out that these data do not allow to reproduce very well the 
 ATLAS coupling fits for $(C_V,\;C_F)$ or $(C_\gamma,\;C_g)$. The reason seems to be that the $\mu$ values 
 rounded to one decimal are not  precise enough. We have therefore extracted the best-fit points and uncertainties 
-from fits  {\nhung using Poison distribution asumption} to the 1D profile likelihoods, which are provided as Auxiliary Figures 23a--d on the analysis webpage, as\footnote{In the XML file we use the exact numbers from the fit to the 1D profile likelihoods.}  
+from the 1D profile likelihoods, which are provided as Auxiliary Figures 23a--d on the analysis webpage, 
+as\footnote{In the XML file we use the exact numbers from the fit to the 1D profile likelihoods.}  
 $\mu({\rm ggH},\,\gamma\gamma)\simeq 0.81^{+0.19}_{-0.18}$, 
 $\mu({\rm VBF},\,\gamma\gamma)\simeq 2.04^{+0.61}_{-0.53}$, 
 $\mu({\rm VH},\,\gamma\gamma)\simeq 0.66^{+0.89}_{-0.80}$ and 
-$\mu({\rm ttH},\,\gamma\gamma)\simeq 0.54^{+0.64}_{-0.55}$.   
+$\mu({\rm ttH},\,\gamma\gamma)\simeq 0.54^{+0.64}_{-0.55}$ (using a Poisson likelihood).   
 These numbers are consistent with the rounded values in Fig.~12 of \cite{Aaboud:2018xdt}, but using more digits 
-improves the coupling fits as shown in Fig.~\ref{fig:validation_atlas_gamgam}. {\nhung Nhung: From this writting I have an impression
-that the reason of not-good validation plot for the 4-dim data with variable Gausian is due to the rounded values for best fit points
-and their uncertainties. So one can try to modify the  4-dim data by using the fited values with more digits instead of given rounded numbers from Fig.~12. This modification may give better validation plots. I can check this.  }
+improves the coupling fits as shown in Fig.~\ref{fig:validation_atlas_gamgam}.
 
 \begin{figure}[h!]\centering
 \includegraphics[width=0.54\textwidth]{validation/ATLAS/HIGG-2016-21-CVCF.pdf}%
@@ -49,7 +48,7 @@ and their uncertainties. So one can try to modify the  4-dim data by using the f
 \vspace*{-2mm}
 \caption{Fit of $C_F$ vs.\ $C_V$ (left) and $C_\gamma$ vs.\ $C_g$ (right) for data from the ATLAS $H\to\gamma\gamma$ analysis~\cite{Aaboud:2018xdt}. The red, orange and yellow filled areas show the 
 $68\%$,  $95\%$ and $99.7\%$ CL regions obtained with {\tt Lilith} using best-fit values and uncertainties for the signal strengths 
-as extracted from Aux.\ Figs.~23a--d of the ATLAS analysis together with the correlation matrix for the stage-0 STXS {\nhung Nhung: this is confusing. Could you please make it clear in the text that you use 2D data for (ggH,$\gamma\gamma$) and (VBF,$\gamma\gamma$) and 1D data for (VH, $\gamma\gamma$) and 1D data for (ttH, $\gamma\gamma$). If this is too long then it is better to write it in the text body (not in the caption) }. 
+as extracted from Aux.\ Figs.~23a--d of the ATLAS analysis together with the $4\times 4$ correlation matrix for the stage-0 STXS. 
 This can be compared to the $68\%$,  $95\%$ CL contours obtained using the rounded values from Fig.~12 of \cite{Sirunyan:2018koj} 
 (solid and dashed dark red lines) and to the official $68\%$ and $95\%$ CL contours from ATLAS (blue dots).}
 \label{fig:validation_atlas_gamgam}
@@ -58,24 +57,27 @@ This can be compared to the $68\%$,  $95\%$ CL contours obtained using the round
 %%% ZZ %%%
 
 {\bf\boldmath $H\to ZZ^*\to 4l$ (HIGG-2016-22):} A similar issue as discussed for $H\to\gamma\gamma$ above arises 
-for $H\to ZZ^*$ when using the signal strengths given in Table~9 of \cite{Aaboud:2017vzb} together with the $4\times 4$ 
-correlation matrix from Aux.\ Fig.~4a, see the left panel in Fig.~\ref{fig:validation_atlas_ZZ}.  
-In fact, this is a case were we could not achieve a good result with a (variable) Gaussian approximation. 
-What works best is to fit the 1D profile likelihoods for $\mu({\rm ggH},\,ZZ^*)$ and $\mu({\rm VBF},\,ZZ^*)$ shown in Aux.\ Figs.~7a and 7b of \cite{Aaboud:2017vzb} as Poisson distributions. This gives $\mu({\rm ggH},\,ZZ^*)\simeq 1.12^{+0.25}_{-0.22}$ and 
+for $H\to ZZ^*$, see the left panel in Fig.~\ref{fig:validation_atlas_ZZ}. Here we used the ggH and VBF signal strengths 
+given in Table~9 of \cite{Aaboud:2017vzb} with correlation $\rho=-0.41$ as of Aux.\ Fig.~4c, assuming a Poisson likelihood. 
+(This is a case were the variable Gaussian approximation performs less well). 
+For the VH and ttH production modes, lacking more information, we converted the given 95\%~CL limits into 
+$\mu({\rm VH},\,ZZ^*)=0^{+1.85}_{-0}$ and $\mu({\rm ttH},\,ZZ^*)=0^{+3.75}_{-0}$ using a 1-sided Gaussian. 
+The result is clearly not satisfactory. The closest match of the official CL contours is obtained if 
+we fit the 1D profile likelihoods for $\mu({\rm ggH},\,ZZ^*)$ and $\mu({\rm VBF},\,ZZ^*)$ shown in Aux.\ Figs.~7a and 7b 
+of \cite{Aaboud:2017vzb} as Poisson distributions. This gives $\mu({\rm ggH},\,ZZ^*)\simeq 1.12^{+0.25}_{-0.22}$ and 
 $\mu({\rm VBF},\,ZZ^*)\simeq 3.88^{+1.75}_{-1.46}$, which we implement as a bivariate Poisson distribution with    
-correlation $\rho=-0.41$ (taken from Aux.\ Fig.~4c of \cite{Aaboud:2017vzb}). 
-For the VH and ttH production modes, we convert the given 95\%~CL limits into $\mu({\rm VH},\,ZZ^*)=0^{+1.85}_{-0}$ and 
-$\mu({\rm ttH},\,ZZ^*)=0^{+3.75}_{-0}$ (the same is done in the left plot in Fig.~\ref{fig:validation_atlas_ZZ}). 
+correlation $\rho=-0.41$ (from Aux.\ Fig.~4c of \cite{Aaboud:2017vzb}). The VH and ttH production modes are treated as before.
 As shown in the right panel of Fig.~\ref{fig:validation_atlas_ZZ}, this allows to reproduce reasonably well the $C_F$ vs.\ $C_V$ 
 fit from the ATLAS paper.
 
 \begin{figure}[h!]\centering
-\includegraphics[width=0.54\textwidth]{validation/ATLAS/HIGG-2016-22-CVCF-4d.pdf}%
+\includegraphics[width=0.54\textwidth]{validation/ATLAS/HIGG-2016-22-CVCF-official.pdf}%
 \hspace{-13mm}\includegraphics[width=0.54\textwidth]{validation/ATLAS/HIGG-2016-22-CVCF-fit.pdf}%
 \vspace*{-2mm}
 \caption{Fit of $C_F$ vs.\ $C_V$ for data from the ATLAS $H\to ZZ^*$ analysis, 
-on the left using the values from Table~9 and Aux.\ Fig.~4a of~\cite{Aaboud:2017vzb}, 
-on the right using a 2D Poisson distribution for $\mu({\rm ggH},\,ZZ^*)$ vs.\ $\mu({\rm VBF},\,ZZ^*)$ as explained in the text. 
+on the left using the values from Table~9 of~\cite{Aaboud:2017vzb}, on the right using 
+$\mu({\rm ggH},\,ZZ^*)$ and $\mu({\rm VBF},\,ZZ^*)$ as fitted from Aux.\ Figs.~7a and 7b of~\cite{Aaboud:2017vzb}. 
+In both panels, the ggH vs.\ VBF likelihood is approximated as a bivariate Poissonian with correlation $-0.41$. 
 The  $68\%$,  $95\%$ and $99.7\%$~CL regions obtained with {\tt Lilith} are shown as red, orange and yellow areas, 
 and compared to the $68\%$ and  $95\%$~CL contours from ATLAS (in blue).}
 \label{fig:validation_atlas_ZZ}
