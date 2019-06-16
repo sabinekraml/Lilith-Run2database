@@ -29,9 +29,9 @@ https://atlas.web.cern.ch/Atlas/GROUPS/PHYSICS/PAPERS/HIGG-2016-22/
     <uncertainty axis="d1" side="right">+0.23</uncertainty>
     <uncertainty axis="d2" side="left">-1.5</uncertainty>
     <uncertainty axis="d2" side="right">+1.8</uncertainty>
-    <uncertainty axis="d3" side="left">-0.00001</uncertainty>
+    <uncertainty axis="d3" side="left">-1e-5</uncertainty>
     <uncertainty axis="d3" side="right">+0.925</uncertainty>
-    <uncertainty axis="d4" side="left">-0.00001</uncertainty>
+    <uncertainty axis="d4" side="left">-1e-5</uncertainty>
     <uncertainty axis="d4" side="right">+1.875</uncertainty>
     
     
