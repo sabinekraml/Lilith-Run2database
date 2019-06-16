@@ -1,5 +1,7 @@
 <!--
-data from Figure 12 and Figure 40a at
+ATLAS result for mu(combined H production modes, gammagamma) at mH = 125.09 GeV,
+with profile likelihood fitted from Aux. Fig. 23
+and their correlation taken from Fig. 40a, shown in HIGG-2016-21
 https://atlas.web.cern.ch/Atlas/GROUPS/PHYSICS/PAPERS/HIGG-2016-21/
 -->
 
@@ -16,21 +18,21 @@ https://atlas.web.cern.ch/Atlas/GROUPS/PHYSICS/PAPERS/HIGG-2016-21/
   <eff axis="d4" prod="ttH" decay="gammagamma">1.0</eff>
 
   <bestfit>
-  	<d1>0.809358651978</d1>
-	<d2>2.03723510311</d2>
-	<d3>0.659118413333</d3>
-	<d4>0.540810999115</d4>
+  	<d1>0.80936</d1>
+	<d2>2.03724</d2>
+	<d3>0.65912</d3>
+	<d4>0.54081</d4>
   </bestfit>
  
   <param>
-    <uncertainty axis="d1" side="left">-0.18695455</uncertainty>
-    <uncertainty axis="d1" side="right">+0.19777365</uncertainty>
-    <uncertainty axis="d2" side="left">-0.60539335</uncertainty>
-    <uncertainty axis="d2" side="right">+0.68383827</uncertainty>
-    <uncertainty axis="d3" side="left">-0.89033236</uncertainty>
-    <uncertainty axis="d3" side="right">+0.9749891</uncertainty>
-    <uncertainty axis="d4" side="left">-0.64205281</uncertainty>
-    <uncertainty axis="d4" side="right">+0.73337966</uncertainty>
+    <uncertainty axis="d1" side="left">-0.17614</uncertainty>
+    <uncertainty axis="d1" side="right">+0.18695</uncertainty>
+    <uncertainty axis="d2" side="left">-0.52695</uncertainty>
+    <uncertainty axis="d2" side="right">+0.60539</uncertainty>
+    <uncertainty axis="d3" side="left">-0.80568</uncertainty>
+    <uncertainty axis="d3" side="right">+0.89033</uncertainty>
+    <uncertainty axis="d4" side="left">-0.55073</uncertainty>
+    <uncertainty axis="d4" side="right">+0.64205</uncertainty>
     
     
 	<correlation entry="d1d2">-0.27</correlation>

@@ -1,12 +1,20 @@
-## 4D dataset:
- # HIGG_2016-22-CVCF-VGaussian-4d_4a.pdf
+  1/ 4D dataset:
+ 
+ 1.1/ HIGG_2016-22-CVCF-VGaussian-4c.pdf
 data_final\ATLAS\Run2\36fb-1\HIGG-2016-22_ggH-VBF-VH-ttH_ZZ_vn_dim4.xml
 
+ 1.2/ HIGG_2016-22-CVCF-VGaussian-4c-fitted.pdf
+data_final\ATLAS\Run2\36fb-1\HIGG-2016-22_ggH-VBF-VH-ttH_ZZ_vn_dim4_fitted.xml
 
-## 2D & 1D dataset:
- # HIGG_2016-22-CVCF-Poisson-Grids-given-corr-1d-Gaussian.pdf
+
+  2/ 2D & 1D dataset:
+ 
+ 2.1/ HIGG_2016-22-CVCF-Poisson-Grids-given-corr-1d-Gaussian.pdf
 data_final\ATLAS\Run2\36fb-1\HIGG-2016-22_ggH-VBF_ZZ_p68.xml
 data_final\ATLAS\Run2\36fb-1\HIGG-2016-22_ttH_ZZ_s.xml
 data_final\ATLAS\Run2\36fb-1\HIGG-2016-22_VH_ZZ_s.xml
 
-
+ 2.2/ HIGG_2016-22-CVCF-VGaussian-1d-Grids-given-corr-1d-VGaussian.pdf
+data_final\ATLAS\Run2\36fb-1\HIGG-2016-22_ggH-VBF_ZZ_vn68.xml
+data_final\ATLAS\Run2\36fb-1\HIGG-2016-22_ttH_ZZ_s.xml
+data_final\ATLAS\Run2\36fb-1\HIGG-2016-22_VH_ZZ_s.xml

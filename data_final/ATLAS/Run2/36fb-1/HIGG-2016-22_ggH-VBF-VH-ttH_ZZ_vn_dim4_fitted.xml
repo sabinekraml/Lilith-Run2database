@@ -1,6 +1,7 @@
 <!--
 ATLAS result for mu(combined H production modes, ZZ) at mH = 125.09 GeV,
-with profile likelihood taken from Table 9
+with profile likelihood of ggH & VBF fitted from Aux. Fig 7a & 7b, 
+of VH & ttH mimicked 95% CL limit using V.Gaussian method in Table 9
 and their correlation taken from Aux. Fig. 4c, shown in HIGG-2016-22
 https://atlas.web.cern.ch/Atlas/GROUPS/PHYSICS/PAPERS/HIGG-2016-22/
 -->
@@ -18,17 +19,17 @@ https://atlas.web.cern.ch/Atlas/GROUPS/PHYSICS/PAPERS/HIGG-2016-22/
   <eff axis="d4" prod="ttH" decay="ZZ">1.0</eff>
 
   <bestfit>
-  	<d1>1.11</d1>
-	<d2>4.0</d2>
+  	<d1>1.11436</d1>
+	<d2>3.85879</d2>
 	<d3>0</d3>
 	<d4>0</d4>
   </bestfit>
  
   <param>
-    <uncertainty axis="d1" side="left">-0.21</uncertainty>
-    <uncertainty axis="d1" side="right">+0.23</uncertainty>
-    <uncertainty axis="d2" side="left">-1.5</uncertainty>
-    <uncertainty axis="d2" side="right">+1.8</uncertainty>
+    <uncertainty axis="d1" side="left">-0.22119</uncertainty>
+    <uncertainty axis="d1" side="right">+0.24614</uncertainty>
+    <uncertainty axis="d2" side="left">-1.43821</uncertainty>
+    <uncertainty axis="d2" side="right">+1.74866</uncertainty>
     <uncertainty axis="d3" side="left">-0.00001</uncertainty>
     <uncertainty axis="d3" side="right">+0.925</uncertainty>
     <uncertainty axis="d4" side="left">-0.00001</uncertainty>

@@ -7,9 +7,9 @@ import scipy.optimize as optimize
 
 # Choose VBF - ggH - ttH - VH
 # f = open('HIGG-2016-21_VBF-1d-Grid.txt', 'r')
-f = open('HIGG-2016-21_ggH-1d-Grid.txt', 'r')
+# f = open('HIGG-2016-21_ggH-1d-Grid.txt', 'r')
 # f = open('HIGG-2016-21_ttH-1d-Grid.txt', 'r')
-# f = open('HIGG-2016-21_VH-1d-Grid.txt', 'r')
+f = open('HIGG-2016-21_VH-1d-Grid.txt', 'r')
 
 # Plot the grids
 fig = plt.figure()
@@ -32,13 +32,13 @@ def fit5para(xr, yr):
     # guess = (2, 0.6, 0.5)
 
     # ggH
-    guess = (0.81, 0.2, 0.2)
+    # guess = (0.81, 0.2, 0.2)
 
     # ttH
     # guess = (0.6, 0.2, 0.2)
 
     # VH
-    # guess = (0.81, 0.2, 0.2)
+    guess = (0.81, 0.2, 0.2)
 
     AR, pcov = optimize.curve_fit(func, xr, yr, guess)
     return AR
@@ -54,8 +54,8 @@ def g1(y):
     return y**2 - sig2*y - sig1
 
 a2 = fsolve(g1,1.5)
-a1 = a2 + sig2
-print("sig2p =", a1)
+print("sig2p =", a2)
+a2 = fsolve(g1,0)
 print("sig2m =", a2)
 
 # Choose VBF - ggH - ttH - VH
@@ -63,11 +63,11 @@ print("sig2m =", a2)
 # VBF
 # x = np.arange(1.2,3.2,0.005)
 # ggH
-x = np.arange(0.55,1.1,0.005)
+# x = np.arange(0.55,1.1,0.005)
 # ttH
 # x = np.arange(-0.1,1.5,0.005)
 # VH
-# x = np.arange(-0.3,2,0.005)
+x = np.arange(-0.3,2,0.005)
 
 y2 = (x-cen2)**2/(sig1+sig2*(x-cen2))
 

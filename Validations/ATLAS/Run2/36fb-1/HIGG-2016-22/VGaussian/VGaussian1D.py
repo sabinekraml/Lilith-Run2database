@@ -29,7 +29,7 @@ def func(X, cen2, sig1, sig2):
 def fit5para(xr, yr):
 
     # VBF
-    # guess = (4, 2.5, 0.3)
+    # guess = (5.00, 2.5000, 0.3000)
 
     # ggH
     guess = (1.1, 0.04, 0.02)
@@ -48,16 +48,17 @@ def g1(y):
     return y**2 - sig2*y - sig1
 
 a2 = fsolve(g1,1.5)
-a1 = a2 + sig2
-print("sig2p =", a1)
+print("sig2p =", a2)
+a2 = fsolve(g1,0)
 print("sig2m =", a2)
+
 
 # Choose VBF - ggH - ttH - VH
 
 # VBF
-x = np.arange(0,8.5,0.005)
+# x = np.arange(0,8.5,0.005)
 # ggH
-# x = np.arange(0.47,1.8,0.005)
+x = np.arange(0.47,1.8,0.005)
 # ttH
 # x = np.arange(-0.1,30,0.005)
 # VH
