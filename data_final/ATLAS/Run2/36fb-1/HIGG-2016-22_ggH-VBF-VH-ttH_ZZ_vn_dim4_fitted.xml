@@ -33,7 +33,7 @@ https://atlas.web.cern.ch/Atlas/GROUPS/PHYSICS/PAPERS/HIGG-2016-22/
     <uncertainty axis="d3" side="left">-1e-5</uncertainty>
     <uncertainty axis="d3" side="right">+0.96318</uncertainty>
     <uncertainty axis="d4" side="left">-1e-5</uncertainty>
-    <uncertainty axis="d4" side="right">+1.90285</uncertainty>
+    <uncertainty axis="d4" side="right">+1.95238</uncertainty>
     
     
 	<correlation entry="d1d2">-0.41</correlation>
