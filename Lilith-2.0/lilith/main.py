@@ -71,6 +71,7 @@ class Lilith:
         # - in signal strengths mode, self.couplings remains empty
         # - each element of self.couplings and self.user_mu
         #   corresponds to a Higgs particle defined in the input
+        self.mode = ""
         self.couplings = []
         self.user_mu = []
         self.user_mu_tot = {}
@@ -100,6 +101,7 @@ class Lilith:
         t0 = time.clock()
         userinput = ReadUserInput(userinput)
         self.tinfo("reading of the user input", time.clock() - t0)
+        self.mode = userinput.mode
 
         if userinput.mode == "reducedcouplings":
             self.user_mu = []
@@ -253,7 +255,7 @@ class Lilith:
 
         t0 = time.clock()
         self.results, self.l = compute_likelihood(self.exp_mu,
-                                                  self.user_mu_tot)
+                                                  self.user_mu_tot,self.mode)
         self.tinfo("computing the likelihood", time.clock() - t0)
         
     def computeSMlikelihood(self, userinput=None, exp_filepath=None,
@@ -265,7 +267,7 @@ class Lilith:
         decay_modes = ["gammagamma", "ZZ", "WW", "bb", "cc", "tautau", "Zgamma", "mumu", "gg","invisible"]
         prod_modes = ["ggH", "VBF", "WH", "ZH", "ZHgg", "ttH", "tHq", "tHW", "bbH"]
         SM_mu = dict(((l1,l2), float(l2!="invisible")) for l1 in prod_modes for l2 in decay_modes)
-        self.results, self.l_SM = compute_likelihood(self.exp_mu, SM_mu)
+        self.results, self.l_SM = compute_likelihood(self.exp_mu, SM_mu, "signalstrengths")
 
 
     def writecouplings(self, filepath):

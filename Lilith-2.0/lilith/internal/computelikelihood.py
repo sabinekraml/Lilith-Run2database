@@ -28,7 +28,7 @@
 from ..errors import LikelihoodComputationError
 import numpy as np
 
-def compute_likelihood(exp_mu, user_mu):
+def compute_likelihood(exp_mu, user_mu, user_mode):
     """Computes the likelihood from experimental mu and user mu."""
     likelihood_results = []
     l = 0. # actually -2log(likelihood)
@@ -41,21 +41,24 @@ def compute_likelihood(exp_mu, user_mu):
                 for (prod,decay),eff_prod in mu["eff"]["x"].items():
 		    if mu["sqrts"] not in ["1.96","7","8","7.","8.","7.0","8.0","7+8"]\
                       and (prod == "ggH" or prod == "VBF" or prod == "tHq" or prod == "tHW" or prod == "ZHgg"):
-		        prod = prod + "13"
+                        if user_mode == "reducedcouplings":
+                            prod = prod + "13"
                     user_mu_effscaled["x"] += eff_prod*user_mu[prod,decay]
             elif mu["dim"] == 2:
                 user_mu_effscaled["x"] = 0.
                 for (prod,decay),eff_prod in mu["eff"]["x"].items():
 		    if mu["sqrts"] not in ["1.96","7","8","7.","8.","7.0","8.0","7+8"]\
                       and (prod == "ggH" or prod == "VBF" or prod == "tHq" or prod == "tHW" or prod == "ZHgg"):
-		        prod = prod + "13"
+                        if user_mode == "reducedcouplings":
+                            prod = prod + "13"
                     user_mu_effscaled["x"] += eff_prod*user_mu[prod,decay]
 
                 user_mu_effscaled["y"] = 0.
                 for (prod,decay),eff_prod in mu["eff"]["y"].items():
 		    if mu["sqrts"] not in ["1.96","7","8","7.","7.0","8.0","8.","7+8"]\
                       and (prod == "ggH" or prod == "VBF" or prod == "tHq" or prod == "tHW" or prod == "ZHgg"):
-                        prod = prod + "13"
+                        if user_mode == "reducedcouplings":
+                            prod = prod + "13"
                     user_mu_effscaled["y"] += eff_prod*user_mu[prod,decay]
             elif mu["dim"] >= 3:
                 for i in range(1,mu["dim"]+1):
@@ -64,7 +67,8 @@ def compute_likelihood(exp_mu, user_mu):
                     for (prod,decay),eff_prod in mu["eff"][d].items():
 		        if mu["sqrts"] not in ["1.96","7","8","7.","8.","7.0","8.0","7+8"]\
                           and (prod == "ggH" or prod == "VBF" or prod == "tHq" or prod == "tHW" or prod == "ZHgg"):
-		            prod = prod + "13"
+                            if user_mode == "reducedcouplings":
+                                prod = prod + "13"
                         user_mu_effscaled[d] += eff_prod*user_mu[prod,decay]
 
         except KeyError as s:
