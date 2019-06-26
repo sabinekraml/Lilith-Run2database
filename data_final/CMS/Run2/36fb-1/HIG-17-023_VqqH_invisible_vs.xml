@@ -13,7 +13,7 @@ http://cms-results.web.cern.ch/cms-results/public-results/publications/HIG-17-02
   <eff prod="ggH">0.39</eff>
   <eff prod="VBF">0.06</eff>
   <eff prod="WH">0.33</eff>
-  <eff prod="ZH">0.22</eff>
+  <eff prod="ZHall">0.22</eff>
 
   <bestfit>0.0252</bestfit>
 

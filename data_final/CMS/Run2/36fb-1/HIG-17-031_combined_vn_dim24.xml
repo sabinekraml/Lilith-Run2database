@@ -30,10 +30,10 @@ http://cms-results.web.cern.ch/cms-results/public-results/publications/HIG-17-03
   <eff axis="d14" prod="WH" decay="WW">1.0</eff>
   <eff axis="d15" prod="WH" decay="bb">1.0</eff>
 
-  <eff axis="d16" prod="ZH" decay="gammagamma">1.0</eff>
-  <eff axis="d17" prod="ZH" decay="ZZ">1.0</eff>
-  <eff axis="d18" prod="ZH" decay="WW">1.0</eff>
-  <eff axis="d19" prod="ZH" decay="bb">1.0</eff>
+  <eff axis="d16" prod="ZHall" decay="gammagamma">1.0</eff>
+  <eff axis="d17" prod="ZHall" decay="ZZ">1.0</eff>
+  <eff axis="d18" prod="ZHall" decay="WW">1.0</eff>
+  <eff axis="d19" prod="ZHall" decay="bb">1.0</eff>
 
   <eff axis="d20" prod="ttH" decay="gammagamma">1.0</eff>
   <eff axis="d21" prod="ttH" decay="ZZ">1.0</eff>

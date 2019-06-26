@@ -15,7 +15,7 @@ http://cms-results.web.cern.ch/cms-results/public-results/publications/HIG-17-03
   <eff axis="d1" prod="ggH" decay="gammagamma">1.0</eff>
   <eff axis="d2" prod="VBF" decay="gammagamma">1.0</eff>
   <eff axis="d3" prod="WH" decay="gammagamma">1.0</eff>
-  <eff axis="d4" prod="ZH" decay="gammagamma">1.0</eff>
+  <eff axis="d4" prod="ZHall" decay="gammagamma">1.0</eff>
   <eff axis="d5" prod="ttH" decay="gammagamma">1.0</eff>
 
   <bestfit>

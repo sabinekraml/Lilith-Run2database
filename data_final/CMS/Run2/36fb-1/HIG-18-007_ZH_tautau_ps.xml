@@ -11,7 +11,7 @@ http://cms-results.web.cern.ch/cms-results/public-results/publications/HIG-18-00
   <mass>125</mass>
   <CL>68%</CL> <!-- optional -->
 
-  <eff prod="ZH">1.</eff>
+  <eff prod="ZHall">1.</eff>
 
   <bestfit>1.23</bestfit>
   
