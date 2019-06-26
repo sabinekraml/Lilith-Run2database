@@ -14,7 +14,7 @@ http://cms-results.web.cern.ch/cms-results/public-results/publications/HIG-17-03
 
   <eff axis="d1" prod="ggH" decay="bb">1.0</eff>
   <eff axis="d2" prod="WH" decay="bb">1.0</eff>
-  <eff axis="d3" prod="ZHall" decay="bb">1.0</eff>
+  <eff axis="d3" prod="ZH" decay="bb">1.0</eff>
   <eff axis="d4" prod="ttH" decay="bb">1.0</eff>
 
   <bestfit>

@@ -13,7 +13,7 @@ with option (k=3, s=0) to turn over outside given range of Aux. Fig. 1c
   <sqrts>13</sqrts>
   <mass>125</mass>
 
-  <eff prod="ZHall">1.</eff>
+  <eff prod="ZH">1.</eff>
 
   <grid>
 0.00000000000000000  0.00000000000000000

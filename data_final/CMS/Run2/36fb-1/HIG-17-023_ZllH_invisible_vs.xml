@@ -10,7 +10,7 @@ http://cms-results.web.cern.ch/cms-results/public-results/publications/HIG-17-02
   <sqrts>13</sqrts>
   <mass>125.09</mass>
 
-  <eff prod="ZHall">1</eff>
+  <eff prod="ZH">1</eff>
 
   <bestfit>-0.052</bestfit>
 

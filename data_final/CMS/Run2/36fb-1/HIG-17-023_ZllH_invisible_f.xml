@@ -14,7 +14,7 @@ with option (k=3, s=0) to turn over outside given range of Fig. 8b
   <sqrts>13</sqrts>
   <mass>125.09</mass>
 
-  <eff prod="ZHall">1</eff>
+  <eff prod="ZH">1</eff>
 
   <grid>
 0. 0.001 
