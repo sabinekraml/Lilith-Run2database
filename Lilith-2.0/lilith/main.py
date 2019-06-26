@@ -265,7 +265,7 @@ class Lilith:
         
         self.readexpinput()
         decay_modes = ["gammagamma", "ZZ", "WW", "bb", "cc", "tautau", "Zgamma", "mumu", "gg","invisible"]
-        prod_modes = ["ggH", "VBF", "WH", "ZH", "ZHgg", "ttH", "tHq", "tHW", "bbH"]
+        prod_modes = ["ggH", "VBF", "WH", "ZH", "ttH", "tH", "bbH"]
         SM_mu = dict(((l1,l2), float(l2!="invisible")) for l1 in prod_modes for l2 in decay_modes)
         self.results, self.l_SM = compute_likelihood(self.exp_mu, SM_mu, "signalstrengths")
 

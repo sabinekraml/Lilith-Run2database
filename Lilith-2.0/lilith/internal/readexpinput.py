@@ -213,7 +213,7 @@ class ReadExpInput:
             eff = {"x": {}}
             axis_label = "x"
 
-            mandatory_attribs = {"prod": ["ggH", "VVH", "VBF", "VH", "WH", "ZH", "ttH", "tHq", "tHW", "tH", "top", "bbH", "ZHgg", "ZHall"]}
+            mandatory_attribs = {"prod": ["ggH", "VVH", "VBF", "VH", "WH", "qqZH", "ggZH", "ZH", "ttH", "tHq", "tHW", "tH", "top", "bbH"]}
             if decay == "mixture":
                 mandatory_attribs["decay"] = allowed_decays
 
@@ -265,7 +265,7 @@ class ReadExpInput:
             eff = {"x": {}, "y": {}}
 
             mandatory_attribs = {"axis": ["x", "y"],
-                             "prod": ["ggH", "VVH", "VBF", "VH", "WH", "ZH", "ttH", "tHq", "tHW", "tH", "top", "bbH", "ZHgg", "ZHall"]}
+                             "prod": ["ggH", "VVH", "VBF", "VH", "WH", "qqZH", "ggZH", "ZH", "ttH", "tHq", "tHW", "tH", "top", "bbH"]}
             if decay == "mixture":
                 mandatory_attribs["decay"] = allowed_decays
             
@@ -323,7 +323,7 @@ class ReadExpInput:
                 d = "d" + str(i)
                 eff.update({d: {}})
                 axis_attribs.append(d)
-            prod_attribs = ["ggH", "VVH", "VBF", "VH", "WH", "ZH", "ttH", "tHq", "tHW", "tH", "top", "bbH", "ZHgg", "ZHall"]
+            prod_attribs = ["ggH", "VVH", "VBF", "VH", "WH", "qqZH", "ggZH", "ZH", "ttH", "tHq", "tHW", "tH", "top", "bbH"]
             mandatory_attribs = {"axis": axis_attribs, "prod": prod_attribs}
 
             if decay == "mixture":
@@ -386,21 +386,21 @@ class ReadExpInput:
 		
         effWH_VH = self.eff_VVH["eff_WH"](self.mass) # relative to VH
 
-        effZH_ZHall = self.eff_VVH["eff_ZH"](self.mass) # relative to ZHall
-        effZHgg_ZHall = self.eff_VVH["eff_ZHgg"](self.mass) # relative to ZHall
+        effqqZH_ZH = self.eff_VVH["eff_qqZH"](self.mass) # relative to ZH
+        effggZH_ZH = self.eff_VVH["eff_ggZH"](self.mass) # relative to ZH
         
         effVBF_VVH = self.eff_VVH["eff_VBF"](self.mass) # relative to VVH
 
         effVH_VVH = self.eff_VVH["eff_VH"](self.mass) # relative to VVH
-        effZHall_VH = self.eff_VVH["eff_ZHall"](self.mass) # relative to VH
+        effZH_VH = self.eff_VVH["eff_ZH"](self.mass) # relative to VH
 
-        effZH_VH = effZHall_VH*effZH_ZHall
-        effZHgg_VH = effZHall_VH*effZHgg_ZHall
+        effqqZH_VH = effZH_VH*effqqZH_ZH
+        effggZH_VH = effZH_VH*effggZH_ZH
 
         effWH_VVH = effVH_VVH*effWH_VH # relative to VVH
+        effqqZH_VVH = effVH_VVH*effqqZH_VH # relative to VVH
+        effggZH_VVH = effVH_VVH*effggZH_VH # relative to VVH
         effZH_VVH = effVH_VVH*effZH_VH # relative to VVH
-        effZHgg_VVH = effVH_VVH*effZHgg_VH # relative to VVH
-        effZHall_VVH = effVH_VVH*effZHall_VH # relative to VVH
 
         efftHq_tH = self.eff_top["eff_tHq"](self.mass) # relative to tH
         efftHW_tH = self.eff_top["eff_tHW"](self.mass) # relative to tH
@@ -410,7 +410,7 @@ class ReadExpInput:
         efftHq_top = efftH_top*efftHq_tH # relative to top
         efftHW_top = efftH_top*efftHW_tH # relative to top
 
-        multiprod = {"ZHall": {"ZH": effZH_ZHall, "ZHgg": effZHgg_ZHall}, "VH": {"WH": effWH_VH, "ZH": effZH_VH, "ZHgg": effZHgg_VH}, "VVH": {"VBF": effVBF_VVH, "WH": effWH_VVH, "ZH": effZH_VVH, "ZHgg": effZHgg_VVH}, "tH": {"tHq": efftHq_tH, "tHW": efftHW_tH}, "top": {"ttH": effttH_top, "tHq": efftHq_top, "tHW": efftHW_top}}
+        multiprod = {"ZH": {"qqZH": effqqZH_ZH, "ggZH": effggZH_ZH}, "VH": {"WH": effWH_VH, "qqZH": effqqZH_VH, "ggZH": effggZH_VH}, "VVH": {"VBF": effVBF_VVH, "WH": effWH_VVH, "qqZH": effqqZH_VVH, "ggZH": effggZH_VVH}, "tH": {"tHq": efftHq_tH, "tHW": efftHW_tH}, "top": {"ttH": effttH_top, "tHq": efftHq_top, "tHW": efftHW_top}}
         
         if dim == 1:
 	    self.check_multiprod(eff["x"], multiprod)

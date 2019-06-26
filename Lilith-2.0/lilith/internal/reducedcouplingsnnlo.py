@@ -443,10 +443,10 @@ def redCtHW13(CW, CT):
     return sqrt( 2.909*CT**2 + 2.310*CW**2 - 4.220*CT*CW )
 
 #### 8 TeV production, mH = 125 GeV: gg -> ZH cross section & reduced coupling ####
-def redCZHgg(CZ, CT, CB):
+def redCggZH(CZ, CT, CB):
     return sqrt( 0.372*CT**2 + 0.0004*CB**2 + 2.302*CZ**2 + 0.003*CT*CB - 1.663*CT*CZ - 0.013*CB*CZ )
 
-#### 13 TeV production, mH = 125 GeV: pp -> tHq cross section & reduced coupling ####
-def redCZHgg13(CZ, CT, CB):
+#### 13 TeV production, mH = 125 GeV: gg -> ZH cross section & reduced coupling ####
+def redCggZH13(CZ, CT, CB):
     return sqrt( 0.456*CT**2 + 0.0004*CB**2 + 2.455*CZ**2 + 0.003*CT*CB - 1.902*CT*CZ - 0.011*CB*CZ )
 # end LDN added

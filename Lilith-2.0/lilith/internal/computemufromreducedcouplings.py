@@ -114,9 +114,9 @@ class ComputeMuFromReducedCouplings:
 
         mu = {}
         prod_modes = {"ggH": "gg_prod_lhc8", "VBF": "VBF", "WH": "WH",
-                      "ZH": "ZH", "ttH": "tt", "ggH13": "gg_prod_lhc13", "VBF13": "VBF13",
+                      "qqZH": "qqZH", "ttH": "tt", "ggH13": "gg_prod_lhc13", "VBF13": "VBF13",
                       "tHq": "tHq", "tHW": "tHW", "bbH": "bb", "tHq13": "tHq13", "tHW13": "tHW13",
-                      "ZHgg": "ZHgg", "ZHgg13": "ZHgg13"}
+                      "ggZH": "ggZH", "ggZH13": "ggZH13"}
         for prod,coupling in prod_modes.items():
             for decay in considered_decay_modes:
                 mu[(prod,decay)] = redCp[coupling]**2 * redBR[decay]

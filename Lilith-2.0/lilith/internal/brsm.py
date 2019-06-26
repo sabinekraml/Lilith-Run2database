@@ -86,28 +86,28 @@ def getBRfunctions(spline_deg=3):
 # begin LDN added
 def geteffVVHfunctions(sqrts, spline_deg=3):
     #### SM efficiencies h --> WW & h --> ZZ ####
-    WHZH_xsec_file = open(wdir+'WH_ZH_ZHgg_VBF_xsec'+str(sqrts)+'.dat')
-    eff_grid = {"WH": [], "ZH": [], "ZHgg": [], "VBF": [], "ZHall": [], "VH": []}
+    VVH_xsec_file = open(wdir+'WH_qqZH_ggZH_VBF_xsec'+str(sqrts)+'.dat')
+    eff_grid = {"WH": [], "qqZH": [], "ggZH": [], "VBF": [], "ZH": [], "VH": []}
     hmass = []
-    for line in WHZH_xsec_file:
+    for line in VVH_xsec_file:
         line = line.strip("\n").split()
         hmass.append(float(line[0]))
         eff_grid["WH"].append(float(line[1])/(float(line[1])+float(line[2])+float(line[3])))
-        eff_grid["ZH"].append(float(line[2])/(float(line[2])+float(line[3])))
-        eff_grid["ZHgg"].append(float(line[3])/(float(line[2])+float(line[3])))
-        eff_grid["ZHall"].append((float(line[2])+float(line[3]))/(float(line[1])+float(line[2])+float(line[3])))
+        eff_grid["qqZH"].append(float(line[2])/(float(line[2])+float(line[3])))
+        eff_grid["ggZH"].append(float(line[3])/(float(line[2])+float(line[3])))
+        eff_grid["ZH"].append((float(line[2])+float(line[3]))/(float(line[1])+float(line[2])+float(line[3])))
         eff_grid["VH"].append((float(line[1])+float(line[2])+float(line[3]))/(float(line[1])+float(line[2])+float(line[3])+float(line[4])))
         eff_grid["VBF"].append(float(line[4])/(float(line[1])+float(line[2])+float(line[3])+float(line[4])))    
 
     eff_WH = UnivariateSpline(hmass, eff_grid["WH"], k=spline_deg, s=0)
+    eff_qqZH = UnivariateSpline(hmass, eff_grid["qqZH"], k=spline_deg, s=0)
+    eff_ggZH = UnivariateSpline(hmass, eff_grid["ggZH"], k=spline_deg, s=0)
     eff_ZH = UnivariateSpline(hmass, eff_grid["ZH"], k=spline_deg, s=0)
-    eff_ZHgg = UnivariateSpline(hmass, eff_grid["ZHgg"], k=spline_deg, s=0)
-    eff_ZHall = UnivariateSpline(hmass, eff_grid["ZHall"], k=spline_deg, s=0)
     eff_VH = UnivariateSpline(hmass, eff_grid["VH"], k=spline_deg, s=0)
     eff_VBF = UnivariateSpline(hmass, eff_grid["VBF"], k=spline_deg, s=0)
-    WHZH_xsec_file.close()
+    VVH_xsec_file.close()
 
-    effWZ = {"eff_WH": eff_WH, "eff_ZH": eff_ZH, "eff_ZHgg": eff_ZHgg, "eff_VBF": eff_VBF, "eff_ZHall": eff_ZHall, "eff_VH": eff_VH}
+    effWZ = {"eff_WH": eff_WH, "eff_qqZH": eff_qqZH, "eff_ggZH": eff_ggZH, "eff_VBF": eff_VBF, "eff_ZH": eff_ZH, "eff_VH": eff_VH}
 
     return effWZ
 

@@ -216,10 +216,10 @@ class ComputeReducedCouplings:
         if "tHW13" not in redCp:
             redCp_new["tHW13"] = RedCoupNNLO.redCtHW13(CW, Ct)
 
-        if "ZHgg" not in redCp:
-            redCp_new["ZHgg"] = RedCoupNNLO.redCZHgg(CZ, Ct, Cb)
-        if "ZHgg13" not in redCp:
-            redCp_new["ZHgg13"] = RedCoupNNLO.redCZHgg13(CZ, Ct, Cb)
+        if "ggZH" not in redCp:
+            redCp_new["ggZH"] = RedCoupNNLO.redCggZH(CZ, Ct, Cb)
+        if "ggZH13" not in redCp:
+            redCp_new["ggZH13"] = RedCoupNNLO.redCggZH13(CZ, Ct, Cb)
 # end LDN added
 
         return redCp_new

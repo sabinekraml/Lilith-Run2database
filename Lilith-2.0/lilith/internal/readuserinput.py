@@ -339,12 +339,12 @@ class ReadUserInput:
         # --- checking that the couplings to all particles are well defined in
         #     input (not including optionnal couplings for the the loop-induced
         #     processes)
-        mandatory_particles = ["WW", "ZZ", "tt", "cc", "mumu", "bb", "tautau","ZH","WH"]
+        mandatory_particles = ["WW", "ZZ", "tt", "cc", "mumu", "bb", "tautau", "qqZH", "WH"]
 
         for p in mandatory_particles:
             if p not in redCp:
                 #self.warning('reduced coupling to "' + p + '" is not specified; fixing it to SM value=1')
-                if p=="ZH":
+                if p=="qqZH":
                     redCp[p]=redCp["ZZ"]
                 elif p == "WH":
                     redCp[p] = redCp["WW"]
@@ -368,7 +368,7 @@ class ReadUserInput:
 
         mup = {"extra": {}}
 
-        accepted_prod = ["ggH", "VVH", "ttH", "VBF", "VH", "WH", "ZH", "tHq", "tHW", "tH", "top", "bbH", "ZHgg", "ZHall"]
+        accepted_prod = ["ggH", "VVH", "ttH", "VBF", "VH", "WH", "qqZH", "ggZH", "ZH", "tHq", "tHW", "tH", "top", "bbH"]
         accepted_decay = ["gammagamma", "VV", "WW", "ZZ", "bb", "tautau",
                           "dd", "uu", "ll", "cc", "ff", "Zgamma", "mumu", "invisible", "gg"]
 
@@ -458,11 +458,11 @@ class ReadUserInput:
         # ----------------------------------
 
         # --- checking the multiparticle labels
-        multiprod = {"VH": ["WH", "ZH", "ZHgg"]}
-        multiprod2 = {"VVH": ["VBF", "WH", "ZH", "ZHgg"]}
+        multiprod = {"VH": ["WH", "qqZH", "ggZH"]}
+        multiprod2 = {"VVH": ["VBF", "WH", "qqZH", "ggZH"]}
         multiprod3 = {"tH": ["tHq", "tHW"]}
         multiprod4 = {"top": ["ttH", "tHq", "tHW"]}
-        multiprod5 = {"ZHall": ["ZH", "ZHgg"]}
+        multiprod5 = {"ZH": ["qqZH", "ggZH"]}
         multidecay = {"VV": ["WW", "ZZ"], "uu": ["cc"], "dd": ["bb", "tautau","mumu"], "ll": ["tautau","mumu"]}
         multidecay2 = {"ff": ["cc", "bb", "tautau","mumu"]}
         # two separate dicts for prod and decay because "ff" is a special case
@@ -510,10 +510,10 @@ class ReadUserInput:
 
         # --- checking that all mandatory signal strengths are present in the
         #     input
-        mandatory_prod = ["ggH", "VBF", "WH", "ZH", "ttH", "tHq", "tHW", "bbH", "ZHgg"]
+        mandatory_prod = ["ggH", "VBF", "WH", "qqZH", "ggZH", "ttH", "tHq", "tHW", "bbH"]
         mandatory_decay = ["gammagamma", "ZZ", "WW", "bb", "tautau", "gg", "cc", "mumu", "Zgamma", "invisible"]
 
-        warning_prod = ["ggH", "VBF", "WH", "ZH"]
+        warning_prod = ["ggH", "VBF", "WH", "qqZH", "ttH"]
         warning_decay = ["gammagamma", "ZZ", "WW", "bb", "tautau"]
 
         mandatory_mus = []

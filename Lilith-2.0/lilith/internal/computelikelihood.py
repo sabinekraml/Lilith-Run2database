@@ -40,7 +40,7 @@ def compute_likelihood(exp_mu, user_mu, user_mode):
                 user_mu_effscaled["x"] = 0.
                 for (prod,decay),eff_prod in mu["eff"]["x"].items():
 		    if mu["sqrts"] not in ["1.96","7","8","7.","8.","7.0","8.0","7+8"]\
-                      and (prod == "ggH" or prod == "VBF" or prod == "tHq" or prod == "tHW" or prod == "ZHgg"):
+                      and (prod == "ggH" or prod == "VBF" or prod == "tHq" or prod == "tHW" or prod == "ggZH"):
                         if user_mode == "reducedcouplings":
                             prod = prod + "13"
                     user_mu_effscaled["x"] += eff_prod*user_mu[prod,decay]
@@ -48,7 +48,7 @@ def compute_likelihood(exp_mu, user_mu, user_mode):
                 user_mu_effscaled["x"] = 0.
                 for (prod,decay),eff_prod in mu["eff"]["x"].items():
 		    if mu["sqrts"] not in ["1.96","7","8","7.","8.","7.0","8.0","7+8"]\
-                      and (prod == "ggH" or prod == "VBF" or prod == "tHq" or prod == "tHW" or prod == "ZHgg"):
+                      and (prod == "ggH" or prod == "VBF" or prod == "tHq" or prod == "tHW" or prod == "ggZH"):
                         if user_mode == "reducedcouplings":
                             prod = prod + "13"
                     user_mu_effscaled["x"] += eff_prod*user_mu[prod,decay]
@@ -56,7 +56,7 @@ def compute_likelihood(exp_mu, user_mu, user_mode):
                 user_mu_effscaled["y"] = 0.
                 for (prod,decay),eff_prod in mu["eff"]["y"].items():
 		    if mu["sqrts"] not in ["1.96","7","8","7.","7.0","8.0","8.","7+8"]\
-                      and (prod == "ggH" or prod == "VBF" or prod == "tHq" or prod == "tHW" or prod == "ZHgg"):
+                      and (prod == "ggH" or prod == "VBF" or prod == "tHq" or prod == "tHW" or prod == "ggZH"):
                         if user_mode == "reducedcouplings":
                             prod = prod + "13"
                     user_mu_effscaled["y"] += eff_prod*user_mu[prod,decay]
@@ -66,7 +66,7 @@ def compute_likelihood(exp_mu, user_mu, user_mode):
                     user_mu_effscaled[d] = 0.
                     for (prod,decay),eff_prod in mu["eff"][d].items():
 		        if mu["sqrts"] not in ["1.96","7","8","7.","8.","7.0","8.0","7+8"]\
-                          and (prod == "ggH" or prod == "VBF" or prod == "tHq" or prod == "tHW" or prod == "ZHgg"):
+                          and (prod == "ggH" or prod == "VBF" or prod == "tHq" or prod == "tHW" or prod == "ggZH"):
                             if user_mode == "reducedcouplings":
                                 prod = prod + "13"
                         user_mu_effscaled[d] += eff_prod*user_mu[prod,decay]
