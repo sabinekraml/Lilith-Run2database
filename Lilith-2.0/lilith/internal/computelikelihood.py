@@ -1,13 +1,12 @@
 ##########################################################################
 #
 #  This file is part of Lilith
-#  made by J. Bernon and B. Dumont
-#  extended by TRAN Quang Loc (TQL) and LE Duc Ninh (LDN)
-#  revised by Sabine Kraml, last change: 17/04/2019
+#  v1 (2015) by Jeremy Bernon and Beranger Dumont 
+#  v2 (2019) by Thi Nhung Dao, Sabine Kraml, Duc Ninh Le, Loc Tran Quang 
 #
 #  Web page: http://lpsc.in2p3.fr/projects-th/lilith/
 #
-#  In case of questions email sabine.kraml@lpsc.in2p3.fr
+#  In case of questions email sabine.kraml@lpsc.in2p3.fr 
 #
 #
 #    Lilith is free software: you can redistribute it and/or modify
@@ -169,7 +168,7 @@ def compute_likelihood(exp_mu, user_mu, user_mode):
                     sigp = mu["param"]["uncertainty"]["right"]
                     x0 = mu["bestfit"]["x"]
                     x = user_mu_effscaled["x"]
-# use generalized Poisson as in Barlow arXiv:physics/0406120v1, Eq. 10
+
                     gamma = mu["param"]["gamma"]
                     nu = mu["param"]["nu"]
                     alpha = nu*gamma
@@ -190,7 +189,6 @@ def compute_likelihood(exp_mu, user_mu, user_mode):
                     gamma1 = mu["param"]["gamma"]["x"]
                     gamma2 = mu["param"]["gamma"]["y"]
 
-# use generalized Poisson from TQL
                     nu1 = mu["param"]["nu"]["x"]
                     alpha1 = nu1*gamma1
                     nu2 = mu["param"]["nu"]["y"]

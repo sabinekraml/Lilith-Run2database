@@ -1,12 +1,12 @@
 ##########################################################################
 #
 #  This file is part of Lilith
-#  made by J. Bernon and B. Dumont
-#  extended by LE Duc Ninh (LDN, leducninh@gmail.com)
+#  v1 (2015) by Jeremy Bernon and Beranger Dumont 
+#  v2 (2019) by Thi Nhung Dao, Sabine Kraml, Duc Ninh Le, Loc Tran Quang 
 #
 #  Web page: http://lpsc.in2p3.fr/projects-th/lilith/
 #
-#  In case of questions email bernon@lpsc.in2p3.fr 
+#  In case of questions email sabine.kraml@lpsc.in2p3.fr 
 #
 #
 #    Lilith is free software: you can redistribute it and/or modify
@@ -83,7 +83,7 @@ def getBRfunctions(spline_deg=3):
 
     return BR
 
-# begin LDN added
+# added by Ninh for v2.0
 def geteffVVHfunctions(sqrts, spline_deg=3):
     #### SM efficiencies h --> WW & h --> ZZ ####
     VVH_xsec_file = open(wdir+'WH_qqZH_ggZH_VBF_xsec'+str(sqrts)+'.dat')
@@ -133,4 +133,4 @@ def getefftopfunctions(sqrts, spline_deg=3):
     efftop = {"eff_tHq": eff_tHq, "eff_tHW": eff_tHW, "eff_tH": eff_tH, "eff_ttH": eff_ttH}
 
     return efftop
-# end LDN added
+# end of addition

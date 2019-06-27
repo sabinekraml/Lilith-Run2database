@@ -25,3 +25,12 @@ For the changelog of the database of experimental results, see data/changelog
 		    (Lilith≥1.1.4 can be directly used in micrOMEGAs≥4.3.1, see arXiv:1606.03834)
 		  * 2HDM fit routine added in examples/python
 		  * 13 TeV results supported (form factors, cross sections grids implemented)
+
+** June, 2019: v2.0 by Thi Nhung Dao, Sabine Kraml, Duc Ninh Le and Loc Tran Quang 
+      * extended likelihood calculation by variable Gaussian and generalized Poisson dist.
+      * added use of N-dim correlation matrices (for Gaussian or variable Gaussian approx.)
+      * added tH production mode and top = ttH+tH category
+      * added gg -> VH for VH production mode
+      * added tHq_tHW_ttH and WH_qqZH_ggZH_VBF xsection grids  
+      * corrected a minor bug (prod == prod + "13") in computelikelihood.py
+      * updated database to 36fb-1 Run 2 results

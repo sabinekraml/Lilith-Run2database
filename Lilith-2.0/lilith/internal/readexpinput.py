@@ -1,13 +1,12 @@
 ##########################################################################
 #
 #  This file is part of Lilith
-#  made by J. Bernon and B. Dumont
-#  extended by TRAN Quang Loc (TQL) and LE Duc Ninh (LDN)
-#  revised by Sabine Kraml, last change: 17/04/2019
+#  v1 (2015) by Jeremy Bernon and Beranger Dumont 
+#  v2 (2019) by Thi Nhung Dao, Sabine Kraml, Duc Ninh Le, Loc Tran Quang 
 #
 #  Web page: http://lpsc.in2p3.fr/projects-th/lilith/
 #
-#  In case of questions email sabine.kraml@lpsc.in2p3.fr
+#  In case of questions email sabine.kraml@lpsc.in2p3.fr 
 #
 #
 #    Lilith is free software: you can redistribute it and/or modify
@@ -315,7 +314,7 @@ class ReadExpInput:
                         raise ExpInputError(self.filepath,
                                             'value of <eff> tag with axis="' + axis_label +
                                             '" and prod="' + prod_label + '" and decay="' + decay_label + '" is not a number')
-
+        ### new from v2.0 onwards 
         elif dim >= 3:
             eff = {"d1": {}, "d2": {}, "d3": {}}
             axis_attribs = ["d1", "d2", "d3"]
@@ -569,7 +568,11 @@ class ReadExpInput:
         param_tag = child
 
         param["uncertainty"] = {}
-        # aded by LDN for data file with Variable Gaussian fit
+
+### v2.0 onwards: 
+# Poisson likelihood, type = "p", dim = 1 or 2 with corralation
+# variable Gaussian, type = "vn", dim >= 1 with corralations
+
         if dim == 2:
             param["uncertainty"]["x"] = {}
             param["uncertainty"]["y"] = {}
@@ -588,7 +591,6 @@ class ReadExpInput:
         if type == "p" and dim == 2:
             param["gamma"] = {}
             param["nu"] = {}
-        # end of additions
 
         for child in param_tag:
             if child.tag is etree.Comment:
@@ -596,8 +598,6 @@ class ReadExpInput:
                 continue
 
             if dim == 1 and (type == "n" or type == "vn" or type == "p"):
-# SK added type == "vn" for Variable Gaussian
-# type == "p" for Poisson
                 if child.tag == "uncertainty":
                     if "side" not in child.attrib:
                         try:
@@ -655,7 +655,6 @@ class ReadExpInput:
                 
                 param[child.tag] = param_value
 
-        # added by LDN 
             elif dim == 2 and (type == "vn" or type == "p"):
                 allowed_tags = ["uncertainty", "correlation"]
                 if child.tag not in allowed_tags:
@@ -743,9 +742,7 @@ class ReadExpInput:
 
                         entry_label = child.attrib["entry"]
                         param[child.tag][entry_label] = corr_value
-        # end LDN add
 
-        # added by LDN 
         if dim == 1 and type == "p":
             sigm = abs(param["uncertainty"]["left"])
             sigp = param["uncertainty"]["right"]
@@ -769,7 +766,7 @@ class ReadExpInput:
             param["alpha_corr"] = np.log(1+param["A_corr"])
 
         if dim >= 3:
-# define the correlation matrix:
+        # define the correlation matrix:
             corr_m = np.array([[1., param["correlation"]["d1d2"], param["correlation"]["d1d3"]],
                                [param["correlation"]["d1d2"],  1, param["correlation"]["d2d3"]],
                                [param["correlation"]["d1d3"], param["correlation"]["d2d3"],  1]])
@@ -795,12 +792,9 @@ class ReadExpInput:
                 param["VGau"] = unc_right*abs(unc_left)
                 param["VGau_prime"] = unc_right - abs(unc_left)
                 param["corr_m"] = corr_m
-        # end LDN add
 
         # check that everything is there
         if (type == "n" or type == "vn" or type == "p") and dim == 1:
-        # LDN added type == "vn" for Variable Gaussian 
-        # type == "p" for Poisson
             if ("uncertainty" not in param or
                 "left" not in param["uncertainty"] or
                 "right" not in param["uncertainty"]):
@@ -953,7 +947,9 @@ class ReadExpInput:
         for elem in new_eff:
             eff_dict[elem] = new_eff[elem]
 
-# LDN added
+
+#-- functions for variable Gaussian and Poission likelihoods --
+
 def solve_bifurcation_f_gamma(m, p, N):
     a = 0.
     b = 1.0/m
@@ -969,4 +965,3 @@ def f_Poisson_corr(y, *params):
     corr, z1, z2 = params
     f = z1*z2*y - corr*np.sqrt(z1*z2*(1+z2*(np.exp(z1*y**2) - 1)))
     return f
-# end LDN added

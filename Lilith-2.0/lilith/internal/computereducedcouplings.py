@@ -1,12 +1,12 @@
 ##########################################################################
 #
 #  This file is part of Lilith
-#  made by J. Bernon and B. Dumont
-#  extended by LE Duc Ninh (LDN, leducninh@gmail.com)
+#  v1 (2015) by Jeremy Bernon and Beranger Dumont 
+#  v2 (2019) by Thi Nhung Dao, Sabine Kraml, Duc Ninh Le, Loc Tran Quang 
 #
 #  Web page: http://lpsc.in2p3.fr/projects-th/lilith/
 #
-#  In case of questions email bernon@lpsc.in2p3.fr
+#  In case of questions email sabine.kraml@lpsc.in2p3.fr 
 #
 #
 #    Lilith is free software: you can redistribute it and/or modify
@@ -205,7 +205,7 @@ class ComputeReducedCouplings:
                 redCp_new["VBF13"] = RedCoupNNLO.redCVBF13(
                     CW, CZ, self.formfactors_interp["VBF13"])
 
-# begin LDN added
+# added for v2.0
         if "tHq" not in redCp:
             redCp_new["tHq"] = RedCoupNNLO.redCtHq(CW, Ct)
         if "tHq13" not in redCp:
@@ -220,7 +220,7 @@ class ComputeReducedCouplings:
             redCp_new["ggZH"] = RedCoupNNLO.redCggZH(CZ, Ct, Cb)
         if "ggZH13" not in redCp:
             redCp_new["ggZH13"] = RedCoupNNLO.redCggZH13(CZ, Ct, Cb)
-# end LDN added
+# end of addition
 
         return redCp_new
 
