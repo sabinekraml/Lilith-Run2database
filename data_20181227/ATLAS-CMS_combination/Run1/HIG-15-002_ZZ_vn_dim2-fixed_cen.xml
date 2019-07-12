@@ -1,0 +1,30 @@
+<!--
+CMS result for mu(combined H production modes, ZZ) at mH = 125.09 GeV
+with profile likelihood taken from Table 8  
+and their correlations taken from Fig. 27, shown in HIG-15-002
+http://cms-results.web.cern.ch/cms-results/public-results/publications/HIG-15-002/
+-->
+
+<expmu dim="2" type="vn">
+  <experiment>CMS</experiment>
+  <source type="published">HIG-15-002</source>
+  <sqrts>7+8</sqrts>
+  <mass>125.09</mass>
+  <CL>68%</CL> <!-- optional -->
+
+  <eff axis="x" prod="ggH" decay="ZZ">1.0</eff>
+  <eff axis="y" prod="VBF" decay="ZZ">1.0</eff>
+
+  <bestfit>
+    <x>1.137254902</x>
+	<y>0.071090047</y>
+  </bestfit>
+ 
+  <param>
+    <uncertainty axis="x" side="left">-0.31</uncertainty>
+    <uncertainty axis="x" side="right">+0.34</uncertainty>
+    <uncertainty axis="y" side="left">-0.6</uncertainty>
+    <uncertainty axis="y" side="right">+1.1</uncertainty>
+    <correlation>-0.26</correlation>
+  </param>
+</expmu>
