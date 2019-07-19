@@ -27,14 +27,14 @@ ttH & \cite{Aaboud:2018xdt,Aaboud:2017jvq} & \cite{Aaboud:2017vzb,Aaboud:2017jvq
 %%% gamma gamma %%%
 
 {\bf\boldmath $H\to\gamma\gamma$ (HIGG-2016-21):}  
-The ATLAS analysis \cite{Aaboud:2018xdt} provides in Fig.~12 $H\to\gamma\gamma$ signal strengths separated into   
-ggH, VBF, VH and ``top'' (ttH+tH) production modes. Since no correlations are given for the signal strengths, we 
+The ATLAS analysis \cite{Aaboud:2018xdt} provides in Fig.~12 signal strengths for $H\to\gamma\gamma$ separated into   
+ggH, VBF, VH and ``top'' (ttH+tH) production modes. No correlations are given for the signal strengths, but we can  
 use instead the correlations for the stage-0 simplified template cross sections (STXS) provided in Fig.~40a of the ATLAS 
-paper, which should be a close enough match. It turns out that these data do not allow to reproduce very well the 
-ATLAS coupling fits for $(C_V,\;C_F)$ or $(C_\gamma,\;C_g)$. The reason seems to be that the $\mu$ values 
-rounded to one decimal are not  precise enough. We have therefore extracted the best-fit points and uncertainties 
+paper, which should be a close enough match. It turns out, however, that the $\mu$ values rounded to one decimal 
+do not allow to reproduce very well the ATLAS coupling fits for $(C_V,\;C_F)$ or $(C_\gamma,\;C_g)$. 
+We have therefore extracted the best-fit points and uncertainties 
 from the 1D profile likelihoods, which are provided as Auxiliary Figures 23a--d on the analysis webpage, 
-as\footnote{In the XML file we use the exact numbers from the fit to the 1D profile likelihoods.}  
+as %\footnote{In the XML file we use the exact numbers from the fit to the 1D profile likelihoods.}  
 $\mu({\rm ggH},\,\gamma\gamma)\simeq 0.81^{+0.19}_{-0.18}$, 
 $\mu({\rm VBF},\,\gamma\gamma)\simeq 2.04^{+0.61}_{-0.53}$, 
 $\mu({\rm VH},\,\gamma\gamma)\simeq 0.66^{+0.89}_{-0.80}$ and 
@@ -56,29 +56,42 @@ This can be compared to the $68\%$,  $95\%$ CL contours obtained using the round
  
 %%% ZZ %%%
 
+%{\bf\boldmath $H\to ZZ^*\to 4l$ (HIGG-2016-22):} A similar issue as discussed for $H\to\gamma\gamma$ above arises 
+%for $H\to ZZ^*$, see the left panel in Fig.~\ref{fig:validation_atlas_ZZ}. Here we used the ggH and VBF signal strengths 
+%given in Table~9 of \cite{Aaboud:2017vzb} with correlation $\rho=-0.41$ as of Aux.\ Fig.~4c, assuming a Poisson likelihood. 
+%(This is a case were the variable Gaussian approximation performs less well). 
+%For the VH and ttH production modes, lacking more information, we converted the given 95\%~CL limits into 
+%$\mu({\rm VH},\,ZZ^*)=0^{+1.85}_{-0}$ and $\mu({\rm ttH},\,ZZ^*)=0^{+3.75}_{-0}$ using a 1-sided Gaussian. 
+%The result is clearly not satisfactory. The closest match of the official CL contours is obtained if 
+%we fit the 1D profile likelihoods for $\mu({\rm ggH},\,ZZ^*)$ and $\mu({\rm VBF},\,ZZ^*)$ shown in Aux.\ Figs.~7a and 7b 
+%of \cite{Aaboud:2017vzb} as Poisson distributions. This gives $\mu({\rm ggH},\,ZZ^*)\simeq 1.12^{+0.25}_{-0.22}$ and 
+%$\mu({\rm VBF},\,ZZ^*)\simeq 3.88^{+1.75}_{-1.46}$, which we implement as a bivariate Poisson distribution with    
+%correlation $\rho=-0.41$ (from Aux.\ Fig.~4c of \cite{Aaboud:2017vzb}). The VH and ttH production modes are treated as before.
+%As shown in the right panel of Fig.~\ref{fig:validation_atlas_ZZ}, this allows to reproduce reasonably well the $C_F$ vs.\ $C_V$ 
+%fit from the ATLAS paper.
+
 {\bf\boldmath $H\to ZZ^*\to 4l$ (HIGG-2016-22):} A similar issue as discussed for $H\to\gamma\gamma$ above arises 
-for $H\to ZZ^*$, see the left panel in Fig.~\ref{fig:validation_atlas_ZZ}. Here we used the ggH and VBF signal strengths 
-given in Table~9 of \cite{Aaboud:2017vzb} with correlation $\rho=-0.41$ as of Aux.\ Fig.~4c, assuming a Poisson likelihood. 
-(This is a case were the variable Gaussian approximation performs less well). 
-For the VH and ttH production modes, lacking more information, we converted the given 95\%~CL limits into 
-$\mu({\rm VH},\,ZZ^*)=0^{+1.85}_{-0}$ and $\mu({\rm ttH},\,ZZ^*)=0^{+3.75}_{-0}$ using a 1-sided Gaussian. 
-The result is clearly not satisfactory. The closest match of the official CL contours is obtained if 
+for $H\to ZZ^*$. In order to reasonably reproduce the $C_F$ vs.\ $C_V$ fit of ATLAS (Fig.~8b of \cite{Aaboud:2017vzb}),  
 we fit the 1D profile likelihoods for $\mu({\rm ggH},\,ZZ^*)$ and $\mu({\rm VBF},\,ZZ^*)$ shown in Aux.\ Figs.~7a and 7b 
 of \cite{Aaboud:2017vzb} as Poisson distributions. This gives $\mu({\rm ggH},\,ZZ^*)\simeq 1.12^{+0.25}_{-0.22}$ and 
 $\mu({\rm VBF},\,ZZ^*)\simeq 3.88^{+1.75}_{-1.46}$, which we implement as a bivariate Poisson distribution with    
-correlation $\rho=-0.41$ (from Aux.\ Fig.~4c of \cite{Aaboud:2017vzb}). The VH and ttH production modes are treated as before.
-As shown in the right panel of Fig.~\ref{fig:validation_atlas_ZZ}, this allows to reproduce reasonably well the $C_F$ vs.\ $C_V$ 
-fit from the ATLAS paper.
+correlation $\rho=-0.41$ (from Aux.\ Fig.~4c of \cite{Aaboud:2017vzb}). 
+For the VH and ttH production modes, lacking more information, we convert the given 95\%~CL limits into 
+$\mu({\rm VH},\,ZZ^*)=0\pm 1.89$ and $\mu({\rm ttH},\,ZZ^*)=0\pm 3.83$ using a 2-sided Gaussian 
+(the same for 1-sided limits give a less good result when comparing to the ATLAS $C_F$ vs.\ $C_V$ fit). 
+The validation is shown in Fig.~\ref{fig:validation_atlas_ZZ}. 
+Note that this is a case where the variable Gaussian approximation performs less well that the Poisson likelihood. 
 
 \begin{figure}[h!]\centering
-\includegraphics[width=0.54\textwidth]{validation/ATLAS/HIGG-2016-22-CVCF-official.pdf}%
-\hspace{-13mm}\includegraphics[width=0.54\textwidth]{validation/ATLAS/HIGG-2016-22-CVCF-fit.pdf}%
+%\includegraphics[width=0.54\textwidth]{validation/ATLAS/HIGG-2016-22-CVCF-official.pdf}%
+%\hspace{-13mm}
+\includegraphics[width=0.54\textwidth]{validation/ATLAS/HIGG-2016-22-CVCF-fitted.pdf}%
 \vspace*{-2mm}
 \caption{Fit of $C_F$ vs.\ $C_V$ for data from the ATLAS $H\to ZZ^*$ analysis, 
-on the left using the values from Table~9 of~\cite{Aaboud:2017vzb}, on the right using 
-$\mu({\rm ggH},\,ZZ^*)$ and $\mu({\rm VBF},\,ZZ^*)$ as fitted from Aux.\ Figs.~7a and 7b of~\cite{Aaboud:2017vzb}. 
-In both panels, the ggH vs.\ VBF likelihood is approximated as a bivariate Poissonian with correlation $-0.41$. 
-The  $68\%$,  $95\%$ and $99.7\%$~CL regions obtained with {\tt Lilith} are shown as red, orange and yellow areas, 
+%on the left using the values from Table~9 of~\cite{Aaboud:2017vzb}, on the right using 
+using $\mu({\rm ggH},\,ZZ^*)$ and $\mu({\rm VBF},\,ZZ^*)$ as fitted from Aux.\ Figs.~7a and 7b of~\cite{Aaboud:2017vzb}; 
+the ggH vs.\ VBF likelihood is then approximated as a bivariate Poissonian with correlation $-0.41$ (see text for more details). 
+The $68\%$,  $95\%$ and $99.7\%$~CL regions obtained with {\tt Lilith} are shown as red, orange and yellow areas, 
 and compared to the $68\%$ and  $95\%$~CL contours from ATLAS (in blue).}
 \label{fig:validation_atlas_ZZ}
 \end{figure}
@@ -90,7 +103,10 @@ inclusive ggH and VBF Higgs production cross sections in the $H\to WW^*\to e\nu\
 on page~13 signal strengths of $\mu({\rm ggH}, WW)=1.10^{+0.21}_{-0.20}$ and $\mu({\rm VBF}, WW)=0.62^{+0.36}_{-0.35}$. 
 We implemented these as a 2D result with a correlation of $\rho=-0.08$ using the variable Gaussian approximation; 
 the correlation was fitted from the $\sigma\times{\rm BR}$ plot, Fig.~9, of \cite{Aaboud:2018jqu}. 
-No coupling fits are available which could be used for validation. \\
+%No coupling fits are available which could be used for validation. \\
+As no other validation material is available, 
+we show in Fig.~\ref{fig:validation_atlas_WW_tautau} (left) our reconstruction of the experimental likelihood in the 
+$\mu({\rm ggH}, WW)$ vs.\ $\mu({\rm VBF}, WW)$ plane, comparing to the rescaled contours of Fig.~9 of the ATLAS paper.\\
 
 %%% tau tau %%%
 
@@ -98,18 +114,21 @@ No coupling fits are available which could be used for validation. \\
 provides as Aux.~Fig.~5 the 68\% and 95\% CL contours in the $\mu({\rm ggH}, \tau\tau)$ vs.\ $\mu({\rm VBF}, \tau\tau)$ plane. 
 A fit of a bivariate variable Gaussian to the 95\%~CL contour in this plot  
 gives $\mu({\rm ggH}, \tau\tau)\simeq 1.0^{+0.72}_{-0.59}$ and $\mu({\rm VBF}, WW)=1.20^{+0.62}_{-0.56}$ with 
-$\rho = -0.45$, which are the values implemented in the database. As no other validation material is available, 
-we show in Fig.~\ref{fig:validation_atlas_tautau} our reconstruction of the experimental likelihood in the 
+$\rho = -0.45$, which are the values implemented in the database. 
+As for $H\to WW$ above, no coupling fits are available which could be used for validation. 
+We therefore show in Fig.~\ref{fig:validation_atlas_WW_tautau} (right) our reconstruction of the experimental likelihood in the 
 $\mu({\rm ggH}, \tau\tau)$ vs.\ $\mu({\rm VBF}, \tau\tau)$ plane. 
 Note that a fit to the 68\%~CL contour of ATLAS gives a less good result. \\
 
 \begin{figure}[h!]\centering
+\includegraphics[width=0.45\textwidth]{validation/ATLAS/HIGG-2016-07-mu-2d.pdf}%
 \includegraphics[width=0.45\textwidth]{validation/ATLAS/HIGG-2017-07-mu-2d.pdf}
-\caption{Reconstruction of the experimental likelihood in the $H\to \tau\tau$ channel from~\cite{Aaboud:2018pen} 
-as 2D variable Gaussian in the $\mu({\rm ggH}, \tau\tau)$ vs.\ $\mu({\rm VBF}, \tau\tau)$ plane. 
+\caption{Reconstruction of the experimental likelihood as 2D variable Gaussian %in the $\mu({\rm ggH}, \tau\tau)$ vs.\ $\mu({\rm VBF}, \tau\tau)$ plane. 
+on the left for the $H\to WW$ channel from~\cite{Aaboud:2018jqu},
+on the right for the $H\to \tau\tau$ channel from~\cite{Aaboud:2018pen}.  
 The  $68\%$ and $95\%$~CL regions obtained with {\tt Lilith} are shown in dark and light gray, respectively, 
 and compared to the $68\%$ and  $95\%$~CL contours from ATLAS (in blue).}
-\label{fig:validation_atlas_tautau}
+\label{fig:validation_atlas_WW_tautau}
 \end{figure}
 
 %%% b bbar %%%
@@ -118,7 +137,7 @@ and compared to the $68\%$ and  $95\%$~CL contours from ATLAS (in blue).}
 $\mu({\rm ZH}, b\bar b) = 1.12^{+0.50}_{-0.45}$, $\mu({\rm WH}, b\bar b) = 1.35^{+0.68}_{-0.59}$~\cite{Aaboud:2018gay} 
 and $\mu({\rm VBF}, b\bar b) = 3.0^{+1.7}_{-1.6}$~\cite{Aaboud:2018gay}. 
 No correlation data is available, so we implemented each of these as a 1D result; 
-a Poisson likelihood is assumed per default. \\
+a Poisson likelihood is assumed per default but can easily be changed to a variable Gaussian if the user wishes to do so. \\
 
 %%% ttH %%%
 
@@ -130,15 +149,17 @@ Figs.~17a and 17b in \cite{Aaboud:2017jvq}
 as $\rho(b\bar b, VV)\simeq 0.04$ for the correlation between the $H\to b\bar b$ and $H\to VV$ decay modes
 and $\rho(\tau\tau, VV)\simeq -0.35$ for that between the $H\to \tau\tau$ and $H\to VV$ decay modes. 
 In Fig.~\ref{fig:validation_atlas_ttH}, we compare the $C_F$ vs.\ $C_V$ fit from the implementation in {\tt Lilith} 
-to the official one from~\cite{Aaboud:2017jvq}. While the agreement is not very good,  
-one has to note that without the correlations quoted above the situation is much worse. 
+to the official one from~\cite{Aaboud:2017jvq}. 
+%While the agreement is not very good,  
+%one has to note that without the correlations quoted above the situation is much worse. 
 
 \begin{figure}[htb!]\centering
-\includegraphics[width=0.54\textwidth]{validation/ATLAS/HIGG-2017-02-CVCF-nocorr.pdf}% 
-\hspace{-13mm}\includegraphics[width=0.54\textwidth]{validation/ATLAS/HIGG-2017-02-CVCF-corr.pdf}%
+\includegraphics[width=0.54\textwidth]{validation/ATLAS/HIGG-2017-02-CVCF-off-corr.pdf}% 
+\hspace{-13mm}\includegraphics[width=0.54\textwidth]{validation/ATLAS/HIGG-2017-02-CVCF-fit-corr.pdf}%
 \vspace*{-2mm}
-\caption{Fit of $C_F$ vs.\ $C_V$ from a combination of the ATLAS ttH measurements, on the left without and on the 
-right with the correlations fitted from Figs.~17a,b in \cite{Aaboud:2017jvq} (see text for details). 
+\caption{Fit of $C_F$ vs.\ $C_V$ from a combination of the ATLAS ttH measurements, ....
+%on the left without and on the right with the 
+%correlations fitted from Figs.~17a,b in \cite{Aaboud:2017jvq} (see text for details). 
 The  $68\%$,  $95\%$ and $99.7\%$~CL regions obtained with {\tt Lilith} are shown as red, orange and yellow areas, 
 and compared to the $68\%$,  $95\%$~CL contours from ATLAS (in blue).}
 \label{fig:validation_atlas_ttH}
@@ -163,7 +184,7 @@ we use a likelihood grid as function BR$(H\to {\rm inv.})$ extracted from Aux. F
 
 
 
-\clearpage
+%\clearpage
 %-----------------------------------------------------------------------------------------------
 \subsection{CMS Run~2 results for 36~fb$^{-1}$}
 %-----------------------------------------------------------------------------------------------

@@ -1,0 +1,122 @@
+% =========================================================================
+% SciPost LaTeX template
+% Version 1e (2017-10-31)
+% =========================================================================
+
+% For submitting a paper to SciPost Physics: 
+\documentclass[submission, Phys]{SciPost}
+
+\usepackage{multirow}
+ \usepackage[utf8]{inputenc} 
+\usepackage{amsmath}
+\usepackage{bm}
+\linenumbers
+
+\begin{document}
+
+% title
+\begin{center}{\Large \textbf{
+  Constraining new physics from Higgs measurements with\\[1mm] Lilith: update to LHC Run~2 results}}\end{center}
+
+% Authors; mark the corresponding author with a superscript *.
+\begin{center}
+Sabine Kraml\textsuperscript{1*},
+Tran Quang Loc\textsuperscript{2},
+Dao Thi Nhung\textsuperscript{2},
+Le Duc Ninh\textsuperscript{2}
+\end{center}
+
+% Affiliations
+\begin{center}
+{\bf 1} Laboratoire de Physique Subatomique et de Cosmologie, Universit\'e Grenoble-Alpes,\\ CNRS/IN2P3, 53 Avenue des Martyrs, F-38026 Grenoble, France\\
+{\bf 2} Institute For Interdisciplinary Research in Science and Education, ICISE,\\ 590000, Quy Nhon, Vietnam\\
+% email address of corresponding author
+* sabine.kraml@lpsc.in2p3.fr
+\end{center}
+
+\begin{center}
+\today
+\end{center}
+
+% For convenience during refereeing: line numbers
+%\linenumbers
+
+\section*{Abstract}
+{\bf
+Lilith is public python library for constraining new physics from Higgs signal strength measurements. 
+We here present version 2.0 of Lilith together with an updated database which includes the full set 
+of ATLAS and CMS Run~2 Higgs results for 36~fb$^{-1}$.  
+Both the code and the XML database where extended from the ordinary Gaussian approximation employed in 
+Lilith-1.1 to using variable Gaussian and Poisson distributions.  Moreover, Lilith can now make use of correlation 
+matrices  of arbitrary dimension. 
+We provide detailed validations of the implemented experimental results as well as 
+a status of global fits for {\it i)} reduced Higgs couplings and {\it ii)} Two-Higgs-doublet models of Type-I and Type-II. 
+Lilith-2.0 is available on GitHub and ready to be used to constrain a wide class of new physics scenarios.}
+
+
+% include a table of contents if paper is longer than 6 pages
+%\vspace{10pt}
+%\noindent\rule{\textwidth}{1pt}
+%\tableofcontents\thispagestyle{fancy}
+%\noindent\rule{\textwidth}{1pt}
+%\vspace{10pt}
+
+
+%===================================================================================
+\section{Introduction} \label{sec:intro}
+%===================================================================================
+
+Introduce Higgs couplings fits and  {\tt Lilith}~\cite{Bernon:2015hsa} .......  \\\
+...........\\
+...........\\
+...........\\
+...........\\
+...........\\
+...........\\
+
+
+%%% Extended XML format %%%
+\input{s2_xmlformat.tex}
+
+%%% Likelihood %%%
+\input{s3_likelihood.tex}
+
+%%% ATLAS and CMS results included in the database update %%%
+\input{s4_data.tex}
+
+%%% Status of Higgs coupling fits %%%
+\input{s5_status.tex}
+
+
+%===================================================================================
+\section{Conclusion}
+%===================================================================================
+ must include a conclusion.
+
+%===================================================================================
+\section*{Acknowledgements}
+%===================================================================================
+
+S.K.~thanks W.~Adam, R.~Sch\"ofbeck, W.~Waltenberger and N.~Wardle for helpful discussions. 
+This work was supported in part by the IN2P3 theory project 
+``LHC-itools: methods and tools for the interpretation of the LHC Run~2 results for new physics''. 
+D.T.N.\ thanks the LPSC Grenoble for hospitality and financial support for a research visit within the LHC-itools project. 
+L.T.Q.\ thanks the ICISE ...
+
+
+%===================================================================================
+%\begin{appendix}
+%===================================================================================
+
+%\section{Overview of XML data files}
+
+%===================================================================================
+% References
+%===================================================================================
+
+% \bibliographystyle{SciPost_bibstyle} % Include this style file here only if you are not using our template
+\bibliography{references.bib}
+
+\nolinenumbers
+
+\end{document}
