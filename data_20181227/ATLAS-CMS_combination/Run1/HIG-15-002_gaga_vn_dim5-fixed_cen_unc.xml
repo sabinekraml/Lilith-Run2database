@@ -1,0 +1,56 @@
+<!--
+CMS result for mu(combined H production modes, gammagamma) at mH = 125.09 GeV
+with profile likelihood taken from Table 8  
+and their correlations taken from Fig. 27, shown in HIG-15-002
+http://cms-results.web.cern.ch/cms-results/public-results/publications/HIG-15-002/
+-->
+
+<expmu dim="5" type="vn">
+  <experiment>CMS</experiment>
+  <source type="published">HIG-15-002</source>
+  <sqrts>7+8</sqrts>
+  <mass>125.09</mass>
+  <CL>68%</CL> <!-- optional -->
+
+  <eff axis="d1" prod="ggH" decay="gammagamma">1.0</eff>
+  <eff axis="d2" prod="VBF" decay="gammagamma">1.0</eff>
+  <eff axis="d3" prod="WH" decay="gammagamma">1.0</eff>
+  <eff axis="d4" prod="ZH" decay="gammagamma">1.0</eff>
+  <eff axis="d5" prod="ttH" decay="gammagamma">1.0</eff>
+
+  <bestfit>
+    <d1>1.090909091</d1>
+	<d2>1.277777778</d2>
+	<d3>0.4375</d3>
+	<d4>0.531914894</d4>	
+	<d5>2.176870748</d5>
+  </bestfit>
+ 
+  <param>
+    <uncertainty axis="d1" side="left">-0.220454545</uncertainty>
+    <uncertainty axis="d1" side="right">+0.227272727</uncertainty>
+    <uncertainty axis="d2" side="left">-0.5</uncertainty>
+    <uncertainty axis="d2" side="right">+0.527777778</uncertainty>
+    <uncertainty axis="d3" side="left">-1.1875</uncertainty>
+    <uncertainty axis="d3" side="right">+1.3125</uncertainty>
+    <uncertainty axis="d4" side="left">-2.553191489</uncertainty>
+    <uncertainty axis="d4" side="right">+3.085106383</uncertainty>
+    <uncertainty axis="d5" side="left">-1.292517007</uncertainty>
+    <uncertainty axis="d5" side="right">+1.632653061</uncertainty>
+    
+	
+	<correlation entry="d1d2">-0.25</correlation>
+    <correlation entry="d1d3">-0.03</correlation>
+    <correlation entry="d1d4">-0.14</correlation>
+    <correlation entry="d1d5">0.01</correlation>
+	
+    <correlation entry="d2d3">0</correlation>    
+    <correlation entry="d2d4">0.01</correlation>
+	<correlation entry="d2d5">-0.01</correlation>
+	
+	<correlation entry="d3d4">-0.64</correlation>
+	<correlation entry="d3d5">-0.03</correlation>
+	
+	<correlation entry="d4d5">-0.11</correlation>
+  </param>
+</expmu>
