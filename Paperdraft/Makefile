@@ -1,8 +1,8 @@
 # Makefile for generating presentation $(TARGET).pdf from $(TARGET).tex
 
-TARGET = LilithForRun2_v0
+TARGET = LilithForRun2_v1
 Refs = references.bib
-Subfiles = $(TARGET).tex s2_xmlformat.tex s3_likelihood.tex s4_data.tex
+Subfiles = $(TARGET).tex s2_xmlformat.tex s3_likelihood.tex new_production_modes.tex s4_data.tex s5_status.tex
 
 PLOTS = 
 
