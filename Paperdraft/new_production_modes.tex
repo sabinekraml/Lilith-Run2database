@@ -1,0 +1,65 @@
+\clearpage
+%===================================================================================
+\section{New production channels} \label{sec:new_production}
+%===================================================================================
+In this section, the implementation of new production channels is described. 
+They are Higgs production in association with a single top quark $tH$, $ZH$ production via gluon-gluon 
+fusion $ggZH$, and Higgs production in association with two bottom quarks $bbH$. 
+
+The $tH$ production includes two contributions: $t$-channel $tHq$ production and $tHW$ production. 
+The $s$-channel $tHq$ cross section is much smaller, hence not included. Interference effects between these 
+channels are also neglected. At $\sqrt{s} = 13$~TeV, the $tHq$ cross section is dominant, about $80\%$ of the $tH$ cross section. 
+In order to compare with data, e.g. ATLAS results \cite{Aaboud:2018xdt}, a combination of $tHq$, $tHW$, and $ttH$ channels named $top$ signal 
+is defined. For relating the $top$ and $tH$ signal 
+strengths to the signal strength of the fundamental production modes, 
+the efficiencies of the fundamental channels are calculated as $\sigma^\text{SM}_X/(\sum_X \sigma^\text{SM}_X)$ where the $ttH$ and $tHq$ cross sections are provided in \cite{deFlorian:2016spz} while the $tHW$ cross section is 
+calculated at LO using MadGraph \cite{Alwall:2014hca} with $\mu_F = \mu_R = (m_t + m_W + m_H)/2$ 
+and the NNPDF30\_lo\_as\_0130 PDF set \cite{Ball:2014uwa}. It is noted that the definition of NLO cross section for the $tHW$ channel 
+is not straightforward because of the interferences with the $ttH$ channel, see \cite{Demartin:2016axk} for a discussion on this issue. 
+
+For the $ZH$ production mode, the original implementation in version 1 includes only the $q\bar{q} \to ZH$ channel ($qqZH$). 
+However, the loop-induced gluon-gluon fusion is large, about $36\%$ of the total $ZH$ cross section at $\sqrt{s} = 13$~TeV, 
+hence should be taken into account. Indeed, both ATLAS and CMS have been always including the $ggZH$ contribution in their fits. 
+From version 2, the $ZH$ signal is the combination of $qqZH$ and $ggZH$ production modes. The efficiencies are calculated as above 
+using the SM cross section values given in \cite{deFlorian:2016spz}. The definition of $VH$ ($ZH$ and $WH$) and $VVH$ ($ZH$, $WH$ and VBF) 
+follow straightforwardly. 
+
+For the sake of completeness and to prepare for the future data, the $bbH$ production mode has been added. The implementation 
+is straightforward, similar to the $ttH$ case.
+
+Finally, since Lilith accepts reduced couplings as user input, the relations between the fundamental signal strengths (called scaling factors in \cite{Bernon:2015hsa}) and 
+the reduced couplings must be implemented. These relations read, following the notation of \cite{Bernon:2015hsa},
+\begin{align}
+C^2_{bbH}  &= C_b^2,\; C^2_{qqZH} = C_Z^2,\\
+C^2_{ggZH} &= a_t C_t^2 + a_b C_b^2 + a_Z C_Z^2 + a_{tb} C_t C_b + a_{tZ} C_t C_Z + a_{bZ} C_b C_Z,\\ 
+C^2_{tHq}  &= e_t C_t^2 + e_W C_W^2 + e_{tW} C_t C_W,\\
+C^2_{tHW}  &= f_t C_t^2 + f_W C_W^2 + f_{tW} C_t C_W,  
+\end{align}
+where the coefficients $a_i$, $e_i$, and $f_i$ are provided in Table~\ref{tab:coeff_ggZH} and Table~\ref{tab:coeff_tH}. 
+It is noted that these values are calculated at $m_H = 125$~GeV. For the case $\sqrt{s}=7$~TeV, the values at $8$~TeV are used 
+since the differences are negligible in the current approximations.  
+\begin{table}[h]\centering
+\begin{tabular}{l | cccccc}
+$\sqrt{s}$~[TeV] & $a_t$ & $a_b$ & $a_Z$ & $a_{tb}$ & $a_{tZ}$ & $a_{bZ}$ \\
+\hline
+$8$  & $0.372$ & $0.0004$ & $2.302$ & $0.003$ & $-1.663$ & $-0.013$\\
+$13$ & $0.456$ & $0.0004$ & $2.455$ & $0.003$ & $-1.902$ & $-0.011$
+\end{tabular}
+\caption{$a_i$ coefficients for the $ggZH$ signal strength. Taken from \cite{deFlorian:2016spz}.} 
+\label{tab:coeff_ggZH}
+\end{table}
+%%%
+\begin{table}[h]\centering
+\begin{tabular}{l | ccc|ccc}
+$\sqrt{s}$~TeV & $e_t$ & $e_W$ & $e_{tW}$ & $f_{t}$ & $f_{W}$ & $f_{tW}$ \\
+\hline
+$8$  & $2.984$ & $3.886$ & $-5.870$ & $2.426$ & $1.818$ & $-3.244$\\
+$13$ & $2.633$ & $3.578$ & $-5.211$ & $2.909$ & $2.310$ & $-4.220$
+\end{tabular}
+\caption{$e_i$ ($f_i$) coefficients for the $tHq$ ($tHW$) signal strengths. Taken from \cite{deFlorian:2016spz}.} 
+\label{tab:coeff_tH}
+\end{table}
+    
+   
+ 
+
