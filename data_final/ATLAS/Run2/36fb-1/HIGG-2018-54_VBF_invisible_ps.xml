@@ -1,0 +1,21 @@
+<!--
+ATLAS result for mu(VBF, invisible) at mH = 125 GeV
+with profile likelihood extracted from Fig. 1a, shown in HIGG-2018-54
+https://atlas.web.cern.ch/Atlas/GROUPS/PHYSICS/PAPERS/HIGG-2018-54/
+-->
+
+<expmu decay="invisible" dim="1" type="p">
+  <experiment>ATLAS</experiment>
+  <source type="published">HIGG-2018-54</source>
+  <sqrts>13</sqrts>
+  <mass>125</mass>
+
+  <eff prod="VBF">1.0</eff>
+  
+  <bestfit>0.09787</bestfit>
+  
+  <param>
+    <uncertainty side="left">-0.13874</uncertainty>
+    <uncertainty side="right">0.15100</uncertainty>
+  </param>
+</expmu>
